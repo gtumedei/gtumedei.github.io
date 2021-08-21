@@ -1,8 +1,6 @@
-@import './markdown.css';
+@import "./markdown.css";
 
-html,
-body,
-#app {
+html, body, #app {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -10,6 +8,10 @@ body,
 
 html.dark {
   background: #121212;
+}
+
+#app { @apply
+  flex flex-col items-center;
 }
 
 #nprogress {

@@ -1,11 +1,11 @@
 About: About
 Back: Indietro
-Go: Vai
-Home: Home
-Toggle dark mode: Attiva/disattiva modalità scura
 Change language: Cambia lingua
-Opinionated Vite Starter Template: Modello per una Applicazione Vite
 Demo of dynamic route: Demo di route dinamica
+Go: Vai
 "Hi, {name}!": Ciao, {name}!
-"What's your name?": Come ti chiami?
+Home: Home
 Not found: Non trovato
+Opinionated Vite Starter Template: Modello per una Applicazione Vite
+Toggle dark mode: Attiva/disattiva modalità scura
+"What's your name?": Come ti chiami?

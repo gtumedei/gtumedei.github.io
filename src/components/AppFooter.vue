@@ -1,37 +1,39 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useI18n } from "vue-i18n"
-import { isDark, toggleDark } from "@/logic"
+import { useDarkMode } from "@/hooks"
 
 const { t, availableLocales, locale } = useI18n()
+const { isDark, toggleDark: toggle } = useDarkMode()
+
+const toggleDark = () => toggle()
 
 const toggleLocales = () => {
-  // change to some real logic
   const locales = availableLocales
   locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
 }
 </script>
 
 <template>
-  <nav class="text-xl mt-6">
+  <footer class="footer mt-auto text-xl mt-6">
     <router-link class="icon-btn mx-2" to="/" :title="t('Home')">
-      <carbon-campsite />
+      <mdi-tent/>
     </router-link>
 
     <button class="icon-btn mx-2 !outline-none" :title="t('Toggle dark mode')" @click="toggleDark">
-      <carbon-moon v-if="isDark" />
-      <carbon-sun v-else />
+      <mdi-weather-sunny v-if="isDark" />
+      <mdi-weather-night v-else />
     </button>
 
     <a class="icon-btn mx-2" :title="t('Change language')" @click="toggleLocales">
-      <carbon-language />
+      <mdi-translate />
     </a>
 
     <router-link class="icon-btn mx-2" to="/about" :title="t('About')">
-      <carbon-dicom-overlay />
+      <mdi-information-outline />
     </router-link>
 
     <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank" title="GitHub">
-      <carbon-logo-github />
+      <mdi-github />
     </a>
-  </nav>
+  </footer>
 </template>

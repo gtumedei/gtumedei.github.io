@@ -1,7 +1,7 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { useRouter } from "vue-router"
 import { useI18n } from "vue-i18n"
-import { useUserStore } from "@/stores/user"
+import { useUserStore } from "@/hooks"
 
 const user = useUserStore()
 const name = ref(user.savedName)

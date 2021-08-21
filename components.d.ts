@@ -3,6 +3,9 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    404: typeof import('./src/components/layouts/404.vue')['default']
+    AppFooter: typeof import('./src/components/AppFooter.vue')['default']
+    AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     CarbonCampsite: typeof import('virtual:vite-icons/carbon/campsite')['default']
     CarbonDicomOverlay: typeof import('virtual:vite-icons/carbon/dicom-overlay')['default']
     CarbonLanguage: typeof import('virtual:vite-icons/carbon/language')['default']
@@ -11,7 +14,16 @@ declare module 'vue' {
     CarbonPedestrian: typeof import('virtual:vite-icons/carbon/pedestrian')['default']
     CarbonSun: typeof import('virtual:vite-icons/carbon/sun')['default']
     CarbonWarning: typeof import("virtual:vite-icons/carbon/warning")["default"]
+    Default: typeof import('./src/components/layouts/default.vue')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
+    Header: typeof import('./src/components/Header.vue')['default']
+    Home: typeof import('./src/components/layouts/home.vue')['default']
+    MdiGithub: typeof import('virtual:vite-icons/mdi/github')['default']
+    MdiInformationOutline: typeof import('virtual:vite-icons/mdi/information-outline')['default']
+    MdiTent: typeof import('virtual:vite-icons/mdi/tent')['default']
+    MdiTranslate: typeof import('virtual:vite-icons/mdi/translate')['default']
+    MdiWeatherNight: typeof import('virtual:vite-icons/mdi/weather-night')['default']
+    MdiWeatherSunny: typeof import('virtual:vite-icons/mdi/weather-sunny')['default']
     README: typeof import("./src/components/README.md")["default"]
   }
 }
