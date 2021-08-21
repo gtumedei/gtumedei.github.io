@@ -1,5 +1,5 @@
 import { createI18n } from "vue-i18n"
-import { UserModule } from "~/types"
+import { UserModule } from "@/types"
 
 const messages = Object.fromEntries(
   Object.entries(

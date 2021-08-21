@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router"
 import { useI18n } from "vue-i18n"
-import { useUserStore } from "~/stores/user"
+import { useUserStore } from "@/stores/user"
 
 const props = defineProps<{ name: string }>()
 const router = useRouter()
