@@ -6,7 +6,7 @@ const { t } = useI18n()
 
 <template>
   <div>
-    {{ t("not-found") }}
+    {{ t("Not found") }}
   </div>
 </template>
 

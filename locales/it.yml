@@ -1,13 +1,11 @@
-button:
-  about: Su di me
-  back: Indietro
-  go: Vai
-  home: Home
-  toggle_dark: Attiva/disattiva modalità scura
-  toggle_langs: Cambia lingua
-intro:
-  desc: Modello per una Applicazione Vite
-  dynamic-route: Demo di rotta dinamica
-  hi: Ciao, {name}!
-  whats-your-name: Come ti chiami?
-not-found: Non trovato
+About: About
+Back: Indietro
+Go: Vai
+Home: Home
+Toggle dark mode: Attiva/disattiva modalità scura
+Change language: Cambia lingua
+Opinionated Vite Starter Template: Modello per una Applicazione Vite
+Demo of dynamic route: Demo di route dinamica
+"Hi, {name}!": Ciao, {name}!
+"What's your name?": Come ti chiami?
+Not found: Non trovato

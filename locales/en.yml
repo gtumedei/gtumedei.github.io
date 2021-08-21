@@ -1,14 +1,12 @@
-button:
-  about: About
-  back: Back
-  go: GO
-  home: Home
-  toggle_dark: Toggle dark mode
-  toggle_langs: Change languages
-intro:
-  desc: Opinionated Vite Starter Template
-  dynamic-route: Demo of dynamic route
-  hi: Hi, {name}!
-  aka: Also known as
-  whats-your-name: What's your name?
-not-found: Not found
+About: About
+Back: Back
+Go: Go
+Home: Home
+Toggle dark mode: Toggle dark mode
+Change language: Change language
+Opinionated Vite Starter Template: Opinionated Vite Starter Template
+Demo of dynamic route: Demo of dynamic route
+"Hi, {name}!": Hi, {name}!
+Also known as: Also known as
+"What's your name?": What's your name?
+Not found: Not found
