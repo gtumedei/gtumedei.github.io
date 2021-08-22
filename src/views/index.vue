@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useRouter } from "vue-router"
 import { useI18n } from "vue-i18n"
-import { useUserStore } from "@/hooks"
+import { useAccentTheme, useDarkMode, useUserStore } from "@/hooks"
 
 const user = useUserStore()
 const name = ref(user.savedName)
@@ -12,11 +12,51 @@ const go = () => {
     router.push(`/hi/${encodeURIComponent(name.value)}`)
 }
 
+const { applyTheme } = useAccentTheme()
+const { toggleDark } = useDarkMode()
+
 const { t } = useI18n()
 </script>
 
 <template>
   <div>
+
+    <p class="text-primary">Primary text</p>
+    <p class="text-secondary">Secondary text</p>
+    <p class="text-faded">Faded text</p>
+
+    <div class="flex gap-1 my-4">
+      <div class="h-4 w-4 border-2 border-gray-300 bg-light-primary"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-light-primary-dark"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-dark-primary"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-dark-primary-dark"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-blue-light"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-blue-dark"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-teal-light"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-teal-dark"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-orange-light"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-orange-dark"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-pink-light"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-pink-dark"></div>
+    </div>
+
+    <div class="flex gap-1 my-4">
+      <button class="btn" @click="() => toggleDark(false)">Light</button>
+      <button class="btn" @click="() => toggleDark(true)">Dark</button>
+
+      <button class="btn" @click="() => applyTheme('theme-blue')">Blue</button>
+      <button class="btn" @click="() => applyTheme('theme-teal')">Teal</button>
+      <button class="btn" @click="() => applyTheme('theme-orange')">Orange</button>
+      <button class="btn" @click="() => applyTheme('theme-pink')">Pink</button>
+    </div>
+
+
+    <div class="flex gap-1 my-4">
+      <div class="h-4 w-4 border-2 border-gray-300 bg-primary"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-primary-dark"></div>
+      <div class="h-4 w-4 border-2 border-gray-300 bg-accent"></div>
+    </div>
+
     <p class="text-4xl">
       <carbon-campsite class="inline-block" />
     </p>

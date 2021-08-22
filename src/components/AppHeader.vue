@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <div class="header">header</div>
+  <header class="header flex w-full">
+    <div class="container flex justify-between m-auto p-6">
+      <span>Logo</span>
+      <theme-switcher/>
+    </div>
+  </header>
 </template>
-
-
-<style lang="scss" scoped>
-
-</style>

@@ -1,11 +1,17 @@
+"Hi, {name}!": Ciao, {name}!
+"What's your name?": Come ti chiami?
 About: About
 Back: Indietro
+Blue: Blu
 Change language: Cambia lingua
+Dark theme: Tema scuro
 Demo of dynamic route: Demo di route dinamica
 Go: Vai
-"Hi, {name}!": Ciao, {name}!
 Home: Home
+Light theme: Tema chiaro
 Not found: Non trovato
 Opinionated Vite Starter Template: Modello per una Applicazione Vite
+Orange: Arancione
+Pink: Rosa
+Teal: Verde acqua
 Toggle dark mode: Attiva/disattiva modalità scura
-"What's your name?": Come ti chiami?

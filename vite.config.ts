@@ -53,14 +53,15 @@ export default defineConfig({
       customComponentResolvers: [
         // https://github.com/antfu/vite-plugin-icons
         ViteIconsResolver({
-          componentPrefix: "",
-          // enabledCollections: ['carbon']
+          componentPrefix: ""
         })
       ]
     }),
 
     // https://github.com/antfu/vite-plugin-icons
-    ViteIcons(),
+    ViteIcons({
+      defaultClass: "icon"
+    }),
 
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS({

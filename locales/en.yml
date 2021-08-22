@@ -1,12 +1,18 @@
+"Hi, {name}!": Hi, {name}!
+"What's your name?": What's your name?
 About: About
 Also known as: Also known as
 Back: Back
+Blue: Blue
 Change language: Change language
+Dark theme: Dark theme
 Demo of dynamic route: Demo of dynamic route
 Go: Go
-"Hi, {name}!": Hi, {name}!
 Home: Home
+Light theme: Light theme
 Not found: Not found
 Opinionated Vite Starter Template: Opinionated Vite Starter Template
+Orange: Orange
+Pink: Pink
+Teal: Teal
 Toggle dark mode: Toggle dark mode
-"What's your name?": What's your name?

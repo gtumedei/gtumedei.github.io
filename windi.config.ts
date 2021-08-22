@@ -1,41 +1,61 @@
 import { defineConfig } from "windicss/helpers"
-import colors from "windicss/colors"
-import typography from "windicss/plugin/typography"
 
 export default defineConfig({
   darkMode: "class",
-  attributify: true,
-
-  plugins: [
-    typography(),
-  ],
   theme: {
+
+    fontFamily: {
+      sans: ["Nunito", "sans-serif"],
+      mono: ["'Fira Code'", "mono"]
+    },
+
     extend: {
-      typography: {
-        DEFAULT: {
-          css: {
-            maxWidth: "65ch",
-            color: "inherit",
-            a: {
-              "color": "inherit",
-              "opacity": 0.75,
-              "fontWeight": "500",
-              "textDecoration": "underline",
-              "&:hover": {
-                opacity: 1,
-                color: colors.teal[600]
-              }
-            },
-            b: { color: "inherit" },
-            strong: { color: "inherit" },
-            em: { color: "inherit" },
-            h1: { color: "inherit" },
-            h2: { color: "inherit" },
-            h3: { color: "inherit" },
-            h4: { color: "inherit" },
-            code: { color: "inherit" }
-          }
-        }
+
+      colors: {
+        "light-primary": {
+          DEFAULT: "var(--color-light-primary)",
+          dark: "var(--color-light-primary-dark)"
+        },
+        "dark-primary": {
+          DEFAULT: "var(--color-dark-primary)",
+          dark: "var(--color-dark-primary-dark)"
+        },
+        "accent-blue": {
+          light: "var(--color-accent-blue-light)",
+          dark: "var(--color-accent-blue-dark)"
+        },
+        "accent-teal": {
+          light: "var(--color-accent-teal-light)",
+          dark: "var(--color-accent-teal-dark)"
+        },
+        "accent-orange": {
+          light: "var(--color-accent-orange-light)",
+          dark: "var(--color-accent-orange-dark)"
+        },
+        "accent-pink": {
+          light: "var(--color-accent-pink-light)",
+          dark: "var(--color-accent-pink-dark)"
+        },
+
+        primary: {
+          DEFAULT: "var(--color-primary)",
+          dark: "var(--color-primary-dark)"
+        },
+        accent: "var(--color-accent)"
+      },
+
+      textColor: {
+        primary: "var(--color-text-primary)",
+        secondary: "var(--color-text-secondary)",
+        faded: "var(--color-text-faded)",
+        "inverted-primary": "var(--color-text-inverted-primary)",
+        "inverted-secondary": "var(--color-text-inverted-secondary)",
+        "inverted-faded": "var(--color-text-inverted-faded)"
+      },
+
+      boxShadow: {
+        btn: "0 1px 3px var(--color-accent)",
+        "btn-hover": "0 4px 8px var(--color-accent)"
       }
     }
   }

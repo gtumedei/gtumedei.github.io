@@ -18,6 +18,12 @@ declare module 'vue' {
     Footer: typeof import('./src/components/Footer.vue')['default']
     Header: typeof import('./src/components/Header.vue')['default']
     Home: typeof import('./src/components/layouts/home.vue')['default']
+    IMdiGithub: typeof import('virtual:vite-icons/mdi/github')['default']
+    IMdiInformationOutline: typeof import('virtual:vite-icons/mdi/information-outline')['default']
+    IMdiTent: typeof import('virtual:vite-icons/mdi/tent')['default']
+    IMdiTranslate: typeof import('virtual:vite-icons/mdi/translate')['default']
+    IMdiWeatherNight: typeof import('virtual:vite-icons/mdi/weather-night')['default']
+    IMdiWeatherSunny: typeof import('virtual:vite-icons/mdi/weather-sunny')['default']
     MdiGithub: typeof import('virtual:vite-icons/mdi/github')['default']
     MdiInformationOutline: typeof import('virtual:vite-icons/mdi/information-outline')['default']
     MdiTent: typeof import('virtual:vite-icons/mdi/tent')['default']
@@ -25,6 +31,7 @@ declare module 'vue' {
     MdiWeatherNight: typeof import('virtual:vite-icons/mdi/weather-night')['default']
     MdiWeatherSunny: typeof import('virtual:vite-icons/mdi/weather-sunny')['default']
     README: typeof import("./src/components/README.md")["default"]
+    ThemeSwitcher: typeof import('./src/components/ThemeSwitcher.vue')['default']
   }
 }
 
