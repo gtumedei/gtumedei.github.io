@@ -32,6 +32,7 @@ declare module 'vue' {
     MdiWeatherSunny: typeof import('virtual:vite-icons/mdi/weather-sunny')['default']
     README: typeof import("./src/components/README.md")["default"]
     ThemeSwitcher: typeof import('./src/components/ThemeSwitcher.vue')['default']
+    'ThemeSwitcher copy': typeof import('./src/components/ThemeSwitcher copy.vue')['default']
   }
 }
 

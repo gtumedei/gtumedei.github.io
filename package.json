@@ -2,7 +2,7 @@
   "name": "gtumedei-portfolio",
   "private": true,
   "scripts": {
-    "dev": "vite --port 3333 --open",
+    "dev": "vite --port 8080",
     "build": "cross-env NODE_ENV=production vite-ssg build",
     "preview": "vite preview",
     "preview-https": "serve dist"

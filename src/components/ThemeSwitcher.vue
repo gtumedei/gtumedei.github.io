@@ -66,7 +66,7 @@ const accentThemes = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 
 .theme-selector { @apply
   absolute top-0
@@ -75,24 +75,24 @@ const accentThemes = computed(() => {
 }
 
 .theme-selector:hover > .swatch { @apply
-  opacity-100 pointer-events-auto;
+  !opacity-100 !pointer-events-auto;
 }
 
 .swatch { @apply
   relative outline-none flex-shrink-0
   h-5 w-5 rounded-full;
-}
 
-.swatch:not(:first-child) { @apply
-  opacity-0 pointer-events-none;
-}
+  &::after {
+    content: "";
+    @apply
+      absolute top-0 left-0
+      h-full w-full rounded-full
+      border-2 border-black border-opacity-10;
+  }
 
-.swatch::after {
-  content: "";
-  @apply
-    absolute top-0 left-0
-    h-full w-full rounded-full
-    border-2 border-black border-opacity-10;
+  &:not(:first-child) { @apply
+    opacity-0 pointer-events-none;
+  }
 }
 
 </style>
