@@ -1,7 +1,7 @@
 @import "./themes.postcss";
 @import "./components.postcss";
 @import "./markdown.postcss";
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Nunito:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Lato:wght@300;400;700&display=swap");
 
 html, body, #app { @apply
   h-full m-0 p-0
@@ -14,4 +14,8 @@ html.dark { @apply
 
 #app { @apply
   flex flex-col items-center;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
