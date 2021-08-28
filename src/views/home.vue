@@ -7,16 +7,19 @@ const { toggleDark } = useDarkMode()
 <template>
   <div class="container text-base px-6">
 
-    <div class="py-12 flex items-center gap-6">
+    <div class="py-12 flex items-center gap-2">
       <a href="#" class="text-lg no-underline inline-block mr-auto">Gianni Tumedei</a>
-      <mdi-translate class="text-secondary"/>
-      <mdi-theme-light-dark class="text-secondary" @click="() => toggleDark()"/>
+      <button class="btn icon">
+        <mdi-translate class="text-secondary"/>
+      </button>
+      <button class="btn icon">
+        <mdi-theme-light-dark class="text-secondary" @click="() => toggleDark()"/>
+      </button>
     </div>
 
     <div class="
-      px-6 py-48 mb-18
+      card py-48 mb-18
       bg-gradient-to-br from-[#FF8A80] to-[#FFD54F]
-      rounded-xl shadow-xl
       flex flex-col justify-center items-center
       text-black-80
     ">
@@ -35,7 +38,7 @@ const { toggleDark } = useDarkMode()
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.</p>
           </div>
           <div class="w-full lg:w-2/5">
-            <div class="bg-[#666666] rounded-xl shadow-xl w-full h-72"></div>
+            <div class="card bg-[#666666] w-full h-72"></div>
           </div>
         </div>
 
@@ -46,7 +49,7 @@ const { toggleDark } = useDarkMode()
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.</p>
           </div>
           <div class="w-full lg:w-2/5 order-2 lg:order-1">
-            <div class="bg-[#666666] rounded-xl shadow-xl w-full h-72"></div>
+            <div class="card bg-[#666666] w-full h-72"></div>
           </div>
         </div>
 
@@ -57,7 +60,7 @@ const { toggleDark } = useDarkMode()
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.</p>
           </div>
           <div class="w-full lg:w-2/5">
-            <div class="bg-[#666666] rounded-xl shadow-xl w-full h-72"></div>
+            <div class="card bg-[#666666] w-full h-72"></div>
           </div>
         </div>
 
@@ -65,33 +68,23 @@ const { toggleDark } = useDarkMode()
     </div>
 
     <div class="
-      p-6
-      bg-gradient-to-br from-[#A7FFEB] to-[#64B5F6]
-      rounded-xl shadow-xl
+      card bg-gradient-to-br from-[#A7FFEB] to-[#64B5F6]
       h-92
       flex flex-col justify-center items-center
       text-black-80
     ">
       <h2 class="heading mb-12 !after:bg-black-80">About me</h2>
-      <button class="
-        px-10 py-4 rounded-full !outline-none
-        inline-flex items-center gap-4
-        border-2 border-transparent
-        text-sm font-bold text-base bg-primary shadow-md
-        transition-all
-        hover:shadow-xl
-        focus:border-primary-dark focus:bg-primary-dark
-      ">
+      <button class="btn">
         <span>Call to Action</span>
         <mdi-open-in-new/>
       </button>
     </div>
 
-    <div class="py-12 flex justify-center gap-8 text-2xl text-secondary">
-      <mdi-email/>
-      <mdi-linkedin/>
-      <mdi-github/>
-      <mdi-map-marker/>
+    <div class="py-12 flex justify-center gap-8 text-secondary">
+      <a href="#" class="btn icon text-2xl"><mdi-email/></a>
+      <a href="#" class="btn icon text-2xl"><mdi-linkedin/></a>
+      <a href="#" class="btn icon text-2xl"><mdi-github/></a>
+      <a href="#" class="btn icon text-2xl"><mdi-map-marker/></a>
     </div>
 
   </div>

@@ -3,7 +3,7 @@
 }
 
 #nprogress .bar {
-  @apply bg-teal-600 opacity-75;
+  @apply bg-typography-secondary;
 
   position: fixed;
   z-index: 1031;
@@ -15,17 +15,39 @@
 }
 
 .btn { @apply
-  inline-flex px-6 py-2 rounded-lg
-  bg-accent text-inverted-primary font-bold
-  shadow-btn
-  hover:shadow-btn-hover focus:shadow-btn-hover active:shadow-btn
-  disabled:(pointer-events-none cursor-default opacity-50 shadow-none)
-  transition-shadow;
-  outline: none !important;
+  px-10 py-4 rounded-full !outline-none
+  inline-flex justify-center items-center gap-4
+  border-2 border-transparent
+  text-sm font-bold text-base bg-primary shadow-md
+  transition-all
+  hover:shadow-xl
+  focus:bg-primary-dark
+  active:shadow-md;
+
+  &.inverted { @apply
+    text-inverted-base bg-inverted-primary;
+  }
+
+  &.icon { @apply
+    p-2 !shadow-none bg-transparent
+    text-icon
+    hover:bg-typography-hover
+    focus:bg-typography-hover
+    active:bg-typography-divider;
+  }
 }
 
-.icon-btn { @apply
-  inline-block cursor-pointer select-none
-  opacity-75 transition duration-200 ease-in-out
-  hover:opacity-100 hover:text-teal-600;
+.heading { @apply
+  relative text-4xl text-center px-6 mb-18;
+
+  &::after {
+    content: "";
+    @apply
+      absolute -bottom-6 left-1/2 transform -translate-x-1/2
+      h-1 w-16 rounded-full bg-typography-base;
+  }
+}
+
+.card { @apply
+  p-6 bg-primary rounded-xl shadow-xl;
 }
