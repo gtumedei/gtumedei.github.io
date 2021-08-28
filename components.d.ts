@@ -3,7 +3,6 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    404: typeof import('./src/components/layouts/404.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     Default: typeof import('./src/components/layouts/default.vue')['default']
@@ -15,7 +14,6 @@ declare module 'vue' {
     MdiOpenInNew: typeof import('virtual:vite-icons/mdi/open-in-new')['default']
     MdiThemeLightDark: typeof import('virtual:vite-icons/mdi/theme-light-dark')['default']
     MdiTranslate: typeof import('virtual:vite-icons/mdi/translate')['default']
-    README: typeof import("./src/components/README.md")["default"]
   }
 }
 

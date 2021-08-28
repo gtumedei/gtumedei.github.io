@@ -3,6 +3,7 @@
 # Abort on errors
 set -e
 
+npm run clean
 npm run build
 cd dist
 
