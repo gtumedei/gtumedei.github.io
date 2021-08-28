@@ -1,5 +1,5 @@
 {
-  "name": "gtumedei-portfolio",
+  "name": "gtumedei",
   "private": true,
   "scripts": {
     "dev": "vite --port 8080 --host",
