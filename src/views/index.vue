@@ -4,9 +4,10 @@
     card py-48 mb-18
     bg-gradient-to-br from-[#FF8A80] to-[#FFD54F]
     flex flex-col justify-center items-center
-    text-black-80
+    text-black-80 text-center
   ">
-    <h1 class="text-8xl">Hero</h1>
+    <h1 class="text-8xl mb-6">WIP</h1>
+    <p>This will be my portfolio website. For now... it's just some experimental stuff.</p>
   </div>
 
   <div class="mb-18">
