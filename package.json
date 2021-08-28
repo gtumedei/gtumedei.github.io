@@ -4,6 +4,8 @@
   "scripts": {
     "dev": "vite --port 8080 --host",
     "build": "cross-env NODE_ENV=production vite-ssg build",
+    "deploy": "sh deploy.sh",
+    "clean": "rm -rf dist",
     "preview": "vite preview",
     "preview-https": "serve dist"
   },
