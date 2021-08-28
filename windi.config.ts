@@ -1,8 +1,10 @@
 import { defineConfig } from "windicss/helpers"
-import aspectRatio from "windicss/plugin/aspect-ratio"
 
 export default defineConfig({
   darkMode: "class",
+  corePlugins: {
+    textOpacity: false
+  },
   theme: {
 
     fontFamily: {
@@ -13,76 +15,87 @@ export default defineConfig({
     extend: {
 
       colors: {
-        "light-primary": {
-          DEFAULT: "var(--color-light-primary)",
-          dark: "var(--color-light-primary-dark)"
+
+        // White and black with opacity
+        white: {
+          100: "var(--color-white-100)",
+          70: "var(--color-white-70)",
+          50: "var(--color-white-50)",
+          12: "var(--color-white-12)",
+          8: "var(--color-white-8)"
         },
-        "dark-primary": {
-          DEFAULT: "var(--color-dark-primary)",
-          dark: "var(--color-dark-primary-dark)"
+        black: {
+          80: "var(--color-black-80)",
+          54: "var(--color-black-54)",
+          38: "var(--color-black-38)",
+          12: "var(--color-black-12)",
+          8: "var(--color-black-8)"
         },
 
+        // Primary colors
         primary: {
+          100: "var(--color-primary-100)",
+          200: "var(--color-primary-200)",
+          700: "var(--color-primary-700)",
+          800: "var(--color-primary-800)",
+          // Dynamic primary colors based on theme
           DEFAULT: "var(--color-primary)",
           dark: "var(--color-primary-dark)"
         },
-        accent: "var(--color-accent)",
-        text: {
-          primary: "var(--color-text-primary)",
-          secondary: "var(--color-text-secondary)",
-          faded: "var(--color-text-faded)",
-          "inverted-primary": "var(--color-text-inverted-primary)",
-          "inverted-secondary": "var(--color-text-inverted-secondary)",
-          "inverted-faded": "var(--color-text-inverted-faded)",
-          "primary-light": "var(--color-text-primary-light)",
-          "secondary-light": "var(--color-text-secondary-light)",
-          "faded-light": "var(--color-text-faded-light)",
-          "primary-dark": "var(--color-text-primary-dark)",
-          "secondary-dark": "var(--color-text-secondary-dark)",
-          "faded-dark": "var(--color-text-faded-dark)",
+
+        // Dynamic typography colors based on theme
+        typography: {
+          base: "var(--color-typography-base)",
+          secondary: "var(--color-typography-secondary)",
+          faded: "var(--color-typography-faded)",
+          icon: "var(--color-typography-icon)",
+          divider: "var(--color-typography-divider)",
+          hover: "var(--color-typography-hover)"
         },
 
-        // Remove
-        "accent-blue": {
-          light: "var(--color-accent-blue-light)",
-          dark: "var(--color-accent-blue-dark)"
+        // All of the current theme's colors, but inverted
+        inverted: {
+
+          primary: {
+            DEFAULT: "var(--color-inverted-primary)",
+            dark: "var(--color-inverted-primary-dark)"
+          },
+
+          typography: {
+            base: "var(--color-inverted-typography-base)",
+            secondary: "var(--color-inverted-typography-secondary)",
+            faded: "var(--color-inverted-typography-faded)",
+            icon: "var(--color-inverted-typography-icon)",
+            divider: "var(--color-inverted-typography-divider)",
+            hover: "var(--color-inverted-typography-hover)"
+          }
+
         },
-        "accent-teal": {
-          light: "var(--color-accent-teal-light)",
-          dark: "var(--color-accent-teal-dark)"
-        },
-        "accent-orange": {
-          light: "var(--color-accent-orange-light)",
-          dark: "var(--color-accent-orange-dark)"
-        },
-        "accent-pink": {
-          light: "var(--color-accent-pink-light)",
-          dark: "var(--color-accent-pink-dark)"
-        }
+
       },
 
       textColor: {
-        primary: "var(--color-text-primary)",
-        secondary: "var(--color-text-secondary)",
-        faded: "var(--color-text-faded)",
-        "inverted-primary": "var(--color-text-inverted-primary)",
-        "inverted-secondary": "var(--color-text-inverted-secondary)",
-        "inverted-faded": "var(--color-text-inverted-faded)",
-        "primary-light": "var(--color-text-primary-light)",
-        "secondary-light": "var(--color-text-secondary-light)",
-        "faded-light": "var(--color-text-faded-light)",
-        "primary-dark": "var(--color-text-primary-dark)",
-        "secondary-dark": "var(--color-text-secondary-dark)",
-        "faded-dark": "var(--color-text-faded-dark)",
-      },
 
-      boxShadow: {
-        btn: "0 1px 3px var(--color-accent)",
-        "btn-hover": "0 4px 8px var(--color-accent)"
+        // Dynamic text colors based on theme
+        base: "var(--color-typography-base)",
+        secondary: "var(--color-typography-secondary)",
+        faded: "var(--color-typography-faded)",
+        icon: "var(--color-typography-icon)",
+        divider: "var(--color-typography-divider)",
+        hover: "var(--color-typography-hover)",
+
+        // Dynamic text colors based on theme, but inverted
+        inverted: {
+          base: "var(--color-inverted-typography-base)",
+          secondary: "var(--color-inverted-typography-secondary)",
+          faded: "var(--color-inverted-typography-faded)",
+          icon: "var(--color-inverted-typography-icon)",
+          divider: "var(--color-inverted-typography-divider)",
+          hover: "var(--color-inverted-typography-hover)"
+        }
+
       }
+
     }
-  },
-  plugins: [
-    aspectRatio
-  ]
+  }
 })

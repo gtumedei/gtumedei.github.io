@@ -5,7 +5,7 @@ const { toggleDark } = useDarkMode()
 </script>
 
 <template>
-  <div class="container text-primary px-6">
+  <div class="container text-base px-6">
 
     <div class="py-12 flex items-center gap-6">
       <a href="#" class="text-lg no-underline inline-block mr-auto">Gianni Tumedei</a>
@@ -18,7 +18,7 @@ const { toggleDark } = useDarkMode()
       bg-gradient-to-br from-[#FF8A80] to-[#FFD54F]
       rounded-xl shadow-xl
       flex flex-col justify-center items-center
-      text-primary-dark
+      text-black-80
     ">
       <h1 class="text-8xl">Hero</h1>
     </div>
@@ -70,15 +70,15 @@ const { toggleDark } = useDarkMode()
       rounded-xl shadow-xl
       h-92
       flex flex-col justify-center items-center
-      text-primary-dark
+      text-black-80
     ">
-      <h2 class="heading mb-12 !after:bg-text-primary-dark">About me</h2>
+      <h2 class="heading mb-12 !after:bg-black-80">About me</h2>
       <button class="
         px-10 py-4 rounded-full !outline-none
         inline-flex items-center gap-4
         border-2 border-transparent
-        text-sm font-bold text-primary bg-primary shadow-md
-        transition-shadow transition-colors
+        text-sm font-bold text-base bg-primary shadow-md
+        transition-all
         hover:shadow-xl
         focus:border-primary-dark focus:bg-primary-dark
       ">
@@ -106,7 +106,7 @@ const { toggleDark } = useDarkMode()
     content: "";
     @apply
       absolute -bottom-6 left-1/2 transform -translate-x-1/2
-      h-1 w-16 rounded-full bg-text-primary;
+      h-1 w-16 rounded-full bg-typography-base;
   }
 }
 
