@@ -1,106 +1,75 @@
-<script lang="ts" setup>
-import { useRouter } from "vue-router"
-import { useI18n } from "vue-i18n"
-import { useAccentTheme, useDarkMode, useUserStore } from "@/hooks"
-
-const user = useUserStore()
-const name = ref(user.savedName)
-
-const router = useRouter()
-const go = () => {
-  if (name.value)
-    router.push(`/hi/${encodeURIComponent(name.value)}`)
-}
-
-const { applyTheme } = useAccentTheme()
-const { toggleDark } = useDarkMode()
-
-const { t } = useI18n()
-</script>
-
 <template>
-  <div>
 
-    <p class="text-primary">Primary text</p>
-    <p class="text-secondary">Secondary text</p>
-    <p class="text-faded">Faded text</p>
+  <div class="
+    card py-48 mb-18
+    bg-gradient-to-br from-[#FF8A80] to-[#FFD54F]
+    flex flex-col justify-center items-center
+    text-black-80
+  ">
+    <h1 class="text-8xl">Hero</h1>
+  </div>
 
-    <div class="flex gap-1 my-4">
-      <div class="h-4 w-4 border-2 border-gray-300 bg-light-primary"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-light-primary-dark"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-dark-primary"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-dark-primary-dark"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-blue-light"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-blue-dark"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-teal-light"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-teal-dark"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-orange-light"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-orange-dark"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-pink-light"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-accent-pink-dark"></div>
-    </div>
+  <div class="mb-18">
+    <h2 class="heading">Featured Projects</h2>
 
-    <div class="flex gap-1 my-4">
-      <button class="btn" @click="() => toggleDark(false)">Light</button>
-      <button class="btn" @click="() => toggleDark(true)">Dark</button>
+    <div class="flex flex-col gap-12">
 
-      <button class="btn" @click="() => applyTheme('theme-blue')">Blue</button>
-      <button class="btn" @click="() => applyTheme('theme-teal')">Teal</button>
-      <button class="btn" @click="() => applyTheme('theme-orange')">Orange</button>
-      <button class="btn" @click="() => applyTheme('theme-pink')">Pink</button>
-    </div>
+      <div class="flex flex-col lg:flex-row lg:gap-24">
+        <div class="w-full lg:w-3/5 py-6 flex flex-col justify-center">
+          <h4 class="text-sm text-secondary font-bold uppercase mb-1">Type of Project</h4>
+          <h3 class="text-3xl mb-4">Project Name</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.</p>
+        </div>
+        <div class="w-full lg:w-2/5">
+          <div class="card bg-[#666666] w-full h-72"></div>
+        </div>
+      </div>
 
+      <div class="flex flex-col lg:flex-row lg:gap-24">
+        <div class="w-full lg:w-3/5 py-6 flex flex-col justify-center order-1 lg:order-2">
+          <h4 class="text-sm text-secondary font-bold uppercase mb-1">Type of Project</h4>
+          <h3 class="text-3xl mb-4">Project Name</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.</p>
+        </div>
+        <div class="w-full lg:w-2/5 order-2 lg:order-1">
+          <div class="card bg-[#666666] w-full h-72"></div>
+        </div>
+      </div>
 
-    <div class="flex gap-1 my-4">
-      <div class="h-4 w-4 border-2 border-gray-300 bg-primary"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-primary-dark"></div>
-      <div class="h-4 w-4 border-2 border-gray-300 bg-accent"></div>
-    </div>
+      <div class="flex flex-col lg:flex-row lg:gap-24">
+        <div class="w-full lg:w-3/5 py-6 flex flex-col justify-center">
+          <h4 class="text-sm text-secondary font-bold uppercase mb-1">Type of Project</h4>
+          <h3 class="text-3xl mb-4">Project Name</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.</p>
+        </div>
+        <div class="w-full lg:w-2/5">
+          <div class="card bg-[#666666] w-full h-72"></div>
+        </div>
+      </div>
 
-    <p class="text-4xl">
-      <carbon-campsite class="inline-block" />
-    </p>
-    <p>
-      <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
-      </a>
-    </p>
-    <p>
-      <em class="text-sm opacity-75">{{ t("Opinionated Vite Starter Template") }}</em>
-    </p>
-
-    <div class="py-4" />
-
-    <input
-      id="input"
-      v-model="name"
-      :placeholder="t('What\'s your name?')"
-      :aria-label="t('What\'s your name?')"
-      type="text"
-      autocomplete="false"
-      @keydown.enter="go"
-      p="x-4 y-2"
-      w="250px"
-      text="center"
-      bg="transparent"
-      border="~ rounded gray-200 dark:gray-700"
-      outline="none active:none"
-    >
-    <label class="hidden" for="input">{{ t("What's your name?") }}</label>
-
-    <div>
-      <button
-        class="m-3 text-sm btn"
-        :disabled="!name"
-        @click="go"
-      >
-        {{ t("Go") }}
-      </button>
     </div>
   </div>
+
+  <div class="
+    card bg-gradient-to-br from-[#A7FFEB] to-[#64B5F6]
+    h-92
+    flex flex-col justify-center items-center
+    text-black-80
+  ">
+    <h2 class="heading mb-12 !after:bg-black-80">About me</h2>
+    <button class="btn">
+      <span>Call to Action</span>
+      <mdi-open-in-new/>
+    </button>
+  </div>
+
 </template>
+
+<style lang="postcss" scoped>
+
+</style>
 
 <route lang="yaml">
 meta:
-  layout: home
+  layout: default
 </route>
