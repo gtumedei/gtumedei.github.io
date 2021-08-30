@@ -26,6 +26,7 @@ declare module 'vue' {
     MdiWeatherSunny: typeof import('virtual:vite-icons/mdi/weather-sunny')['default']
     ScrollIndicator: typeof import('./src/components/index/ScrollIndicator.vue')['default']
     ThemeWatcher: typeof import('./src/components/ThemeWatcher.vue')['default']
+    ZImg: typeof import('./src/components/ZImg.vue')['default']
   }
 }
 

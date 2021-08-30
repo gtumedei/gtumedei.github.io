@@ -10,7 +10,7 @@ defineProps<{flip?: boolean}>()
       <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.</p>
     </div>
     <div class="w-full lg:w-2/5 order-2" :class="{ 'lg:order-1': flip }">
-      <img src="/placeholder.png" class="object-cover w-full h-72 card p-0" alt="placeholder image"/>
+      <z-img src="/placeholder.png" class="object-cover w-full h-72 card p-0" alt="placeholder image"/>
     </div>
   </div>
 </template>

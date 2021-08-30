@@ -5,7 +5,7 @@ const { isDark, toggleDark } = useDarkMode()
 
 <template>
   <header class="container px-6 py-12 flex items-center gap-2">
-    <a href="#" class="text-lg no-underline inline-block mr-auto">Gianni Tumedei</a>
+    <router-link to="/" class="text-lg no-underline inline-block mr-auto">Gianni Tumedei</router-link>
     <button class="btn icon" title="Change language">
       <mdi-translate class="text-secondary"/>
     </button>
