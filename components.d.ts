@@ -14,6 +14,8 @@ declare module 'vue' {
     MdiGithub: typeof import('virtual:vite-icons/mdi/github')['default']
     MdiLinkedin: typeof import('virtual:vite-icons/mdi/linkedin')['default']
     MdiMapMarker: typeof import('virtual:vite-icons/mdi/map-marker')['default']
+    MdiMenuDown: typeof import('virtual:vite-icons/mdi/menu-down')['default']
+    MdiMenuDownOutline: typeof import('virtual:vite-icons/mdi/menu-down-outline')['default']
     MdiMenuUpOutline: typeof import('virtual:vite-icons/mdi/menu-up-outline')['default']
     MdiOpenInNew: typeof import('virtual:vite-icons/mdi/open-in-new')['default']
     MdiThemeLightDark: typeof import('virtual:vite-icons/mdi/theme-light-dark')['default']

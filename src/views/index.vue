@@ -3,11 +3,22 @@
   <div class="
     card py-48 mb-18
     bg-gradient-to-br from-[#FF8A80] to-[#FFD54F]
-    flex flex-col justify-center items-center
+    flex flex-col justify-center
     text-black-80 text-center
+    relative
+    lg:text-left lg:px-12
   ">
-    <h1 class="text-8xl mb-6">WIP</h1>
+    <h1 class="text-4xl sm:text-6xl xl:text-8xl mb-6">WORK IN PROGRESS</h1>
     <p>This will be my portfolio website. For now... it's just some experimental stuff.</p>
+    <div class="
+      flex flex-col -space-y-2 text-lg text-secondary
+      absolute bottom-12 right-1/2 transform translate-x-1/2
+      lg:right-12 lg:bottom-1/2 lg:translate-x-0 lg:translate-y-1/2
+    ">
+      <mdi-menu-down-outline/>
+      <mdi-menu-down-outline/>
+      <mdi-menu-down-outline/>
+    </div>
   </div>
 
   <div class="mb-18">
