@@ -3,11 +3,13 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    404: typeof import('./src/components/layouts/404.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     BackToTopButton: typeof import('./src/components/BackToTopButton.vue')['default']
     Default: typeof import('./src/components/layouts/default.vue')['default']
     Empty: typeof import('./src/components/layouts/empty.vue')['default']
+    FeaturedProject: typeof import('./src/components/index/FeaturedProject.vue')['default']
     MdiBrightness4: typeof import('virtual:vite-icons/mdi/brightness4')['default']
     MdiBrightness7: typeof import('virtual:vite-icons/mdi/brightness7')['default']
     MdiEmail: typeof import('virtual:vite-icons/mdi/email')['default']
@@ -22,6 +24,7 @@ declare module 'vue' {
     MdiTranslate: typeof import('virtual:vite-icons/mdi/translate')['default']
     MdiWeatherNight: typeof import('virtual:vite-icons/mdi/weather-night')['default']
     MdiWeatherSunny: typeof import('virtual:vite-icons/mdi/weather-sunny')['default']
+    ScrollIndicator: typeof import('./src/components/index/ScrollIndicator.vue')['default']
   }
 }
 

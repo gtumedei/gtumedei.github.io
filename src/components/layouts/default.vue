@@ -1,6 +1,6 @@
 <template>
   <app-header/>
-  <main class="container relative px-6">
+  <main class="container flex-grow px-6">
     <router-view />
   </main>
   <app-footer/>
