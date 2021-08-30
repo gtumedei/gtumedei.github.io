@@ -1,42 +1,23 @@
 <script lang="ts" setup>
 import { useDarkMode } from "@/hooks"
-
-const { toggleDark } = useDarkMode()
-
-const btnToggleDark = ref<HTMLButtonElement | undefined>(undefined)
-const clip = ref<HTMLDivElement | undefined>(undefined)
-
-// const delay = (ms: number) => new Promise(r => setTimeout(r, ms))
-
-const animateDarkToggle = async () => {
-  /* if (btnToggleDark.value == undefined || clip.value == undefined) return
-  clip.value.classList.remove("hidden")
-  await delay(1)
-  clip.value.classList.remove("opacity-0")
-  await delay(200) */
-  toggleDark()
-  /* await delay(200)
-  clip.value.classList.add("opacity-0")
-  await delay(200)
-  clip.value.classList.add("hidden") */
-}
+const { isDark, toggleDark } = useDarkMode()
 </script>
 
 <template>
   <header class="container px-6 py-12 flex items-center gap-2">
     <a href="#" class="text-lg no-underline inline-block mr-auto">Gianni Tumedei</a>
-    <button class="btn icon">
+    <button class="btn icon" title="Change language">
       <mdi-translate class="text-secondary"/>
     </button>
-    <button ref="btnToggleDark" class="btn icon">
-      <mdi-theme-light-dark class="text-secondary" @click="animateDarkToggle"/>
+    <button
+      class="btn icon"
+      :title="isDark ? 'Enable light theme' : 'Enable dark theme'"
+      @click="() => toggleDark()"
+    >
+      <mdi-brightness-7 v-if="isDark" class="text-secondary"/>
+      <mdi-brightness-4 v-else class="text-secondary"/>
     </button>
   </header>
-
-  <teleport to="body">
-    <div ref="clip" class="clip opacity-0 hidden"></div>
-  </teleport>
-
 </template>
 
 <style lang="postcss">

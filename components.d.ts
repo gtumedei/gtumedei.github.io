@@ -7,6 +7,8 @@ declare module 'vue' {
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     Default: typeof import('./src/components/layouts/default.vue')['default']
     Empty: typeof import('./src/components/layouts/empty.vue')['default']
+    MdiBrightness4: typeof import('virtual:vite-icons/mdi/brightness4')['default']
+    MdiBrightness7: typeof import('virtual:vite-icons/mdi/brightness7')['default']
     MdiEmail: typeof import('virtual:vite-icons/mdi/email')['default']
     MdiGithub: typeof import('virtual:vite-icons/mdi/github')['default']
     MdiLinkedin: typeof import('virtual:vite-icons/mdi/linkedin')['default']
@@ -14,6 +16,8 @@ declare module 'vue' {
     MdiOpenInNew: typeof import('virtual:vite-icons/mdi/open-in-new')['default']
     MdiThemeLightDark: typeof import('virtual:vite-icons/mdi/theme-light-dark')['default']
     MdiTranslate: typeof import('virtual:vite-icons/mdi/translate')['default']
+    MdiWeatherNight: typeof import('virtual:vite-icons/mdi/weather-night')['default']
+    MdiWeatherSunny: typeof import('virtual:vite-icons/mdi/weather-sunny')['default']
   }
 }
 
