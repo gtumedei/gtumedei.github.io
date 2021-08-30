@@ -25,7 +25,8 @@
   active:shadow-md;
 
   &.inverted { @apply
-    text-inverted-base bg-inverted-primary;
+    text-inverted-base bg-inverted-primary
+    focus:bg-inverted-primary-dark;
   }
 
   &.icon { @apply
@@ -34,6 +35,10 @@
     hover:bg-typography-hover
     focus:bg-typography-hover
     active:bg-typography-divider;
+  }
+
+  &.fab { @apply
+    p-4;
   }
 }
 

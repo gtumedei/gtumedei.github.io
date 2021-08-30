@@ -5,6 +5,7 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
+    BackToTopButton: typeof import('./src/components/BackToTopButton.vue')['default']
     Default: typeof import('./src/components/layouts/default.vue')['default']
     Empty: typeof import('./src/components/layouts/empty.vue')['default']
     MdiBrightness4: typeof import('virtual:vite-icons/mdi/brightness4')['default']
@@ -13,6 +14,7 @@ declare module 'vue' {
     MdiGithub: typeof import('virtual:vite-icons/mdi/github')['default']
     MdiLinkedin: typeof import('virtual:vite-icons/mdi/linkedin')['default']
     MdiMapMarker: typeof import('virtual:vite-icons/mdi/map-marker')['default']
+    MdiMenuUpOutline: typeof import('virtual:vite-icons/mdi/menu-up-outline')['default']
     MdiOpenInNew: typeof import('virtual:vite-icons/mdi/open-in-new')['default']
     MdiThemeLightDark: typeof import('virtual:vite-icons/mdi/theme-light-dark')['default']
     MdiTranslate: typeof import('virtual:vite-icons/mdi/translate')['default']

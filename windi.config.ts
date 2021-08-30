@@ -94,6 +94,10 @@ export default defineConfig({
           hover: "var(--color-inverted-typography-hover)"
         }
 
+      },
+
+      transitionDuration: {
+        DEFAULT: "200ms"
       }
 
     }
