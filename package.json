@@ -1,5 +1,5 @@
 {
-  "name": "gtumedei",
+  "name": "gtumedei.github.io",
   "private": true,
   "scripts": {
     "dev": "vite --port 8080 --host",
