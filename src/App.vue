@@ -1,21 +1,15 @@
 <script lang="ts" setup>
 import { useHead } from "@vueuse/head"
-import { useDarkMode } from "@/hooks"
-
-const { isDark } = useDarkMode()
 
 useHead({
   title: "Gianni Tumedei",
   meta: [
-    { name: "description", content: "My portfolio website" },
-    {
-      name: "theme-color",
-      content: computed(() => isDark.value ? "#404040" : "#FAFAFA")
-    }
+    { name: "description", content: "My portfolio website" }
   ]
 })
 </script>
 
 <template>
-  <router-view />
+  <router-view/>
+  <client-only><theme-watcher/></client-only>
 </template>

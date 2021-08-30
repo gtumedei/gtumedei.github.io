@@ -4,5 +4,5 @@
     <router-view />
   </main>
   <app-footer/>
-  <back-to-top-button/>
+  <client-only><back-to-top-button/></client-only>
 </template>
