@@ -14,6 +14,11 @@ export default defineConfig({
 
     extend: {
 
+      cursor: {
+        "zoom-in": "zoom-in",
+        "zoom-out": "zoom-out"
+      },
+
       colors: {
 
         // White and black with opacity
@@ -97,7 +102,7 @@ export default defineConfig({
       },
 
       transitionDuration: {
-        DEFAULT: "200ms"
+        DEFAULT: "400ms"
       }
 
     }
