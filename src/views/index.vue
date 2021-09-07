@@ -1,15 +1,14 @@
 <template>
 
   <div class="
-    card py-48 mb-18
+    card py-48 lg:px-12 mb-18
     bg-gradient-to-br from-[#FF8A80] to-[#FFD54F]
     flex flex-col justify-center
     text-black-80 text-center
     relative
-    lg:text-left lg:px-12
   ">
-    <h1 class="text-4xl sm:text-6xl xl:text-8xl mb-6">WORK IN PROGRESS</h1>
-    <p>This will be my portfolio website. For now... it's just some experimental stuff.</p>
+    <animated-text :content="['WIP', 'IT Engineer', 'Developer', 'Designer']"/>
+    <p class="mt-4">This will be my portfolio website. For now... it's just some experimental stuff.</p>
     <scroll-indicator/>
   </div>
 

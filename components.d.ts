@@ -4,6 +4,7 @@
 declare module 'vue' {
   export interface GlobalComponents {
     404: typeof import('./src/components/layouts/404.vue')['default']
+    AnimatedText: typeof import('./src/components/index/AnimatedText.vue')['default']
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppHeader: typeof import('./src/components/AppHeader.vue')['default']
     BackToTopButton: typeof import('./src/components/BackToTopButton.vue')['default']
