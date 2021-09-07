@@ -8,7 +8,13 @@
     relative
   ">
     <animated-text :content="['WIP', 'IT Engineer', 'Developer', 'Designer']"/>
+
     <p class="mt-4">This will be my portfolio website. For now... it's just some experimental stuff.</p>
+    <button class="btn mx-auto mt-12">
+      <span>Call to Action</span>
+      <mdi-open-in-new/>
+    </button>
+
     <scroll-indicator/>
   </div>
 
