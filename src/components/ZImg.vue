@@ -1,10 +1,8 @@
 <script lang="ts" setup>
-import { onKeyStroke } from "@vueuse/core"
 
 const props = defineProps<{
   src: string
   alt?: string
-  class?: string
 }>()
 
 const img = ref<HTMLImageElement | undefined>(undefined)
@@ -35,6 +33,7 @@ const zoomIn = async () => {
   // Block scroll while saving the position to restore it later
   scrollTop.value = document.documentElement.scrollTop
   document.body.classList.add("fixed", "w-full", "overflow-y-scroll")
+  document.addEventListener("keyup", onKeyUp)
 }
 
 const zoomOut = async () => {
@@ -46,13 +45,17 @@ const zoomOut = async () => {
   await new Promise(r => setTimeout(r, 400))
   zoomedImg.value = false
   wrapperStyle.value = { ...defaultWrapperStyle }
+  document.removeEventListener("keyup", onKeyUp)
 }
 
-onKeyStroke("Escape", (e) => {
-  if (!overlay.value) return
-  e.preventDefault()
-  zoomOut()
-})
+const onKeyUp = (e: KeyboardEvent) => {
+  if (e.key == "Escape") {
+    e.preventDefault()
+    zoomOut()
+  }
+}
+
+onBeforeUnmount(() => document.removeEventListener("keyup", onKeyUp))
 
 </script>
 
@@ -60,7 +63,8 @@ onKeyStroke("Escape", (e) => {
   <img
     ref="img"
     :src="props.src" :alt="props.alt"
-    :class="`cursor-zoom-in ${props.class}`"
+    class="cursor-zoom-in"
+    v-bind="$attrs"
     @click="zoomIn"
   />
   <teleport to="body">
