@@ -1,3 +1,9 @@
+ui:
+  locale_button_title: "Change language"
+  theme_button:
+    light_title: "Enable light theme"
+    dark_title: "Enable dark theme"
+
 "Hi, {name}!": Hi, {name}!
 "What's your name?": What's your name?
 About: About
