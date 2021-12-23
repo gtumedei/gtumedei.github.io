@@ -8,4 +8,4 @@ My portfolio website.
 - Add router transition
 - Find and implement a cool text animation for the hero section
 - Logo and favicon
-- Splash screen (vue-splash?)
+- Replace windicss with tailwind
