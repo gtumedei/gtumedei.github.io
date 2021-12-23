@@ -30,7 +30,7 @@
 <style lang="postcss" scoped>
 
 .footer-item { @apply
-  text-2xl !text-faded
+  text-xl !text-faded
   !hover:text-base;
 }
 

@@ -17,9 +17,7 @@ export default defineConfig({
     }
   },
   plugins: [
-    Vue({
-      include: [/\.vue$/, /\.md$/]
-    }),
+    Vue({ include: [/\.vue$/, /\.md$/] }),
 
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
@@ -28,9 +26,7 @@ export default defineConfig({
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
-    Layouts({
-      layoutsDir: "src/components/layouts"
-    }),
+    Layouts({ layoutsDir: "src/components/layouts" }),
 
     // https://github.com/antfu/vite-plugin-components
     ViteComponents({
@@ -50,9 +46,7 @@ export default defineConfig({
     }),
 
     // https://github.com/antfu/vite-plugin-icons
-    ViteIcons({
-      defaultClass: "icon"
-    }),
+    ViteIcons({ defaultClass: "icon" }),
 
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS(),

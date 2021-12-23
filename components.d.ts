@@ -13,6 +13,7 @@ declare module 'vue' {
     FeaturedProject: typeof import('./src/components/index/FeaturedProject.vue')['default']
     MdiBrightness4: typeof import('virtual:vite-icons/mdi/brightness4')['default']
     MdiBrightness7: typeof import('virtual:vite-icons/mdi/brightness7')['default']
+    MdiChevronDoubleDown: typeof import('virtual:vite-icons/mdi/chevron-double-down')['default']
     MdiEmail: typeof import('virtual:vite-icons/mdi/email')['default']
     MdiGithub: typeof import('virtual:vite-icons/mdi/github')['default']
     MdiLinkedin: typeof import('virtual:vite-icons/mdi/linkedin')['default']

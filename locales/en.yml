@@ -4,6 +4,10 @@ ui:
     light_title: "Enable light theme"
     dark_title: "Enable dark theme"
 
+hero:
+  animated_text:
+    1: I'm Gianni
+
 "Hi, {name}!": Hi, {name}!
 "What's your name?": What's your name?
 About: About

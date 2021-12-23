@@ -4,6 +4,10 @@ ui:
     light_title: "Attiva il tema chiaro"
     dark_title: "Attiva il tema scuro"
 
+hero:
+  animated_text:
+    1: Sono Gianni
+
 "Hi, {name}!": Ciao, {name}!
 "What's your name?": Come ti chiami?
 About: About
