@@ -9,6 +9,7 @@ export default defineConfig({
 
     fontFamily: {
       sans: ["Lato", "sans-serif"],
+      serif: ["Volkhov", "serif"],
       mono: ["'Fira Code'", "mono"]
     },
 
