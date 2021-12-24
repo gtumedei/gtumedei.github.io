@@ -13,7 +13,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 780, behavior: "smo
     text-black-80 text-center
     relative
   ">
-    <h1 class="display-heading">Gianni Tumedei</h1>
+    <h1 class="display-heading">Gianni <span class="text-stroke-none text-black-80">Tumedei</span></h1>
     <p class="text-lg tracking-wide mt-4">IT Engineer, Full Stack Developer</p>
     <button class="btn absolute-center-x bottom-12" @click="onMainCallToActionClick">
       <span class="whitespace-nowrap">Check out my work</span>
