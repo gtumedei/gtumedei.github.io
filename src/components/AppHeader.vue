@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from "vue-i18n"
 import { useDarkMode } from "@/hooks"
+import Icon from "@/components/Icon.vue"
 
 const { isDark, toggleDark } = useDarkMode()
 
@@ -20,15 +21,14 @@ const toggleLocales = () => {
       :title="t('ui.locale_button_title')"
       @click="toggleLocales"
     >
-      <mdi-translate class="text-secondary"/>
+      <icon name="mdi:translate" class="text-secondary"/>
     </button>
     <button
       class="btn icon"
       :title="isDark ? t('ui.theme_button.light_title') : t('ui.theme_button.dark_title')"
       @click="() => toggleDark()"
     >
-      <mdi-brightness-7 v-if="isDark" class="text-secondary"/>
-      <mdi-brightness-4 v-else class="text-secondary"/>
+      <icon :name="isDark ? 'mdi:brightness-7' : 'mdi:brightness-4'" class="text-secondary"/>
     </button>
   </header>
 </template>

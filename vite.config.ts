@@ -3,8 +3,7 @@ import { defineConfig } from "vite"
 import Vue from "@vitejs/plugin-vue"
 import Pages from "vite-plugin-pages"
 import Layouts from "vite-plugin-vue-layouts"
-import ViteIcons, { ViteIconsResolver } from "vite-plugin-icons"
-import ViteComponents from "vite-plugin-components"
+import PurgeIcons from "vite-plugin-purge-icons"
 import WindiCSS from "vite-plugin-windicss"
 import { VitePWA } from "vite-plugin-pwa"
 import VueI18n from "@intlify/vite-plugin-vue-i18n"
@@ -28,25 +27,8 @@ export default defineConfig({
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts({ layoutsDir: "src/components/layouts" }),
 
-    // https://github.com/antfu/vite-plugin-components
-    ViteComponents({
-      // allow auto load components under `./src/components/`
-      extensions: ["vue"],
-
-      // generate `components.d.ts` for ts support with Volar
-      globalComponentsDeclaration: true,
-
-      // auto import icons
-      customComponentResolvers: [
-        // https://github.com/antfu/vite-plugin-icons
-        ViteIconsResolver({
-          componentPrefix: ""
-        })
-      ]
-    }),
-
-    // https://github.com/antfu/vite-plugin-icons
-    ViteIcons({ defaultClass: "icon" }),
+    // https://github.com/antfu/purge-icons
+    PurgeIcons(),
 
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS(),

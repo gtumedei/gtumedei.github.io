@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Project from "@/models/Project"
+import ZImg from "@/components/ZImg.vue"
 
 defineProps<{
   project: Project

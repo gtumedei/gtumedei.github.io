@@ -1,5 +1,7 @@
 <script lang="ts" setup>
+import { onMounted } from "vue"
 import { useHead } from "@vueuse/head"
+import ThemeWatcher from "@/components/ThemeWatcher.vue"
 
 useHead({
   title: "Gianni Tumedei",

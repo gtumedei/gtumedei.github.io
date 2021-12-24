@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+import AppHeader from "@/components/AppHeader.vue"
+import AppFooter from "@/components/AppFooter.vue"
+import BackToTopButton from "@/components/BackToTopButton.vue"
+</script>
+
 <template>
   <app-header/>
   <main class="container flex-grow px-6">

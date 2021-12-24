@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+import Icon from "@/components/Icon.vue"
+</script>
+
 <template>
   <div class="profile flex flex-col lg:flex-row items-center gap-12 lg:gap-24 mb-18">
     <img
@@ -13,7 +17,7 @@
       </p>
       <button class="btn inverted">
         <span>Get in touch</span>
-        <mdi-message-outline/>
+        <icon name="mdi:message-outline"/>
       </button>
     </div>
   </div>

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { nextTick, onBeforeUnmount, ref } from "vue"
 
 const props = defineProps<{
   src: string
@@ -56,7 +57,6 @@ const onKeyUp = (e: KeyboardEvent) => {
 }
 
 onBeforeUnmount(() => document.removeEventListener("keyup", onKeyUp))
-
 </script>
 
 <template>

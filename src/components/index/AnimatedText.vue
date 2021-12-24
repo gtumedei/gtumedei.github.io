@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { computed, onBeforeUnmount, onMounted, ref } from "vue"
 import gsap from "gsap"
 
 const props = defineProps<{ content: string[] }>()
@@ -37,7 +38,6 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => tween.value?.kill())
-
 </script>
 
 <template>

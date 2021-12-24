@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import Icon from "@/components/Icon.vue"
 import FeaturedSection from "@/components/index/FeaturedSection.vue"
 import ProfileSection from "@/components/index/ProfileSection.vue"
 
@@ -18,7 +19,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 780, behavior: "smo
     <p class="text-lg tracking-wide mt-4">IT Engineer, Full Stack Developer</p>
     <button class="btn absolute-center-x bottom-12" @click="onMainCallToActionClick">
       <span class="whitespace-nowrap">Check out my work</span>
-      <mdi-chevron-double-down/>
+      <icon name="mdi:chevron-double-down"/>
     </button>
   </div>
 
@@ -51,7 +52,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 780, behavior: "smo
 
     <button class="btn inverted">
         <span>See my CV</span>
-        <mdi-open-in-new/>
+        <icon name="mdi:open-in-new"/>
       </button>
   </div>
 
