@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import Profile from "@/components/index/Profile.vue"
+import FeaturedSection from "@/components/index/FeaturedSection.vue"
+import ProfileSection from "@/components/index/ProfileSection.vue"
 
 const onMainCallToActionClick = () => window.scrollTo({ top: 780, behavior: "smooth" })
 </script>
@@ -21,15 +22,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 780, behavior: "smo
     </button>
   </div>
 
-  <div class="mb-18">
-    <h2 class="heading">Featured Projects</h2>
-
-    <div class="flex flex-col gap-12">
-      <featured-project/>
-      <featured-project flip/>
-      <featured-project/>
-    </div>
-  </div>
+  <featured-section/>
 
   <div class="
     card bg-gradient-to-br from-[#a18cd1] to-[#fbc2eb]
@@ -39,7 +32,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 780, behavior: "smo
     <h2 class="display-heading">Knowledge</h2>
   </div>
 
-  <h3 class="heading">Tech stack</h3>
+  <h3 class="heading">Current tech stack</h3>
 
   <h3 class="heading">Other technologies</h3>
 
@@ -51,7 +44,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 780, behavior: "smo
     <h2 class="display-heading">About me</h2>
   </div>
 
-  <profile/>
+  <profile-section/>
 
   <div class="text-center">
     <h3 class="heading">Resume</h3>

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Project Name",
+    "type": "Type of Project",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
+    "image": "/placeholder.png"
+  },
+  {
+    "name": "Project Name",
+    "type": "Type of Project",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
+    "image": "/placeholder.png"
+  },
+  {
+    "name": "Project Name",
+    "type": "Type of Project",
+    "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
+    "image": "/placeholder.png"
+  }
+]
