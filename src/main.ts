@@ -1,6 +1,8 @@
 import { ViteSSG } from "vite-ssg"
 import generatedRoutes from "virtual:generated-pages"
 import { setupLayouts } from "virtual:generated-layouts"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 import App from "@/App.vue"
 
 import "@purge-icons/generated"
@@ -16,6 +18,8 @@ import "./styles/main.postcss"
 import "virtual:windi-utilities.css"
 // windicss devtools support (dev only)
 import "virtual:windi-devtools"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const routes = setupLayouts(generatedRoutes)
 
