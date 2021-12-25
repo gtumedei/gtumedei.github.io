@@ -1,6 +1,26 @@
 <script lang="ts" setup>
-import projects from "@/data/featured.json"
 import FeaturedProject from "@/components/index/FeaturedProject.vue"
+
+const projects = [
+  {
+    name: "Project Name",
+    type: "Type of Project",
+    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
+    image: "/placeholder.png"
+  },
+  {
+    name: "Project Name",
+    type: "Type of Project",
+    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
+    image: "/placeholder.png"
+  },
+  {
+    name: "Project Name",
+    type: "Type of Project",
+    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
+    image: "/placeholder.png"
+  }
+]
 </script>
 
 <template>
