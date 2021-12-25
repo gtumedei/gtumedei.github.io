@@ -2,6 +2,11 @@
 import { onMounted } from "vue"
 import gsap from "gsap"
 import Icon from "@/components/Icon.vue"
+import FlutterIcon from "@/assets/flutter.svg"
+import MongodbIcon from "@/assets/mongodb.svg"
+import ScalaIcon from "@/assets/scala.svg"
+import SolidjsIcon from "@/assets/solidjs.svg"
+import SvelteIcon from "@/assets/svelte.svg"
 
 const tech = [
   {
@@ -18,14 +23,14 @@ const tech = [
   },
   {
     name: "Svelte",
-    icon: "mdi:alert-outline",
-    colors: { text: "!hover:text-[#FF0000]", hover: "!hover:bg-[#FF0000]" },
+    icon: SvelteIcon,
+    colors: { text: "!hover:fill-[#DC2626]", hover: "!hover:bg-[#DC2626]" },
     url: "https://svelte.dev/"
   },
   {
     name: "Solid.js",
-    icon: "mdi:alert-outline",
-    colors: { text: "!hover:text-[#FF0000]", hover: "!hover:bg-[#FF0000]" },
+    icon: SolidjsIcon,
+    colors: { text: "!hover:fill-[#0EA5E9]", hover: "!hover:bg-[#0EA5E9]" },
     url: "https://www.solidjs.com/"
   },
   {
@@ -53,15 +58,9 @@ const tech = [
     url: "https://www.php.net/"
   },
   {
-    name: "Dart",
-    icon: "mdi:alert-outline",
-    colors: { text: "!hover:text-[#FF0000]", hover: "!hover:bg-[#FF0000]" },
-    url: "https://dart.dev/"
-  },
-  {
-    name: "Flutter",
-    icon: "mdi:alert-outline",
-    colors: { text: "!hover:text-[#FF0000]", hover: "!hover:bg-[#FF0000]" },
+    name: "Flutter & Dart",
+    icon: FlutterIcon,
+    colors: { text: "!hover:fill-[#38BDF8]", hover: "!hover:bg-[#38BDF8]" },
     url: "https://flutter.dev/"
   },
   {
@@ -78,8 +77,8 @@ const tech = [
   },
   {
     name: "Scala",
-    icon: "mdi:alert-outline",
-    colors: { text: "!hover:text-[#E11D48]", hover: "!hover:bg-[#E11D48]" },
+    icon: ScalaIcon,
+    colors: { text: "!hover:fill-[#E11D48]", hover: "!hover:bg-[#E11D48]" },
     url: "https://www.scala-lang.org/"
   },
   {
@@ -96,8 +95,8 @@ const tech = [
   },
   {
     name: "MongoDB",
-    icon: "mdi:alert-outline",
-    colors: { text: "!hover:text-[#22C55E]", hover: "!hover:bg-[#22C55E]" },
+    icon: MongodbIcon,
+    colors: { text: "!hover:fill-[#22C55E]", hover: "!hover:bg-[#22C55E]" },
     url: "https://www.mongodb.com/"
   }
 ]
@@ -121,7 +120,8 @@ onMounted(() => {
       and platforms and I'm always up to work with those too!<br/>
       Here are some of them.
     </p>
-    <div class="tech-grid w-full grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-12">
+
+    <div class="tech-grid w-full grid grid-tem grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-12">
       <a
         v-for="(entry, i) in tech" :key="i"
         :href="entry.url" target="_blank"
@@ -129,12 +129,19 @@ onMounted(() => {
       >
         <div class="flex rounded-xl bg-primary mx-auto">
           <icon
+            v-if="typeof entry.icon == 'string'"
             :name="entry.icon"
             :class="`
-              flex p-8 rounded-xl text-4xl text-inverted-primary bg-primary-dark
+              p-8 rounded-xl text-4xl text-inverted-primary bg-primary-dark
               transition-colors ${entry.colors.text} ${entry.colors.hover} !hover:bg-opacity-10
             `"
           />
+          <div v-else :class="`
+            flex p-8.5 rounded-xl bg-primary-dark fill-typography-base
+            transition-colors ${entry.colors.text} ${entry.colors.hover} !hover:bg-opacity-10
+          `">
+            <component :is="entry.icon" class="h-8 w-8"/>
+          </div>
         </div>
         <p class="text-center">{{entry.name}}</p>
       </a>

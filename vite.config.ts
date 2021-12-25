@@ -4,9 +4,10 @@ import Vue from "@vitejs/plugin-vue"
 import Pages from "vite-plugin-pages"
 import Layouts from "vite-plugin-vue-layouts"
 import PurgeIcons from "vite-plugin-purge-icons"
-import WindiCSS from "vite-plugin-windicss"
+import SvgLoader from "vite-svg-loader"
 import { VitePWA } from "vite-plugin-pwa"
 import VueI18n from "@intlify/vite-plugin-vue-i18n"
+import WindiCSS from "vite-plugin-windicss"
 
 export default defineConfig({
   resolve: {
@@ -29,6 +30,9 @@ export default defineConfig({
 
     // https://github.com/antfu/purge-icons
     PurgeIcons(),
+
+    // https://github.com/jpkleemans/vite-svg-loader
+    SvgLoader(),
 
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS(),
