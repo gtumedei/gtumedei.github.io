@@ -21,6 +21,10 @@ export default defineConfig({
         "zoom-out": "zoom-out"
       },
 
+      textStrokeWidth: {
+        "md": "0.03em"
+      },
+
       colors: {
 
         // White and black with opacity

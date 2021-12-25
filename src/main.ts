@@ -2,7 +2,7 @@ import { ViteSSG } from "vite-ssg"
 import generatedRoutes from "virtual:generated-pages"
 import { setupLayouts } from "virtual:generated-layouts"
 import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import App from "@/App.vue"
 
 import "@purge-icons/generated"
