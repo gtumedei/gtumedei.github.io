@@ -28,7 +28,8 @@ const toggleLocales = () => {
       :title="isDark ? t('ui.theme_button.light_title') : t('ui.theme_button.dark_title')"
       @click="() => toggleDark()"
     >
-      <icon :name="isDark ? 'mdi:brightness-7' : 'mdi:brightness-4'" class="text-secondary"/>
+      <icon v-if="isDark" name="mdi:brightness-7" class="text-secondary"/>
+      <icon v-else name="mdi:brightness-4" class="text-secondary"/>
     </button>
   </header>
 </template>
