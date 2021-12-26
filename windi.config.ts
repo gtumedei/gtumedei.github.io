@@ -1,4 +1,5 @@
 import { defineConfig } from "windicss/helpers"
+import aspectRatioPlugin from "windicss/plugin/aspect-ratio"
 import scrollSnapPlugin from "windicss/plugin/scroll-snap"
 
 export default defineConfig({
@@ -113,7 +114,5 @@ export default defineConfig({
 
     }
   },
-  plugins: [
-    scrollSnapPlugin
-  ]
+  plugins: [aspectRatioPlugin, scrollSnapPlugin]
 })

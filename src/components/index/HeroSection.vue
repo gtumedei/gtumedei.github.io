@@ -14,7 +14,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 820, behavior: "smo
   ">
     <h1 class="display-heading">Gianni <span class="text-stroke-none text-black-80">Tumedei</span></h1>
     <icon name="mdi:cards-diamond-outline" class="mt-4 mb-5"/>
-    <p class="text-lg tracking-wide">Work in Progress<!-- IT Engineer, Full Stack Developer --></p>
+    <p class="text-sm font-bold uppercase tracking-wide">Work in Progress<!-- IT Engineer, Full Stack Developer --></p>
     <button class="btn absolute-center-x bottom-12" @click="onMainCallToActionClick">
       <span class="whitespace-nowrap">Check out my work</span>
       <icon name="mdi:chevron-double-down"/>

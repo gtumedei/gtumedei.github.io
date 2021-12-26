@@ -113,7 +113,7 @@ const tech = [
       <a
         v-for="(entry, i) in tech" :key="i"
         :href="entry.url" target="_blank"
-        class="tech-item flex flex-col gap-2"
+        class="tech-item relative flex flex-col gap-2 mb-7"
       >
         <div class="flex rounded-xl bg-primary mx-auto">
           <icon
@@ -131,7 +131,9 @@ const tech = [
             <component :is="entry.icon" class="h-8 w-8"/>
           </div>
         </div>
-        <p class="text-center">{{entry.name}}</p>
+        <p class="text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 -bottom-8">
+          {{entry.name}}
+        </p>
       </a>
     </div>
   </div>

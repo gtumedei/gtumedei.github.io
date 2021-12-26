@@ -18,23 +18,23 @@ export const useHomeAnimations = () => {
 
     // Featured
     const lgAndUp = useBreakpoints(breakpointsTailwind).greater("lg")
-    gsap.from(".featured-text", {
-      scrollTrigger: { trigger: ".featured-text", start: "50% bottom" },
+    document.querySelectorAll(".featured-text").forEach(elem => gsap.from(elem, {
+      scrollTrigger: { trigger: elem, start: "50% bottom" },
       y: 32,
       ...common
-    })
-    gsap.from(".featured-img", {
-      scrollTrigger: { trigger: ".featured-img", start: "50% bottom" },
+    }))
+    document.querySelectorAll(".featured-img").forEach(elem => gsap.from(elem, {
+      scrollTrigger: { trigger: elem, start: "50% bottom" },
       x: lgAndUp.value ? 32 : 0,
       y: lgAndUp.value ? 0 : 32,
       ...common
-    })
-    gsap.from(".featured-img-flip", {
-      scrollTrigger: { trigger: ".featured-img-flip", start: "50% bottom" },
+    }))
+    document.querySelectorAll(".featured-img-flip").forEach(elem => gsap.from(elem, {
+      scrollTrigger: { trigger: elem, start: "50% bottom" },
       x: lgAndUp.value ? -32 : 0,
       y: lgAndUp.value ? 0 : 32,
       ...common
-    })
+    }))
 
     // Knowledge
     gsap.from("#knowledge-heading", {
@@ -83,7 +83,13 @@ export const useHomeAnimations = () => {
     })
 
     // Resume
-    // TODO
+    gsap.from(".resume-item", {
+      scrollTrigger: { trigger: ".resume-grid", start: "130px bottom" },
+      opacity: 0,
+      y: 32,
+      duration: 0.5,
+      stagger: 0.15
+    })
   })
 
   onBeforeUnmount(() => gsap.killTweensOf("*"))

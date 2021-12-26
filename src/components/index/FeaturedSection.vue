@@ -6,7 +6,7 @@ const projects = [
     name: "Project Name",
     type: "Type of Project",
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
-    image: "/placeholder.png"
+    image: "/mtt.jpeg"
   },
   {
     name: "Project Name",
@@ -18,7 +18,7 @@ const projects = [
     name: "Project Name",
     type: "Type of Project",
     description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
-    image: "/placeholder.png"
+    image: "/tbg.jpeg"
   }
 ]
 </script>
