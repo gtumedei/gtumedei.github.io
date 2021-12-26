@@ -11,10 +11,8 @@ const messages = Object.fromEntries(
 )
 
 export const install: UserModule = ({ app }) => {
-  const savedLocale = localStorage.getItem("locale")
-
   const i18n = createI18n({
-    locale: savedLocale ?? "en",
+    locale: "en",
     messages
   })
 

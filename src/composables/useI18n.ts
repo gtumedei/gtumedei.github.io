@@ -10,5 +10,5 @@ export default () => {
     localStorage.setItem("locale", newValue)
   }
 
-  return { t, toggleLocales }
+  return { t, locale, toggleLocales }
 }

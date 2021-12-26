@@ -2,6 +2,7 @@
 import { onMounted } from "vue"
 import { useHead } from "@vueuse/head"
 import ThemeWatcher from "@/components/ThemeWatcher.vue"
+import { useI18n } from "./composables"
 
 useHead({
   title: "Gianni Tumedei",
@@ -10,8 +11,17 @@ useHead({
   ]
 })
 
-// Prevent the "flash of unstyled content" by revealing the body only after the app is mounted
-onMounted(() => document.body.style.visibility = "visible")
+onMounted(() => {
+  // Prevent the "flash of unstyled content" by revealing the body only after the app is mounted
+  document.body.style.visibility = "visible"
+
+  // Load locale from local storage, if present
+  const savedLocale = localStorage.getItem("locale")
+  if (savedLocale) {
+    const { locale } = useI18n()
+    locale.value = savedLocale
+  }
+})
 </script>
 
 <template>
