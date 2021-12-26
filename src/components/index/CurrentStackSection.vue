@@ -1,10 +1,13 @@
 <script lang="ts" setup>
+import { useI18n } from "@/composables"
 import Icon from "@/components/Icon.vue"
 import StackItem from "@/components/index/StackItem.vue"
 import MysqlIcon from "@/assets/mysql.svg"
 import NestjsIcon from "@/assets/nestjs.svg"
 import PrismaIcon from "@/assets/prisma.svg"
 import ViteIcon from "@/assets/vite.svg"
+
+const { t } = useI18n()
 
 const stack = {
   frontend: [
@@ -64,7 +67,7 @@ const stack = {
 
 <template>
   <div>
-    <h3 class="heading">Current tech stack</h3>
+    <h3 class="heading">{{t("current_stack.heading")}}</h3>
     <div class="carousel">
 
       <div class="carousel-item items-start">

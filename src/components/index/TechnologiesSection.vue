@@ -1,10 +1,13 @@
 <script lang="ts" setup>
+import { useI18n } from "@/composables"
 import Icon from "@/components/Icon.vue"
 import FlutterIcon from "@/assets/flutter.svg"
 import MongodbIcon from "@/assets/mongodb.svg"
 import ScalaIcon from "@/assets/scala.svg"
 import SolidjsIcon from "@/assets/solidjs.svg"
 import SvelteIcon from "@/assets/svelte.svg"
+
+const { t } = useI18n()
 
 const tech = [
   {
@@ -102,13 +105,8 @@ const tech = [
 
 <template>
   <div class="flex flex-col align-center mb-18">
-    <h3 class="heading mb-12">Other technologies</h3>
-    <p class="text-center lg:max-w-2/3 mx-auto mb-18">
-      While I'm quite proficient with the above stack, I know a lot of other languages, technologies
-      and platforms and I'm always up to work with those too!<br/>
-      Here are some of them.
-    </p>
-
+    <h3 class="heading mb-12">{{t("other_technologies.heading")}}</h3>
+    <p class="text-center lg:max-w-2/3 mx-auto mb-18" v-html="t('other_technologies.paragraph')"></p>
     <div class="tech-grid w-full grid grid-tem grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-12">
       <a
         v-for="(entry, i) in tech" :key="i"

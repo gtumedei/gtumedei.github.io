@@ -1,5 +1,8 @@
 <script lang="ts" setup>
+import { useI18n } from "@/composables"
 import Icon from "@/components/Icon.vue"
+
+const { t } = useI18n()
 
 const onMainCallToActionClick = () => window.scrollTo({ top: 820, behavior: "smooth" })
 </script>
@@ -14,9 +17,9 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 820, behavior: "smo
   ">
     <h1 class="display-heading">Gianni <span class="text-stroke-none text-black-80">Tumedei</span></h1>
     <icon name="mdi:cards-diamond-outline" class="mt-4 mb-5"/>
-    <p class="text-sm font-bold uppercase tracking-wide">Work in Progress<!-- IT Engineer, Full Stack Developer --></p>
+    <p class="text-sm font-bold uppercase tracking-wide">{{t("hero.subheading")}}<!-- IT Engineer, Full Stack Developer --></p>
     <button class="btn absolute-center-x bottom-12" @click="onMainCallToActionClick">
-      <span class="whitespace-nowrap">Check out my work</span>
+      <span class="whitespace-nowrap">{{t("hero.button")}}</span>
       <icon name="mdi:chevron-double-down"/>
     </button>
   </div>

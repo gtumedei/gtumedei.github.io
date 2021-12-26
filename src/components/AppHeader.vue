@@ -1,16 +1,9 @@
 <script lang="ts" setup>
-import { useI18n } from "vue-i18n"
-import { useDarkMode } from "@/composables"
+import { useDarkMode, useI18n } from "@/composables"
 import Icon from "@/components/Icon.vue"
 
 const { isDark, toggleDark } = useDarkMode()
-
-const { t, availableLocales, locale } = useI18n()
-
-const toggleLocales = () => {
-  const locales = availableLocales
-  locale.value = locales[(locales.indexOf(locale.value) + 1) % locales.length]
-}
+const { t, toggleLocales } = useI18n()
 </script>
 
 <template>

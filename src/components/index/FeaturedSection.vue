@@ -1,23 +1,26 @@
 <script lang="ts" setup>
+import { useI18n } from "@/composables"
 import FeaturedProject from "@/components/index/FeaturedProject.vue"
+
+const { t } = useI18n()
 
 const projects = [
   {
-    name: "Project Name",
-    type: "Type of Project",
-    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
+    name: "featured.items.0.name",
+    type: "featured.items.0.type",
+    description: "featured.items.0.description",
     image: "/mtt.jpeg"
   },
   {
-    name: "Project Name",
-    type: "Type of Project",
-    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
+    name: "featured.items.1.name",
+    type: "featured.items.1.type",
+    description: "featured.items.1.description",
     image: "/placeholder.png"
   },
   {
-    name: "Project Name",
-    type: "Type of Project",
-    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.",
+    name: "featured.items.2.name",
+    type: "featured.items.2.type",
+    description: "featured.items.2.description",
     image: "/tbg.jpeg"
   }
 ]
@@ -25,7 +28,7 @@ const projects = [
 
 <template>
   <div class="mb-18">
-    <h2 class="heading">Featured</h2>
+    <h2 class="heading">{{t("featured.heading")}}</h2>
 
     <div class="flex flex-col gap-12">
       <featured-project

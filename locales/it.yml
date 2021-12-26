@@ -5,23 +5,32 @@ ui:
     dark_title: "Attiva il tema scuro"
 
 hero:
-  animated_text:
-    1: Sono Gianni
+  subheading: work in progress
+  button: Dai un'occhiata al mio lavoro
 
-"Hi, {name}!": Ciao, {name}!
-"What's your name?": Come ti chiami?
-About: About
-Back: Indietro
-Blue: Blu
-Change language: Cambia lingua
-Dark theme: Tema scuro
-Demo of dynamic route: Demo di route dinamica
-Go: Vai
-Home: Home
-Light theme: Tema chiaro
-Not found: Non trovato
-Opinionated Vite Starter Template: Modello per una Applicazione Vite
-Orange: Arancione
-Pink: Rosa
-Teal: Verde acqua
-Toggle dark mode: Attiva/disattiva modalità scura
+featured:
+  heading: In evidenza
+  items:
+    0:
+      type: Tipo di progetto
+      name: Nome del progetto
+      description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.
+    1:
+      type: Tipo di progetto
+      name: Nome del progetto
+      description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.
+    2:
+      type: Tipo di progetto
+      name: Nome del progetto
+      description: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid nihil magni porro, veniam labore dolor officia eveniet adipisci quae repudiandae.
+
+current_stack:
+  heading: Stack in uso
+
+other_technologies:
+  heading: Altre tecnologie
+  paragraph: Anche se sono un esperto dello stack sopra, conosco molti altri linguaggi, tecnologie e piattaforme con cui sono sempre interessato a lavorare!<br>Eccone alcune.
+
+404:
+  title: Pagina non trovata
+  button: Torna alla home
