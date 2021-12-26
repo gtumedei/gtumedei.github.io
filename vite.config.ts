@@ -4,8 +4,9 @@ import Vue from "@vitejs/plugin-vue"
 import Pages from "vite-plugin-pages"
 import Layouts from "vite-plugin-vue-layouts"
 import PurgeIcons from "vite-plugin-purge-icons"
+import FontsLoader from "vite-plugin-fonts"
 import SvgLoader from "vite-svg-loader"
-// import { VitePWA } from "vite-plugin-pwa"
+import { VitePWA } from "vite-plugin-pwa"
 import VueI18n from "@intlify/vite-plugin-vue-i18n"
 import WindiCSS from "vite-plugin-windicss"
 
@@ -28,6 +29,13 @@ export default defineConfig({
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts({ layoutsDir: "src/components/layouts" }),
 
+    // https://github.com/stafyniaksacha/vite-plugin-fonts
+    FontsLoader({
+      google: {
+        families: ["Lato", "Volkhov", "Fira Code"]
+      }
+    }),
+
     // https://github.com/antfu/purge-icons
     PurgeIcons(),
 
@@ -38,7 +46,7 @@ export default defineConfig({
     WindiCSS(),
 
     // https://github.com/antfu/vite-plugin-pwa
-    /* VitePWA({
+    VitePWA({
       registerType: "autoUpdate",
       includeAssets: ["favicon.svg", "robots.txt", "safari-pinned-tab.svg"],
       manifest: {
@@ -64,7 +72,7 @@ export default defineConfig({
           }
         ]
       }
-    }), */
+    }),
 
     // https://github.com/intlify/vite-plugin-vue-i18n
     VueI18n({
