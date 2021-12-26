@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useI18n } from "vue-i18n"
-import { useDarkMode } from "@/hooks"
+import { useDarkMode } from "@/composables"
 import Icon from "@/components/Icon.vue"
 
 const { isDark, toggleDark } = useDarkMode()

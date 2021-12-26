@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { onMounted, ref } from "vue"
-import gsap from "gsap"
 import Icon from "@/components/Icon.vue"
 import StackItem from "@/components/index/StackItem.vue"
 import MysqlIcon from "@/assets/mysql.svg"
@@ -62,23 +60,12 @@ const stack = {
     }
   ]
 }
-
-// Animation stuff
-
-const carouselDiv = ref<HTMLDivElement>()
-
-onMounted(() => gsap.from(carouselDiv.value!, {
-  scrollTrigger: { trigger: carouselDiv.value!, start: "80% bottom" },
-  opacity: 0,
-  y: 32,
-  duration: 0.5
-}))
 </script>
 
 <template>
   <div>
     <h3 class="heading">Current tech stack</h3>
-    <div ref="carouselDiv" class="carousel">
+    <div class="carousel">
 
       <div class="carousel-item items-start">
         <div class="flex p-8 rounded-xl bg-primary-dark mb-4">

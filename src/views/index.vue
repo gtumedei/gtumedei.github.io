@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useHomeAnimations } from "@/composables"
 import HeroSection from "@/components/index/HeroSection.vue"
 import AboutHeading from "@/components/index/AboutHeading.vue"
 import FeaturedSection from "@/components/index/FeaturedSection.vue"
@@ -7,6 +8,8 @@ import ProfileSection from "@/components/index/ProfileSection.vue"
 import TechnologiesSection from "@/components/index/TechnologiesSection.vue"
 import CurrentStackSection from "@/components/index/CurrentStackSection.vue"
 import ResumeSection from "@/components/index/ResumeSection.vue"
+
+useHomeAnimations()
 </script>
 
 <template>

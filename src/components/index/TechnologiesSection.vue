@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { onMounted } from "vue"
-import gsap from "gsap"
 import Icon from "@/components/Icon.vue"
 import FlutterIcon from "@/assets/flutter.svg"
 import MongodbIcon from "@/assets/mongodb.svg"
@@ -100,16 +98,6 @@ const tech = [
     url: "https://www.mongodb.com/"
   }
 ]
-
-onMounted(() => {
-  gsap.from(".tech-item", {
-    scrollTrigger: { trigger: ".tech-grid", start: "130px bottom" },
-    opacity: 0,
-    y: 32,
-    duration: 0.5,
-    stagger: 0.02
-  })
-})
 </script>
 
 <template>
