@@ -3,8 +3,8 @@ import Icon from "@/components/Icon.vue"
 </script>
 
 <template>
-  <div class="container px-6 pb-12 mt-18">
-    <footer class="flex justify-center gap-8 p-6 rounded-xl bg-primary-dark">
+  <footer class="container px-6 pb-6 mt-18">
+    <div class="flex justify-center gap-8 p-6 rounded-xl bg-primary-dark">
       <a
         href="#"
         target="_blank"
@@ -29,6 +29,6 @@ import Icon from "@/components/Icon.vue"
         class="btn icon"
         title="Located in Cesena (IT)"
       ><icon name="mdi:map-marker-outline"/></a>
-    </footer>
-  </div>
+    </div>
+  </footer>
 </template>

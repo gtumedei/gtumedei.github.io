@@ -1,14 +1,8 @@
 <script lang="ts" setup>
+import Technology from "@/models/Technology"
 import Icon from "@/components/Icon.vue"
 
-defineProps<{
-  item: {
-    name: string
-    icon: any
-    colors: { text: string, hover: string },
-    url: string
-  }
-}>()
+defineProps<{ item: Technology }>()
 </script>
 
 <template>

@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { useI18n } from "@/composables"
+import Technology from "@/models/Technology"
 import Icon from "@/components/Icon.vue"
 import FlutterIcon from "@/assets/flutter.svg"
 import MongodbIcon from "@/assets/mongodb.svg"
@@ -9,7 +10,7 @@ import SvelteIcon from "@/assets/svelte.svg"
 
 const { t } = useI18n()
 
-const tech = [
+const tech: Technology[] = [
   {
     name: "JavaScript",
     icon: "mdi:language-javascript",
@@ -106,7 +107,7 @@ const tech = [
 <template>
   <div class="flex flex-col align-center mb-18">
     <h3 class="heading mb-12">{{t("other_technologies.heading")}}</h3>
-    <p class="text-center lg:max-w-2/3 mx-auto mb-18" v-html="t('other_technologies.paragraph')"></p>
+    <p class="text-center lg:max-w-2/3 mx-auto mb-12" v-html="t('other_technologies.paragraph')"></p>
     <div class="tech-grid w-full grid grid-tem grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-12">
       <a
         v-for="(entry, i) in tech" :key="i"

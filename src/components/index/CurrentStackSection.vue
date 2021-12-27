@@ -6,10 +6,11 @@ import MysqlIcon from "@/assets/mysql.svg"
 import NestjsIcon from "@/assets/nestjs.svg"
 import PrismaIcon from "@/assets/prisma.svg"
 import ViteIcon from "@/assets/vite.svg"
+import { Stack } from "@/models/Technology"
 
 const { t } = useI18n()
 
-const stack = {
+const stack: { frontend: Stack, backend: Stack } = {
   frontend: [
     {
       name: "TypeScript",
