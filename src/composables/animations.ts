@@ -4,17 +4,16 @@ import gsap from "gsap"
 
 export const useHomeAnimations = () => {
   onMounted(async () => {
-    await new Promise(r => setTimeout(r, 10)) // Nice Vue, very nice
-
     const common: gsap.TweenVars = { opacity: 0, duration: 0.5 }
 
     // Hero
     gsap.from("#hero", {
-      opacity: 0,
       y: 32,
-      duration: 0.5,
-      delay: 0.5
+      delay: 0.5,
+      ...common
     })
+
+    await new Promise(r => setTimeout(r, 10)) // Nice Vue, very nice
 
     // Featured
     const lgAndUp = useBreakpoints(breakpointsTailwind).greater("lg")

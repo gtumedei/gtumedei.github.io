@@ -9,11 +9,10 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 820, behavior: "smo
 
 <template>
   <div id="hero" class="
-    card py-64 lg:px-12 mb-18
+    card relative py-64 lg:px-12 mb-18
     bg-gradient-to-br from-[#FF8A80] to-[#FFD54F]
     flex flex-col justify-center items-center
     text-black-80 text-center
-    relative
   ">
     <h1 class="display-heading">Gianni <span class="text-stroke-none text-black-80">Tumedei</span></h1>
     <icon name="mdi:cards-diamond-outline" class="mt-4 mb-5"/>
