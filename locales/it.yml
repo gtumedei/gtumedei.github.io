@@ -1,12 +1,19 @@
 ui:
-  locale_button_title: "Cambia lingua"
-  theme_button:
-    light_title: "Attiva il tema chiaro"
-    dark_title: "Attiva il tema scuro"
+  header:
+    locale_btn_title: "Cambia lingua"
+    theme_btn:
+      light_title: "Attiva il tema chiaro"
+      dark_title: "Attiva il tema scuro"
+  footer:
+    email_btn_title: Contattami
+    linkedin_btn_title: Gianni Tumedei su LinkedIn
+    github_btn_title: gtumedei su GitHub
+    location_btn_title: Vivo a Cesena (IT)
+  back_to_top_btn_title: Torna su
 
 hero:
   subheading: work in progress
-  button: Dai un'occhiata al mio lavoro
+  btn: Dai un'occhiata al mio lavoro
 
 featured:
   heading: In evidenza

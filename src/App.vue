@@ -2,7 +2,7 @@
 import { onMounted } from "vue"
 import { useHead } from "@vueuse/head"
 import ThemeWatcher from "@/components/ThemeWatcher.vue"
-import { useI18n } from "./composables"
+import { createTippy, useI18n } from "./composables"
 
 useHead({
   title: "Gianni Tumedei",
@@ -10,6 +10,8 @@ useHead({
     { name: "description", content: "My portfolio website" }
   ]
 })
+
+createTippy()
 
 onMounted(() => {
   // Prevent the "flash of unstyled content" by revealing the body only after the app is mounted

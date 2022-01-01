@@ -18,7 +18,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 820, behavior: "smo
     <icon name="mdi:cards-diamond-outline" class="mt-4 mb-5"/>
     <p class="text-sm font-bold uppercase tracking-wide">{{t("hero.subheading")}}<!-- IT Engineer, Full Stack Developer --></p>
     <button class="btn absolute-center-x bottom-12" @click="onMainCallToActionClick">
-      <span class="whitespace-nowrap">{{t("hero.button")}}</span>
+      <span class="whitespace-nowrap">{{t("hero.btn")}}</span>
       <icon name="mdi:chevron-double-down"/>
     </button>
   </div>

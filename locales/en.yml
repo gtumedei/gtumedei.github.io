@@ -1,12 +1,19 @@
 ui:
-  locale_button_title: "Change language"
-  theme_button:
-    light_title: "Enable light theme"
-    dark_title: "Enable dark theme"
+  header:
+    locale_btn_title: Change language
+    theme_btn:
+      light_title: Enable light theme
+      dark_title: Enable dark theme
+  footer:
+    email_btn_title: Contact me
+    linkedin_btn_title: Gianni Tumedei on LinkedIn
+    github_btn_title: gtumedei on GitHub
+    location_btn_title: Located in Cesena (IT)
+  back_to_top_btn_title: Go back to top
 
 hero:
   subheading: work in progress
-  button: Check out my work
+  btn: Check out my work
 
 featured:
   heading: Featured
@@ -34,22 +41,3 @@ other_technologies:
 404:
   title: Page not found
   button: Go to Home
-
-"Hi, {name}!": Hi, {name}!
-"What's your name?": What's your name?
-About: About
-Also known as: Also known as
-Back: Back
-Blue: Blue
-Change language: Change language
-Dark theme: Dark theme
-Demo of dynamic route: Demo of dynamic route
-Go: Go
-Home: Home
-Light theme: Light theme
-Not found: Not found
-Opinionated Vite Starter Template: Opinionated Vite Starter Template
-Orange: Orange
-Pink: Pink
-Teal: Teal
-Toggle dark mode: Toggle dark mode
