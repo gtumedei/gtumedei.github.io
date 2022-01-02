@@ -6,5 +6,5 @@ My portfolio website.
 
 - Add Google Analytics
 - Add router transition
-- Logo and favicon
-- Replace windicss with tailwind
+- Add portfolio link
+- Add missing content
