@@ -15,25 +15,35 @@ export const useHomeAnimations = () => {
 
     await new Promise(r => setTimeout(r, 10)) // Nice Vue, very nice
 
-    // Featured
     const lgAndUp = useBreakpoints(breakpointsTailwind).greater("lg")
-    document.querySelectorAll(".featured-text").forEach(elem => gsap.from(elem, {
-      scrollTrigger: { trigger: elem, start: "50% bottom" },
-      y: 32,
-      ...common
-    }))
-    document.querySelectorAll(".featured-img").forEach(elem => gsap.from(elem, {
-      scrollTrigger: { trigger: elem, start: "50% bottom" },
-      x: lgAndUp.value ? 32 : 0,
-      y: lgAndUp.value ? 0 : 32,
-      ...common
-    }))
-    document.querySelectorAll(".featured-img-flip").forEach(elem => gsap.from(elem, {
-      scrollTrigger: { trigger: elem, start: "50% bottom" },
-      x: lgAndUp.value ? -32 : 0,
-      y: lgAndUp.value ? 0 : 32,
-      ...common
-    }))
+
+    // Featured
+    document.querySelectorAll(".featured-item").forEach(featuredItem => {
+      const textElem = featuredItem.querySelector(".featured-text")
+      gsap.from(textElem, {
+        scrollTrigger: { trigger: featuredItem, start: "50% bottom" },
+        y: 32,
+        ...common
+      })
+      const imgElem = featuredItem.querySelector(".featured-img")
+      if (imgElem) {
+        gsap.from(imgElem, {
+          scrollTrigger: { trigger: featuredItem, start: "50% bottom" },
+          x: lgAndUp.value ? 32 : 0,
+          y: lgAndUp.value ? 0 : 32,
+          ...common
+        })
+      }
+      const imgFlipElem = featuredItem.querySelector(".featured-img-flip")
+      if (imgFlipElem) {
+        gsap.from(imgFlipElem, {
+          scrollTrigger: { trigger: featuredItem, start: "50% bottom" },
+          x: lgAndUp.value ? -32 : 0,
+          y: lgAndUp.value ? 0 : 32,
+          ...common
+        })
+      }
+    })
 
     // Knowledge
     gsap.from("#knowledge-heading", {
