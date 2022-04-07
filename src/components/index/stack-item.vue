@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import Technology from "@/models/Technology"
-import Icon from "@/components/Icon.vue"
+import Technology from "@/models/technology"
+import Icon from "@/components/icon.vue"
 
 defineProps<{ item: Technology }>()
 </script>

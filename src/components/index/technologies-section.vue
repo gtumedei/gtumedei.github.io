@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from "@/composables"
-import Technology from "@/models/Technology"
-import Icon from "@/components/Icon.vue"
+import Technology from "@/models/technology"
+import Icon from "@/components/icon.vue"
 import FlutterIcon from "@/assets/flutter.svg"
 import MongodbIcon from "@/assets/mongodb.svg"
 import ScalaIcon from "@/assets/scala.svg"

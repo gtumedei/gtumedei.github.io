@@ -1,7 +1,7 @@
-import { useI18n } from "vue-i18n"
+import { useI18n as useVueI18n } from "vue-i18n"
 
-export default () => {
-  const { t, availableLocales, locale } = useI18n()
+export const useI18n = () => {
+  const { t, availableLocales, locale } = useVueI18n()
 
   const toggleLocales = () => {
     const locales = availableLocales

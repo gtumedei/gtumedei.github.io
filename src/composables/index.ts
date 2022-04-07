@@ -1,4 +1,4 @@
-export { default as useDarkMode } from "./useDarkMode"
-export { default as useI18n } from "./useI18n"
-export * from "./useTippy"
+export * from "./dark-mode"
+export * from "./i18n"
+export * from "./tippy"
 export * from "./animations"

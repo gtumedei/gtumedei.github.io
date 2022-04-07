@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { useHomeAnimations } from "@/composables"
-import HeroSection from "@/components/index/HeroSection.vue"
-import AboutHeading from "@/components/index/AboutHeading.vue"
-import FeaturedSection from "@/components/index/FeaturedSection.vue"
-import KnowledgeHeading from "@/components/index/KnowledgeHeading.vue"
-import ProfileSection from "@/components/index/ProfileSection.vue"
-import TechnologiesSection from "@/components/index/TechnologiesSection.vue"
-import CurrentStackSection from "@/components/index/CurrentStackSection.vue"
-import ResumeSection from "@/components/index/ResumeSection.vue"
+import HeroSection from "@/components/index/hero-section.vue"
+import AboutHeading from "@/components/index/about-heading.vue"
+import FeaturedSection from "@/components/index/featured-section.vue"
+import KnowledgeHeading from "@/components/index/knowledge-heading.vue"
+import ProfileSection from "@/components/index/profile-section.vue"
+import TechnologiesSection from "@/components/index/technologies-section.vue"
+import CurrentStackSection from "@/components/index/current-stack-section.vue"
+import ResumeSection from "@/components/index/resume-section.vue"
 
 useHomeAnimations()
 </script>

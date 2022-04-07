@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { useI18n } from "@/composables"
-import Icon from "@/components/Icon.vue"
-import StackItem from "@/components/index/StackItem.vue"
+import Icon from "@/components/icon.vue"
+import StackItem from "@/components/index/stack-item.vue"
 import MysqlIcon from "@/assets/mysql.svg"
 import NestjsIcon from "@/assets/nestjs.svg"
 import PrismaIcon from "@/assets/prisma.svg"
 import ViteIcon from "@/assets/vite.svg"
-import { Stack } from "@/models/Technology"
+import { Stack } from "@/models/technology"
 
 const { t } = useI18n()
 

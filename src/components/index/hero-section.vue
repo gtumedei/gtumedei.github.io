@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useI18n } from "@/composables"
-import Icon from "@/components/Icon.vue"
+import Icon from "@/components/icon.vue"
 
 const { t } = useI18n()
 

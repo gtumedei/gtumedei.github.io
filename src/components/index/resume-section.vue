@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import Icon from "@/components/Icon.vue"
+import Icon from "@/components/icon.vue"
 
 const resume = [
   {

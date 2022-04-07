@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from "vue"
-import Icon from "@/components/Icon.vue"
+import Icon from "@/components/icon.vue"
 import { useTippy } from "@/composables"
 
 const emailButton = ref<HTMLAnchorElement>()

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue"
 import { useEventListener } from "@vueuse/core"
-import Icon from "@/components/Icon.vue"
+import Icon from "@/components/icon.vue"
 import { useTippy } from "@/composables"
 
 const show = ref(false)

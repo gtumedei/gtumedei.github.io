@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { useDarkMode, useI18n, useTippy } from "@/composables"
-import Icon from "@/components/Icon.vue"
+import Icon from "@/components/icon.vue"
 import { computed, ref } from "vue";
 
 const { isDark, toggleDark } = useDarkMode()
