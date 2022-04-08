@@ -1,6 +1,6 @@
 <template>
   <div id="about-heading" class="
-    card bg-gradient-to-br from-[#64B5F6] to-[#A7FFEB]
+    card bg-gradient-to-br from-[#FBC2EB] to-[#64B5F6]
     h-64 lg:h-80 mb-18 text-black-80
     flex flex-col justify-center items-center
   ">

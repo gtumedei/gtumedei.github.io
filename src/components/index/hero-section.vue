@@ -10,7 +10,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 820, behavior: "smo
 <template>
   <div id="hero" class="
     card relative py-64 lg:px-12 mb-18
-    bg-gradient-to-br from-[#FF8A80] to-[#FFD54F]
+    bg-gradient-to-br from-[#FFD54F] to-[#FF8A80]
     flex flex-col justify-center items-center
     text-black-80 text-center
   ">
