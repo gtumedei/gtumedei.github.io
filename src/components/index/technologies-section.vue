@@ -45,13 +45,13 @@ const tech: Technology[] = [
     name: "HTML",
     icon: "mdi:language-html5",
     colors: { text: "!hover:text-[#EA580C]", hover: "!hover:bg-[#EA580C]" },
-    url: "#"
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML"
   },
   {
     name: "CSS",
     icon: "mdi:language-css3",
     colors: { text: "!hover:text-[#2563EB]", hover: "!hover:bg-[#2563EB]" },
-    url: "#"
+    url: "https://developer.mozilla.org/en-US/docs/Web/CSS"
   },
   {
     name: "PHP",
@@ -94,6 +94,12 @@ const tech: Technology[] = [
     icon: "mdi:docker",
     colors: { text: "!hover:text-[#0EA5E9]", hover: "!hover:bg-[#0EA5E9]" },
     url: "https://www.docker.com/"
+  },
+  {
+    name: "SQL",
+    icon: "mdi-database-search",
+    colors: { text: "!hover:text-[#FF7043]", hover: "!hover:bg-[#FF7043]" },
+    url: "https://en.wikipedia.org/wiki/SQL"
   },
   {
     name: "MongoDB",

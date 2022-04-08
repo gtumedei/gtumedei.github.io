@@ -2,9 +2,9 @@
 import { useI18n } from "@/composables"
 import Icon from "@/components/icon.vue"
 import StackItem from "@/components/index/stack-item.vue"
-import MysqlIcon from "@/assets/mysql.svg"
-import NestjsIcon from "@/assets/nestjs.svg"
+import PlanetscaleIcon from "@/assets/planetscale.svg"
 import PrismaIcon from "@/assets/prisma.svg"
+import TrpcIcon from "@/assets/trpc.svg"
 import ViteIcon from "@/assets/vite.svg"
 import { Stack } from "@/models/technology"
 
@@ -45,10 +45,10 @@ const stack: { frontend: Stack, backend: Stack } = {
       url: "https://www.typescriptlang.org/"
     },
     {
-      name: "Nest.js",
-      icon: NestjsIcon,
-      colors: { text: "!hover:fill-[#F43F5E]", hover: "!hover:bg-[#F43F5E]" },
-      url: "https://nestjs.com/"
+      name: "TRPC",
+      icon: TrpcIcon,
+      colors: { text: "!hover:fill-[#2896BC]", hover: "!hover:bg-[#2896BC]" },
+      url: "https://trpc.io/"
     },
     {
       name: "Prisma",
@@ -57,10 +57,10 @@ const stack: { frontend: Stack, backend: Stack } = {
       url: "https://www.prisma.io/"
     },
     {
-      name: "MySQL",
-      icon: MysqlIcon,
-      colors: { text: "!hover:fill-[#0891B2]", hover: "!hover:bg-[#0891B2]" },
-      url: "https://www.mysql.com/"
+      name: "Planetscale",
+      icon: PlanetscaleIcon,
+      colors: { text: "!hover:fill-[#8368EE]", hover: "!hover:bg-[#8368EE]" },
+      url: "https://planetscale.com/"
     }
   ]
 }

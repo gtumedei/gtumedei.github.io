@@ -6,8 +6,6 @@ My portfolio website.
 
 - Google Analytics
 - Featured projects
-- Update current stack
-- Update other technologies
 - About section
 - Get in touch button link
 - Portfolio entries

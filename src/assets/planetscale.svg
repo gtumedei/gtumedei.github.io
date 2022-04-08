@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="30"
+   height="30"
+   viewBox="0 0 30 30"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="planetscale.svg"
+   inkscape:version="1.1.2 (1:1.1+202202050950+0a00cf5339)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="16"
+     inkscape:cx="10.0625"
+     inkscape:cy="19.625"
+     inkscape:current-layer="svg6" />
+  <g
+     id="g829"
+     transform="matrix(0.63636364,0,0,0.63636364,0.99999992,0.99999992)">
+    <path
+       d="M 0,22 C 1.03435e-6,9.84973 9.84974,-1.03435e-6 22,0 30.9336,7.80998e-7 38.6235,5.3248 42.069,12.9737 L 12.9737,42.069 C 11.7252,41.5066 10.5385,40.8311 9.42689,40.0555 L 27.4824,22 H 22 L 6.44366,37.5563 C 2.46244,33.5751 -5.31105e-7,28.0751 0,22 Z"
+       id="path2" />
+    <path
+       d="M 44,22.0076 22.0076,44 C 34.1518,43.9959 43.9959,34.1518 44,22.0076 Z"
+       id="path4" />
+  </g>
+</svg>
