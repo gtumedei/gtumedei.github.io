@@ -25,15 +25,15 @@ useTippy(
       class="btn icon"
       @click="toggleLocales"
     >
-      <icon name="mdi:translate" class="text-secondary"/>
+      <icon name="mdi:translate"/>
     </button>
     <button
       ref="themeButton"
       class="btn icon"
       @click="() => toggleDark()"
     >
-      <icon v-if="isDark" name="mdi:brightness-7" class="text-secondary"/>
-      <icon v-else name="mdi:brightness-4" class="text-secondary"/>
+      <icon v-if="isDark" name="mdi:brightness-7"/>
+      <icon v-else name="mdi:brightness-4"/>
     </button>
   </header>
 </template>

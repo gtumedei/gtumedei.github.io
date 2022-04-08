@@ -75,7 +75,7 @@ const stack: { frontend: Stack, backend: Stack } = {
         <div class="flex p-8 rounded-xl bg-primary-dark mb-4">
           <icon name="mdi:application-brackets-outline" class="text-4xl text-inverted-primary"/>
         </div>
-        <h3 class="text-2xl mb-4">Frontend</h3>
+        <h4 class="text-2xl mb-4">Frontend</h4>
         <icon name="mdi:chevron-double-right" class="lg:hidden text-2xl absolute top-10 right-2"/>
 
         <div class="bg-primary-dark rounded-xl p-6 w-full flex justify-evenly gap-6 xl:gap-8">
@@ -87,10 +87,10 @@ const stack: { frontend: Stack, backend: Stack } = {
         <div class="flex p-8 rounded-xl bg-primary-dark mb-4">
           <icon name="mdi:server-network" class="text-4xl text-inverted-primary"/>
         </div>
-        <h3 class="text-2xl mb-4">Backend</h3>
+        <h4 class="text-2xl mb-4">Backend</h4>
         <icon name="mdi:chevron-double-left" class="lg:hidden text-2xl absolute top-10 left-2"/>
 
-        <div class="bg-primary-dark rounded-xl p-6 w-full flex justify-evenly gap-6 lg:gap-8">
+        <div class="bg-primary-dark rounded-xl p-6 w-full flex justify-evenly gap-6 xl:gap-8">
           <stack-item v-for="(item, i) in stack.backend" :key="i" :item="item"/>
         </div>
       </div>

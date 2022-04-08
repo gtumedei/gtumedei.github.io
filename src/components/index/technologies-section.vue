@@ -12,10 +12,22 @@ const { t } = useI18n()
 
 const tech: Technology[] = [
   {
+    name: "TypeScript",
+    icon: "mdi:language-typescript",
+    colors: { text: "!hover:text-[#0284C7]", hover: "!hover:bg-[#0284C7]" },
+    url: "https://www.typescriptlang.org/"
+  },
+  {
     name: "JavaScript",
     icon: "mdi:language-javascript",
     colors: { text: "!hover:text-[#EAB308]", hover: "!hover:bg-[#EAB308]" },
     url: "https://www.javascript.com/"
+  },
+  {
+    name: "Vue.js",
+    icon: "mdi:vuejs",
+    colors: { text: "!hover:text-[#00C985]", hover: "!hover:bg-[#00C985]" },
+    url: "https://vuejs.org/"
   },
   {
     name: "React",
