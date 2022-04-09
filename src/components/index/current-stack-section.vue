@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import { useI18n } from "@/composables"
 import Icon from "@/components/icon.vue"
-import StackItem from "@/components/index/stack-item.vue"
 import PlanetscaleIcon from "@/assets/planetscale.svg"
 import PrismaIcon from "@/assets/prisma.svg"
 import TrpcIcon from "@/assets/trpc.svg"
 import ViteIcon from "@/assets/vite.svg"
 import { Stack } from "@/models/technology"
+import TechItem from "./tech-item.vue"
 
 const { t } = useI18n()
 
@@ -71,28 +71,50 @@ const stack: { frontend: Stack, backend: Stack } = {
     <h3 class="heading">{{t("current_stack.heading")}}</h3>
     <div class="carousel">
 
-      <div class="carousel-item items-start">
-        <div class="flex p-8 rounded-xl bg-primary-dark mb-4">
+      <div class="carousel-item rounded-xl items-center bg-primary-dark">
+        <div class="flex p-4 mt-6">
           <icon name="mdi:application-brackets-outline" class="text-4xl text-inverted-primary"/>
         </div>
-        <h4 class="text-2xl mb-4">Frontend</h4>
-        <icon name="mdi:chevron-double-right" class="lg:hidden text-2xl absolute top-10 right-2"/>
+        <h4 class="text-2xl mb-6">Frontend</h4>
 
-        <div class="bg-primary-dark rounded-xl p-6 w-full flex justify-evenly gap-6 xl:gap-8">
-          <stack-item v-for="(item, i) in stack.frontend" :key="i" :item="item"/>
+        <div class="w-full aspect-1/1 sm:aspect-none lg:aspect-4/5 xl:aspect-none">
+          <div class="
+            p-6 w-full h-full grid gap-6 lg:gap-8
+            grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4
+          ">
+            <tech-item
+              v-for="(item, i) in stack.frontend" :key="i"
+              :item="item"
+              bg="primary"
+              class="m-auto"
+            />
+          </div>
         </div>
+
+        <icon name="mdi:chevron-double-right" class="mb-6 lg:hidden"/>
       </div>
 
-      <div class="carousel-item items-end">
-        <div class="flex p-8 rounded-xl bg-primary-dark mb-4">
+      <div class="carousel-item rounded-xl items-center bg-primary-dark">
+        <div class="flex p-4 mt-6">
           <icon name="mdi:server-network" class="text-4xl text-inverted-primary"/>
         </div>
-        <h4 class="text-2xl mb-4">Backend</h4>
-        <icon name="mdi:chevron-double-left" class="lg:hidden text-2xl absolute top-10 left-2"/>
+        <h4 class="text-2xl mb-6">Backend</h4>
 
-        <div class="bg-primary-dark rounded-xl p-6 w-full flex justify-evenly gap-6 xl:gap-8">
-          <stack-item v-for="(item, i) in stack.backend" :key="i" :item="item"/>
+        <div class="w-full aspect-1/1 sm:aspect-none lg:aspect-4/5 xl:aspect-none">
+          <div class="
+            p-6 w-full h-full grid gap-6 lg:gap-8
+            grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4
+          ">
+            <tech-item
+              v-for="(item, i) in stack.backend" :key="i"
+              :item="item"
+              bg="primary"
+              class="m-auto"
+            />
+          </div>
         </div>
+
+        <icon name="mdi:chevron-double-left" class="mb-6 lg:hidden"/>
       </div>
 
     </div>
@@ -102,10 +124,12 @@ const stack: { frontend: Stack, backend: Stack } = {
 <style lang="postcss" scoped>
 
 .carousel { @apply
-  flex gap-18 lg:gap-36 w-full overflow-x-auto snap snap-x pb-9 mb-9;
+  flex w-full overflow-x-auto snap snap-x pb-9 mb-9
+  gap-18 lg:gap-12 xl:gap-24  2xl:gap-36;
 
   .carousel-item { @apply
-    w-full lg:w-[calc(50%-4.5rem)] flex-shrink-0 flex flex-col snap-center
+    w-full lg:w-[calc(50%-1.5rem)] xl:w-[calc(50%-3rem)] 2xl:w-[calc(50%-4.5rem)]
+    flex-shrink-0 flex flex-col snap-center
     rounded-xl relative;
   }
 

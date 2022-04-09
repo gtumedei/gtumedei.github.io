@@ -62,7 +62,7 @@ export const useHomeAnimations = () => {
     })
 
     // Other technologies
-    gsap.from(".tech-item", {
+    gsap.from(".tech-grid .tech-item", {
       scrollTrigger: { trigger: ".tech-grid", start: "130px bottom" },
       opacity: 0,
       y: 32,

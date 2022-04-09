@@ -1,7 +1,7 @@
 <script lang="ts" setup>
+import TechItem from "@/components/index/tech-item.vue"
 import { useI18n } from "@/composables"
 import Technology from "@/models/technology"
-import Icon from "@/components/icon.vue"
 import FlutterIcon from "@/assets/flutter.svg"
 import MongodbIcon from "@/assets/mongodb.svg"
 import ScalaIcon from "@/assets/scala.svg"
@@ -127,31 +127,11 @@ const tech: Technology[] = [
     <h3 class="heading mb-12">{{t("other_technologies.heading")}}</h3>
     <p class="text-center lg:max-w-2/3 mx-auto mb-12" v-html="t('other_technologies.paragraph')"></p>
     <div class="tech-grid w-full grid grid-tem grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-12">
-      <a
-        v-for="(entry, i) in tech" :key="i"
-        :href="entry.url" target="_blank"
-        class="tech-item relative flex flex-col gap-2 mb-7"
-      >
-        <div class="flex rounded-xl bg-primary mx-auto">
-          <icon
-            v-if="typeof entry.icon == 'string'"
-            :name="entry.icon"
-            :class="`
-              p-8 rounded-xl text-4xl text-inverted-primary bg-primary-dark
-              transition-colors ${entry.colors.text} ${entry.colors.hover} !hover:bg-opacity-10
-            `"
-          />
-          <div v-else :class="`
-            flex p-8.5 rounded-xl bg-primary-dark fill-typography-base
-            transition-colors ${entry.colors.text} ${entry.colors.hover} !hover:bg-opacity-10
-          `">
-            <component :is="entry.icon" class="h-8 w-8"/>
-          </div>
-        </div>
-        <p class="text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 -bottom-8">
-          {{entry.name}}
-        </p>
-      </a>
+      <tech-item
+        v-for="(item, i) in tech" :key="i"
+        :item="item"
+        bg="primary-dark"
+      />
     </div>
   </div>
 </template>
