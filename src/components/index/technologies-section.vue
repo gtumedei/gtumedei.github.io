@@ -108,6 +108,12 @@ const tech: Technology[] = [
     url: "https://www.docker.com/"
   },
   {
+    name: "GraphQL",
+    icon: "mdi-graphql",
+    colors: { text: "!hover:text-[#DD36A3]", hover: "!hover:bg-[#DD36A3]" },
+    url: "https://graphql.org/"
+  },
+  {
     name: "SQL",
     icon: "mdi-database-search",
     colors: { text: "!hover:text-[#FF7043]", hover: "!hover:bg-[#FF7043]" },
