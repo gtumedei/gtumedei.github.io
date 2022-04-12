@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import TechItem from "@/components/index/tech-item.vue"
+import TechItem from "@/components/knowledge/tech-item.vue"
 import { useI18n } from "@/composables"
 import Technology from "@/models/technology"
 import FlutterIcon from "@/assets/flutter.svg"

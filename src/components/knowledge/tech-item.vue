@@ -16,7 +16,7 @@ defineProps<{ item: Technology, bg: "primary" | "primary-dark" }>()
           v-if="typeof item.icon == 'string'"
           :name="item.icon"
           :class="`
-            p-8 rounded-xl text-4xl text-inverted-primary ${bg == 'primary' ? 'bg-primary' : 'bg-primary-dark'}
+            p-8 rounded-xl !text-4xl text-inverted-primary ${bg == 'primary' ? 'bg-primary' : 'bg-primary-dark'}
             transition-colors ${item.colors.text} ${item.colors.hover} !hover:bg-opacity-10
           `"
         />

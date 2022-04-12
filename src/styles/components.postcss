@@ -24,6 +24,10 @@
   focus:bg-primary-dark
   active:shadow-md;
 
+  &:disabled { @apply
+    opacity-90 shadow-none cursor-not-allowed;
+  }
+
   &.inverted { @apply
     text-inverted-base bg-inverted-primary
     focus:bg-inverted-primary-dark;
@@ -51,9 +55,8 @@
   }
 }
 
-
 .display-heading { @apply
-  text-4xl lg:text-6xl font-black tracking-widest
+  text-4xl lg:text-5xl font-black tracking-widest
   text-black-12 text-stroke-sm lg:text-stroke-md text-stroke-black-80;
 }
 

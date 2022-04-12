@@ -73,7 +73,7 @@ const stack: { frontend: Stack, backend: Stack } = {
 
       <div class="carousel-item rounded-xl items-center bg-primary-dark">
         <div class="flex p-4 mt-6">
-          <icon name="mdi:application-brackets-outline" class="text-4xl text-inverted-primary"/>
+          <icon name="mdi:application-brackets-outline" class="!text-4xl text-inverted-primary"/>
         </div>
         <h4 class="text-2xl mb-6">Frontend</h4>
 
@@ -96,7 +96,7 @@ const stack: { frontend: Stack, backend: Stack } = {
 
       <div class="carousel-item rounded-xl items-center bg-primary-dark">
         <div class="flex p-4 mt-6">
-          <icon name="mdi:server-network" class="text-4xl text-inverted-primary"/>
+          <icon name="mdi:server-network" class="!text-4xl text-inverted-primary"/>
         </div>
         <h4 class="text-2xl mb-6">Backend</h4>
 
