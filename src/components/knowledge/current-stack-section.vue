@@ -67,7 +67,7 @@ const stack: { frontend: Stack, backend: Stack } = {
 </script>
 
 <template>
-  <div>
+  <div class="px-6">
     <h3 class="heading">{{t("current_stack.heading")}}</h3>
     <div class="carousel">
 

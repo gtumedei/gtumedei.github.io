@@ -31,7 +31,7 @@ const projects: Featured[] = [
 </script>
 
 <template>
-  <div class="mb-18">
+  <div class="px-6 mb-18">
     <h2 class="heading">{{t("featured.heading")}}</h2>
 
     <div class="flex flex-col gap-12">

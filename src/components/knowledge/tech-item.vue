@@ -16,12 +16,12 @@ defineProps<{ item: Technology, bg: "primary" | "primary-dark" }>()
           v-if="typeof item.icon == 'string'"
           :name="item.icon"
           :class="`
-            p-8 rounded-xl !text-4xl text-inverted-primary ${bg == 'primary' ? 'bg-primary' : 'bg-primary-dark'}
+            p-6 md:p-8 rounded-xl !text-4xl text-inverted-primary ${bg == 'primary' ? 'bg-primary' : 'bg-primary-dark'}
             transition-colors ${item.colors.text} ${item.colors.hover} !hover:bg-opacity-10
           `"
         />
         <div v-else :class="`
-          flex p-8.5 rounded-xl ${bg == 'primary' ? 'bg-primary' : 'bg-primary-dark'} fill-typography-base
+          flex p-6.5 md:p-8.5 rounded-xl ${bg == 'primary' ? 'bg-primary' : 'bg-primary-dark'} fill-typography-base
           transition-colors ${item.colors.text} ${item.colors.hover} !hover:bg-opacity-10
         `">
           <component :is="item.icon" class="h-8 w-8"/>

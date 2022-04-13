@@ -42,7 +42,7 @@ const resume = [
 </script>
 
 <template>
-  <div class="flex flex-col mb-18">
+  <div class="flex flex-col px-6 mb-18">
     <h3 class="heading">Resume</h3>
 
     <div class="resume-grid grid gap-12 lg:grid-cols-2 mb-12">

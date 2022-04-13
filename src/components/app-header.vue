@@ -18,7 +18,7 @@ useTippy(
 </script>
 
 <template>
-  <header class="container px-6 py-12 flex items-center gap-2">
+  <header class="container p-12 flex items-center gap-2">
     <router-link to="/" class="text-lg no-underline inline-block mr-auto">Gianni Tumedei</router-link>
     <button
       ref="localeButton"
