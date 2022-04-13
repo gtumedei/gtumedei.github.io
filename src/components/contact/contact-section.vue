@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import ContactForm from "@/components/contact/contact-form.vue"
-import ContactLinks from "@/components/contact/contact-links.vue"
+import ContactForm from "./contact-form.vue"
+import ContactLinks from "./contact-links.vue"
 </script>
 
 <template>

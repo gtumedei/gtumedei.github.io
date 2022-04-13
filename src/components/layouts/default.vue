@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import AppHeader from "@/components/app-header.vue"
-import AppFooter from "@/components/app-footer.vue"
-import BackToTopButton from "@/components/back-to-top-button.vue"
+import AppHeader from "@/components/ui/app-header.vue"
+import AppFooter from "@/components/ui/app-footer.vue"
+import BackToTopButton from "@/components/ui/back-to-top-button.vue"
 </script>
 
 <template>

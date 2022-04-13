@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@iconify/iconify": "^2.1.0",
+    "@supabase/supabase-js": "^1.33.3",
     "@vueuse/core": "^6.0.0",
     "@vueuse/head": "^0.6.0",
     "gsap": "^3.7.1",

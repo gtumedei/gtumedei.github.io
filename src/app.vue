@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { onMounted } from "vue"
 import { useHead } from "@vueuse/head"
-import ThemeWatcher from "@/components/theme-watcher.vue"
+import ThemeWatcher from "@/components/ui/theme-watcher.vue"
 import { createTippy, useI18n } from "./composables"
 
 useHead({

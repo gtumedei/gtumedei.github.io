@@ -55,6 +55,28 @@
   }
 }
 
+fieldset { @apply
+  relative flex flex-col;
+
+  label { @apply
+    mb-2;
+  }
+
+  & > .icon { @apply
+    absolute bottom-4 left-4;
+  }
+
+  .icon + input, .icon + textarea { @apply
+    pl-12;
+  }
+}
+
+input, textarea { @apply
+  bg-primary-dark rounded-lg px-4 py-3 outline-none
+  border-2 border-transparent focus:border-typography-faded
+  transition-all resize-none;
+}
+
 .display-heading { @apply
   text-4xl lg:text-5xl font-black tracking-widest
   text-black-12 text-stroke-sm lg:text-stroke-md text-stroke-black-80;

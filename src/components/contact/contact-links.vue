@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import LinkItem from "@/components/contact/link-item.vue"
+import LinkItem from "./link-item.vue"
 
 const links = [
   {

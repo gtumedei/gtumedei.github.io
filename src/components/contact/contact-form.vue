@@ -1,21 +1,35 @@
 <script lang="ts" setup>
-import { computed, reactive, ref } from "vue"
-import Icon from "@/components/icon.vue"
-import { useTippy } from "@/composables"
+import { computed, ref/* , unref */ } from "vue"
+import Icon from "@/components/ui/icon.vue"
+import LoadingSpinner from "@/components/ui/loading-spinner.vue"
+import Modal from "@/components/ui/modal.vue"
+import { /* sendMessage, */ useTippy } from "@/composables"
+import { Message } from "@/types"
 
-const data = reactive({
+const initialData: Message = {
   name: "",
   email: "",
   subject: "",
   message: ""
-})
+}
+const data = ref<Message>({ ...initialData })
 
-const isEmailValid = computed(() => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email))
+const isLoading = ref(false)
+const showModal = ref(false)
 
-const canSubmit = computed(() => data.name != "" && isEmailValid.value && data.subject != "" && data.message != "")
+const isEmailValid = computed(() => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.value.email))
 
-const onSubmit = () => {
-  console.log(JSON.stringify(data, null, 2))
+const canSubmit = computed(() => data.value.name != "" && isEmailValid.value && data.value.subject != "" && data.value.message != "")
+
+const onSubmit = async () => {
+  if (!canSubmit.value) return
+  isLoading.value = true
+  // const message = unref(data)
+  // await sendMessage(message)
+  await new Promise(r => setTimeout(r, 2000))
+  data.value = { ...initialData }
+  isLoading.value = false
+  showModal.value = true
 }
 
 const errorIcon = ref<HTMLElement>()
@@ -25,6 +39,7 @@ useTippy(errorIcon, "ui.back_to_top_btn_title", "top")
 <template>
   <form class="contact-form" @submit.prevent="onSubmit">
     <h3 class="font-serif text-2xl mb-2">Send me a message <span class="text-sm font-sans">(Not implemented yet)</span></h3>
+
     <fieldset class="name-field">
       <label for="contact-name">Name</label>
       <icon name="mdi:account-outline"/>
@@ -47,10 +62,27 @@ useTippy(errorIcon, "ui.back_to_top_btn_title", "top")
       <label for="contact-message">Message</label>
       <textarea id="contact-message" type="text" rows="4" v-model="data.message"></textarea>
     </fieldset>
-    <button type="submit" class="btn inverted mt-4 mx-auto" :disabled="!canSubmit">
-      <span>Send</span>
-      <icon name="mdi:send"/>
+
+    <button type="submit" class="btn inverted relative mt-4 mx-auto" :disabled="!canSubmit || isLoading">
+      <div :class="`flex gap-4 transition-opacity ${isLoading ? 'opacity-0' : ''}`">
+        <span>Send</span>
+        <icon name="mdi:send"/>
+      </div>
+      <div :class="`absolute-center transition-opacity ${!isLoading ? 'opacity-0' : ''}`">
+        <loading-spinner inverted/>
+      </div>
     </button>
+
+    <modal v-model:show="showModal">
+      <div class="flex flex-col items-center text-center max-w-96">
+        <div class="bg-primary-dark flex rounded-full p-6 mb-8">
+          <icon name="mdi:rocket-launch-outline" class="!text-3xl"/>
+        </div>
+        <h4 class="font-serif text-xl mb-2">Message sent</h4>
+        <p class="mb-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
+        <button class="btn inverted py-3" @click="showModal = false">Close</button>
+      </div>
+    </modal>
   </form>
 </template>
 
@@ -82,28 +114,6 @@ h3 { grid-area: title; }
 .subject-field { grid-area: subject; }
 .message-field { grid-area: message; }
 .btn { grid-area: button; }
-
-fieldset { @apply
-  relative flex flex-col;
-
-  label { @apply
-    mb-2;
-  }
-
-  & > .icon { @apply
-    absolute bottom-4 left-4;
-  }
-
-  .icon + input, .icon + textarea { @apply
-    pl-12;
-  }
-}
-
-input, textarea { @apply
-  bg-primary-dark rounded-lg px-4 py-3 outline-none
-  border-2 border-transparent focus:border-typography-faded
-  transition-all resize-none;
-}
 
 .error-icon { @apply
   absolute bottom-4 right-4 text-[#FF5252] transition-opacity;

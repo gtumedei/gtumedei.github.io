@@ -1,4 +1,5 @@
+export * from "./animations"
 export * from "./dark-mode"
 export * from "./i18n"
+export * from "./supabase"
 export * from "./tippy"
-export * from "./animations"

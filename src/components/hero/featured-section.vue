@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from "@/composables"
-import Featured from "@/models/featured"
-import FeaturedItem from "@/components/hero/featured-item.vue"
+import FeaturedItem from "./featured-item.vue"
+import { Featured } from "@/types"
 
 const { t } = useI18n()
 

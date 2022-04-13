@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import Icon from "@/components/icon.vue"
+import Icon from "@/components/ui/icon.vue"
 
 const year = new Date().getFullYear()
 </script>

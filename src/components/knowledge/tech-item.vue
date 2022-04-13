@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import Icon from "@/components/icon.vue"
-import Technology from "@/models/technology"
+import Icon from "@/components/ui/icon.vue"
+import { Technology } from "@/types"
 
 defineProps<{ item: Technology, bg: "primary" | "primary-dark" }>()
 </script>

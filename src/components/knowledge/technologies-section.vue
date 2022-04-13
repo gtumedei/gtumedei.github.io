@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import TechItem from "@/components/knowledge/tech-item.vue"
 import { useI18n } from "@/composables"
-import Technology from "@/models/technology"
+import TechItem from "./tech-item.vue"
 import FlutterIcon from "@/assets/flutter.svg"
 import MongodbIcon from "@/assets/mongodb.svg"
 import ScalaIcon from "@/assets/scala.svg"
 import SolidjsIcon from "@/assets/solidjs.svg"
 import SvelteIcon from "@/assets/svelte.svg"
+import { Technology } from "@/types"
 
 const { t } = useI18n()
 

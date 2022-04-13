@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useI18n } from "@/composables"
-import Featured from "@/models/featured"
-import Icon from "@/components/icon.vue"
+import Icon from "@/components/ui/icon.vue"
+import { Featured } from "@/types"
 
 defineProps<{
   project: Featured

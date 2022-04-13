@@ -7,7 +7,8 @@ My portfolio website.
 - Google Analytics
 - Featured projects
 - About section
-- Get in touch button link
 - Portfolio entries
 - Portfolio button link
-- Contact link
+- Actually send emails
+- Carousel indicators
+- Contact links section on mobile
