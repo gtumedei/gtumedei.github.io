@@ -67,8 +67,8 @@ const stack: { frontend: Stack, backend: Stack } = {
 </script>
 
 <template>
-  <div class="px-6">
-    <h3 class="heading">{{t("current_stack.heading")}}</h3>
+  <div>
+    <h3 class="section-subheading">{{t("current_stack.heading")}}</h3>
     <div class="carousel">
 
       <div class="carousel-item rounded-xl items-center bg-primary-dark">

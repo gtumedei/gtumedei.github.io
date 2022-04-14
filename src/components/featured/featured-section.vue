@@ -1,9 +1,7 @@
 <script lang="ts" setup>
-import { useI18n } from "@/composables"
-import FeaturedItem from "./featured-item.vue"
+import AppSection from "@/components/ui/app-section.vue"
 import { Featured } from "@/types"
-
-const { t } = useI18n()
+import FeaturedItem from "./featured-item.vue"
 
 const projects: Featured[] = [
   {
@@ -31,9 +29,11 @@ const projects: Featured[] = [
 </script>
 
 <template>
-  <div class="px-6 mb-18">
-    <h2 class="heading">{{t("featured.heading")}}</h2>
-
+  <app-section class="bg-primary-dark">
+    <div id="featured-heading" class="flex flex-col items-center text-center pb-32">
+      <p class="text-overline mb-2">Catchy headline</p>
+      <h2 class="section-heading text-gradient from-[#FF8A80] to-[#FBC2EB]">Featured content</h2>
+    </div>
     <div class="flex flex-col gap-12">
       <featured-item
         v-for="(project, i) in projects" :key="i"
@@ -41,5 +41,5 @@ const projects: Featured[] = [
         :flip-layout="i % 2 != 0"
       />
     </div>
-  </div>
+  </app-section>
 </template>

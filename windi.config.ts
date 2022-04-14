@@ -11,7 +11,7 @@ export default defineConfig({
 
     fontFamily: {
       sans: ["Lato", "sans-serif"],
-      serif: ["Volkhov", "serif"],
+      serif: ["'DM Serif Display'", "serif"],
       mono: ["'Fira Code'", "mono"]
     },
 

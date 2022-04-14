@@ -129,8 +129,8 @@ const tech: Technology[] = [
 </script>
 
 <template>
-  <div class="flex flex-col align-center px-6 mb-18">
-    <h3 class="heading mb-12">{{t("other_technologies.heading")}}</h3>
+  <div class="flex flex-col align-center">
+    <h3 class="section-subheading mb-12">{{t("other_technologies.heading")}}</h3>
     <p class="text-center lg:max-w-2/3 mx-auto mb-12" v-html="t('other_technologies.paragraph')"></p>
     <div class="
       tech-grid w-full grid gap-12

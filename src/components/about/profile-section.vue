@@ -1,5 +1,5 @@
 <template>
-  <div class="profile flex flex-col lg:flex-row items-center gap-12 lg:gap-24 lg:max-w-2/3 mx-auto px-6 mb-18">
+  <div class="profile flex flex-col lg:flex-row items-center gap-12 lg:gap-24 lg:max-w-2/3 mx-auto mb-18">
     <img
       src="/profile.jpg" alt="Profile image"
       class="profile-img h-64 w-64 lg:h-54 lg:w-54 rounded-full shadow-xl"

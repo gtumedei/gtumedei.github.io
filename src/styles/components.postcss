@@ -14,6 +14,8 @@
   height: 2px;
 }
 
+// Buttons
+
 .btn { @apply
   px-10 py-4 rounded-full !outline-none
   inline-flex justify-center items-center gap-4
@@ -55,6 +57,8 @@
   }
 }
 
+// Form elements
+
 fieldset { @apply
   relative flex flex-col;
 
@@ -77,25 +81,36 @@ input, textarea { @apply
   transition-all resize-none;
 }
 
-.display-heading { @apply
-  text-4xl lg:text-5xl font-black tracking-widest
-  text-black-12 text-stroke-sm lg:text-stroke-md text-stroke-black-80;
+// Typography
+
+.hero-heading { @apply
+  text-6xl lg:text-8xl tracking-widest font-bold;
 }
 
-.heading { @apply
-  font-serif relative text-3xl text-center px-6 mb-18;
-
-  &::after {
-    content: "";
-    @apply
-      absolute -bottom-6 left-1/2 transform -translate-x-1/2
-      h-1 w-16 rounded-full bg-typography-base;
-  }
+.section-heading { @apply
+  text-4xl lg:text-6xl font-bold tracking-wider;
+  line-height: 1.2 !important;
 }
+
+.section-subheading { @apply
+  text-3xl lg:text-4xl font-bold tracking-wider;
+}
+
+.text-overline { @apply
+  text-sm font-bold uppercase tracking-wider;
+}
+
+.text-gradient { @apply
+  bg-gradient-to-br bg-clip-text text-transparent;
+}
+
+// Cards
 
 .card { @apply
   p-6 bg-primary rounded-xl shadow-xl overflow-hidden;
 }
+
+// Tooltips
 
 [data-tippy-root] { @apply
   max-w[calc(100vw-10px)];

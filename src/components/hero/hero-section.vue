@@ -8,16 +8,11 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 820, behavior: "smo
 </script>
 
 <template>
-  <div id="hero" class="
-    card relative py-64 lg:px-12 mb-18
-    bg-gradient-to-br from-[#FFD54F] to-[#FF8A80]
-    flex flex-col justify-center items-center
-    text-black-80 text-center
-  ">
-    <h1 class="display-heading">Gianni <span class="text-stroke-none text-black-80">Tumedei</span></h1>
-    <icon name="mdi:cards-diamond-outline" class="mt-4 mb-5"/>
-    <p class="text-sm font-bold uppercase tracking-wide">{{t("hero.subheading")}}<!-- IT Engineer, Full Stack Developer --></p>
-    <button class="btn inverted absolute-center-x bottom-12" @click="onMainCallToActionClick">
+  <div id="hero" class="container flex-grow flex flex-col items-center text-center px-6 py-48 lg:py-64">
+    <p class="text-sm font-bold uppercase tracking-wide mb-4">{{t("hero.subheading")}}</p>
+    <h1 class="hero-heading bg-gradient-to-br from-[#FFCA28] to-[#FF8A80] bg-clip-text text-transparent">Gianni Tumedei</h1>
+    <icon name="mdi:cards-diamond-outline" class="mt-5 mb-6"/>
+    <button class="btn inverted" @click="onMainCallToActionClick">
       <span class="whitespace-nowrap">{{t("hero.btn")}}</span>
       <icon name="mdi:chevron-double-down"/>
     </button>

@@ -26,7 +26,6 @@ const onSubmit = async () => {
   isLoading.value = true
   const message = unref(data)
   await sendMessage(message)
-  await new Promise(r => setTimeout(r, 2000))
   data.value = { ...initialData }
   isLoading.value = false
   showModal.value = true
