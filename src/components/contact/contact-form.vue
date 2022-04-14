@@ -38,7 +38,7 @@ useTippy(errorIcon, "ui.back_to_top_btn_title", "top")
 
 <template>
   <form class="contact-form" @submit.prevent="onSubmit">
-    <h3 class="font-serif text-2xl mb-2">Send me a message <span class="text-sm font-sans">(Not implemented yet)</span></h3>
+    <h3 class="font-serif text-2xl mb-2">Send me a message</h3>
 
     <fieldset class="name-field">
       <label for="contact-name">Name</label>
