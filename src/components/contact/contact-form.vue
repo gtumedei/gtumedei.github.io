@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { computed, ref/* , unref */ } from "vue"
+import { computed, ref, unref } from "vue"
 import Icon from "@/components/ui/icon.vue"
 import LoadingSpinner from "@/components/ui/loading-spinner.vue"
 import Modal from "@/components/ui/modal.vue"
-import { /* sendMessage, */ useTippy } from "@/composables"
+import { sendMessage, useTippy } from "@/composables"
 import { Message } from "@/types"
 
 const initialData: Message = {
@@ -24,8 +24,8 @@ const canSubmit = computed(() => data.value.name != "" && isEmailValid.value && 
 const onSubmit = async () => {
   if (!canSubmit.value) return
   isLoading.value = true
-  // const message = unref(data)
-  // await sendMessage(message)
+  const message = unref(data)
+  await sendMessage(message)
   await new Promise(r => setTimeout(r, 2000))
   data.value = { ...initialData }
   isLoading.value = false

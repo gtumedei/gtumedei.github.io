@@ -54,9 +54,14 @@ const resume = [
       </div>
     </div>
 
-    <button class="btn inverted mx-auto">
-        <span>See full CV</span>
-        <icon name="mdi:open-in-new"/>
-      </button>
+    <a
+      href="https://msfvkoblamagehrpbmtw.supabase.co/storage/v1/object/public/gtumedei-github-io/CV.pdf"
+      target="_blank"
+      rel="nofollow"
+      class="btn inverted mx-auto"
+    >
+      <span>See full CV</span>
+      <icon name="mdi:open-in-new"/>
+    </a>
   </div>
 </template>
