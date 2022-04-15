@@ -9,7 +9,7 @@ useHead({
   meta: [
     {
       name: "theme-color",
-      content: computed(() => isDark.value ? "#404040" : "#FAFAFA")
+      content: computed(() => isDark.value ? "#303030" : "#FFFFFF")
     }
   ]
 })

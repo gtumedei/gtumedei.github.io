@@ -37,7 +37,7 @@ useTippy(errorIcon, "ui.back_to_top_btn_title", "top")
 
 <template>
   <form class="contact-form" @submit.prevent="onSubmit">
-    <h3 class="font-serif text-2xl mb-2">Send me a message</h3>
+    <h3 class="section-subheading mb-4">Send me a message</h3>
 
     <fieldset class="name-field">
       <label for="contact-name">Name</label>
@@ -59,7 +59,7 @@ useTippy(errorIcon, "ui.back_to_top_btn_title", "top")
     </fieldset>
     <fieldset class="message-field">
       <label for="contact-message">Message</label>
-      <textarea id="contact-message" type="text" rows="4" v-model="data.message"></textarea>
+      <textarea id="contact-message" type="text" rows="9" v-model="data.message"></textarea>
     </fieldset>
 
     <button type="submit" class="btn inverted relative mt-4 mx-auto" :disabled="!canSubmit || isLoading">
@@ -77,7 +77,7 @@ useTippy(errorIcon, "ui.back_to_top_btn_title", "top")
         <div class="bg-primary-dark flex rounded-full p-6 mb-8">
           <icon name="mdi:rocket-launch-outline" class="!text-3xl"/>
         </div>
-        <h4 class="font-serif text-xl mb-2">Message sent</h4>
+        <h4 class="text-xl mb-2">Message sent</h4>
         <p class="mb-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
         <button class="btn inverted py-3" @click="showModal = false">Close</button>
       </div>

@@ -18,7 +18,7 @@ useTippy(
 </script>
 
 <template>
-  <header class="container px-6 py-12 flex items-center gap-2">
+  <header class="container p-6 flex items-center gap-2">
     <div class="mr-auto"></div>
     <button
       ref="localeButton"

@@ -18,7 +18,7 @@ const { t } = useI18n()
       :class="{ 'lg:order-2': flipLayout }"
     >
       <p class="text-sm font-bold uppercase tracking-wide mb-1">{{t(project.type)}}</p>
-      <h3 class="text-2xl mb-4">{{t(project.name)}}</h3>
+      <h3 class="section-subsubheading mb-4">{{t(project.name)}}</h3>
       <p>{{t(project.description)}}</p>
     </div>
     <a

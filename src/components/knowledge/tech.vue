@@ -130,8 +130,8 @@ const tech: Technology[] = [
 
 <template>
   <div class="flex flex-col align-center">
-    <h3 class="section-subheading mb-12">{{t("other_technologies.heading")}}</h3>
-    <p class="text-center lg:max-w-2/3 mx-auto mb-12" v-html="t('other_technologies.paragraph')"></p>
+    <h3 class="section-subheading lg:text-center mb-4">{{t("other_technologies.heading")}}</h3>
+    <p class="lg:text-center lg:max-w-2/3 mx-auto mb-12" v-html="t('other_technologies.paragraph')"></p>
     <div class="
       tech-grid w-full grid gap-12
       grid-cols-[repeat(auto-fill,minmax(84px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(100px,1fr))]

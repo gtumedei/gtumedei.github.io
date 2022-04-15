@@ -1,21 +1,24 @@
 <script lang="ts" setup>
-import LinkItem from "./link-item.vue"
+import Icon from "@/components/ui/icon.vue"
 
 const links = [
   {
-    label: "LinkedIn",
+    title: "LinkedIn",
+    subtitle: "@gianni-tumedei",
     icon: "mdi:linkedin",
     colors: { text: "!hover:text-[#0284C7]", hover: "!hover:bg-[#0284C7]" },
     url: "https://www.linkedin.com/in/gianni-tumedei-7171961b8/"
   },
   {
-    label: "GitHub",
+    title: "GitHub",
+    subtitle: "gtumedei",
     icon: "mdi:github",
     colors: { text: "!hover:text-[#546E7A]", hover: "!hover:bg-[#546E7A]" },
     url: "https://github.com/gtumedei"
   },
   {
-    label: "Cesena (IT)",
+    title: "Location",
+    subtitle: "Cesena (IT)",
     icon: "mdi:map-marker-outline",
     colors: { text: "!hover:text-[#FF5252]", hover: "!hover:bg-[#FF5252]" },
     url: "https://goo.gl/maps/knzcetCBj6cHLAAW7"
@@ -24,29 +27,18 @@ const links = [
 </script>
 
 <template>
-  <div class="contact-links">
-    <link-item
+  <div class="contact-links w-full flex flex-col gap-12">
+    <h3 class="section-subheading lg:mb-4">Find me online</h3>
+    <a
       v-for="(link, i) in links" :key="i"
-      :class="`link-${i + 1} mx-12`"
-      :label="link.label"
-      :icon="link.icon"
-      :colors="link.colors"
-      :url="link.url"
-    />
+      :href="link.url" target="_blank"
+      class="relative flex items-center gap-6 p-4 rounded-xl bg-primary-dark"
+    >
+      <icon :name="link.icon" class="p-6 rounded-xl bg-primary !text-4xl text-inverted-primary"/>
+      <div>
+        <h4 class="section-subsubheading">{{link.title}}</h4>
+        <p>{{link.subtitle}}</p>
+      </div>
+    </a>
   </div>
 </template>
-
-<style lang="postcss" scoped>
-
-.contact-links {
-  @apply hidden lg:grid p-18 gap-18 m-auto;
-  grid-template-areas:
-    "link1 link2"
-    "link3 link3";
-}
-
-.link-1 { grid-area: link1; }
-.link-2 { grid-area: link2; }
-.link-3 { grid-area: link3; }
-
-</style>

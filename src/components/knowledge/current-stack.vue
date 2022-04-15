@@ -68,16 +68,16 @@ const stack: { frontend: Stack, backend: Stack } = {
 
 <template>
   <div>
-    <h3 class="section-subheading">{{t("current_stack.heading")}}</h3>
-    <div class="carousel">
+    <h3 class="section-subheading lg:text-center mb-12">{{t("current_stack.heading")}}</h3>
+    <!-- <div class="carousel">
 
       <div class="carousel-item rounded-xl items-center bg-primary-dark">
         <div class="flex p-4 mt-8">
           <icon name="mdi:application-brackets-outline" class="!text-4xl text-inverted-primary"/>
         </div>
-        <h4 class="text-2xl mb-6">Frontend</h4>
+        <h4 class="section-subsubheading mb-6">Frontend</h4>
 
-        <div class="w-full aspect-1/1 sm:aspect-none lg:aspect-4/5 xl:aspect-none">
+        <div class="w-full">
           <div class="
             p-6 w-full h-full grid gap-6 lg:gap-8
             grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4
@@ -98,9 +98,9 @@ const stack: { frontend: Stack, backend: Stack } = {
         <div class="flex p-4 mt-8">
           <icon name="mdi:server-network" class="!text-4xl text-inverted-primary"/>
         </div>
-        <h4 class="text-2xl mb-6">Backend</h4>
+        <h4 class="section-subsubheading mb-6">Backend</h4>
 
-        <div class="w-full aspect-1/1 sm:aspect-none lg:aspect-4/5 xl:aspect-none">
+        <div class="w-full">
           <div class="
             p-6 w-full h-full grid gap-6 lg:gap-8
             grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4
@@ -117,15 +117,56 @@ const stack: { frontend: Stack, backend: Stack } = {
         <icon name="mdi:chevron-double-left" class="mb-6 lg:hidden"/>
       </div>
 
+    </div> -->
+
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-18 mb-18">
+
+      <div class="flex flex-col gap-6 bg-primary-dark rounded-xl p-6">
+        <div class="flex items-center gap-6">
+          <icon name="mdi:application-brackets-outline" class="!text-4xl bg-primary rounded-xl p-8 md:p-12"/>
+          <div class="w-full">
+            <p class="text-overline">Node.js</p>
+            <h4 class="section-subsubheading">Frontend</h4>
+          </div>
+        </div>
+        <div class="w-full pl-24 sm:pl-36 grid gap-y-6 grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 2xl:grid-cols-4">
+          <tech-item
+            v-for="(item, i) in stack.frontend" :key="i"
+            :item="item"
+            bg="primary"
+            class="m-auto"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-6 bg-primary-dark rounded-xl p-6">
+        <div class="flex items-center gap-6">
+          <icon name="mdi:server-network" class="!text-4xl bg-primary rounded-xl p-8 md:p-12"/>
+          <div class="w-full">
+            <p class="text-overline">Node.js</p>
+            <h4 class="section-subsubheading">Backend</h4>
+          </div>
+        </div>
+        <div class="w-full pl-24 sm:pl-36 grid gap-y-6 grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 2xl:grid-cols-4">
+          <tech-item
+            v-for="(item, i) in stack.backend" :key="i"
+            :item="item"
+            bg="primary"
+            class="m-auto"
+          />
+        </div>
+      </div>
+
     </div>
+
   </div>
 </template>
 
 <style lang="postcss" scoped>
 
-.carousel { @apply
+/* .carousel { @apply
   flex w-full overflow-x-auto snap snap-x pb-9 mb-9
-  gap-18 lg:gap-12 xl:gap-24  2xl:gap-36;
+  gap-18;
 
   .carousel-item { @apply
     w-full lg:w-[calc(50%-1.5rem)] xl:w-[calc(50%-3rem)] 2xl:w-[calc(50%-4.5rem)]
@@ -148,6 +189,6 @@ const stack: { frontend: Stack, backend: Stack } = {
       text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 -bottom-8;
     }
   }
-}
+} */
 
 </style>

@@ -45,6 +45,13 @@
     focus:bg-primary-800;
   }
 
+  &.transparent { @apply
+    bg-transparent !shadow-none
+    hover:bg-typography-hover
+    focus:bg-typography-hover
+    active:bg-typography-divider
+  }
+
   &.icon { @apply
     p-2 rounded-xl !shadow-none bg-transparent
     hover:bg-typography-hover
@@ -88,12 +95,16 @@ input, textarea { @apply
 }
 
 .section-heading { @apply
-  text-4xl lg:text-6xl font-bold tracking-wider;
+  text-6xl font-bold tracking-wider;
   line-height: 1.2 !important;
 }
 
 .section-subheading { @apply
-  text-3xl lg:text-4xl font-bold tracking-wider;
+  text-4xl font-bold tracking-wider;
+}
+
+.section-subsubheading { @apply
+  font-serif text-2xl tracking-wide;
 }
 
 .text-overline { @apply

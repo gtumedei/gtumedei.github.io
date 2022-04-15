@@ -32,7 +32,7 @@ const projects: Featured[] = [
   <app-section class="bg-primary-dark">
     <div id="featured-heading" class="flex flex-col items-center text-center pb-32">
       <p class="text-overline mb-2">Catchy headline</p>
-      <h2 class="section-heading text-gradient from-[#FF8A80] to-[#FBC2EB]">Featured content</h2>
+      <h2 class="section-heading text-gradient from-[#FF8A80] to-[#FBC2EB]">Featured</h2>
     </div>
     <div class="flex flex-col gap-12">
       <featured-item

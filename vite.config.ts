@@ -32,7 +32,7 @@ export default defineConfig({
     // https://github.com/stafyniaksacha/vite-plugin-fonts
     FontsLoader({
       google: {
-        families: ["Lato", "Volkhov", "Fira Code"]
+        families: ["Lato", "DM Serif Display"]
       }
     }),
 

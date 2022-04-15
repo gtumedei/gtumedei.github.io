@@ -10,9 +10,9 @@ import ContactLinks from "./contact-links.vue"
       <p class="text-overline mb-2">Catchy headline</p>
       <h2 class="section-heading text-gradient from-[#64FFDA] to-[#00E676]">Get in touch</h2>
     </div>
-    <div class="grid xl:grid-cols-2 xl:gap-18">
-      <contact-links/>
-      <contact-form/>
+    <div class="grid lg:grid-cols-5 gap-18">
+      <contact-form class="lg:col-span-3"/>
+      <contact-links class="lg:col-span-2"/>
     </div>
   </app-section>
 </template>
