@@ -11,10 +11,9 @@
     "@iconify/iconify": "^2.1.0",
     "@supabase/supabase-js": "^1.33.3",
     "@vueuse/core": "^6.0.0",
-    "@vueuse/head": "^0.6.0",
+    "@vueuse/head": "^0.5.1",
     "gsap": "^3.7.1",
     "nprogress": "^0.2.0",
-    "pinia": "^2.0.0-0",
     "rimraf": "^3.0.2",
     "tippy.js": "^6.3.7",
     "vue": "^3.2.2",
@@ -22,7 +21,6 @@
     "vue-router": "^4.0.11"
   },
   "devDependencies": {
-    "@iconify/json": "^1.1.446",
     "@intlify/vite-plugin-vue-i18n": "^2.4.0",
     "@types/nprogress": "^0.2.0",
     "@vitejs/plugin-vue": "^1.4.0",
@@ -35,7 +33,7 @@
     "vite-plugin-fonts": "^0.2.2",
     "vite-plugin-pages": "^0.17.3",
     "vite-plugin-purge-icons": "^0.7.0",
-    "vite-plugin-pwa": "^0.11.12",
+    "vite-plugin-pwa": "^0.11.3",
     "vite-plugin-vue-layouts": "^0.3.1",
     "vite-plugin-windicss": "^1.6.1",
     "vite-ssg": "^0.14.5",
