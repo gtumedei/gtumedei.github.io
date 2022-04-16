@@ -4,7 +4,7 @@ import { useDarkMode, useI18n, useTippy } from "@/composables"
 import Icon from "@/components/ui/icon.vue"
 
 withDefaults(
-  defineProps<{ showName: boolean }>(),
+  defineProps<{ showName?: boolean }>(),
   { showName: false }
 )
 

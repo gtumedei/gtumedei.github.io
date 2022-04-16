@@ -8,16 +8,16 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 820, behavior: "smo
 </script>
 
 <template>
-  <div id="hero" class="
+  <div class="
     container flex-grow flex flex-col justify-center items-center text-center
     min-h-[calc(95vh-88px)] px-6 py-36
   ">
-    <p class="text-sm font-bold uppercase tracking-wide mb-4">{{t("hero.subheading")}}</p>
-    <router-link to="/" class="mb-18">
+    <p class="hero-item text-sm font-bold uppercase tracking-wide mb-4">{{t("hero.subheading")}}</p>
+    <router-link to="/" class="hero-item mb-18">
       <h1 class="hero-heading bg-gradient-to-br from-[#FFCA28] to-[#FF8A80] bg-clip-text text-transparent">Gianni Tumedei</h1>
     </router-link>
 
-    <div class="flex flex-col md:flex-row gap-6 mb-12">
+    <div class="hero-actions flex flex-col md:flex-row gap-6 mb-12">
       <a
         href="https://msfvkoblamagehrpbmtw.supabase.co/storage/v1/object/public/gtumedei-github-io/CV.pdf"
         target="_blank"

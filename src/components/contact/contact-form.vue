@@ -36,41 +36,42 @@ useTippy(errorIcon, "ui.back_to_top_btn_title", "top")
 </script>
 
 <template>
-  <form class="contact-form" @submit.prevent="onSubmit">
-    <h3 class="section-subheading mb-4">Send me a message</h3>
+  <form class="flex flex-col" @submit.prevent="onSubmit">
+    <h3 class="contact-form-heading section-subheading mb-8">Send me a message</h3>
 
-    <fieldset class="name-field">
-      <label for="contact-name">Name</label>
-      <icon name="mdi:account-outline"/>
-      <input id="contact-name" type="text" v-model="data.name"/>
-    </fieldset>
-    <fieldset class="email-field">
-      <label for="contact-email">Email</label>
-      <icon name="mdi:email-outline"/>
-      <input id="contact-email" type="text" v-model="data.email"/>
-      <div
-        ref="errorIcon"
-        :class="`error-icon flex ${isEmailValid || data.email == '' ? 'opacity-0 pointer-events-none' : ''}`"
-      ><icon name="mdi:alert-circle-outline"/></div>
-    </fieldset>
-    <fieldset class="subject-field">
-      <label for="contact-subject">Subject</label>
-      <input id="contact-subject" type="text" v-model="data.subject"/>
-    </fieldset>
-    <fieldset class="message-field">
-      <label for="contact-message">Message</label>
-      <textarea id="contact-message" type="text" rows="9" v-model="data.message"></textarea>
-    </fieldset>
-
-    <button type="submit" class="btn inverted relative mt-4 mx-auto" :disabled="!canSubmit || isLoading">
-      <div :class="`flex gap-4 transition-opacity ${isLoading ? 'opacity-0' : ''}`">
-        <span>Send</span>
-        <icon name="mdi:send"/>
-      </div>
-      <div :class="`absolute-center transition-opacity ${!isLoading ? 'opacity-0' : ''}`">
-        <loading-spinner inverted/>
-      </div>
-    </button>
+    <div class="contact-form-grid">
+      <fieldset class="name-field">
+        <label for="contact-name">Name</label>
+        <icon name="mdi:account-outline"/>
+        <input id="contact-name" type="text" v-model="data.name"/>
+      </fieldset>
+      <fieldset class="email-field">
+        <label for="contact-email">Email</label>
+        <icon name="mdi:email-outline"/>
+        <input id="contact-email" type="text" v-model="data.email"/>
+        <div
+          ref="errorIcon"
+          :class="`error-icon flex ${isEmailValid || data.email == '' ? 'opacity-0 pointer-events-none' : ''}`"
+        ><icon name="mdi:alert-circle-outline"/></div>
+      </fieldset>
+      <fieldset class="subject-field">
+        <label for="contact-subject">Subject</label>
+        <input id="contact-subject" type="text" v-model="data.subject"/>
+      </fieldset>
+      <fieldset class="message-field">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" type="text" rows="9" v-model="data.message"></textarea>
+      </fieldset>
+      <button type="submit" class="btn inverted relative mt-4 mx-auto" :disabled="!canSubmit || isLoading">
+        <div :class="`flex gap-4 transition-opacity ${isLoading ? 'opacity-0' : ''}`">
+          <span>Send</span>
+          <icon name="mdi:send"/>
+        </div>
+        <div :class="`absolute-center transition-opacity ${!isLoading ? 'opacity-0' : ''}`">
+          <loading-spinner inverted/>
+        </div>
+      </button>
+    </div>
 
     <modal v-model:show="showModal">
       <div class="flex flex-col items-center text-center max-w-96">
@@ -87,10 +88,9 @@ useTippy(errorIcon, "ui.back_to_top_btn_title", "top")
 
 <style lang="postcss" scoped>
 
-form {
+.contact-form-grid {
   @apply grid w-full m-auto gap-x-6 gap-y-4;
   grid-template-areas:
-    "title"
     "name"
     "email"
     "subject"
@@ -99,7 +99,6 @@ form {
 
   @media (min-width: 1024px) {
     grid-template-areas:
-      "title title"
       "name email"
       "subject subject"
       "message message"
@@ -107,7 +106,6 @@ form {
   }
 }
 
-h3 { grid-area: title; }
 .name-field { grid-area: name; }
 .email-field { grid-area: email; }
 .subject-field { grid-area: subject; }

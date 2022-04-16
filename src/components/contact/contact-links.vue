@@ -28,11 +28,11 @@ const links = [
 
 <template>
   <div class="contact-links w-full flex flex-col gap-12">
-    <h3 class="section-subheading lg:mb-4">Find me online</h3>
+    <h3 class="contact-links-heading section-subheading lg:mb-4">Find me online</h3>
     <a
       v-for="(link, i) in links" :key="i"
       :href="link.url" target="_blank"
-      class="relative flex items-center gap-6 p-4 rounded-xl bg-primary-dark"
+      class="contact-link relative flex items-center gap-6 p-4 rounded-xl bg-primary-dark"
     >
       <icon :name="link.icon" class="p-6 rounded-xl bg-primary !text-4xl text-inverted-primary"/>
       <div>

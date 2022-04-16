@@ -43,7 +43,7 @@ const resume = [
 
 <template>
   <div class="flex flex-col">
-    <h3 class="section-subheading mb-12">Resume</h3>
+    <h3 class="resume-heading section-subheading mb-12">Resume</h3>
 
     <div class="resume-grid grid gap-12 lg:grid-cols-2 mb-12">
       <div v-for="(item, i) in resume" :key="i" class="resume-item">
