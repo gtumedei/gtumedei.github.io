@@ -3,6 +3,11 @@ import { computed, ref } from "vue"
 import { useDarkMode, useI18n, useTippy } from "@/composables"
 import Icon from "@/components/ui/icon.vue"
 
+withDefaults(
+  defineProps<{ showName: boolean }>(),
+  { showName: false }
+)
+
 const { isDark, toggleDark } = useDarkMode()
 const { toggleLocales } = useI18n()
 
@@ -19,7 +24,8 @@ useTippy(
 
 <template>
   <header class="container p-6 flex items-center gap-2">
-    <div class="mr-auto"></div>
+    <router-link v-if="showName" to="/" class="text-lg mr-auto">Gianni Tumedei</router-link>
+    <div v-else class="mr-auto"></div>
     <button
       ref="localeButton"
       class="btn icon"
