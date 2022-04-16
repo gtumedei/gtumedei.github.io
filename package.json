@@ -11,7 +11,7 @@
     "@iconify/iconify": "^2.1.0",
     "@supabase/supabase-js": "^1.33.3",
     "@vueuse/core": "^6.0.0",
-    "@vueuse/head": "^0.5.1",
+    "@vueuse/head": "^0.6.0",
     "gsap": "^3.7.1",
     "nprogress": "^0.2.0",
     "rimraf": "^3.0.2",
