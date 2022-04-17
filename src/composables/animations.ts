@@ -1,6 +1,7 @@
 import { onBeforeUnmount, onMounted } from "vue"
 import { breakpointsTailwind, useBreakpoints } from "@vueuse/core"
 import gsap from "gsap"
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 
 export const useHomeAnimations = () => {
   onMounted(async () => {
@@ -53,7 +54,8 @@ export const useHomeAnimations = () => {
       if (imgElem) {
         gsap.from(imgElem, {
           scrollTrigger: { trigger: featuredItem, start },
-          x: 32,
+          x: lgAndUp.value ? 32 : 0,
+          y: lgAndUp.value ? 0 : 32,
           ...common
         })
       }
@@ -61,25 +63,29 @@ export const useHomeAnimations = () => {
       if (imgFlipElem) {
         gsap.from(imgFlipElem, {
           scrollTrigger: { trigger: featuredItem, start },
-          x: lgAndUp.value ? -32 : 32,
+          x: lgAndUp.value ? -32 : 0,
+          y: lgAndUp.value ? 0 : 32,
           ...common
         })
       }
     })
 
     // Current tech stack
-    /* gsap.from(".carousel", {
-      scrollTrigger: { trigger: ".carousel", start: "80% bottom" },
-      y: 32,
-      ...common
-    }) */
+    // TODO
 
-    // Other technologies
-    gsap.from(".tech-grid .tech-item", {
-      scrollTrigger: { trigger: ".tech-grid", start: "130px bottom" },
-      y: 32,
-      stagger: 0.02,
-      ...common
+    // Tech grid
+    const techItemSelector = ".tech-grid .tech-item"
+    gsap.set(techItemSelector, { opacity: 0, y: 32 })
+    ScrollTrigger.batch(techItemSelector, {
+      start: "100% bottom",
+      onEnter: batch => gsap.to(batch, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.15
+      })
+    })
+    ScrollTrigger.addEventListener("refreshInit", () => {
+      gsap.set(techItemSelector, { opacity: 0, y: 32 })
     })
 
     // Profile
@@ -102,19 +108,21 @@ export const useHomeAnimations = () => {
       y: 32,
       ...common
     })
-    gsap.from(".resume-item", {
-      scrollTrigger: { trigger: ".resume-grid", start: "130px bottom" },
-      y: 32,
-      stagger: 0.15,
-      ...common
+    const resumeItemSelector = ".resume-item"
+    gsap.set(resumeItemSelector, { opacity: 0, y: 32 })
+    ScrollTrigger.batch(resumeItemSelector, {
+      start: "130px bottom",
+      onEnter: batch => gsap.to(batch, {
+        opacity: 1,
+        y: 0,
+        stagger: 0.15
+      })
+    })
+    ScrollTrigger.addEventListener("refreshInit", () => {
+      gsap.set(resumeItemSelector, { opacity: 0, y: 32 })
     })
 
-    // Contact
-    gsap.from(".contact-links-heading", {
-      scrollTrigger: { trigger: ".contact-links-heading", start: "100% bottom" },
-      y: 32,
-      ...common
-    })
+    // Contact form
     gsap.from(".contact-form-heading", {
       scrollTrigger: { trigger: ".contact-form-heading", start: "100% bottom" },
       y: 32,
@@ -125,12 +133,25 @@ export const useHomeAnimations = () => {
       y: 32,
       ...common
     })
-    document.querySelectorAll(".contact-link").forEach(contactLink => {
-      gsap.from(contactLink, {
-        scrollTrigger: { trigger: contactLink, start: "100% bottom" },
-        x: lgAndUp.value ? 32 : -32,
-        ...common
+
+    // Contact links
+    gsap.from(".contact-links-heading", {
+      scrollTrigger: { trigger: ".contact-links-heading", start: "100% bottom" },
+      y: 32,
+      ...common
+    })
+    const contactLinkSelector = ".contact-link"
+    gsap.set(contactLinkSelector, { opacity: 0, x: lgAndUp.value ? 32 : -32 })
+    ScrollTrigger.batch(contactLinkSelector, {
+      start: "100% bottom",
+      onEnter: batch => gsap.to(batch, {
+        opacity: 1,
+        x: 0,
+        stagger: 0.15
       })
+    })
+    ScrollTrigger.addEventListener("refreshInit", () => {
+      gsap.set(contactLinkSelector, { opacity: 0, x: lgAndUp.value ? 32 : -32 })
     })
   })
 
