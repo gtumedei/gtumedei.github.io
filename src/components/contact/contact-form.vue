@@ -15,7 +15,8 @@ const initialData: Message = {
 const data = ref<Message>({ ...initialData })
 
 const isLoading = ref(false)
-const showModal = ref(false)
+const showSuccessModal = ref(false)
+const showErrorModal = ref(false)
 
 const isEmailValid = computed(() => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.value.email))
 
@@ -24,11 +25,16 @@ const canSubmit = computed(() => data.value.name != "" && isEmailValid.value && 
 const onSubmit = async () => {
   if (!canSubmit.value) return
   isLoading.value = true
-  const message = unref(data)
-  await sendMessage(message)
-  data.value = { ...initialData }
-  isLoading.value = false
-  showModal.value = true
+  try {
+    const message = unref(data)
+    await sendMessage(message)
+    data.value = { ...initialData }
+    showSuccessModal.value = true
+  } catch {
+    showErrorModal.value = true
+  } finally {
+    isLoading.value = false
+  }
 }
 
 const errorIcon = ref<HTMLElement>()
@@ -73,14 +79,25 @@ useTippy(errorIcon, "ui.back_to_top_btn_title", "top")
       </button>
     </div>
 
-    <modal v-model:show="showModal">
+    <modal v-model:show="showSuccessModal">
       <div class="flex flex-col items-center text-center max-w-96">
         <div class="bg-primary-dark flex rounded-full p-6 mb-8">
           <icon name="mdi:rocket-launch-outline" class="!text-3xl"/>
         </div>
-        <h4 class="text-xl mb-2">Message sent</h4>
+        <h4 class="section-subsubheading mb-2">Message sent</h4>
         <p class="mb-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
-        <button class="btn inverted py-3" @click="showModal = false">Close</button>
+        <button class="btn inverted py-3" @click="showSuccessModal = false">Close</button>
+      </div>
+    </modal>
+
+    <modal v-model:show="showErrorModal">
+      <div class="flex flex-col items-center text-center max-w-96">
+        <div class="bg-primary-dark flex rounded-full p-6 mb-8">
+          <icon name="mdi:emoticon-confused-outline" class="!text-3xl"/>
+        </div>
+        <h4 class="section-subsubheading mb-2">Oops!<br/>Something went wrong</h4>
+        <p class="mb-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
+        <button class="btn inverted py-3" @click="showErrorModal = false">Close</button>
       </div>
     </modal>
   </form>

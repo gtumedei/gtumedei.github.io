@@ -4,7 +4,7 @@ import { Message } from "@/types"
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string
 const supabaseKey = import.meta.env.VITE_SUPABASE_KEY as string
 
-const supabase = createClient(supabaseUrl, supabaseKey)
+const supabase = createClient(supabaseUrl, supabaseKey, { shouldThrowOnError: true })
 
 export const sendMessage = async (message: Message) =>
   await supabase.from<Message>("messages").insert(message, { returning: "minimal" })

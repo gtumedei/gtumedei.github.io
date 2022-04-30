@@ -78,7 +78,7 @@ export const useHomeAnimations = () => {
     gsap.set(techItemSelector, { opacity: 0, y: 32 })
     ScrollTrigger.batch(techItemSelector, {
       start: "100% bottom",
-      onEnter: batch => gsap.to(batch, {
+      onEnter: item => gsap.to(item, {
         opacity: 1,
         y: 0,
         stagger: 0.15
