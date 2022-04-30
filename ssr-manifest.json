@@ -1,0 +1,554 @@
+{
+  "vite/modulepreload-polyfill": [],
+  "src/modules/gsap.ts": [],
+  "locales/en.yml": [],
+  "locales/it.yml": [],
+  "src/modules/i18n.ts": [],
+  "src/modules/nprogress.ts": [],
+  "vite/preload-helper": [],
+  "src/modules/pwa.ts": [],
+  "src/composables/animations.ts": [],
+  "src/composables/dark-mode.ts": [],
+  "src/composables/i18n.ts": [],
+  "src/composables/supabase.ts": [],
+  "src/composables/tippy.ts": [],
+  "plugin-vue:export-helper": [],
+  "src/components/ui/app-section.vue": [],
+  "../../../../../../profile.jpg": [],
+  "src/components/about/profile.vue": [],
+  "src/components/ui/icon.vue": [],
+  "src/components/about/resume.vue": [],
+  "src/components/about/about-section.vue": [],
+  "src/components/ui/loading-spinner.vue?vue&type=style&index=0&scoped=true&lang.postcss": [],
+  "src/components/ui/loading-spinner.vue": [],
+  "src/components/ui/modal.vue?vue&type=style&index=0&scoped=true&lang.scss": [],
+  "src/components/ui/modal.vue": [],
+  "src/components/contact/contact-form.vue?vue&type=style&index=0&scoped=true&lang.postcss": [],
+  "src/components/contact/contact-form.vue": [],
+  "src/components/contact/contact-links.vue": [],
+  "src/components/contact/contact-section.vue": [],
+  "src/components/featured/featured-item.vue?vue&type=style&index=0&scoped=true&lang.postcss": [],
+  "src/components/featured/featured-item.vue": [],
+  "src/components/featured/featured-section.vue": [],
+  "src/components/hero/hero-section.vue": [],
+  "src/components/knowledge/tech-item.vue": [],
+  "src/assets/planetscale.svg": [],
+  "src/assets/prisma.svg": [],
+  "src/assets/trpc.svg": [],
+  "src/assets/vite.svg": [],
+  "src/components/knowledge/current-stack.vue?vue&type=style&index=0&scoped=true&lang.postcss": [],
+  "src/components/knowledge/current-stack.vue": [],
+  "src/assets/flutter.svg": [],
+  "src/assets/mongodb.svg": [],
+  "src/assets/scala.svg": [],
+  "src/assets/solidjs.svg": [],
+  "src/assets/svelte.svg": [],
+  "src/components/knowledge/tech.vue": [],
+  "src/components/knowledge/knowledge-section.vue": [],
+  "src/views/index.vue?vue&type=route&index=0&lang.yaml": [],
+  "src/views/index.vue": [],
+  "../../../../../../@vite-plugin-pages/generated-pages": [],
+  "src/components/ui/app-header.vue": [],
+  "src/components/ui/app-footer.vue": [],
+  "src/components/ui/back-to-top-button.vue": [],
+  "src/components/layouts/default.vue": [],
+  "../../../../../../@vite-plugin-vue-layouts/generated-layouts": [],
+  "src/components/ui/theme-watcher.vue": [],
+  "src/app.vue": [],
+  "@purge-icons/generated": [],
+  "../../../../../../@windicss/windi-base.css": [],
+  "../../../../../../@windicss/windi-components.css": [],
+  "src/styles/main.postcss": [],
+  "../../../../../../@windicss/windi-utilities.css": [],
+  "src/main.ts": [],
+  "index.html": [],
+  "node_modules/gsap/gsap-core.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/gsap/CSSPlugin.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/gsap/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "\u0000commonjsHelpers.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "\u0000/media/gianni/Share/Development/Web/gtumedei.github.io/node_modules/gsap/dist/ScrollTrigger.js?commonjs-module": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/gsap/dist/ScrollTrigger.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@intlify/shared/dist/shared.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@intlify/message-resolver/dist/message-resolver.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@intlify/runtime/dist/runtime.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@intlify/message-compiler/dist/message-compiler.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@intlify/devtools-if/dist/devtools-if.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@intlify/core-base/dist/core-base.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/shared/dist/shared.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/vue/dist/vue.runtime.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/env.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/const.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/proxy.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/api/api.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/api/app.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/api/component.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/api/context.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/api/hooks.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/api/util.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/api/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/plugin.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vue/devtools-api/lib/esm/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@intlify/vue-devtools/dist/vue-devtools.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/vue-i18n/dist/vue-i18n.runtime.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "\u0000/media/gianni/Share/Development/Web/gtumedei.github.io/node_modules/nprogress/nprogress.js?commonjs-module": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/nprogress/nprogress.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/vite-ssg/dist/chunk-YPUM4SRK.mjs": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/vite-ssg/dist/chunk-SO7PDUCV.mjs": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/vue-router/dist/vue-router.esm-bundler.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vueuse/head/dist/index.mjs": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/vite-ssg/dist/index.mjs": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/vue-demi/lib/index.mjs": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vueuse/shared/index.mjs": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@vueuse/core/index.mjs": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/supabase-js/dist/module/lib/version.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/supabase-js/dist/module/lib/constants.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/supabase-js/dist/module/lib/helpers.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/lib/fetch.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/lib/version.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/lib/constants.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/lib/cookies.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "\u0000/media/gianni/Share/Development/Web/gtumedei.github.io/node_modules/cross-fetch/dist/browser-ponyfill.js?commonjs-module": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/cross-fetch/dist/browser-ponyfill.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/lib/helpers.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/GoTrueApi.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/lib/polyfills.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/GoTrueClient.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/lib/types.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/gotrue-js/dist/module/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/supabase-js/dist/module/lib/SupabaseAuthClient.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/postgrest-js/dist/module/lib/types.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/postgrest-js/dist/module/lib/PostgrestTransformBuilder.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/postgrest-js/dist/module/lib/PostgrestFilterBuilder.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/postgrest-js/dist/module/lib/PostgrestQueryBuilder.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/postgrest-js/dist/module/lib/PostgrestRpcBuilder.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/postgrest-js/dist/module/lib/version.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/postgrest-js/dist/module/lib/constants.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/postgrest-js/dist/module/PostgrestClient.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/postgrest-js/dist/module/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/lib/transformers.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/websocket/package.json": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "\u0000/media/gianni/Share/Development/Web/gtumedei.github.io/node_modules/websocket/package.json?commonjs-proxy": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/websocket/lib/version.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "\u0000/media/gianni/Share/Development/Web/gtumedei.github.io/node_modules/websocket/lib/version.js?commonjs-proxy": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/websocket/lib/browser.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/lib/version.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/lib/constants.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/lib/timer.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/lib/serializer.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/lib/push.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/RealtimeSubscription.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/RealtimePresence.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/RealtimeChannel.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/RealtimeClient.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/realtime-js/dist/module/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/supabase-js/dist/module/lib/SupabaseRealtimeClient.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/supabase-js/dist/module/lib/SupabaseQueryBuilder.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/lib/version.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/lib/constants.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/lib/fetch.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/lib/helpers.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/lib/StorageBucketApi.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/lib/StorageFileApi.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/lib/types.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/lib/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/StorageClient.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/storage-js/dist/module/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/functions-js/dist/module/helper.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/functions-js/dist/module/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/supabase-js/dist/module/SupabaseClient.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@supabase/supabase-js/dist/module/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/enums.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getNodeName.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getWindow.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/instanceOf.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/applyStyles.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getBasePlacement.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/math.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getBoundingClientRect.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getLayoutRect.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/contains.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getComputedStyle.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/isTableElement.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getDocumentElement.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getParentNode.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getOffsetParent.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getMainAxisFromPlacement.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/within.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getFreshSideObject.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/mergePaddingObject.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/expandToHashMap.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/arrow.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getVariation.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/computeStyles.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/eventListeners.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getOppositePlacement.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getOppositeVariationPlacement.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getWindowScroll.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getWindowScrollBarX.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getViewportRect.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getDocumentRect.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/isScrollParent.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getScrollParent.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/listScrollParents.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/rectToClientRect.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getClippingRect.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/computeOffsets.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/detectOverflow.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/computeAutoPlacement.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/flip.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/hide.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/offset.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/popperOffsets.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/getAltAxis.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/preventOverflow.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/modifiers/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getHTMLElementScroll.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getNodeScroll.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/dom-utils/getCompositeRect.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/orderModifiers.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/debounce.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/format.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/validateModifiers.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/uniqueBy.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/utils/mergeByName.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/createPopper.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/popper-lite.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/popper.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@popperjs/core/lib/index.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/tippy.js/dist/tippy.esm.js": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/@iconify/iconify/dist/iconify.mjs": [
+    "/assets/vendor.c0a37d85.js"
+  ],
+  "node_modules/workbox-window/build/workbox-window.prod.es5.mjs": [
+    "/assets/virtual_pwa-register.ff92bc17.js"
+  ],
+  "../../../../../../@vite-plugin-pwa/virtual:pwa-register": [
+    "/assets/virtual_pwa-register.ff92bc17.js"
+  ],
+  "src/views/[...all].vue?vue&type=route&index=0&lang.yaml": [
+    "/assets/_...all_.f3ee5ce7.js"
+  ],
+  "src/views/[...all].vue": [
+    "/assets/_...all_.f3ee5ce7.js"
+  ],
+  "src/components/layouts/404.vue": [
+    "/assets/404.d6b7ddb8.js"
+  ]
+}
