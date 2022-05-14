@@ -19,7 +19,7 @@ const emit = defineEmits(["update:show"])
   </teleport>
 </template>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 
 .backdrop-enter-from, .backdrop-leave-active {
   opacity: 0;

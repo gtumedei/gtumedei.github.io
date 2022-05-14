@@ -98,7 +98,8 @@ export default defineConfig({
     include: [
       "vue",
       "vue-router",
-      "@vueuse/core"
+      "@vueuse/core",
+      "@iconify/iconify"
     ],
     exclude: [
       "vue-demi"
