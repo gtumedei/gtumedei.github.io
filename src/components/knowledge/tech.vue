@@ -72,6 +72,12 @@ const tech: Technology[] = [
     url: "https://www.php.net/"
   },
   {
+    name: "Go",
+    icon: "mdi:language-go",
+    colors: { text: "!hover:text-[#00E5FF]", hover: "!hover:bg-[#00E5FF]" },
+    url: "https://go.dev/"
+  },
+  {
     name: "Flutter & Dart",
     icon: FlutterIcon,
     colors: { text: "!hover:fill-[#38BDF8]", hover: "!hover:bg-[#38BDF8]" },
