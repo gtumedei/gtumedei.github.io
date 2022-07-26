@@ -47,7 +47,7 @@ const resume = [
 
     <div class="resume-grid grid gap-12 lg:grid-cols-2 mb-12">
       <div v-for="(item, i) in resume" :key="i" class="resume-item">
-        <p class="text-sm font-bold uppercase tracking-wide mb-1">{{item.type}}</p>
+        <p class="text-overline mb-1">{{item.type}}</p>
         <h4 class="section-subsubheading mb-3">{{item.name}}</h4>
         <p class="mb-3">{{item.description}}</p>
         <p class="text-sm flex align-center"><icon name="mdi:calendar-outline" class="!text-sm my-auto mr-2"/>{{item.date}}</p>

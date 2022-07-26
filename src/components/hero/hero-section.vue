@@ -12,7 +12,7 @@ const onMainCallToActionClick = () => window.scrollTo({ top: 820, behavior: "smo
     container flex-grow flex flex-col justify-center items-center text-center
     min-h-[calc(95vh-88px)] px-6 py-36
   ">
-    <p class="hero-item text-sm font-bold uppercase tracking-wide mb-4">{{t("hero.subheading")}}</p>
+    <p class="hero-item text-overline mb-4">{{t("hero.subheading")}}</p>
     <router-link to="/" class="hero-item mb-18">
       <h1 class="hero-heading text-gradient from-[#FFCA28] to-[#FF8A80]">Gianni Tumedei</h1>
     </router-link>

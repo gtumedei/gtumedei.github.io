@@ -125,7 +125,7 @@ const stack: { frontend: Stack, backend: Stack } = {
         <div class="flex items-center gap-6">
           <icon name="mdi:application-brackets-outline" class="!text-4xl bg-primary rounded-xl p-8 md:p-12"/>
           <div class="w-full">
-            <p class="text-overline">Node.js</p>
+            <p class="text-overline mb-1">Node.js</p>
             <h4 class="section-subsubheading">Frontend</h4>
           </div>
         </div>
@@ -143,7 +143,7 @@ const stack: { frontend: Stack, backend: Stack } = {
         <div class="flex items-center gap-6">
           <icon name="mdi:server-network" class="!text-4xl bg-primary rounded-xl p-8 md:p-12"/>
           <div class="w-full">
-            <p class="text-overline">Node.js</p>
+            <p class="text-overline mb-1">Node.js</p>
             <h4 class="section-subsubheading">Backend</h4>
           </div>
         </div>

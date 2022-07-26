@@ -17,7 +17,7 @@ const { t } = useI18n()
       class="featured-text w-full lg:w-3/5 py-6 flex flex-col justify-center order-1"
       :class="{ 'lg:order-2': flipLayout }"
     >
-      <p class="text-sm font-bold uppercase tracking-wide mb-1">{{t(project.type)}}</p>
+      <p class="text-overline mb-1">{{t(project.type)}}</p>
       <h3 class="section-subsubheading mb-4">{{t(project.name)}}</h3>
       <p>{{t(project.description)}}</p>
     </div>
