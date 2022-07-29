@@ -4,13 +4,16 @@ import scrollSnapPlugin from "windicss/plugin/scroll-snap"
 
 export default defineConfig({
   darkMode: "class",
+  extract: {
+    include: ["./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}"],
+    exclude: ["node_modules", ".git"],
+  },
   corePlugins: {
     textOpacity: false
   },
   theme: {
 
     fontFamily: {
-      sans: ["Lato", "sans-serif"],
       serif: ["'DM Serif Display'", "serif"],
       mono: ["'Fira Code'", "mono"]
     },
@@ -53,6 +56,10 @@ export default defineConfig({
           // Dynamic primary colors based on theme
           DEFAULT: "var(--color-primary)",
           dark: "var(--color-primary-dark)"
+        },
+
+        accent: {
+          DEFAULT: "var(--color-accent)"
         },
 
         // Dynamic typography colors based on theme

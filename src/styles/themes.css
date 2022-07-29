@@ -1,11 +1,12 @@
 :root {
-
   /* Base colors */
 
   --color-primary-100: #FFFFFF;
   --color-primary-200: #F7F7F7;
   --color-primary-700: #303030;
   --color-primary-800: #262626;
+
+  --color-accent: #FF8A80;
 
   --color-white-100: rgba(255, 255, 255, 1);
   --color-white-70: rgba(255, 255, 255, 0.7);
@@ -42,7 +43,7 @@
   --color-inverted-typography-hover: var(--color-white-8);
 }
 
-.dark {
+.theme-dark {
   /* Dark theme colors */
 
   --color-primary: var(--color-primary-700);

@@ -1,0 +1,108 @@
+/* Buttons */
+
+.btn { @apply
+  px-10 py-4 rounded-full !outline-none
+  inline-flex justify-center items-center gap-4
+  border-2 border-transparent
+  text-sm font-bold text-base bg-primary shadow-md
+  transition-all
+  hover:shadow-xl
+  focus:bg-primary-dark
+  active:shadow-md;
+
+  &:disabled { @apply
+    opacity-90 shadow-none cursor-not-allowed;
+  }
+
+  &.inverted { @apply
+    text-inverted-base bg-inverted-primary
+    focus:bg-inverted-primary-dark;
+  }
+
+  &.light { @apply
+    text-black-80 bg-primary-100
+    focus:bg-primary-200;
+  }
+
+  &.dark { @apply
+    text-white-100 bg-primary-700
+    focus:bg-primary-800;
+  }
+
+  &.transparent { @apply
+    bg-transparent !shadow-none
+    hover:bg-typography-hover
+    focus:bg-typography-hover
+    active:bg-typography-divider;
+  }
+
+  &.icon { @apply
+    p-2 rounded-xl !shadow-none bg-transparent
+    hover:bg-typography-hover
+    focus:bg-typography-hover
+    active:bg-typography-divider;
+  }
+
+  &.fab { @apply
+    p-4;
+  }
+}
+
+/* Form elements */
+
+fieldset { @apply
+  relative flex flex-col;
+
+  label { @apply
+    mb-2;
+  }
+
+  & > .icon { @apply
+    absolute bottom-4 left-4;
+  }
+
+  .icon + input, .icon + textarea { @apply
+    pl-12;
+  }
+}
+
+input, textarea { @apply
+  bg-primary-dark rounded-lg px-4 py-3 outline-none
+  border-2 border-transparent focus:border-accent
+  transition-all resize-none;
+}
+
+/* Typography */
+
+.section-heading { @apply
+  text-4xl font-bold tracking-wider;
+}
+
+.section-subheading { @apply
+  text-xl font-bold tracking-wider;
+}
+
+/* Cards */
+
+.card { @apply
+  p-6 bg-primary rounded-xl shadow-xl overflow-hidden;
+}
+
+/* Tooltips */
+
+[data-tippy-root] { @apply
+  max-w[calc(100vw-10px)];
+}
+
+.tippy-box { @apply
+  relative text-sm whitespace-normal outline-none transition-all
+  bg-inverted-primary text-inverted-typography-base rounded-md;
+
+  &[data-animation=fade][data-state=hidden] { @apply
+    opacity-0;
+  }
+
+  .tippy-content { @apply
+    relative z-10 px-3 py-1.5;
+  }
+}

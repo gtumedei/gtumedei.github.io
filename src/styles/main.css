@@ -1,0 +1,35 @@
+@import "./themes.css";
+@import "./utilities.css";
+@import "./components.css";
+
+html { @apply
+  min-h-full m-0 p-0
+  bg-primary
+  font-mono text-base;
+}
+
+html.theme-dark {
+  color-scheme: dark;
+}
+
+body { @apply
+  min-h-[100vh] m-0 p-0 flex flex-col items-center;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 { @apply
+  font-serif;
+}
+
+/* Transitions */
+
+.fade-enter, .fade-exit-to { @apply
+  opacity-0;
+}
+
+.fade-enter-active, .fade-exit-active { @apply
+  transition-opacity;
+}

@@ -1,43 +1,24 @@
 {
-  "name": "gtumedei.github.io",
+  "name": "@example/framework-solid",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "vite --port 8080 --host",
-    "build": "cross-env NODE_ENV=production vite-ssg build",
-    "deploy": "sh ./scripts/deploy.sh",
-    "clean": "rimraf dist"
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview --host"
   },
   "dependencies": {
-    "@iconify/iconify": "^2.1.0",
-    "@supabase/supabase-js": "^1.33.3",
-    "@vueuse/core": "^8.4.2",
-    "@vueuse/head": "^0.7.6",
-    "gsap": "^3.7.1",
-    "nprogress": "^0.2.0",
-    "rimraf": "^3.0.2",
-    "tippy.js": "^6.3.7",
-    "vue": "^3.2.2",
-    "vue-i18n": "^9.1.7",
-    "vue-router": "^4.0.11"
+    "solid-js": "^1.4.3",
+    "solid-transition-group": "^0.0.10",
+    "tippy.js": "^6.3.7"
   },
   "devDependencies": {
-    "@intlify/vite-plugin-vue-i18n": "^2.4.0",
-    "@types/nprogress": "^0.2.0",
-    "@vitejs/plugin-vue": "^1.4.0",
-    "@vue/compiler-sfc": "^3.2.2",
-    "@vue/server-renderer": "^3.2.2",
-    "critters": "^0.0.10",
-    "cross-env": "^7.0.3",
-    "typescript": "^4.6.3",
-    "vite": "^2.4.4",
-    "vite-plugin-fonts": "^0.2.2",
-    "vite-plugin-pages": "^0.17.3",
-    "vite-plugin-purge-icons": "^0.7.0",
-    "vite-plugin-pwa": "^0.11.3",
-    "vite-plugin-vue-layouts": "^0.3.1",
-    "vite-plugin-windicss": "^1.6.1",
-    "vite-ssg": "^0.14.5",
-    "vite-svg-loader": "^3.1.1",
-    "vue-tsc": "^0.3.0"
+    "@astrojs/solid-js": "^0.4.1",
+    "@iconify-json/cib": "^1.1.2",
+    "@iconify-json/mdi": "^1.1.29",
+    "astro": "^1.0.0-rc.1",
+    "unplugin-icons": "^0.14.7",
+    "vite-plugin-windicss": "^1.8.7",
+    "windicss": "^3.5.6"
   }
 }
