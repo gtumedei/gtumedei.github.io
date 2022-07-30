@@ -36,8 +36,11 @@ const HomePage: Component = () => {
       </div>
       <div class="flex flex-col gap-6 justify-center">
         <For each={pages} >{page =>
-          <a href={page.href} class="flex gap-6 items-center bg-primary-dark rounded-xl p-2">
-            <div class="flex rounded-lg bg-primary p-6 text-xl text-accent">
+          <a href={page.href} class="
+            group flex gap-6 items-center rounded-xl p-2 transition-colors
+            border border-typography-hover hover:border-accent
+          ">
+            <div class="flex bg-primary-dark group-hover:bg-accent-10 text-xl text-accent rounded-lg p-6 transition-colors">
               {page.icon}
             </div>
             <div class="flex-grow">

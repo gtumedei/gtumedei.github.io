@@ -38,9 +38,9 @@
 
   &.icon { @apply
     p-2 rounded-xl !shadow-none bg-transparent
-    hover:bg-typography-hover
-    focus:bg-typography-hover
-    active:bg-typography-divider;
+    hover:bg-accent-10 hover:text-accent
+    focus:bg-accent-10 focus:text-accent
+    active:bg-accent-20 active:text-accent;
   }
 
   &.fab { @apply
@@ -54,21 +54,27 @@ fieldset { @apply
   relative flex flex-col;
 
   label { @apply
-    mb-2;
+    text-sm text-secondary mb-2;
   }
 
   & > .icon { @apply
-    absolute bottom-4 left-4;
+    absolute bottom-[7px] left-[7px]
+    bg-primary-dark h-9 w-9 p-2 rounded-lg
+    transition-colors;
+  }
+
+  &:focus-within > .icon { @apply
+    bg-accent-10 text-accent;
   }
 
   .icon + input, .icon + textarea { @apply
-    pl-12;
+    pl-14;
   }
 }
 
 input, textarea { @apply
-  bg-primary-dark rounded-lg px-4 py-3 outline-none
-  border-2 border-transparent focus:border-accent
+  bg-transparent rounded-lg px-4 py-3 outline-none
+  border border-typography-hover focus:border-accent
   transition-all resize-none;
 }
 

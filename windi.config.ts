@@ -60,6 +60,7 @@ export default defineConfig({
 
         accent: {
           DEFAULT: "var(--color-accent)",
+          20: "var(--color-accent-20)",
           10: "var(--color-accent-10)"
         },
 

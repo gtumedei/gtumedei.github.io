@@ -11,13 +11,8 @@ const useTheme = () => {
   const setTheme = (theme: Theme) => {
     set(theme)
     localStorage.setItem("theme", theme)
-    if (theme == "dark") {
-      document.documentElement.classList.add("theme-dark")
-      document.querySelector(`meta[name="theme-color"]`)?.setAttribute("content",  "#303030")
-    } else {
-      document.documentElement.classList.remove("theme-dark")
-      document.querySelector(`meta[name="theme-color"]`)?.setAttribute("content",  "#FFFFFF")
-    }
+    document.documentElement.classList[theme == "dark" ? "add" : "remove"]("theme-dark")
+    document.querySelector(`meta[name="theme-color"]`)?.setAttribute("content", theme == "dark" ? "#303030" : "#FFFFFF")
   }
   const toggleTheme = () => setTheme(theme() == "dark" ? "light" : "dark")
 
@@ -29,26 +24,28 @@ const useTheme = () => {
 const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
   const { theme, toggleTheme } = useTheme()
 
-  const btn = (
-    <button class="btn icon !text-lg" onClick={toggleTheme}>
+  const themeBtn = (
+    <button class="btn icon" onClick={toggleTheme}>
       {theme() == "dark"
         ? <MdiBrightness7 />
         : <MdiBrightness4 />
       }
     </button>
   )
-  const tooltip = () => theme() == "dark" ? "Enable light theme" : "Enable dark theme"
-  useTippy(btn, tooltip, "bottom")
+  useTippy(themeBtn, () => theme() == "dark" ? "Enable light theme" : "Enable dark theme", "left")
+
+  const backBtn = (
+    <a href="/" class="btn icon">
+      <MdiArrowLeftTop />
+    </a>
+  )
+  useTippy(backBtn, () => "Go Home", "right")
 
   return (
-    <header class="container max-w-4xl absolute-center-x top-0 z-10 flex items-center gap-2 px-3 py-6">
-      {props.showBackButton &&
-        <a href="/" class="btn icon !text-lg">
-          <MdiArrowLeftTop />
-        </a>
-      }
+    <header class="container max-w-4xl flex items-center px-3 pt-3">
+      {props.showBackButton && backBtn}
       <div class="flex-grow" />
-      {btn}
+      {themeBtn}
     </header>
   )
 }

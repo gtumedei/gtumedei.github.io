@@ -1,9 +1,11 @@
 ---
 import AppHeader from "./app-header"
-const { showBackButton } = Astro.props
+
+export interface Props { showBackButton?: boolean }
+const { showBackButton = true } = Astro.props as Props
 ---
 
-<AppHeader showBackButton={showBackButton ?? true} client:load />
-<main class="container relative max-w-4xl flex-grow flex flex-col p-6 pt-[90px]">
+<AppHeader showBackButton={showBackButton} client:load />
+<main class="container relative max-w-4xl flex-grow flex flex-col p-6">
   <slot />
 </main>

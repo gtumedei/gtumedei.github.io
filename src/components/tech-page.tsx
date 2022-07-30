@@ -30,121 +30,121 @@ const tech: Technology[] = [
   {
     name: "TypeScript",
     icon: <MdiLanguageTypeScript />,
-    colors: { text: "!hover:text-[#0284C7]", hover: "!hover:bg-[#0284C7]" },
+    colors: { text: "!group-hover:text-[#0284C7]", hover: "!group-hover:bg-[#0284C7]" },
     url: "https://www.typescriptlang.org/"
   },
   {
     name: "JavaScript",
     icon: <MdiLanguageJavaScript />,
-    colors: { text: "!hover:text-[#EAB308]", hover: "!hover:bg-[#EAB308]" },
+    colors: { text: "!group-hover:text-[#EAB308]", hover: "!group-hover:bg-[#EAB308]" },
     url: "https://www.javascript.com/"
   },
   {
     name: "Vue.js",
     icon: <MdiVuejs />,
-    colors: { text: "!hover:text-[#00C985]", hover: "!hover:bg-[#00C985]" },
+    colors: { text: "!group-hover:text-[#00C985]", hover: "!group-hover:bg-[#00C985]" },
     url: "https://vuejs.org/"
   },
   {
     name: "React",
     icon: <MdiReact />,
-    colors: { text: "!hover:text-[#33DBFB]", hover: "!hover:bg-[#33DBFB]" },
+    colors: { text: "!group-hover:text-[#33DBFB]", hover: "!group-hover:bg-[#33DBFB]" },
     url: "https://reactjs.org/"
   },
   {
     name: "Svelte",
     icon: <CibSvelte/>,
-    colors: { text: "!hover:text-[#DC2626]", hover: "!hover:bg-[#DC2626]" },
+    colors: { text: "!group-hover:text-[#DC2626]", hover: "!group-hover:bg-[#DC2626]" },
     url: "https://svelte.dev/"
   },
   /* {
     name: "Solid.js",
     icon: SolidjsIcon,
-    colors: { text: "!hover:text-[#0EA5E9]", hover: "!hover:bg-[#0EA5E9]" },
+    colors: { text: "!group-hover:text-[#0EA5E9]", hover: "!group-hover:bg-[#0EA5E9]" },
     url: "https://www.solidjs.com/"
   }, */
   {
     name: "Electron",
     icon: <MdiElectronFramework />,
-    colors: { text: "!hover:text-[#67E8F9]", hover: "!hover:bg-[#67E8F9]" },
+    colors: { text: "!group-hover:text-[#67E8F9]", hover: "!group-hover:bg-[#67E8F9]" },
     url: "https://www.electronjs.org/"
   },
   {
     name: "HTML",
     icon: <MdiLanguageHtml5 />,
-    colors: { text: "!hover:text-[#EA580C]", hover: "!hover:bg-[#EA580C]" },
+    colors: { text: "!group-hover:text-[#EA580C]", hover: "!group-hover:bg-[#EA580C]" },
     url: "https://developer.mozilla.org/en-US/docs/Web/HTML"
   },
   {
     name: "CSS",
     icon: <MdiLanguageCss3 />,
-    colors: { text: "!hover:text-[#2563EB]", hover: "!hover:bg-[#2563EB]" },
+    colors: { text: "!group-hover:text-[#2563EB]", hover: "!group-hover:bg-[#2563EB]" },
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS"
   },
   {
     name: "PHP",
     icon: <MdiLanguagePhp />,
-    colors: { text: "!hover:text-[#6D28D9]", hover: "!hover:bg-[#6D28D9]" },
+    colors: { text: "!group-hover:text-[#6D28D9]", hover: "!group-hover:bg-[#6D28D9]" },
     url: "https://www.php.net/"
   },
   {
     name: "Go",
     icon: <MdiLanguageGo />,
-    colors: { text: "!hover:text-[#00E5FF]", hover: "!hover:bg-[#00E5FF]" },
+    colors: { text: "!group-hover:text-[#00E5FF]", hover: "!group-hover:bg-[#00E5FF]" },
     url: "https://go.dev/"
   },
   {
     name: "Flutter & Dart",
     icon: <CibFlutter />,
-    colors: { text: "!hover:text-[#38BDF8]", hover: "!hover:bg-[#38BDF8]" },
+    colors: { text: "!group-hover:text-[#38BDF8]", hover: "!group-hover:bg-[#38BDF8]" },
     url: "https://flutter.dev/"
   },
   {
     name: "C, C++",
     icon: <MdiLanguageC />,
-    colors: { text: "!hover:text-[#0369A1]", hover: "!hover:bg-[#0369A1]" },
+    colors: { text: "!group-hover:text-[#0369A1]", hover: "!group-hover:bg-[#0369A1]" },
     url: "https://www.cplusplus.com/"
   },
   {
     name: "Java",
     icon: <MdiLanguageJava />,
-    colors: { text: "!hover:text-[#E11D48]", hover: "!hover:bg-[#E11D48]" },
+    colors: { text: "!group-hover:text-[#E11D48]", hover: "!group-hover:bg-[#E11D48]" },
     url: "https://www.java.com/"
   },
   {
     name: "Scala",
     icon: <CibScala />,
-    colors: { text: "!hover:text-[#E11D48]", hover: "!hover:bg-[#E11D48]" },
+    colors: { text: "!group-hover:text-[#E11D48]", hover: "!group-hover:bg-[#E11D48]" },
     url: "https://www.scala-lang.org/"
   },
   {
     name: "Python",
     icon: <MdiLanguagePython />,
-    colors: { text: "!hover:text-[#EAB308]", hover: "!hover:bg-[#EAB308]" },
+    colors: { text: "!group-hover:text-[#EAB308]", hover: "!group-hover:bg-[#EAB308]" },
     url: "https://www.python.org/"
   },
   {
     name: "Docker",
     icon: <MdiDocker />,
-    colors: { text: "!hover:text-[#0EA5E9]", hover: "!hover:bg-[#0EA5E9]" },
+    colors: { text: "!group-hover:text-[#0EA5E9]", hover: "!group-hover:bg-[#0EA5E9]" },
     url: "https://www.docker.com/"
   },
   {
     name: "GraphQL",
     icon: <MdiGraphql />,
-    colors: { text: "!hover:text-[#DD36A3]", hover: "!hover:bg-[#DD36A3]" },
+    colors: { text: "!group-hover:text-[#DD36A3]", hover: "!group-hover:bg-[#DD36A3]" },
     url: "https://graphql.org/"
   },
   {
     name: "SQL",
     icon: <MdiDatabaseSearch />,
-    colors: { text: "!hover:text-[#FF7043]", hover: "!hover:bg-[#FF7043]" },
+    colors: { text: "!group-hover:text-[#FF7043]", hover: "!group-hover:bg-[#FF7043]" },
     url: "https://en.wikipedia.org/wiki/SQL"
   },
   {
     name: "MongoDB",
     icon: <CibMongodb />,
-    colors: { text: "!hover:text-[#22C55E]", hover: "!hover:bg-[#22C55E]" },
+    colors: { text: "!group-hover:text-[#22C55E]", hover: "!group-hover:bg-[#22C55E]" },
     url: "https://www.mongodb.com/"
   }
 ]
@@ -155,14 +155,14 @@ const TechItem: Component<{
 }> = (props) => {
   return (
     <div>
-      <a href={props.item.url} target="_blank" class="tech-item relative flex flex-col gap-2 mb-7">
-        <div class="flex rounded-xl bg-primary mx-auto">
+      <a href={props.item.url} target="_blank" class="group relative flex flex-col gap-2">
+        <div class="flex rounded-xl bg-primary mx-auto mb-7">
           <div class={`
             flex p-6 rounded-xl !text-xl text-accent ${props.bg == "primary" ? "bg-primary" : "bg-primary-dark"}
-            transition-colors ${props.item.colors.text} ${props.item.colors.hover} !hover:bg-opacity-10
+            transition-colors ${props.item.colors.text} ${props.item.colors.hover} !group-hover:bg-opacity-10
           `}>{props.item.icon}</div>
         </div>
-        <p class="text-sm text-secondary font-mono text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 -bottom-8">
+        <p class="text-sm text-secondary font-mono text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 bottom-0">
           {props.item.name}
         </p>
       </a>
