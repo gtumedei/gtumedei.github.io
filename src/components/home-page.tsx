@@ -10,9 +10,9 @@ import MdiSend from "~icons/mdi/send"
 const HomePage: Component = () => {
 
   const links = [
-    { href: "#", icon: <MdiGithub />, title: "GitHub" },
-    { href: "#", icon: <MdiLinkedin />, title: "LinkedIn" },
-    { href: "#", icon: <MdiMapMarker />, title: "Location" },
+    { href: "https://github.com/gtumedei", icon: <MdiGithub />, title: "GitHub • @gtumedei" },
+    { href: "https://www.linkedin.com/in/gianni-tumedei-7171961b8/", icon: <MdiLinkedin />, title: "LinkedIn • @giannitumedei" },
+    { href: "https://goo.gl/maps/knzcetCBj6cHLAAW7", icon: <MdiMapMarker />, title: "Location • Cesena (IT)" },
   ]
 
   const pages = [
@@ -29,9 +29,12 @@ const HomePage: Component = () => {
         <h2 class="font-mono">@gtumedei</h2>
         <div class="flex mt-6 mb-0 -m-l-3">
           <For each={links} >{link =>
-            <a href={link.href} class="btn icon !text-lg" use:tooltip={[() => link.title, "bottom"]}>
-              {link.icon}
-            </a>
+            <a
+              href={link.href}
+              class="btn icon !text-lg"
+              aria-label={link.title}
+              use:tooltip={[() => link.title, "bottom"]}
+            >{link.icon}</a>
           }</For>
         </div>
       </div>

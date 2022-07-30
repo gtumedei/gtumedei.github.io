@@ -1,4 +1,4 @@
-import { Component, createSignal, onMount } from "solid-js"
+import { Component, createMemo, createSignal, onMount } from "solid-js"
 import { tooltip } from "~/composables/tooltip"; tooltip
 import MdiArrowLeftTop from "~icons/mdi/arrow-left-top"
 import MdiBrightness4 from "~icons/mdi/brightness-4"
@@ -24,10 +24,12 @@ const useTheme = () => {
 const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
   const { theme, toggleTheme } = useTheme()
 
+  const btnTitle = createMemo(() => theme() == "dark" ? "Enable light theme" : "Enable dark theme")
+
   return (
     <header class="container max-w-4xl flex items-center px-3 pt-3">
       {props.showBackButton &&
-        <a href="/" class="btn icon" use:tooltip={[() => "Go Home", "right"]}>
+        <a href="/" class="btn icon" aria-label="Go Home" use:tooltip={[() => "Go Home", "right"]}>
           <MdiArrowLeftTop />
         </a>
       }
@@ -35,7 +37,8 @@ const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
       <button
         class="btn icon"
         onClick={toggleTheme}
-        use:tooltip={[() => theme() == "dark" ? "Enable light theme" : "Enable dark theme", "left"]}
+        aria-label={btnTitle()}
+        use:tooltip={[btnTitle, "left"]}
       >{theme() == "dark" ? <MdiBrightness7 /> : <MdiBrightness4 />}</button>
     </header>
   )
