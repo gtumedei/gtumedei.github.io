@@ -1,4 +1,5 @@
 import { Component, For } from "solid-js"
+import { tooltip } from "~/composables/tooltip"; tooltip
 import MdiApplicationBrackets from "~icons/mdi/application-brackets"
 import MdiGithub from "~icons/mdi/github"
 import MdiLinkedin from "~icons/mdi/linkedin"
@@ -25,10 +26,10 @@ const HomePage: Component = () => {
       <div class="flex flex-col justify-center pl-2 md:p-0 mt-12 mb-6 md:m-0">
         <img src="/profile.jpg" class="h-18 w-18 rounded-full shadow-lg mb-6" alt="Profile image" />
         <h1 class="text-4xl font-bold tracking-wider mb-1">Gianni Tumedei</h1>
-        <h2 class="font-mono text-secondary">@gtumedei</h2>
+        <h2 class="font-mono">@gtumedei</h2>
         <div class="flex mt-6 mb-0 -m-l-3">
           <For each={links} >{link =>
-            <a href={link.href} class="btn icon !text-lg" title={link.title}>
+            <a href={link.href} class="btn icon !text-lg" use:tooltip={[() => link.title, "bottom"]}>
               {link.icon}
             </a>
           }</For>
@@ -45,7 +46,7 @@ const HomePage: Component = () => {
             </div>
             <div class="flex-grow">
               <h3 class="text-xl font-bold tracking-wider mb-1">{page.title}</h3>
-              <p class="text-sm text-secondary font-mono">{page.subtitle}</p>
+              <p class="text-sm font-mono">{page.subtitle}</p>
             </div>
           </a>
         }</For>

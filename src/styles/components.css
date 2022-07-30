@@ -54,7 +54,7 @@ fieldset { @apply
   relative flex flex-col;
 
   label { @apply
-    text-sm text-secondary mb-2;
+    text-sm ml-1 mb-1;
   }
 
   & > .icon { @apply

@@ -82,7 +82,7 @@ const ContactPage: Component = () => {
   return (
     <>
       <h1 class="text-4xl font-bold tracking-wider mb-2">Contact</h1>
-      <p class="font-mono text-secondary mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sequi iure earum placeat, labore iusto rem dolore temporibus praesentium quibusdam?</p>
+      <p class="font-mono mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sequi iure earum placeat, labore iusto rem dolore temporibus praesentium quibusdam?</p>
       <ContactForm />
     </>
   )

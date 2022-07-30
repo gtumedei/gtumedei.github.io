@@ -162,7 +162,7 @@ const TechItem: Component<{
             transition-colors ${props.item.colors.text} ${props.item.colors.hover} !group-hover:bg-opacity-10
           `}>{props.item.icon}</div>
         </div>
-        <p class="text-sm text-secondary font-mono text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 bottom-0">
+        <p class="text-sm font-mono text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 bottom-0">
           {props.item.name}
         </p>
       </a>
@@ -174,7 +174,7 @@ const TechPage: Component = () => {
   return (
     <>
       <h1 class="text-4xl font-bold tracking-wider mb-2">Tech I Use</h1>
-      <p class="font-mono text-secondary mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sequi iure earum placeat, labore iusto rem dolore temporibus praesentium quibusdam?</p>
+      <p class="font-mono mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sequi iure earum placeat, labore iusto rem dolore temporibus praesentium quibusdam?</p>
       <div class="
         w-full grid gap-12 mb-6
         grid-cols-[repeat(auto-fill,minmax(84px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(100px,1fr))]

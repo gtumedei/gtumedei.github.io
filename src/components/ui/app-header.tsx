@@ -1,5 +1,5 @@
 import { Component, createSignal, onMount } from "solid-js"
-import { useTippy } from "~/composables/tippy"
+import { tooltip } from "~/composables/tooltip"; tooltip
 import MdiArrowLeftTop from "~icons/mdi/arrow-left-top"
 import MdiBrightness4 from "~icons/mdi/brightness-4"
 import MdiBrightness7 from "~icons/mdi/brightness-7"
@@ -24,28 +24,19 @@ const useTheme = () => {
 const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
   const { theme, toggleTheme } = useTheme()
 
-  const themeBtn = (
-    <button class="btn icon" onClick={toggleTheme}>
-      {theme() == "dark"
-        ? <MdiBrightness7 />
-        : <MdiBrightness4 />
-      }
-    </button>
-  )
-  useTippy(themeBtn, () => theme() == "dark" ? "Enable light theme" : "Enable dark theme", "left")
-
-  const backBtn = (
-    <a href="/" class="btn icon">
-      <MdiArrowLeftTop />
-    </a>
-  )
-  useTippy(backBtn, () => "Go Home", "right")
-
   return (
     <header class="container max-w-4xl flex items-center px-3 pt-3">
-      {props.showBackButton && backBtn}
+      {props.showBackButton &&
+        <a href="/" class="btn icon" use:tooltip={[() => "Go Home", "right"]}>
+          <MdiArrowLeftTop />
+        </a>
+      }
       <div class="flex-grow" />
-      {themeBtn}
+      <button
+        class="btn icon"
+        onClick={toggleTheme}
+        use:tooltip={[() => theme() == "dark" ? "Enable light theme" : "Enable dark theme", "left"]}
+      >{theme() == "dark" ? <MdiBrightness7 /> : <MdiBrightness4 />}</button>
     </header>
   )
 }
