@@ -3,7 +3,6 @@ import CibFlutter from "~icons/cib/flutter"
 import CibMongodb from "~icons/cib/mongodb"
 import CibScala from "~icons/cib/scala"
 import CibSvelte from "~icons/cib/svelte"
-import MdiArrowLeftThin from "~icons/mdi/arrow-left-thin"
 import MdiDatabaseSearch from "~icons/mdi/database-search"
 import MdiDocker from "~icons/mdi/docker"
 import MdiElectronFramework from "~icons/mdi/electron-framework"
@@ -173,10 +172,7 @@ const TechItem: Component<{
 
 const TechPage: Component = () => {
   return (
-    <main class="container max-w-4xl p-6">
-      <a href="/" class="btn icon -m-l-3 my-0 !text-xl mb-6">
-        <MdiArrowLeftThin />
-      </a>
+    <>
       <h1 class="text-4xl font-bold tracking-wider mb-2">Tech I Use</h1>
       <p class="font-mono text-secondary mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sequi iure earum placeat, labore iusto rem dolore temporibus praesentium quibusdam?</p>
       <div class="
@@ -187,7 +183,7 @@ const TechPage: Component = () => {
           <TechItem item={item} bg="primary-dark" />
         }</For>
       </div>
-    </main>
+    </>
   )
 }
 

@@ -1,8 +1,17 @@
 ---
+import AppHead from "~/components/ui/app-head.astro"
+import AppLayout from "~/components/ui/app-layout.astro"
 import HomePage from "~/components/home-page"
-import Layout from "~/layouts/base.astro"
 ---
 
-<Layout>
-  <HomePage />
-</Layout>
+<html lang="en">
+  <head>
+    <AppHead />
+    <title>Gianni Tumedei</title>
+  </head>
+  <body>
+    <AppLayout showBackButton={false}>
+      <HomePage />
+    </AppLayout>
+  </body>
+</html>

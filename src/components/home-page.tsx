@@ -21,7 +21,7 @@ const HomePage: Component = () => {
   ]
 
   return (
-    <main class="container max-w-4xl grid md:grid-cols-2 gap-6 p-6 md:m-auto">
+    <div class="w-full grid md:grid-cols-2 gap-6 md:m-auto md:pb-90px">
       <div class="flex flex-col justify-center pl-2 md:p-0 mt-12 mb-6 md:m-0">
         <img src="/profile.jpg" class="h-18 w-18 rounded-full shadow-lg mb-6" alt="Profile image" />
         <h1 class="text-4xl font-bold tracking-wider mb-1">Gianni Tumedei</h1>
@@ -47,7 +47,7 @@ const HomePage: Component = () => {
           </a>
         }</For>
       </div>
-    </main>
+    </div>
   )
 }
 

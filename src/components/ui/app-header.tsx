@@ -1,5 +1,6 @@
 import { Component, createSignal, onMount } from "solid-js"
 import { useTippy } from "~/composables/tippy"
+import MdiArrowLeftTop from "~icons/mdi/arrow-left-top"
 import MdiBrightness4 from "~icons/mdi/brightness-4"
 import MdiBrightness7 from "~icons/mdi/brightness-7"
 
@@ -25,11 +26,11 @@ const useTheme = () => {
   return { theme, setTheme, toggleTheme }
 }
 
-const AppHeader: Component<{ showName?: boolean }> = (props) => {
+const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
   const { theme, toggleTheme } = useTheme()
 
   const btn = (
-    <button class="btn icon" onClick={toggleTheme}>
+    <button class="btn icon !text-lg" onClick={toggleTheme}>
       {theme() == "dark"
         ? <MdiBrightness7 />
         : <MdiBrightness4 />
@@ -40,11 +41,13 @@ const AppHeader: Component<{ showName?: boolean }> = (props) => {
   useTippy(btn, tooltip, "bottom")
 
   return (
-    <header class="container p-6 flex items-center gap-2">
-      {props.showName
-        ? <a href="/" class="text-lg mr-auto">Gianni Tumedei</a>
-        : <div class="mr-auto" />
+    <header class="container max-w-4xl absolute-center-x top-0 z-10 flex items-center gap-2 px-3 py-6">
+      {props.showBackButton &&
+        <a href="/" class="btn icon !text-lg">
+          <MdiArrowLeftTop />
+        </a>
       }
+      <div class="flex-grow" />
       {btn}
     </header>
   )

@@ -59,7 +59,8 @@ export default defineConfig({
         },
 
         accent: {
-          DEFAULT: "var(--color-accent)"
+          DEFAULT: "var(--color-accent)",
+          10: "var(--color-accent-10)"
         },
 
         // Dynamic typography colors based on theme

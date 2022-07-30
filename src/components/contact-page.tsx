@@ -1,6 +1,5 @@
 import { Component, onMount } from "solid-js"
 import MdiAccountOutline from "~icons/mdi/account-outline"
-import MdiArrowLeftThin from "~icons/mdi/arrow-left-thin"
 import MdiEmailOutline from "~icons/mdi/email-outline"
 import MdiSend from "~icons/mdi/send"
 
@@ -81,14 +80,11 @@ const ContactForm: Component = () => {
 
 const ContactPage: Component = () => {
   return (
-    <main class="container max-w-4xl p-6">
-      <a href="/" class="btn icon -m-l-3 my-0 !text-xl mb-6">
-        <MdiArrowLeftThin />
-      </a>
+    <>
       <h1 class="text-4xl font-bold tracking-wider mb-2">Contact</h1>
       <p class="font-mono text-secondary mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sequi iure earum placeat, labore iusto rem dolore temporibus praesentium quibusdam?</p>
       <ContactForm />
-    </main>
+    </>
   )
 }
 

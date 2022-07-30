@@ -1,7 +1,16 @@
 ---
-import Layout from "~/layouts/base.astro"
+import AppHead from "~/components/ui/app-head.astro"
+import AppLayout from "~/components/ui/app-layout.astro"
 ---
 
-<Layout>
-  <h1>Portfolio</h1>
-</Layout>
+<html lang="en">
+  <head>
+    <AppHead />
+    <title>Portfolio • Gianni Tumedei</title>
+  </head>
+  <body>
+    <AppLayout>
+      <h1>Portfolio</h1>
+    </AppLayout>
+  </body>
+</html>

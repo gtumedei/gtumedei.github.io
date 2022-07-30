@@ -1,17 +1,20 @@
 ---
-import Layout from "~/layouts/base.astro"
-import MdiArrowLeftThin from "~icons/mdi/arrow-left-thin"
+import AppHead from "~/components/ui/app-head.astro"
+import AppLayout from "~/components/ui/app-layout.astro"
 ---
 
-<Layout>
-  <main class="container relative max-w-4xl flex-grow flex p-6">
-    <a href="/" class="btn icon absolute top-6 left-3 !text-xl">
-      <MdiArrowLeftThin />
-    </a>
-    <div class="h-full flex flex-col justify-center items-center text-center m-auto">
-      <h2 class="text-divider font-mono text-12xl">404</h2>
-      <h1 class="section-heading mb-12">Page not found</h1>
-      <a href="/" class="btn inverted">Go Home</a>
-    </div>
-  </main>
-</Layout>
+<html lang="en">
+  <head>
+    <AppHead />
+    <title>Page Not Found • Gianni Tumedei</title>
+  </head>
+  <body>
+    <AppLayout>
+      <div class="h-full flex flex-col justify-center items-center text-center m-auto">
+        <h2 class="text-divider font-mono text-12xl">404</h2>
+        <h1 class="section-heading mb-12">Page not found</h1>
+        <a href="/" class="btn inverted">Go Home</a>
+      </div>
+    </AppLayout>
+  </body>
+</html>
