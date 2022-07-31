@@ -6,9 +6,15 @@
   --color-primary-700: #303030;
   --color-primary-800: #262626;
 
-  --color-accent: #00BFA5;
+  /* --color-accent: #00BFA5;
   --color-accent-20: rgba(0, 191, 165, 0.2);
-  --color-accent-10: rgba(0, 191, 165, 0.1);
+  --color-accent-10: rgba(0, 191, 165, 0.1); */
+  /* --color-accent: #EF9A9A;
+  --color-accent-20: rgba(239, 154, 154, 0.2);
+  --color-accent-10: rgba(239, 154, 154, 0.1); */
+  --color-accent: #42A5F5;
+  --color-accent-20: rgba(66, 165, 245, 0.2);
+  --color-accent-10: rgba(66, 165, 245, 0.1);
 
   --color-white-100: rgba(255, 255, 255, 1);
   --color-white-70: rgba(255, 255, 255, 0.7);
@@ -50,10 +56,6 @@
 
   --color-primary: var(--color-primary-700);
   --color-primary-dark: var(--color-primary-800);
-
-  --color-accent: #FF8A80;
-  --color-accent-20: rgba(255, 138, 128, 0.2);
-  --color-accent-10: rgba(255, 138, 128, 0.1);
 
   --color-typography-base: var(--color-white-100);
   --color-typography-secondary: var(--color-white-70);

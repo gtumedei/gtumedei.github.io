@@ -8,6 +8,7 @@
     "preview": "astro preview --host"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.35.4",
     "solid-js": "^1.4.3",
     "solid-transition-group": "^0.0.10",
     "tippy.js": "^6.3.7"

@@ -1,5 +1,5 @@
 import { Component, For } from "solid-js"
-import { tooltip } from "~/composables/tooltip"; tooltip
+import tooltip from "~/composables/tooltip"; tooltip
 import MdiApplicationBrackets from "~icons/mdi/application-brackets"
 import MdiGithub from "~icons/mdi/github"
 import MdiLinkedin from "~icons/mdi/linkedin"

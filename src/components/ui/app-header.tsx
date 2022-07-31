@@ -1,6 +1,8 @@
 import { Component, createMemo, createSignal, onMount } from "solid-js"
-import { tooltip } from "~/composables/tooltip"; tooltip
+import tooltip from "~/composables/tooltip"; tooltip
 import MdiArrowLeftTop from "~icons/mdi/arrow-left-top"
+import MdiCircle from "~icons/mdi/circle"
+import MdiBrightnessAuto from "~icons/mdi/brightness-auto"
 import MdiBrightness4 from "~icons/mdi/brightness-4"
 import MdiBrightness7 from "~icons/mdi/brightness-7"
 
@@ -34,6 +36,12 @@ const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
         </a>
       }
       <div class="flex-grow" />
+      <button class="btn icon">
+        <MdiCircle class="text-accent" />
+      </button>
+      <button class="btn icon">
+        <MdiBrightnessAuto />
+      </button>
       <button
         class="btn icon"
         onClick={toggleTheme}

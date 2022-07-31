@@ -19,7 +19,8 @@
     "isolatedModules": true,
     "types": [
       "astro/client",
-      "unplugin-icons/types/solid"
+      "unplugin-icons/types/solid",
+      "vite/client"
     ],
     "baseUrl": "./",
     "paths": {
