@@ -14,5 +14,6 @@ jobs:
         id: ping
         uses: fjogeleit/http-request-action@v1
         with:
-          url: https://jsonplaceholde.typicode.com/users/
+          url: https://msfvkoblamagehrpbmtw.supabase.co/rest/v1/messages?select=*
           method: GET
+          customHeaders: '{"apikey": "${{ secrets.PUBLIC_SUPABASE_KEY }}", "Authorization": "${{ secrets.PUBLIC_SUPABASE_KEY }}"}'
