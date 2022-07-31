@@ -12,3 +12,4 @@ My portfolio website.
 - Implement redirect in the portfolio page
 - Re-enable Supabase and prevent it from being disabled
 - Deploy to pages
+- New favicon
