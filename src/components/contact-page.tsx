@@ -31,7 +31,7 @@ const ContactForm: Component = () => {
     setIsLoading(true)
     try {
       await sendMessage(data)
-      setData(defaultData)
+      setData({ ...defaultData })
       setShowSuccessModal(true)
     } catch {
       setShowErrorModal(true)
@@ -50,13 +50,23 @@ const ContactForm: Component = () => {
           <fieldset class="name-field">
             <label for="contact-name">Name</label>
             <MdiAccountOutline />
-            <input id="contact-name" type="text" use:model={[() => data.name, (v) => setData("name", v)]} ref={nameInput} />
+            <input
+              id="contact-name"
+              ref={nameInput}
+              type="text"
+              use:model={[() => data.name, (v) => setData("name", v.trim())]}
+            />
           </fieldset>
 
           <fieldset class="email-field">
             <label for="contact-email">Email</label>
             <MdiEmailOutline />
-            <input id="contact-email" type="text" use:model={[() => data.email, (v) => setData("email", v)]} />
+            <input
+              id="contact-email"
+              type="text"
+              autocapitalize="off"
+              use:model={[() => data.email, (v) => setData("email", v.trim())]}
+            />
             <div
               class={`
                 absolute bottom-4 right-4 text-[#FF5252] transition-opacity flex
@@ -69,12 +79,20 @@ const ContactForm: Component = () => {
 
           <fieldset class="subject-field">
             <label for="contact-subject">Subject</label>
-            <input id="contact-subject" type="text" use:model={[() => data.subject, (v) => setData("subject", v)]} />
+            <input
+              id="contact-subject"
+              type="text"
+              use:model={[() => data.subject, (v) => setData("subject", v.trim())]}
+            />
           </fieldset>
 
           <fieldset class="message-field">
             <label for="contact-message">Message</label>
-            <textarea id="contact-message" rows="9" use:model={[() => data.message, (v) => setData("message", v)]} />
+            <textarea
+              id="contact-message"
+              rows="9"
+              use:model={[() => data.message, (v) => setData("message", v.trim())]}
+            />
           </fieldset>
 
           <button type="submit" class="btn accent relative mt-4 mx-auto" disabled={!canSubmit()}>
@@ -95,7 +113,9 @@ const ContactForm: Component = () => {
             <MdiRocketLaunchOutline class="text-3xl text-accent" />
           </div>
           <h4 class="section-subheading mb-2">Message sent</h4>
-          <p class="text-sm mb-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
+          <p class="text-sm mb-6">
+            Thanks for reaching out to me.<br/>I'll reply as soon as possible!
+          </p>
           <button class="btn accent py-3" onClick={() => setShowSuccessModal(false)}>Close</button>
         </div>
       </Modal>
@@ -106,7 +126,11 @@ const ContactForm: Component = () => {
             <MdiEmoticonConfusedOutline class="text-3xl text-accent" />
           </div>
           <h4 class="section-subheading mb-2">Oops!<br/>Something went wrong</h4>
-          <p class="text-sm mb-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
+          <p class="text-sm mb-6">
+            Looks like the message wasn't sent.<br/>
+            Please check if something strange is going on with your internet connection.
+            If that's not the case, then it's probably my fault!
+          </p>
           <button class="btn accent py-3" onClick={() => setShowErrorModal(false)}>Close</button>
         </div>
       </Modal>

@@ -1,5 +1,8 @@
 name: Supabase Keepalive Ping
 
+# Periodically make an API request to Supabase to prevent the project from pausing
+# The request retrieves the content of the "messages" table, but since RLS is enabled, it won't leak any data
+
 on:
   schedule:
     - cron: "0 0 */3 * *"
@@ -10,8 +13,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - name: Ping Supabase to keep it from pausing
-        id: ping
+      - name: Ping Supabase
         uses: fjogeleit/http-request-action@v1
         with:
           url: https://msfvkoblamagehrpbmtw.supabase.co/rest/v1/messages?select=*
