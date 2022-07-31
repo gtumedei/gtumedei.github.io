@@ -1,17 +1,8 @@
 ---
-import AppHead from "~/components/ui/app-head.astro"
-import AppLayout from "~/components/ui/app-layout.astro"
+import DefaultLayout from "~/layouts/default.astro"
 import ContactPage from "~/components/contact-page"
 ---
 
-<html lang="en">
-  <head>
-    <AppHead />
-    <title>Contact • Gianni Tumedei</title>
-  </head>
-  <body>
-    <AppLayout>
-      <ContactPage client:idle />
-    </AppLayout>
-  </body>
-</html>
+<DefaultLayout title="Contact • Gianni Tumedei">
+  <ContactPage client:idle />
+</DefaultLayout>

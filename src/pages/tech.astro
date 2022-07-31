@@ -1,17 +1,8 @@
 ---
-import AppHead from "~/components/ui/app-head.astro"
-import AppLayout from "~/components/ui/app-layout.astro"
+import DefaultLayout from "~/layouts/default.astro"
 import TechPage from "~/components/tech-page"
 ---
 
-<html lang="en">
-  <head>
-    <AppHead />
-    <title>Tech I Use • Gianni Tumedei</title>
-  </head>
-  <body>
-    <AppLayout>
-      <TechPage />
-    </AppLayout>
-  </body>
-</html>
+<DefaultLayout title="Tech I Use • Gianni Tumedei">
+  <TechPage />
+</DefaultLayout>

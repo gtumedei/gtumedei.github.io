@@ -1,20 +1,11 @@
 ---
-import AppHead from "~/components/ui/app-head.astro"
-import AppLayout from "~/components/ui/app-layout.astro"
+import DefaultLayout from "~/layouts/default.astro"
 ---
 
-<html lang="en">
-  <head>
-    <AppHead />
-    <title>Page Not Found • Gianni Tumedei</title>
-  </head>
-  <body>
-    <AppLayout>
-      <div class="h-full flex flex-col justify-center items-center text-center m-auto">
-        <h2 class="text-divider font-mono text-12xl">404</h2>
-        <h1 class="section-heading mb-12">Page not found</h1>
-        <a href="/" class="btn inverted">Go Home</a>
-      </div>
-    </AppLayout>
-  </body>
-</html>
+<DefaultLayout title="Page Not Found • Gianni Tumedei">
+  <div class="h-full flex flex-col justify-center items-center text-center m-auto">
+    <h2 class="text-divider font-mono text-12xl">404</h2>
+    <h1 class="section-heading mb-12">Page not found</h1>
+    <a href="/" class="btn inverted">Go Home</a>
+  </div>
+</DefaultLayout>
