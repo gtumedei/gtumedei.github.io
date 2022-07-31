@@ -62,7 +62,7 @@ fieldset { @apply
   relative flex flex-col;
 
   label { @apply
-    text-sm ml-1 mb-1;
+    text-sm font-bold ml-1 mb-1;
   }
 
   & > .icon { @apply

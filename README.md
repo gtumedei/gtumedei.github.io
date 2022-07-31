@@ -11,5 +11,4 @@ My portfolio website.
 - Add link to CV in the tech page
 - Implement redirect in the portfolio page
 - Re-enable Supabase and prevent it from being disabled
-- Deploy to pages
-- New favicon
+- Show favicon somewhere in the website

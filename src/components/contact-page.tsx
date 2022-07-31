@@ -91,22 +91,22 @@ const ContactForm: Component = () => {
 
       <Modal show={showSuccessModal} setShow={setShowSuccessModal}>
         <div class="flex flex-col items-center text-center w-96">
-          <div class="bg-primary-dark flex rounded-full p-6 mb-8">
+          <div class="bg-primary-dark flex rounded-full p-6 mb-6">
             <MdiRocketLaunchOutline class="text-3xl text-accent" />
           </div>
           <h4 class="section-subheading mb-2">Message sent</h4>
-          <p class="text-sm mb-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
+          <p class="text-sm mb-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
           <button class="btn accent py-3" onClick={() => setShowSuccessModal(false)}>Close</button>
         </div>
       </Modal>
 
       <Modal show={showErrorModal} setShow={setShowErrorModal}>
         <div class="flex flex-col items-center text-center w-96">
-          <div class="bg-primary-dark flex rounded-full p-6 mb-8">
+          <div class="bg-primary-dark flex rounded-full p-6 mb-6">
             <MdiEmoticonConfusedOutline class="text-3xl text-accent" />
           </div>
           <h4 class="section-subheading mb-2">Oops!<br/>Something went wrong</h4>
-          <p class="text-sm mb-8">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
+          <p class="text-sm mb-6">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, voluptatum?</p>
           <button class="btn accent py-3" onClick={() => setShowErrorModal(false)}>Close</button>
         </div>
       </Modal>

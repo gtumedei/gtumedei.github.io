@@ -23,7 +23,7 @@ const Modal: ParentComponent<{
             enterActiveClass="transition-all" exitActiveClass="transition-all"
           >
             {props.show() &&
-              <div class="container w-min max-w-128 bg-primary m-auto rounded-xl shadow-xl p-6 pointer-events-auto">{props.children}</div>
+              <div class="card container w-min max-w-128 m-auto pointer-events-auto">{props.children}</div>
             }
           </Transition>
         </div>
