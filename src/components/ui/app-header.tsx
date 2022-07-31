@@ -32,7 +32,7 @@ const removeClass = (elem: HTMLElement, predicate: string | ((className: string)
   }
 }
 
-const accents = ["blue", "orange", "teal"] as const
+const accents = ["blue", "orange", "teal", "pink"] as const
 type Accent = typeof accents[number]
 
 const useAccent = () => {

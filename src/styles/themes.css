@@ -6,9 +6,9 @@
   --color-primary-700: #303030;
   --color-primary-800: #262626;
 
-  --color-accent: #42A5F5;
-  --color-accent-20: rgba(66, 165, 245, 0.2);
-  --color-accent-10: rgba(66, 165, 245, 0.1);
+  --color-accent: #0091EA;
+  --color-accent-20: rgba(0, 145, 234, 0.2);
+  --color-accent-10: rgba(0, 145, 234, 0.1);
 
   --color-white-100: rgba(255, 255, 255, 1);
   --color-white-70: rgba(255, 255, 255, 0.7);
@@ -70,12 +70,24 @@
 }
 
 .accent-blue {
-  --color-accent: #42A5F5;
-  --color-accent-20: rgba(66, 165, 245, 0.2);
-  --color-accent-10: rgba(66, 165, 245, 0.1);
+  --color-accent: #0091EA;
+  --color-accent-20: rgba(0, 145, 234, 0.2);
+  --color-accent-10: rgba(0, 145, 234, 0.1);
+}
+
+.theme-dark.accent-blue {
+  --color-accent: #40C4FF;
+  --color-accent-20: rgba(64, 196, 255, 0.2);
+  --color-accent-10: rgba(64, 196, 255, 0.1);
 }
 
 .accent-orange {
+  --color-accent: #FF8A65;
+  --color-accent-20: rgba(255, 138, 101, 0.2);
+  --color-accent-10: rgba(255, 138, 101, 0.1);
+}
+
+.theme-dark.accent-orange {
   --color-accent: #EF9A9A;
   --color-accent-20: rgba(239, 154, 154, 0.2);
   --color-accent-10: rgba(239, 154, 154, 0.1);
@@ -85,4 +97,22 @@
   --color-accent: #00BFA5;
   --color-accent-20: rgba(0, 191, 165, 0.2);
   --color-accent-10: rgba(0, 191, 165, 0.1);
+}
+
+.theme-dark.accent-teal {
+  --color-accent: #64FFDA;
+  --color-accent-20: rgba(100, 255, 218, 0.2);
+  --color-accent-10: rgba(100, 255, 218, 0.1);
+}
+
+.accent-pink {
+  --color-accent: #C51162;
+  --color-accent-20: rgba(197, 17, 98, 0.2);
+  --color-accent-10: rgba(197, 17, 98, 0.1);
+}
+
+.theme-dark.accent-pink {
+  --color-accent: #FF4081;
+  --color-accent-20: rgba(255, 64, 129, 0.2);
+  --color-accent-10: rgba(255, 64, 129, 0.1);
 }

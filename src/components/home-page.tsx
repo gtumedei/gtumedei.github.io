@@ -30,7 +30,7 @@ const HomePage: Component = () => {
         <div class="flex mt-6 mb-0 -m-l-3">
           <For each={links} >{link =>
             <a
-              href={link.href}
+              href={link.href} target="_blank"
               class="btn icon !text-lg"
               aria-label={link.title}
               use:tooltip={[() => link.title, "bottom"]}
