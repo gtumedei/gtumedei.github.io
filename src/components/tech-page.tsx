@@ -57,12 +57,32 @@ const tech: Technology[] = [
     colors: { text: "!group-hover:text-[#DC2626]", hover: "!group-hover:bg-[#DC2626]" },
     url: "https://svelte.dev/"
   },
-  /* {
+  {
     name: "Solid.js",
-    icon: SolidjsIcon,
-    colors: { text: "!group-hover:text-[#0EA5E9]", hover: "!group-hover:bg-[#0EA5E9]" },
+    icon: (
+      <svg viewBox="0 0 30 30" version="1.1" width="24" height="24">
+        <g transform="matrix(0.17,0,0,0.17,0.805,1.8031938)">
+          <path
+            style="opacity:1;fill-opacity:1;stroke-width:0.17"
+            d="
+              M 15.222656 2.4335938 C 14.309238 2.3987305 13.406406 2.4610938 12.535156 2.6523438 L 12.025391
+              2.8222656 C 11.005391 3.1622656 10.154531 3.6735156 9.6445312 4.3535156 L 9.3046875 4.8632812
+              L 6.7558594 9.2832031 L 6.8183594 9.2949219 C 5.797106 10.530908 5.7266406 12.27204 6.7558594
+              13.873047 C 7.1395557 14.371852 7.6269745 14.810204 8.171875 15.193359 L 4.8847656 16.253906
+              L 1.484375 22.203125 C 1.484375 22.203125 10.494844 29.002734 17.464844 27.302734 L 17.974609
+              27.132812 C 19.103017 26.800928 19.935723 26.18031 20.443359 25.419922 L 20.525391 25.433594
+              L 23.925781 19.3125 C 24.605781 18.1225 24.435938 16.762344 23.585938 15.402344 A 7.65 7.65 0 0
+              0 21.957031 14.037109 L 25.455078 12.853516 L 28.515625 7.7539062 C 28.515625 7.7539062 21.616582
+              2.6776367 15.222656 2.4335938 z
+            "
+            transform="matrix(5.8823529,0,0,5.8823529,-4.7352941,-10.607022)"
+          />
+        </g>
+      </svg>
+    ),
+    colors: { text: "!group-hover:fill-[#0EA5E9]", hover: "!group-hover:bg-[#0EA5E9]" },
     url: "https://www.solidjs.com/"
-  }, */
+  },
   {
     name: "Electron",
     icon: <MdiElectronFramework />,
@@ -158,7 +178,7 @@ const TechItem: Component<{
       <a href={props.item.url} target="_blank" class="group relative flex flex-col gap-2">
         <div class="flex rounded-xl bg-primary mx-auto mb-7">
           <div class={`
-            flex p-6 rounded-xl !text-xl text-accent ${props.bg == "primary" ? "bg-primary" : "bg-primary-dark"}
+            flex p-6 rounded-xl !text-xl text-accent fill-accent ${props.bg == "primary" ? "bg-primary" : "bg-primary-dark"}
             transition-colors ${props.item.colors.text} ${props.item.colors.hover} !group-hover:bg-opacity-10
           `}>{props.item.icon}</div>
         </div>

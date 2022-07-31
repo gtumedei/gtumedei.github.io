@@ -2,6 +2,7 @@
 import "virtual:windi.css"
 import "~/styles/main.css"
 import AppHeader from "~/components/ui/app-header"
+import AppFooter from "~/components/ui/app-footer"
 
 export interface Props {
   title?: string
@@ -37,8 +38,9 @@ const {
   </head>
   <body>
     <AppHeader showBackButton={showBackButton} client:load />
-    <main class="container relative max-w-4xl flex-grow flex flex-col p-6">
+    <main class="container relative max-w-4xl flex-grow flex flex-col px-6">
       <slot />
     </main>
+    <AppFooter client:idle />
   </body>
 </html>

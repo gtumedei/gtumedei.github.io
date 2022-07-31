@@ -62,7 +62,7 @@ const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
   const accentBtnTitle = createMemo(() => accent()[0].toUpperCase() + accent().substring(1) + " accent")
 
   return (
-    <header class="container max-w-4xl flex items-center px-3 pt-3">
+    <header class="container max-w-4xl flex items-center p-3">
       {props.showBackButton &&
         <a href="/" class="btn icon" aria-label="Go Home" use:tooltip={[() => "Go Home", "right"]}>
           <MdiArrowLeftTop />

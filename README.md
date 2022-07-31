@@ -11,6 +11,4 @@ My portfolio website.
 - Add link to CV in the tech page
 - Implement redirect in the portfolio page
 - Re-enable Supabase and prevent it from being disabled
-- Show favicon somewhere in the website
 - Add animations
-- Add back solid to tech section
