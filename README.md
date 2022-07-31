@@ -2,15 +2,13 @@
 
 My portfolio website.
 
-## Stuff to include
+## TODO
 
-- name
-- username
-- picture
-- link to linkedin
-- link to github
-- link to location
-- light-dark theme toggle
-- PAGE: link to cv
-- PAGE: tech I like
-- PAGE: contact form
+- Prevent flash of unthemed content on page load
+- Implement dynamic system theme
+- Write descriptions for the tech and contact pages
+- Write messages for the contact modals
+- Add link to CV in the tech page
+- Implement redirect in the portfolio page
+- Re-enable Supabase and prevent it from being disabled
+- Deploy to pages
