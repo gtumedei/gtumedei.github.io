@@ -6,10 +6,6 @@
   --color-primary-700: #303030;
   --color-primary-800: #262626;
 
-  --color-accent: #0091EA;
-  --color-accent-20: rgba(0, 145, 234, 0.2);
-  --color-accent-10: rgba(0, 145, 234, 0.1);
-
   --color-white-100: rgba(255, 255, 255, 1);
   --color-white-70: rgba(255, 255, 255, 0.7);
   --color-white-50: rgba(255, 255, 255, 0.5);
@@ -22,7 +18,39 @@
   --color-black-12: rgba(0, 0, 0, 0.12);
   --color-black-8: rgba(0, 0, 0, 0.08);
 
-  /* Light theme colors */
+  --color-blue: #0091EA;
+  --color-blue-20: rgba(0, 145, 234, 0.2);
+  --color-blue-10: rgba(0, 145, 234, 0.1);
+
+  --color-light-blue: #40C4FF;
+  --color-light-blue-20: rgba(64, 196, 255, 0.2);
+  --color-light-blue-10: rgba(64, 196, 255, 0.1);
+
+  --color-orange: #FF8A65;
+  --color-orange-20: rgba(255, 138, 101, 0.2);
+  --color-orange-10: rgba(255, 138, 101, 0.1);
+
+  --color-light-orange: #EF9A9A;
+  --color-light-orange-20: rgba(239, 154, 154, 0.2);
+  --color-light-orange-10: rgba(239, 154, 154, 0.1);
+
+  --color-teal: #00BFA5;
+  --color-teal-20: rgba(0, 191, 165, 0.2);
+  --color-teal-10: rgba(0, 191, 165, 0.1);
+
+  --color-light-teal: #64FFDA;
+  --color-light-teal-20: rgba(100, 255, 218, 0.2);
+  --color-light-teal-10: rgba(100, 255, 218, 0.1);
+
+  --color-pink: #C51162;
+  --color-pink-20: rgba(197, 17, 98, 0.2);
+  --color-pink-10: rgba(197, 17, 98, 0.1);
+
+  --color-light-pink: #FF80AB;
+  --color-light-pink-20: rgba(255, 128, 171, 0.2);
+  --color-light-pink-10: rgba(255, 128, 171, 0.1);
+
+  /* Dynamic light theme colors */
 
   --color-primary: var(--color-primary-100);
   --color-primary-dark: var(--color-primary-200);
@@ -43,76 +71,190 @@
   --color-inverted-typography-icon: var(--color-white-100);
   --color-inverted-typography-divider: var(--color-white-12);
   --color-inverted-typography-hover: var(--color-white-8);
+
+  --color-accent: var(--color-blue);
+  --color-accent-20: var(--color-blue-20);
+  --color-accent-10: var(--color-blue-10);
 }
 
-.theme-dark {
-  /* Dark theme colors */
-
-  --color-primary: var(--color-primary-700);
-  --color-primary-dark: var(--color-primary-800);
-
-  --color-typography-base: var(--color-white-100);
-  --color-typography-secondary: var(--color-white-70);
-  --color-typography-faded: var(--color-white-50);
-  --color-typography-icon: var(--color-white-100);
-  --color-typography-divider: var(--color-white-12);
-  --color-typography-hover: var(--color-white-8);
-
-  --color-inverted-primary: var(--color-primary-100);
-  --color-inverted-primary-dark: var(--color-primary-200);
-
-  --color-inverted-typography-base: var(--color-black-80);
-  --color-inverted-typography-secondary: var(--color-black-54);
-  --color-inverted-typography-faded: var(--color-black-38);
-  --color-inverted-typography-icon: var(--color-black-54);
-  --color-inverted-typography-divider: var(--color-black-12);
-  --color-inverted-typography-hover: var(--color-black-8);
-}
+/* Dynamic light theme accent colors */
 
 .accent-blue {
-  --color-accent: #0091EA;
-  --color-accent-20: rgba(0, 145, 234, 0.2);
-  --color-accent-10: rgba(0, 145, 234, 0.1);
-}
-
-.theme-dark.accent-blue {
-  --color-accent: #40C4FF;
-  --color-accent-20: rgba(64, 196, 255, 0.2);
-  --color-accent-10: rgba(64, 196, 255, 0.1);
+  --color-accent: var(--color-blue);
+  --color-accent-20: var(--color-blue-20);
+  --color-accent-10: var(--color-blue-10);
 }
 
 .accent-orange {
-  --color-accent: #FF8A65;
-  --color-accent-20: rgba(255, 138, 101, 0.2);
-  --color-accent-10: rgba(255, 138, 101, 0.1);
-}
-
-.theme-dark.accent-orange {
-  --color-accent: #EF9A9A;
-  --color-accent-20: rgba(239, 154, 154, 0.2);
-  --color-accent-10: rgba(239, 154, 154, 0.1);
+  --color-accent: var(--color-orange);
+  --color-accent-20: var(--color-orange-20);
+  --color-accent-10: var(--color-orange-10);
 }
 
 .accent-teal {
-  --color-accent: #00BFA5;
-  --color-accent-20: rgba(0, 191, 165, 0.2);
-  --color-accent-10: rgba(0, 191, 165, 0.1);
-}
-
-.theme-dark.accent-teal {
-  --color-accent: #64FFDA;
-  --color-accent-20: rgba(100, 255, 218, 0.2);
-  --color-accent-10: rgba(100, 255, 218, 0.1);
+  --color-accent: var(--color-teal);
+  --color-accent-20: var(--color-teal-20);
+  --color-accent-10: var(--color-teal-10);
 }
 
 .accent-pink {
-  --color-accent: #C51162;
-  --color-accent-20: rgba(197, 17, 98, 0.2);
-  --color-accent-10: rgba(197, 17, 98, 0.1);
+  --color-accent: var(--color-pink);
+  --color-accent-20: var(--color-pink-20);
+  --color-accent-10: var(--color-pink-10);
 }
 
-.theme-dark.accent-pink {
-  --color-accent: #FF80AB;
-  --color-accent-20: rgba(255, 128, 171, 0.2);
-  --color-accent-10: rgba(255, 128, 171, 0.1);
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dynamic dark theme colors */
+
+    --color-primary: var(--color-primary-700);
+    --color-primary-dark: var(--color-primary-800);
+
+    --color-typography-base: var(--color-white-100);
+    --color-typography-secondary: var(--color-white-70);
+    --color-typography-faded: var(--color-white-50);
+    --color-typography-icon: var(--color-white-100);
+    --color-typography-divider: var(--color-white-12);
+    --color-typography-hover: var(--color-white-8);
+
+    --color-inverted-primary: var(--color-primary-100);
+    --color-inverted-primary-dark: var(--color-primary-200);
+
+    --color-inverted-typography-base: var(--color-black-80);
+    --color-inverted-typography-secondary: var(--color-black-54);
+    --color-inverted-typography-faded: var(--color-black-38);
+    --color-inverted-typography-icon: var(--color-black-54);
+    --color-inverted-typography-divider: var(--color-black-12);
+    --color-inverted-typography-hover: var(--color-black-8);
+
+    --color-accent: var(--color-light-blue);
+    --color-accent-20: var(--color-light-blue-20);
+    --color-accent-10: var(--color-light-blue-10);
+  }
+
+  /* Dynamic dark theme accent colors */
+
+  .accent-blue {
+    --color-accent: var(--color-light-blue);
+    --color-accent-20: var(--color-light-blue-20);
+    --color-accent-10: var(--color-light-blue-10);
+  }
+
+  .accent-orange {
+    --color-accent: var(--color-light-orange);
+    --color-accent-20: var(--color-light-orange-20);
+    --color-accent-10: var(--color-light-orange-10);
+  }
+
+  .accent-teal {
+    --color-accent: var(--color-light-teal);
+    --color-accent-20: var(--color-light-teal-20);
+    --color-accent-10: var(--color-light-teal-10);
+  }
+
+  .accent-pink {
+    --color-accent: var(--color-light-pink);
+    --color-accent-20: var(--color-light-pink-20);
+    --color-accent-10: var(--color-light-pink-10);
+  }
+}
+
+/* Manual light theme colors */
+
+.theme-light {
+  --color-primary: var(--color-primary-100) !important;
+  --color-primary-dark: var(--color-primary-200) !important;
+
+  --color-typography-base: var(--color-black-80) !important;
+  --color-typography-secondary: var(--color-black-54) !important;
+  --color-typography-faded: var(--color-black-38) !important;
+  --color-typography-icon: var(--color-black-54) !important;
+  --color-typography-divider: var(--color-black-12) !important;
+  --color-typography-hover: var(--color-black-8) !important;
+
+  --color-inverted-primary: var(--color-primary-700) !important;
+  --color-inverted-primary-dark: var(--color-primary-800) !important;
+
+  --color-inverted-typography-base: var(--color-white-100) !important;
+  --color-inverted-typography-secondary: var(--color-white-70) !important;
+  --color-inverted-typography-faded: var(--color-white-50) !important;
+  --color-inverted-typography-icon: var(--color-white-100) !important;
+  --color-inverted-typography-divider: var(--color-white-12) !important;
+  --color-inverted-typography-hover: var(--color-white-8) !important;
+
+  /* Manual light theme accent colors */
+
+  &.accent-blue {
+    --color-accent: var(--color-blue);
+    --color-accent-20: var(--color-blue-20);
+    --color-accent-10: var(--color-blue-10);
+  }
+
+  &.accent-orange {
+    --color-accent: var(--color-orange);
+    --color-accent-20: var(--color-orange-20);
+    --color-accent-10: var(--color-orange-10);
+  }
+
+  &.accent-teal {
+    --color-accent: var(--color-teal);
+    --color-accent-20: var(--color-teal-20);
+    --color-accent-10: var(--color-teal-10);
+  }
+
+  &.accent-pink {
+    --color-accent: var(--color-pink);
+    --color-accent-20: var(--color-pink-20);
+    --color-accent-10: var(--color-pink-10);
+  }
+}
+
+.theme-dark {
+  /* Manual dark theme colors */
+
+  --color-primary: var(--color-primary-700) !important;
+  --color-primary-dark: var(--color-primary-800) !important;
+
+  --color-typography-base: var(--color-white-100) !important;
+  --color-typography-secondary: var(--color-white-70) !important;
+  --color-typography-faded: var(--color-white-50) !important;
+  --color-typography-icon: var(--color-white-100) !important;
+  --color-typography-divider: var(--color-white-12) !important;
+  --color-typography-hover: var(--color-white-8) !important;
+
+  --color-inverted-primary: var(--color-primary-100) !important;
+  --color-inverted-primary-dark: var(--color-primary-200) !important;
+
+  --color-inverted-typography-base: var(--color-black-80) !important;
+  --color-inverted-typography-secondary: var(--color-black-54) !important;
+  --color-inverted-typography-faded: var(--color-black-38) !important;
+  --color-inverted-typography-icon: var(--color-black-54) !important;
+  --color-inverted-typography-divider: var(--color-black-12) !important;
+  --color-inverted-typography-hover: var(--color-black-8) !important;
+
+  /* Manual dark theme accent colors */
+
+  &.accent-blue {
+    --color-accent: var(--color-light-blue);
+    --color-accent-20: var(--color-light-blue-20);
+    --color-accent-10: var(--color-light-blue-10);
+  }
+
+  &.accent-orange {
+    --color-accent: var(--color-light-orange);
+    --color-accent-20: var(--color-light-orange-20);
+    --color-accent-10: var(--color-light-orange-10);
+  }
+
+  &.accent-teal {
+    --color-accent: var(--color-light-teal);
+    --color-accent-20: var(--color-light-teal-20);
+    --color-accent-10: var(--color-light-teal-10);
+  }
+
+  &.accent-pink {
+    --color-accent: var(--color-light-pink);
+    --color-accent-20: var(--color-light-pink-20);
+    --color-accent-10: var(--color-light-pink-10);
+  }
 }

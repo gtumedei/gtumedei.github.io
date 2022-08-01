@@ -1,28 +1,12 @@
-import { Component, createMemo, createSignal, onMount } from "solid-js"
+import { Component, createMemo, createSignal, Match, onMount, Switch } from "solid-js"
 import tooltip from "~/composables/tooltip"
 import MdiArrowLeftTop from "~icons/mdi/arrow-left-top"
 import MdiCircle from "~icons/mdi/circle"
+import MdiBrightnessAuto from "~icons/mdi/brightness-auto"
 import MdiBrightness4 from "~icons/mdi/brightness-4"
 import MdiBrightness7 from "~icons/mdi/brightness-7"
 
 tooltip
-
-type Theme = "light" | "dark"
-
-const useTheme = () => {
-  const [theme, set] = createSignal<Theme>()
-  const setTheme = (theme: Theme) => {
-    set(theme)
-    localStorage.setItem("theme", theme)
-    document.documentElement.classList[theme == "dark" ? "add" : "remove"]("theme-dark")
-    document.querySelector(`meta[name="theme-color"]`)?.setAttribute("content", theme == "dark" ? "#303030" : "#FFFFFF")
-  }
-  const toggleTheme = () => setTheme(theme() == "dark" ? "light" : "dark")
-
-  onMount(() => setTheme(localStorage.getItem("theme") as Theme ?? "light"))
-
-  return { theme, setTheme, toggleTheme }
-}
 
 const removeClass = (elem: HTMLElement, predicate: string | ((className: string) => boolean)) => {
   const match = typeof predicate == "string"
@@ -32,6 +16,29 @@ const removeClass = (elem: HTMLElement, predicate: string | ((className: string)
     const className = elem.classList[i]
     if (match(className)) elem.classList.remove(className)
   }
+}
+
+const themes = ["light", "dark", null] as const
+type Theme = typeof themes[number]
+
+const useTheme = () => {
+  const [theme, set] = createSignal<Theme>(null)
+  const setTheme = (theme: Theme) => {
+    set(theme)
+    if (!theme) localStorage.removeItem("theme")
+    else localStorage.setItem("theme", theme)
+    removeClass(document.documentElement, className => className.startsWith("theme-"))
+    if (theme) document.documentElement.classList.add(`theme-${theme}`)
+  }
+  const cycleTheme = () => {
+    const i = themes.indexOf(theme())
+    const nextTheme = themes[i == themes.length - 1 ? 0 : i + 1]
+    setTheme(nextTheme)
+  }
+
+  onMount(() => setTheme(localStorage.getItem("theme") as Theme))
+
+  return { theme, setTheme, cycleTheme }
 }
 
 const accents = ["blue", "orange", "teal", "pink"] as const
@@ -57,10 +64,14 @@ const useAccent = () => {
 }
 
 const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
-  const { theme, toggleTheme } = useTheme()
+  const { theme, cycleTheme } = useTheme()
   const { accent, cycleAccent } = useAccent()
 
-  const themeBtnTitle = createMemo(() => theme() == "dark" ? "Dark theme" : "Light theme")
+  const themeBtnTitle = createMemo(() => {
+    if (theme() == "dark") return "Dark theme"
+    else if (theme() == "light") return "Light theme"
+    else return "System theme"
+  })
   const accentBtnTitle = createMemo(() => accent()[0].toUpperCase() + accent().substring(1) + " accent")
 
   return (
@@ -79,10 +90,16 @@ const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
       ><MdiCircle class="text-accent" /></button>
       <button
         class="btn icon"
-        onClick={toggleTheme}
+        onClick={cycleTheme}
         aria-label={themeBtnTitle()}
         use:tooltip={[themeBtnTitle, "bottom"]}
-      >{theme() == "dark" ? <MdiBrightness4 /> : <MdiBrightness7 />}</button>
+      >
+        <Switch>
+          <Match when={theme() == "dark"}><MdiBrightness4 /></Match>
+          <Match when={theme() == "light"}><MdiBrightness7 /></Match>
+          <Match when={theme() == null}><MdiBrightnessAuto /></Match>
+        </Switch>
+      </button>
     </header>
   )
 }

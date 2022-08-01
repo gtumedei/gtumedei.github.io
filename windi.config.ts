@@ -3,7 +3,7 @@ import aspectRatioPlugin from "windicss/plugin/aspect-ratio"
 import scrollSnapPlugin from "windicss/plugin/scroll-snap"
 
 export default defineConfig({
-  darkMode: "class",
+  darkMode: "media",
   extract: {
     include: ["./src/**/*.{astro,html,js,jsx,md,svelte,ts,tsx,vue}"],
     exclude: ["node_modules", ".git"],
