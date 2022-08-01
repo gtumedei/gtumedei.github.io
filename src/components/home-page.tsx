@@ -1,11 +1,13 @@
 import { Component, For } from "solid-js"
-import tooltip from "~/composables/tooltip"; tooltip
+import tooltip from "~/composables/tooltip"
 import MdiApplicationBrackets from "~icons/mdi/application-brackets"
 import MdiGithub from "~icons/mdi/github"
 import MdiLinkedin from "~icons/mdi/linkedin"
 import MdiListBox from "~icons/mdi/list-box"
 import MdiMapMarker from "~icons/mdi/map-marker"
 import MdiSend from "~icons/mdi/send"
+
+tooltip
 
 const HomePage: Component = () => {
 
@@ -44,7 +46,7 @@ const HomePage: Component = () => {
             group flex gap-6 items-center rounded-xl p-2 transition-colors
             border border-typography-hover hover:border-accent
           ">
-            <div class="flex bg-primary-dark group-hover:bg-accent-10 text-xl text-accent rounded-lg p-6 transition-colors">
+            <div class="flex bg-primary-dark group-hover:bg-accent-10 text-xl text-accent rounded-xl p-6 transition-colors">
               {page.icon}
             </div>
             <div class="flex-grow">

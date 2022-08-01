@@ -1,9 +1,11 @@
 import { Component, createMemo, createSignal, onMount } from "solid-js"
-import tooltip from "~/composables/tooltip"; tooltip
+import tooltip from "~/composables/tooltip"
 import MdiArrowLeftTop from "~icons/mdi/arrow-left-top"
 import MdiCircle from "~icons/mdi/circle"
 import MdiBrightness4 from "~icons/mdi/brightness-4"
 import MdiBrightness7 from "~icons/mdi/brightness-7"
+
+tooltip
 
 type Theme = "light" | "dark"
 

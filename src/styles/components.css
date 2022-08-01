@@ -1,7 +1,7 @@
 /* Buttons */
 
 .btn { @apply
-  px-8 py-3 rounded-full !outline-none
+  px-8 py-3 rounded-xl !outline-none
   inline-flex justify-center items-center gap-4
   border-2 border-transparent
   text-sm font-bold text-base bg-primary shadow-md
@@ -11,7 +11,7 @@
   active:shadow-md;
 
   &:disabled { @apply
-    opacity-70 shadow-none cursor-not-allowed;
+    opacity-40 shadow-none cursor-not-allowed;
   }
 
   &.inverted { @apply
@@ -45,7 +45,7 @@
   }
 
   &.icon { @apply
-    p-2 rounded-xl !shadow-none bg-transparent
+    p-2 !shadow-none bg-transparent
     hover:bg-accent-10 hover:text-accent
     focus:bg-accent-10 focus:text-accent
     active:bg-accent-20 active:text-accent;
@@ -67,7 +67,7 @@ fieldset { @apply
 
   & > .icon { @apply
     absolute bottom-[7px] left-[7px]
-    bg-primary-dark h-9 w-9 p-2 rounded-lg
+    bg-primary-dark h-9 w-9 p-2 rounded-xl
     pointer-events-none transition-colors;
   }
 
@@ -81,7 +81,7 @@ fieldset { @apply
 }
 
 input, textarea { @apply
-  bg-transparent rounded-lg px-4 py-3 outline-none
+  bg-transparent rounded-xl px-4 py-3 outline-none
   border border-typography-hover hover:border-accent focus:border-accent
   transition-all resize-none;
 }

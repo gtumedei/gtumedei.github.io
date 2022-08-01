@@ -112,7 +112,7 @@
 }
 
 .theme-dark.accent-pink {
-  --color-accent: #FF4081;
-  --color-accent-20: rgba(255, 64, 129, 0.2);
-  --color-accent-10: rgba(255, 64, 129, 0.1);
+  --color-accent: #FF80AB;
+  --color-accent-20: rgba(255, 128, 171, 0.2);
+  --color-accent-10: rgba(255, 128, 171, 0.1);
 }

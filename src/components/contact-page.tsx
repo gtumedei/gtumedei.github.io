@@ -12,7 +12,7 @@ import MdiEmoticonConfusedOutline from "~icons/mdi/emoticon-confused-outline"
 import MdiRocketLaunchOutline from "~icons/mdi/rocket-launch-outline"
 import MdiSend from "~icons/mdi/send"
 
-model; tooltip;
+model; tooltip
 
 const ContactForm: Component = () => {
   const defaultData: Message = { name: "", email: "", subject: "", message: "" }

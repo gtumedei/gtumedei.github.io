@@ -26,7 +26,7 @@ export default defineConfig({
       },
 
       textStrokeWidth: {
-        "md": "0.03em"
+        md: "0.03em"
       },
 
       colors: {
