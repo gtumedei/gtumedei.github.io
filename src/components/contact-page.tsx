@@ -1,10 +1,12 @@
 import { Component, createMemo, createSignal, onMount } from "solid-js"
 import { createStore } from "solid-js/store"
+import { stagger } from "motion"
 import LoadingSpinner from "~/components/ui/loading-spinner"
 import Modal from "~/components/ui/modal"
 import model from "~/composables/model"
-import tooltip from "~/composables/tooltip"
+import { createTimeline } from "~/composables/motion"
 import { Message, sendMessage } from "~/composables/supabase"
+import tooltip from "~/composables/tooltip"
 import MdiAccountOutline from "~icons/mdi/account-outline"
 import MdiAlertCircleOutline from "~icons/mdi/alert-circle-outline"
 import MdiEmailOutline from "~icons/mdi/email-outline"
@@ -14,7 +16,7 @@ import MdiSend from "~icons/mdi/send"
 
 model; tooltip
 
-const ContactForm: Component = () => {
+const ContactForm: Component<{ class?: string }> = (props) => {
   const defaultData: Message = { name: "", email: "", subject: "", message: "" }
   const [data, setData] = createStore({ ...defaultData })
 
@@ -45,7 +47,7 @@ const ContactForm: Component = () => {
 
   return (
     <>
-      <form class="flex flex-col" onSubmit={onSubmit}>
+      <form class={`${props.class ?? ""} flex flex-col`} onSubmit={onSubmit}>
         <div class="contact-form-grid grid w-full m-auto gap-x-6 gap-y-4">
           <fieldset class="name-field">
             <label for="contact-name">Name</label>
@@ -164,11 +166,17 @@ const ContactForm: Component = () => {
 }
 
 const ContactPage: Component = () => {
+
+  createTimeline([
+    [".motion-1", { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: stagger(0.15) }],
+    [".motion-2", { opacity: 1, y: [-10, 0] }, { duration: 0.4, at: "<" }]
+  ])
+
   return (
     <>
-      <h1 class="text-4xl font-bold tracking-wider mb-2">Contact</h1>
-      <p class="font-mono mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sequi iure earum placeat, labore iusto rem dolore temporibus praesentium quibusdam?</p>
-      <ContactForm />
+      <h1 class="motion-1 text-4xl font-bold tracking-wider mb-2">Contact</h1>
+      <p class="motion-1 font-mono mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sequi iure earum placeat, labore iusto rem dolore temporibus praesentium quibusdam?</p>
+      <ContactForm class="motion-2" />
     </>
   )
 }

@@ -9,3 +9,7 @@
 .absolute-center-y { @apply
   absolute transform top-[50%] -translate-y-1/2;
 }
+
+.motion-1, .motion-2, .motion-3, .motion-4, .motion-5 {
+  opacity: 0;
+}

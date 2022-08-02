@@ -37,6 +37,13 @@ const {
     <title>{title}</title>
   </head>
   <body>
+    <noscript>
+      <style>
+        .motion-1, .motion-2, .motion-3, .motion-4, .motion-5 {
+          opacity: 1;
+        }
+      </style>
+    </noscript>
     <AppHeader showBackButton={showBackButton} client:load />
     <main class="container relative max-w-4xl flex-grow flex flex-col px-6">
       <slot />

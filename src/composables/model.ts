@@ -1,4 +1,4 @@
-import { Accessor, createRenderEffect, onCleanup, onMount, Setter } from "solid-js";
+import { Accessor, createRenderEffect, onCleanup, onMount, Setter } from "solid-js"
 
 const model = (elem: HTMLInputElement, value: () => [Accessor<string>, Setter<string>]) => {
   const [field, setField] = value()
