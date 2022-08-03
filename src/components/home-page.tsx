@@ -21,7 +21,7 @@ const HomePage: Component = () => {
 
   const pages = [
     { href: "/tech", icon: <MdiApplicationBrackets />, title: "Tech I Use", subtitle: "See what I like" },
-    { href: import.meta.env.CV_URL, icon: <MdiListBox />, title: "Portfolio", subtitle: "Check out my work", target: "_blank" },
+    { href: import.meta.env.PUBLIC_CV_URL, icon: <MdiListBox />, title: "Portfolio", subtitle: "Check out my work", target: "_blank" },
     { href: "/contact", icon: <MdiSend />, title: "Contact", subtitle: "Get in touch with me" }
   ]
 

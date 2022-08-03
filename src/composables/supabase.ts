@@ -12,5 +12,8 @@ export type Message = {
   message: string
 }
 
-export const sendMessage = async (message: Message) =>
-  await supabase.from<Message>("messages").insert(message, { returning: "minimal" })
+export const sendMessage = async (message: Message) => {
+  const { data, error } = await supabase.functions.invoke("send-message", { body: JSON.stringify(message) })
+  const e = error ?? data?.error
+  if (e) throw e
+}

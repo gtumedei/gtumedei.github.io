@@ -28,7 +28,7 @@ jobs:
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_KEY: ${{ secrets.PUBLIC_SUPABASE_KEY }}
-          CV_URL: ${{ secrets.CV_URL }}
+          PUBLIC_CV_URL: ${{ secrets.PUBLIC_CV_URL }}
         run: npm run build
 
       - name: Deploy to GitHub Pages

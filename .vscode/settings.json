@@ -1,0 +1,12 @@
+{
+  "deno.enable": true,
+  "deno.enablePaths": [
+    "./supabase"
+  ],
+  "deno.unstable": true,
+  "deno.suggest.imports.hosts": {
+    "https://deno.land": true,
+    "https://x.nest.land": true,
+    "https://crux.land": true
+  }
+}
