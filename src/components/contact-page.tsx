@@ -175,7 +175,9 @@ const ContactPage: Component = () => {
   return (
     <>
       <h1 class="motion-1 text-4xl font-bold tracking-wider mb-2">Contact</h1>
-      <p class="motion-1 font-mono mb-12">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sequi iure earum placeat, labore iusto rem dolore temporibus praesentium quibusdam?</p>
+      <p class="motion-1 font-mono mb-12">
+        Whether you want to hire me or just say hi, you can get in touch with me by filling the form below.
+      </p>
       <ContactForm class="motion-2" />
     </>
   )
