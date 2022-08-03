@@ -21,7 +21,7 @@ const HomePage: Component = () => {
 
   const pages = [
     { href: "/tech", icon: <MdiApplicationBrackets />, title: "Tech I Use", subtitle: "See what I like" },
-    { href: "/portfolio", icon: <MdiListBox />, title: "Portfolio", subtitle: "Check out my work" },
+    { href: import.meta.env.CV_URL, icon: <MdiListBox />, title: "Portfolio", subtitle: "Check out my work", target: "_blank" },
     { href: "/contact", icon: <MdiSend />, title: "Contact", subtitle: "Get in touch" }
   ]
 
@@ -37,7 +37,7 @@ const HomePage: Component = () => {
         <img src="/profile.jpg" class="motion-1 h-18 w-18 rounded-full shadow-lg mb-6" alt="Profile image" />
         <h1 class="motion-1 text-4xl font-bold tracking-wider mb-1">Gianni Tumedei</h1>
         <h2 class="motion-1 font-mono">@gtumedei</h2>
-        <div class="flex mt-6 mb-0 -m-l-3">
+        <div class="flex mt-3 mb-0 -m-l-3">
           <For each={links} >{link =>
             <div class="motion-2">
               <a
@@ -52,7 +52,7 @@ const HomePage: Component = () => {
       </div>
       <div class="flex flex-col gap-6 justify-center">
         <For each={pages} >{page =>
-          <a href={page.href} class="
+          <a href={page.href} target={page.target ?? "_self"} class="
             motion-3 group flex gap-6 items-center rounded-xl p-2 transition-colors
             border border-typography-hover hover:border-accent
           ">
