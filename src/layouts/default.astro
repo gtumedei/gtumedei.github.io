@@ -18,17 +18,8 @@ const {
 
 <html lang="en">
   <head>
-    <script>
-      if (localStorage.getItem("theme") == "dark") {
-        document.documentElement.classList.add("theme-dark")
-        document.querySelector(`meta[name="theme-color"]`)?.setAttribute("content",  "#303030")
-      }
-      const accent = localStorage.getItem("accent")
-      if (accent) document.documentElement.classList.add(`accent-${accent}`)
-    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="theme-color" content="#FFFFFF" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

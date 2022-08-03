@@ -23,13 +23,32 @@ type Theme = typeof themes[number]
 
 const useTheme = () => {
   const [theme, set] = createSignal<Theme>(null)
+
   const setTheme = (theme: Theme) => {
     set(theme)
+    // Save theme to local storage
     if (!theme) localStorage.removeItem("theme")
     else localStorage.setItem("theme", theme)
+    // Update the html tag class
     removeClass(document.documentElement, className => className.startsWith("theme-"))
     if (theme) document.documentElement.classList.add(`theme-${theme}`)
+    // Update the theme-color meta tag
+    document.querySelectorAll(`meta[name="theme-color"]`).forEach(elem => elem.remove())
+    if (theme) {
+      document.head.appendChild((theme == "light"
+        ? <meta name="theme-color" content="#FFFFFF" />
+        : <meta name="theme-color" content="#303030" />
+      ) as Node)
+    } else {
+      document.head.append(
+        // @ts-ignore
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF" /> as Node,
+        // @ts-ignore
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#303030" /> as Node
+      )
+    }
   }
+
   const cycleTheme = () => {
     const i = themes.indexOf(theme())
     const nextTheme = themes[i == themes.length - 1 ? 0 : i + 1]
@@ -48,7 +67,9 @@ const useAccent = () => {
   const [accent, set] = createSignal<Accent>("blue")
   const setAccent = (accent: Accent) => {
     set(accent)
+    // Save theme to local storage
     localStorage.setItem("accent", accent)
+    // Update the html tag class
     removeClass(document.documentElement, className => className.startsWith("accent-"))
     document.documentElement.classList.add(`accent-${accent}`)
   }
