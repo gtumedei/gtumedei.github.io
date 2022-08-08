@@ -1,8 +1,10 @@
 import outdent from "https://deno.land/x/outdent@v0.8.0/mod.ts"
 import { createFunction, SupabaseError } from "../_shared/functions.ts"
 
+export type Message = { name: string, email: string, subject: string, message: string }
+
 createFunction(async (req) => {
-  let data: { name: string, email: string, subject: string, message: string }
+  let data: Message
   try {
     const { name, email, subject, message } = await req.json()
     data = { name, email, subject, message }

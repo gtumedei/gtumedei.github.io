@@ -1,7 +1,7 @@
 {
   "deno.enable": true,
   "deno.enablePaths": [
-    "./supabase"
+    "./src/supabase"
   ],
   "deno.unstable": true,
   "deno.suggest.imports.hosts": {
