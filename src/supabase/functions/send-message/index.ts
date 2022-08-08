@@ -1,32 +1,31 @@
 import outdent from "https://deno.land/x/outdent@v0.8.0/mod.ts"
+import { z } from "https://deno.land/x/zod@v3.17.10/mod.ts"
 import { createFunction, SupabaseError } from "../_shared/functions.ts"
 
-export type Message = { name: string, email: string, subject: string, message: string }
+createFunction({
+  input: z.object({
+    name: z.string(),
+    email: z.string().email(),
+    subject: z.string(),
+    message: z.string()
+  }),
+  handler: async (input) => {
+    const chatMessage = encodeURIComponent(outdent`
+      Hello Sir,
+      *${input.name}* ✉️[${input.email}](mailto:${input.email}) contacted you via the gtumedei.github.io form.
 
-createFunction(async (req) => {
-  let data: Message
-  try {
-    const { name, email, subject, message } = await req.json()
-    data = { name, email, subject, message }
-  } catch {
-    throw new SupabaseError({ status: 400, message: "Invalid body." })
+
+      *${input.subject}*
+
+      ${input.message}
+    `)
+
+    const res = await fetch(`https://api.telegram.org/bot${Deno.env.get("TELEGRAM_BOT_TOKEN")}/sendMessage?parse_mode=Markdown&chat_id=572114402&text=${chatMessage}`)
+    if (!res.ok) {
+      throw new SupabaseError({
+        status: res.status,
+        message: await res.json()
+      })
+    }
   }
-
-  const chatMessage = encodeURIComponent(outdent`
-    Hello Sir,
-    someone contacted you via the gtumedei.github.io form.
-
-    ---
-
-    Sender: *${data.name} (${data.email})*
-    Subject: *${data.subject}*
-
-    ---
-
-    ${data.message}
-  `)
-
-  const res = await fetch(`https://api.telegram.org/bot${Deno.env.get("TELEGRAM_BOT_TOKEN")}/sendMessage?parse_mode=Markdown&chat_id=572114402&text=${chatMessage}`)
-
-  return { status: res.status, data: "" }
-})
+}).serve()

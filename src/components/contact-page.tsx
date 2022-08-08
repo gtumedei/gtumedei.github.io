@@ -35,7 +35,8 @@ const ContactForm: Component<{ class?: string }> = (props) => {
       await sendMessage(data)
       setData({ ...defaultData })
       setShowSuccessModal(true)
-    } catch {
+    } catch (e) {
+      console.error(e)
       setShowErrorModal(true)
     } finally {
       setIsLoading(false)
