@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "astro dev --host",
     "build": "astro build",
-    "preview": "astro preview --host"
+    "preview": "astro preview --host",
+    "supa:env": "cd src && supabase secrets set --env-file ../.env",
+    "supa:deploy": "cd src && supabase functions deploy send-message"
   },
   "dependencies": {
     "@supabase/supabase-js": "^1.35.4",
