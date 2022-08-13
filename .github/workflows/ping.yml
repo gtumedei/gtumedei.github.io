@@ -1,7 +1,7 @@
 name: Supabase Keepalive Ping
 
 # Periodically make an API request to Supabase to prevent the project from pausing
-# The request retrieves the content of the "messages" table, but since RLS is enabled, it won't leak any data
+# The request updates a row of the Ping table
 
 on:
   schedule:
@@ -13,9 +13,21 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
+      - name: Set timestamp
+        id: set_timestamp
+        run: echo "::set-output name=TIMESTAMP::$(date)"
+
       - name: Ping Supabase
         uses: fjogeleit/http-request-action@v1
         with:
-          url: https://msfvkoblamagehrpbmtw.supabase.co/rest/v1/messages?select=*
-          method: GET
-          customHeaders: '{"apikey": "${{ secrets.PUBLIC_SUPABASE_KEY }}", "Authorization": "${{ secrets.PUBLIC_SUPABASE_KEY }}"}'
+          url: https://msfvkoblamagehrpbmtw.supabase.co/rest/v1/ping?id=eq.1
+          method: PATCH
+          customHeaders: |
+            {
+              "apikey": "${{ secrets.PUBLIC_SUPABASE_KEY }}",
+              "Authorization": "${{ secrets.PUBLIC_SUPABASE_KEY }}",
+              "Content-Type": "application/json",
+              "Prefer": "return=representation"
+            }
+          data: |
+            { "content": "${{ steps.set_timestamp.outputs.TIMESTAMP }}" }
