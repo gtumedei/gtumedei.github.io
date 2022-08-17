@@ -11,7 +11,11 @@
   active:shadow-md;
 
   &:disabled { @apply
-    opacity-40 shadow-none cursor-not-allowed;
+    shadow-none cursor-not-allowed;
+
+    &:not(.loading) { @apply
+      opacity-40;
+    }
   }
 
   &.inverted { @apply
@@ -22,7 +26,7 @@
   &.accent { @apply
     text-inverted-base bg-accent;
 
-    &:disabled { @apply
+    &:not(.loading):disabled { @apply
       bg-inverted-primary;
     }
   }

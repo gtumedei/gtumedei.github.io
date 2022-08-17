@@ -98,7 +98,11 @@ const ContactForm: Component<{ class?: string }> = (props) => {
             />
           </fieldset>
 
-          <button type="submit" class="btn accent relative mt-4 mx-auto" disabled={!canSubmit()}>
+          <button
+            type="submit"
+            class={`btn accent relative mt-4 mx-auto ${isLoading() ? "loading" : ""}`}
+            disabled={!canSubmit()}
+          >
             <div class={`flex gap-4 transition-opacity ${isLoading() ? "opacity-0" : ""}`}>
               <span>Send</span>
               <MdiSend />

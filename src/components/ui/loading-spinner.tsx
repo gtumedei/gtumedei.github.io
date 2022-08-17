@@ -3,20 +3,22 @@ import type { Component } from "solid-js"
 const LoadingSpinner: Component<{ inverted?: boolean }> = (props) => {
   return (
     <>
-      <div class={`spinner h-5 w-5 rounded-full ${props.inverted ? "bg-inverted-typography-base" : "bg-typography-base"}`} />
+      <div class={`
+        spinner h-5 w-5 rounded-full border-2 border-b-transparent
+        ${props.inverted ? "border-inverted-typography-base" : "border-typography-base"}
+      `}/>
 
       <style>{`
         .spinner {
-          animation: scaleout 1.0s infinite ease-in-out;
+          animation: spin 1s linear infinite;
         }
 
-        @keyframes scaleout {
+        @keyframes spin {
           0% {
-            transform: scale(0);
+            transform: rotate(0deg);
           }
           100% {
-            transform: scale(1.0);
-            opacity: 0;
+            transform: rotate(360deg);
           }
         }
       `}</style>

@@ -5,10 +5,10 @@ import { createFunction, SupabaseError } from "../_shared/functions.ts"
 
 createFunction({
   input: z.object({
-    name: z.string(),
+    name: z.string().min(1),
     email: z.string().email(),
-    subject: z.string(),
-    message: z.string()
+    subject: z.string().min(1),
+    message: z.string().min(1)
   }),
   handler: async (input) => {
     const message = outdent`
