@@ -4,8 +4,8 @@ name: Supabase Keepalive Ping
 # The request updates a row of the Ping table
 
 on:
-  schedule:
-    - cron: "0 0 */3 * *"
+  # schedule:
+  #   - cron: "0 0 */3 * *"
   workflow_dispatch:
 
 jobs:
