@@ -45,7 +45,6 @@ const HomePage: Component = () => {
                 <a
                   href={link.href} target="_blank"
                   class="btn icon !text-lg"
-                  aria-label={link.title}
                   use:tooltip={[() => link.title, "bottom"]}
                 >{link.icon}</a>
               </div>

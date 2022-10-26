@@ -98,7 +98,7 @@ const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
   return (
     <header class="container max-w-4xl flex items-center p-3">
       {props.showBackButton &&
-        <a href="/" class="btn icon" aria-label="Go Home" use:tooltip={[() => "Go Home", "right"]}>
+        <a href="/" class="btn icon" use:tooltip={[() => "Go Home", "right"]}>
           <MdiArrowLeftTop />
         </a>
       }
@@ -106,13 +106,11 @@ const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
       <button
         class="btn icon"
         onClick={cycleAccent}
-        aria-label={accentBtnTitle()}
         use:tooltip={[accentBtnTitle, "bottom"]}
       ><MdiCircle class="text-accent" /></button>
       <button
         class="btn icon"
         onClick={cycleTheme}
-        aria-label={themeBtnTitle()}
         use:tooltip={[themeBtnTitle, "bottom"]}
       >
         <Switch>

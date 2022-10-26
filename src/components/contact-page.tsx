@@ -75,7 +75,6 @@ const ContactForm: Component<{ class?: string }> = (props) => {
                 absolute bottom-4 right-4 text-[#FF5252] transition-opacity flex
                 ${isEmailValid() || data.email == "" ? "opacity-0 pointer-events-none" : ""}
               `}
-              aria-label="Invalid email address"
               use:tooltip={[() => "Invalid email address", "top"]}
             ><MdiAlertCircleOutline /></div>
           </fieldset>
