@@ -1,13 +1,19 @@
 import { defineConfig } from "astro/config"
 import Solid from "@astrojs/solid-js"
 import Icons from "unplugin-icons/vite"
-import WindiCSS from "vite-plugin-windicss"
+import Tailwind from "@astrojs/tailwind"
 
 export default defineConfig({
-  integrations: [Solid()],
+  integrations: [
+    Solid(),
+    Tailwind({
+      config: {
+        applyBaseStyles: false
+      }
+    })
+  ],
   vite: {
     plugins: [
-      WindiCSS(),
       Icons({
         compiler: "solid",
         defaultClass: "icon"

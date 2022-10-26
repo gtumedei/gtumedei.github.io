@@ -1,11 +1,11 @@
+@import "./tailwind.css";
 @import "./themes.css";
 @import "./utilities.css";
-@import "./components.css";
 
 html { @apply
   min-h-full m-0 p-0
   bg-primary
-  font-mono text-base;
+  font-mono text-neutral;
 }
 
 html.theme-dark {

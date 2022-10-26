@@ -47,7 +47,7 @@ const GameItem: Component<{
   return (
     <a href={props.game.href} class={`
       group relative flex flex-col gap-2 items-center rounded-xl p-2 transition-colors
-      border border-typography-hover hover:border-accent ${props.class ?? ""}
+      border border-neutral-8 hover:border-accent ${props.class ?? ""}
     `}>
       <div class="
         w-full flex justify-center items-center bg-primary-dark group-hover:bg-accent-10

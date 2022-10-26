@@ -18,11 +18,11 @@
   },
   "devDependencies": {
     "@astrojs/solid-js": "^1.0.0",
+    "@astrojs/tailwind": "^2.1.1",
     "@iconify-json/cib": "^1.1.2",
     "@iconify-json/mdi": "^1.1.29",
     "astro": "^1.0.5",
-    "unplugin-icons": "^0.14.7",
-    "vite-plugin-windicss": "^1.8.7",
-    "windicss": "^3.5.6"
+    "tailwindcss": "^3.2.1",
+    "unplugin-icons": "^0.14.7"
   }
 }

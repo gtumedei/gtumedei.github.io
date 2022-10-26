@@ -53,7 +53,7 @@ const HomePage: Component = () => {
         </div>
         <div class="flex flex-wrap gap-3">
           <a href={import.meta.env.PUBLIC_CV_URL} class="motion-1 btn accent">
-            <span>Download CV</span><MdiTrayArrowDown />
+            Download CV<MdiTrayArrowDown />
           </a>
         </div>
       </div>
@@ -61,7 +61,7 @@ const HomePage: Component = () => {
         <For each={pages} >{page =>
           <a href={page.href} class="
             motion-3 group flex gap-6 items-center rounded-xl p-2 transition-colors
-            border border-typography-hover hover:border-accent
+            border border-neutral-8 hover:border-accent
           ">
             <div class="flex bg-primary-dark group-hover:bg-accent-10 text-xl text-accent rounded-xl p-6 transition-colors">
               {page.icon}

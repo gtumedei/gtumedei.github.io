@@ -11,7 +11,7 @@ import MdiUndo from "~icons/mdi/undo"
 
 const Toolbar = () => {
   return (
-    <div class="w-full flex p-2 rounded-xl border-1 border-typography-hover mb-6">
+    <div class="w-full flex p-2 rounded-xl border-1 border-neutral-8 mb-6">
       <button class="btn icon"><MdiPencil class="text-lg" /></button>
       <button class="btn icon"><MdiEraser class="text-lg" /></button>
       <button class="btn icon"><MdiCircle class="text-lg" /></button>

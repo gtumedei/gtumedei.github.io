@@ -55,22 +55,20 @@
   --color-primary: var(--color-primary-100);
   --color-primary-dark: var(--color-primary-200);
 
-  --color-typography-base: var(--color-black-80);
-  --color-typography-secondary: var(--color-black-54);
-  --color-typography-faded: var(--color-black-38);
-  --color-typography-icon: var(--color-black-54);
-  --color-typography-divider: var(--color-black-12);
-  --color-typography-hover: var(--color-black-8);
+  --color-neutral-100: var(--color-black-80);
+  --color-neutral-70: var(--color-black-54);
+  --color-neutral-40: var(--color-black-38);
+  --color-neutral-12: var(--color-black-12);
+  --color-neutral-8: var(--color-black-8);
 
   --color-inverted-primary: var(--color-primary-700);
   --color-inverted-primary-dark: var(--color-primary-800);
 
-  --color-inverted-typography-base: var(--color-white-100);
-  --color-inverted-typography-secondary: var(--color-white-70);
-  --color-inverted-typography-faded: var(--color-white-50);
-  --color-inverted-typography-icon: var(--color-white-100);
-  --color-inverted-typography-divider: var(--color-white-12);
-  --color-inverted-typography-hover: var(--color-white-8);
+  --color-inverted-neutral-100: var(--color-white-100);
+  --color-inverted-neutral-70: var(--color-white-70);
+  --color-inverted-neutral-40: var(--color-white-50);
+  --color-inverted-neutral-12: var(--color-white-12);
+  --color-inverted-neutral-8: var(--color-white-8);
 
   --color-accent: var(--color-blue);
   --color-accent-20: var(--color-blue-20);
@@ -110,22 +108,20 @@
     --color-primary: var(--color-primary-700);
     --color-primary-dark: var(--color-primary-800);
 
-    --color-typography-base: var(--color-white-100);
-    --color-typography-secondary: var(--color-white-70);
-    --color-typography-faded: var(--color-white-50);
-    --color-typography-icon: var(--color-white-100);
-    --color-typography-divider: var(--color-white-12);
-    --color-typography-hover: var(--color-white-8);
+    --color-neutral-100: var(--color-white-100);
+    --color-neutral-70: var(--color-white-70);
+    --color-neutral-40: var(--color-white-50);
+    --color-neutral-12: var(--color-white-12);
+    --color-neutral-8: var(--color-white-8);
 
     --color-inverted-primary: var(--color-primary-100);
     --color-inverted-primary-dark: var(--color-primary-200);
 
-    --color-inverted-typography-base: var(--color-black-80);
-    --color-inverted-typography-secondary: var(--color-black-54);
-    --color-inverted-typography-faded: var(--color-black-38);
-    --color-inverted-typography-icon: var(--color-black-54);
-    --color-inverted-typography-divider: var(--color-black-12);
-    --color-inverted-typography-hover: var(--color-black-8);
+    --color-inverted-neutral-100: var(--color-black-80);
+    --color-inverted-neutral-70: var(--color-black-54);
+    --color-inverted-neutral-40: var(--color-black-38);
+    --color-inverted-neutral-12: var(--color-black-12);
+    --color-inverted-neutral-8: var(--color-black-8);
 
     --color-accent: var(--color-light-blue);
     --color-accent-20: var(--color-light-blue-20);
@@ -165,22 +161,20 @@
   --color-primary: var(--color-primary-100) !important;
   --color-primary-dark: var(--color-primary-200) !important;
 
-  --color-typography-base: var(--color-black-80) !important;
-  --color-typography-secondary: var(--color-black-54) !important;
-  --color-typography-faded: var(--color-black-38) !important;
-  --color-typography-icon: var(--color-black-54) !important;
-  --color-typography-divider: var(--color-black-12) !important;
-  --color-typography-hover: var(--color-black-8) !important;
+  --color-neutral-100: var(--color-black-80) !important;
+  --color-neutral-70: var(--color-black-54) !important;
+  --color-neutral-40: var(--color-black-38) !important;
+  --color-neutral-12: var(--color-black-12) !important;
+  --color-neutral-8: var(--color-black-8) !important;
 
   --color-inverted-primary: var(--color-primary-700) !important;
   --color-inverted-primary-dark: var(--color-primary-800) !important;
 
-  --color-inverted-typography-base: var(--color-white-100) !important;
-  --color-inverted-typography-secondary: var(--color-white-70) !important;
-  --color-inverted-typography-faded: var(--color-white-50) !important;
-  --color-inverted-typography-icon: var(--color-white-100) !important;
-  --color-inverted-typography-divider: var(--color-white-12) !important;
-  --color-inverted-typography-hover: var(--color-white-8) !important;
+  --color-inverted-neutral-100: var(--color-white-100) !important;
+  --color-inverted-neutral-70: var(--color-white-70) !important;
+  --color-inverted-neutral-40: var(--color-white-50) !important;
+  --color-inverted-neutral-12: var(--color-white-12) !important;
+  --color-inverted-neutral-8: var(--color-white-8) !important;
 
   /* Manual light theme accent colors */
 
@@ -215,22 +209,20 @@
   --color-primary: var(--color-primary-700) !important;
   --color-primary-dark: var(--color-primary-800) !important;
 
-  --color-typography-base: var(--color-white-100) !important;
-  --color-typography-secondary: var(--color-white-70) !important;
-  --color-typography-faded: var(--color-white-50) !important;
-  --color-typography-icon: var(--color-white-100) !important;
-  --color-typography-divider: var(--color-white-12) !important;
-  --color-typography-hover: var(--color-white-8) !important;
+  --color-neutral-100: var(--color-white-100) !important;
+  --color-neutral-70: var(--color-white-70) !important;
+  --color-neutral-40: var(--color-white-50) !important;
+  --color-neutral-12: var(--color-white-12) !important;
+  --color-neutral-8: var(--color-white-8) !important;
 
   --color-inverted-primary: var(--color-primary-100) !important;
   --color-inverted-primary-dark: var(--color-primary-200) !important;
 
-  --color-inverted-typography-base: var(--color-black-80) !important;
-  --color-inverted-typography-secondary: var(--color-black-54) !important;
-  --color-inverted-typography-faded: var(--color-black-38) !important;
-  --color-inverted-typography-icon: var(--color-black-54) !important;
-  --color-inverted-typography-divider: var(--color-black-12) !important;
-  --color-inverted-typography-hover: var(--color-black-8) !important;
+  --color-inverted-neutral-100: var(--color-black-80) !important;
+  --color-inverted-neutral-70: var(--color-black-54) !important;
+  --color-inverted-neutral-40: var(--color-black-38) !important;
+  --color-inverted-neutral-12: var(--color-black-12) !important;
+  --color-inverted-neutral-8: var(--color-black-8) !important;
 
   /* Manual dark theme accent colors */
 
