@@ -29,7 +29,7 @@ const HomePage: Component = () => {
   createTimeline([
     [".motion-1", { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: stagger(0.15) }],
     [".motion-2", { opacity: 1, y: [-10, 0] }, { duration: 0.4, delay: stagger(0.15), at: "<" }],
-    [".motion-3", { opacity: 1, scale: [0.95, 1], y: [10, 0] }, { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" }],
+    [".motion-3", { opacity: 1, scale: [0.95, 1], y: [10, 0] }, { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" }]
   ])
 
   return (
