@@ -130,3 +130,10 @@ input, textarea { @apply
     relative z-10 px-3 py-1.5;
   }
 }
+
+/* Badges */
+
+.badge { @apply
+  text-xs font-bold uppercase tracking-wide text-inverted-base
+  bg-accent rounded-full px-3 py-1;
+}

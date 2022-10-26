@@ -9,6 +9,7 @@ type Game = {
   description: string
   icon: () => JSX.Element
   href: string
+  available: boolean
 }
 
 const games: Game[] = [
@@ -16,13 +17,26 @@ const games: Game[] = [
     name: "Color Guesser",
     description: "Can you guess a color based on its code?",
     icon: () => <MdiEyedropperVariant />,
-    href: "/games/color-guesser"
+    href: "/games/color-guesser",
+    available: false
   },
   {
     name: "Memory",
     description: "Just a minimalist memory game.",
     icon: () => <MdiCards />,
-    href: "/games/memory"
+    href: "/games/memory",
+    available: false
+  },
+  {
+    name: "Px Art",
+    description: "Make pixel art images. Is this even a game?",
+    icon: () => (
+      <svg width="32" height="32" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M4 3H2v18h20V3H4zm16 2v14H4V5h16zm-6 4h-2v2h-2v2H8v2H6v2h2v-2h2v-2h2v-2h2v2h2v2h2v-2h-2v-2h-2V9zM8 7H6v2h2V7z"/>
+      </svg>
+    ),
+    href: "/games/px-art",
+    available: false
   }
 ]
 
@@ -32,7 +46,7 @@ const GameItem: Component<{
 }> = (props) => {
   return (
     <a href={props.game.href} class={`
-      group flex flex-col gap-2 items-center rounded-xl p-2 transition-colors
+      group relative flex flex-col gap-2 items-center rounded-xl p-2 transition-colors
       border border-typography-hover hover:border-accent ${props.class ?? ""}
     `}>
       <div class="
@@ -43,6 +57,7 @@ const GameItem: Component<{
         <h2 class="text-xl font-bold tracking-wider mb-1">{props.game.name}</h2>
         <p class="text-sm font-mono">{props.game.description}</p>
       </div>
+      {!props.game.available && <span class="absolute top-1 left-1 badge">Coming soon(ish)</span>}
     </a>
   )
 }
