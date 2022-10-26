@@ -29,18 +29,17 @@ const HomePage: Component = () => {
   createTimeline([
     [".motion-1", { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: stagger(0.15) }],
     [".motion-2", { opacity: 1, y: [-10, 0] }, { duration: 0.4, delay: stagger(0.15), at: "<" }],
-    [".motion-3", { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3, at: "<" }],
-    [".motion-4", { opacity: 1, scale: [0.95, 1], y: [10, 0] }, { duration: 0.4, delay: stagger(0.15), at: "<" }]
+    [".motion-3", { opacity: 1, scale: [0.95, 1], y: [10, 0] }, { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" }],
   ])
 
   return (
     <div class="w-full grid md:grid-cols-2 gap-6 md:m-auto">
       <div class="flex flex-col justify-center my-12 md:m-0">
-        <div class="flex flex-col justify-center pl-2 md:pl-0">
+        <div class="flex flex-col justify-center pl-2">
           <img src="/profile.jpg" class="motion-1 h-18 w-18 rounded-full shadow-lg mb-6" alt="Profile image" />
           <h1 class="motion-1 text-4xl font-bold tracking-wider mb-1">Gianni Tumedei</h1>
           <h2 class="motion-1 font-mono">@gtumedei</h2>
-          <div class="flex mt-3 mb-6 -ml-3">
+          <div class="flex mt-2 mb-6 -ml-3">
             <For each={links} >{link =>
               <div class="motion-2">
                 <a
@@ -62,7 +61,7 @@ const HomePage: Component = () => {
       <div class="flex flex-col gap-6 justify-center">
         <For each={pages} >{page =>
           <a href={page.href} class="
-            motion-4 group flex gap-6 items-center rounded-xl p-2 transition-colors
+            motion-3 group flex gap-6 items-center rounded-xl p-2 transition-colors
             border border-typography-hover hover:border-accent
           ">
             <div class="flex bg-primary-dark group-hover:bg-accent-10 text-xl text-accent rounded-xl p-6 transition-colors">
