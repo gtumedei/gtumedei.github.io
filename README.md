@@ -1,7 +1,8 @@
 # gtumedei.github.io
 
-My portfolio website.
+My personal website.
 
 ## TODO
 
 - Prevent flash of unthemed content on page load
+- Add some games!
