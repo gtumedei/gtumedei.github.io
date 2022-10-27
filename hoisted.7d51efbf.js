@@ -1,0 +1,1 @@
+import{s as e,d as t}from"./chunks/theme.444f01e0.js";import"./chunks/web.a2f277f3.js";e(localStorage.getItem("theme"));t(localStorage.getItem("accent")??"blue");document.body.style.visibility="visible";document.body.style.opacity="1";
