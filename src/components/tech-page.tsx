@@ -202,13 +202,13 @@ const TechPage: Component = () => {
 
   return (
     <>
-      <h1 class="motion-1 text-4xl font-bold tracking-wider mb-2">Tech I Use</h1>
+      <h1 class="motion-1 section-heading mb-2">Tech I Use</h1>
       <p class="motion-1 font-mono mb-12">
         There it is. In no particular order, some tech I like to work and tinker with,
         from programming and templating languages, to frameworks, to databases.
       </p>
       <div class="
-        w-full grid gap-12 mb-6
+        w-full grid gap-12
         grid-cols-[repeat(auto-fill,minmax(84px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(100px,1fr))]
       ">
         <For each={tech}>{item =>

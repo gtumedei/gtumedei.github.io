@@ -1,7 +1,9 @@
 import { Component, For, mergeProps } from "solid-js"
 import { createStore } from "solid-js/store"
+import { BoardContainer } from "~/components/games/ui"
 import tooltip from "~/lib/tooltip"
 import MdiCircle from "~icons/mdi/circle"
+import MdiFormatColorFill from "~icons/mdi/format-color-fill"
 import MdiEraser from "~icons/mdi/eraser"
 import MdiPencil from "~icons/mdi/pencil"
 import MdiRedo from "~icons/mdi/redo"
@@ -13,32 +15,32 @@ tooltip
 
 const Toolbar = () => {
   return (
-    <div class="w-full flex flex-wrap p-2 rounded-xl border mb-6">
-      <div class="flex-grow flex">
-        <button class="btn icon" use:tooltip={[() => "Pencil", "bottom"]}>
-          <MdiPencil class="text-lg" />
-        </button>
-        <button class="btn icon" use:tooltip={[() => "Eraser", "bottom"]}>
-          <MdiEraser class="text-lg" />
-        </button>
-        <button class="btn icon" use:tooltip={[() => "Color", "bottom"]}>
-          <MdiCircle class="text-lg" />
-        </button>
-      </div>
-      <div class="flex-grow flex justify-end">
-        <button class="btn icon" use:tooltip={[() => "Undo", "bottom"]}>
-          <MdiUndo class="text-lg" />
-        </button>
-        <button class="btn icon" use:tooltip={[() => "Redo", "bottom"]}>
-          <MdiRedo class="text-lg" />
-        </button>
-        <button class="btn icon" use:tooltip={[() => "Clear", "bottom"]}>
-          <MdiTrashCan class="text-lg" />
-        </button>
-        <button class="btn icon" use:tooltip={[() => "Download image", "bottom"]}>
-          <MdiTrayArrowDown class="text-lg" />
-        </button>
-      </div>
+    <div class="w-full flex overflow-x-auto p-2 rounded-xl border">
+      <button class="btn icon ml-auto" use:tooltip={[() => "Pencil", "top"]}>
+        <MdiPencil class="text-lg" />
+      </button>
+      <button class="btn icon" use:tooltip={[() => "Bucket", "top"]}>
+        <MdiFormatColorFill class="text-lg" />
+      </button>
+      <button class="btn icon" use:tooltip={[() => "Eraser", "top"]}>
+        <MdiEraser class="text-lg" />
+      </button>
+      <button class="btn icon" use:tooltip={[() => "Color", "top"]}>
+        <MdiCircle class="text-lg" />
+      </button>
+      <div class="flex-grow" />
+      <button class="btn icon" use:tooltip={[() => "Undo", "top"]}>
+        <MdiUndo class="text-lg" />
+      </button>
+      <button class="btn icon" use:tooltip={[() => "Redo", "top"]}>
+        <MdiRedo class="text-lg" />
+      </button>
+      <button class="btn icon" use:tooltip={[() => "Clear", "top"]}>
+        <MdiTrashCan class="text-lg" />
+      </button>
+      <button class="btn icon" use:tooltip={[() => "Download image", "top"]}>
+        <MdiTrayArrowDown class="text-lg" />
+      </button>
     </div>
   )
 }
@@ -84,8 +86,10 @@ const Board: Component<{ size?: number }> = (props) => {
 const PxArtGame: Component = () => {
   return (
     <>
+      <BoardContainer>
+        <Board />
+      </BoardContainer>
       <Toolbar />
-      <Board />
     </>
   )
 }

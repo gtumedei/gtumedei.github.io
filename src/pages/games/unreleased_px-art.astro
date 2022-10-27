@@ -1,9 +1,8 @@
 ---
-import DefaultLayout from "~/layouts/default.astro"
+import GameLayout from "~/layouts/game.astro"
 import PxArtGame from "~/components/games/px-art-game"
 ---
 
-<DefaultLayout title="PxArt • Gianni Tumedei" description="Make pixel art images.">
-  <h1 class="text-4xl font-bold tracking-wider mb-6">Px Art</h1>
+<GameLayout title="PxArt" description="Make pixel art images.">
   <PxArtGame client:only="solid-js" />
-</DefaultLayout>
+</GameLayout>

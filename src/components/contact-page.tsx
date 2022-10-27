@@ -182,7 +182,7 @@ const ContactPage: Component = () => {
 
   return (
     <>
-      <h1 class="motion-1 text-4xl font-bold tracking-wider mb-2">Contact</h1>
+      <h1 class="motion-1 section-heading mb-2">Contact</h1>
       <p class="motion-1 font-mono mb-12">
         Whether you want to hire me or just say hi, you can get in touch with me by filling the form below.
       </p>

@@ -37,7 +37,7 @@ const HomePage: Component = () => {
       <div class="flex flex-col justify-center my-12 md:m-0">
         <div class="flex flex-col justify-center pl-2">
           <img src="/profile.jpg" class="motion-1 h-18 w-18 rounded-full shadow-lg mb-6" alt="Profile image" />
-          <h1 class="motion-1 text-4xl font-bold tracking-wider mb-1">Gianni Tumedei</h1>
+          <h1 class="motion-1 section-heading mb-1">Gianni Tumedei</h1>
           <h2 class="motion-1 font-mono">@gtumedei</h2>
           <div class="flex mt-2 mb-6 -ml-3">
             <For each={links} >{link =>
@@ -67,7 +67,7 @@ const HomePage: Component = () => {
               {page.icon}
             </div>
             <div class="flex-grow">
-              <h3 class="text-xl font-bold tracking-wider mb-1">{page.title}</h3>
+              <h3 class="section-subheading mb-1">{page.title}</h3>
               <p class="text-sm font-mono">{page.subtitle}</p>
             </div>
           </a>

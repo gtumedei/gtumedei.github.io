@@ -1,0 +1,54 @@
+---
+import "~/styles/main.css"
+
+export interface Props {
+  title?: string
+  description?: string
+}
+const {
+  title,
+  description = "My personal website"
+} = Astro.props as Props
+
+const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fira+Code&display=swap" rel="stylesheet" />
+    <title>{fullTitle}</title>
+    <style>
+      body {
+        visibility: hidden;
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      import { setAccent, setTheme } from "~/lib/theme"
+      setTheme(localStorage.getItem("theme") as any)
+      setAccent(localStorage.getItem("accent") as any ?? "blue")
+      document.body.style.visibility = "visible"
+      document.body.style.opacity = "1"
+    </script>
+    <noscript>
+      <style>
+        body {
+          visibility: visible;
+          opacity: 1;
+        }
+        .motion-1, .motion-2, .motion-3, .motion-4, .motion-5 {
+          opacity: 1;
+        }
+      </style>
+    </noscript>
+    <slot />
+  </body>
+</html>

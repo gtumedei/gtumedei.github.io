@@ -54,7 +54,7 @@ const GameItem: Component<{
         text-3xl text-accent rounded-lg px-6 py-18 transition-colors
       ">{props.game.icon}</div>
       <div class="w-full p-2">
-        <h2 class="text-xl font-bold tracking-wider mb-1">{props.game.name}</h2>
+        <h2 class="section-subheading mb-1">{props.game.name}</h2>
         <p class="text-sm font-mono">{props.game.description}</p>
       </div>
       {!props.game.available && <span class="absolute top-1 left-1 badge">Coming soon(ish)</span>}
@@ -71,7 +71,7 @@ const TechPage: Component = () => {
 
   return (
     <>
-      <h1 class="motion-1 text-4xl font-bold tracking-wider mb-2">Games</h1>
+      <h1 class="motion-1 section-heading mb-2">Games</h1>
       <p class="motion-1 font-mono mb-12">
         This page is a work in progress. Things are going to be added soon(ish).
       </p>
