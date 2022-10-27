@@ -1,6 +1,5 @@
 @import "./tailwind.css";
 @import "./themes.css";
-@import "./utilities.css";
 
 html { @apply
   min-h-full m-0 p-0
@@ -13,7 +12,7 @@ html.theme-dark {
 }
 
 body { @apply
-  min-h-[100vh] m-0 p-0 flex flex-col items-center;
+  min-h-screen m-0 p-0 flex flex-col items-center;
 }
 
 * {
@@ -32,4 +31,23 @@ h1, h2, h3, h4, h5, h6 { @apply
 
 .fade-enter-active, .fade-exit-active { @apply
   transition-opacity;
+}
+
+/* Tooltips */
+
+[data-tippy-root] { @apply
+  max-w-[calc(100vw-10px)];
+}
+
+.tippy-box { @apply
+  relative text-sm whitespace-normal outline-none transition-all
+  bg-inverted-primary text-inverted-neutral rounded-md;
+
+  &[data-animation=fade][data-state=hidden] { @apply
+    opacity-0;
+  }
+
+  .tippy-content { @apply
+    relative z-10 px-3 py-1.5;
+  }
 }

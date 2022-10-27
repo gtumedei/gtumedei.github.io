@@ -3,10 +3,10 @@ import { createStore } from "solid-js/store"
 import { stagger } from "motion"
 import LoadingSpinner from "~/components/ui/loading-spinner"
 import Modal from "~/components/ui/modal"
-import model from "~/composables/model"
-import { createTimeline } from "~/composables/motion"
-import { Message, sendMessage } from "~/composables/supabase"
-import tooltip from "~/composables/tooltip"
+import model from "~/lib/model"
+import { createTimeline } from "~/lib/motion"
+import { Message, sendMessage } from "~/lib/supabase"
+import tooltip from "~/lib/tooltip"
 import MdiAccountOutline from "~icons/mdi/account-outline"
 import MdiAlertCircleOutline from "~icons/mdi/alert-circle-outline"
 import MdiEmailOutline from "~icons/mdi/email-outline"
@@ -50,22 +50,24 @@ const ContactForm: Component<{ class?: string }> = (props) => {
     <>
       <form class={`${props.class ?? ""} flex flex-col`} onSubmit={onSubmit}>
         <div class="contact-form-grid grid w-full m-auto gap-x-6 gap-y-4">
-          <fieldset class="name-field">
-            <label for="contact-name">Name</label>
+          <fieldset class="fieldset name-field">
+            <label class="label" for="contact-name">Name</label>
             <MdiAccountOutline />
             <input
               id="contact-name"
+              class="input"
               ref={nameInput}
               type="text"
               use:model={[() => data.name, (v) => setData("name", v.trim())]}
             />
           </fieldset>
 
-          <fieldset class="email-field">
-            <label for="contact-email">Email</label>
+          <fieldset class="fieldset email-field">
+            <label class="label" for="contact-email">Email</label>
             <MdiEmailOutline />
             <input
               id="contact-email"
+              class="input"
               type="text"
               autocapitalize="off"
               use:model={[() => data.email, (v) => setData("email", v.trim())]}
@@ -79,19 +81,21 @@ const ContactForm: Component<{ class?: string }> = (props) => {
             ><MdiAlertCircleOutline /></div>
           </fieldset>
 
-          <fieldset class="subject-field">
-            <label for="contact-subject">Subject</label>
+          <fieldset class="fieldset subject-field">
+            <label class="label" for="contact-subject">Subject</label>
             <input
               id="contact-subject"
+              class="input"
               type="text"
               use:model={[() => data.subject, (v) => setData("subject", v.trim())]}
             />
           </fieldset>
 
-          <fieldset class="message-field">
-            <label for="contact-message">Message</label>
+          <fieldset class="fieldset message-field">
+            <label class="label" for="contact-message">Message</label>
             <textarea
               id="contact-message"
+              class="textarea"
               rows="9"
               use:model={[() => data.message, (v) => setData("message", v.trim())]}
             />

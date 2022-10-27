@@ -1,7 +1,7 @@
 import { Component, For } from "solid-js"
 import { stagger } from "motion"
-import { createTimeline } from "~/composables/motion"
-import tooltip from "~/composables/tooltip"
+import { createTimeline } from "~/lib/motion"
+import tooltip from "~/lib/tooltip"
 import MdiApplicationBrackets from "~icons/mdi/application-brackets"
 import MdiGamepadVariant from "~icons/mdi/gamepad-variant"
 import MdiGithub from "~icons/mdi/github"
@@ -61,9 +61,9 @@ const HomePage: Component = () => {
         <For each={pages} >{page =>
           <a href={page.href} class="
             motion-3 group flex gap-6 items-center rounded-xl p-2 transition-colors
-            border border-neutral-8 hover:border-accent
+            border hover:border-accent
           ">
-            <div class="flex bg-primary-dark group-hover:bg-accent-10 text-xl text-accent rounded-xl p-6 transition-colors">
+            <div class="flex bg-primary-dark group-hover:bg-accent-10 text-xl text-accent rounded-lg p-6 transition-colors">
               {page.icon}
             </div>
             <div class="flex-grow">

@@ -7,7 +7,7 @@
   /* Buttons */
 
   .btn { @apply
-    px-8 py-3 rounded-xl !outline-none
+    px-8 py-3 rounded-lg !outline-none
     inline-flex justify-center items-center gap-4
     border-2 border-transparent
     text-sm font-bold text-neutral bg-primary shadow-md
@@ -55,9 +55,8 @@
     }
 
     &.outline { @apply
-      border-[1px] text-accent shadow-none
-      bg-transparent hover:bg-accent-10
-      border-neutral-8 hover:border-accent;
+      border text-accent shadow-none
+      bg-transparent hover:bg-accent-10 hover:border-accent;
     }
 
     &.icon { @apply
@@ -71,76 +70,75 @@
       p-4;
     }
   }
-}
 
-/* Form elements */
+  /* Form elements */
 
-fieldset { @apply
-  relative flex flex-col;
+  .fieldset { @apply
+    relative flex flex-col;
 
-  label { @apply
-    text-sm font-bold ml-1 mb-1;
+    .label { @apply
+      text-sm font-bold ml-1 mb-1;
+    }
+
+    & > .icon { @apply
+      absolute bottom-[7px] left-[7px]
+      bg-primary-dark h-9 w-9 p-2 rounded-lg
+      pointer-events-none transition-colors;
+    }
+
+    &:focus-within > .icon { @apply
+      bg-accent-10 text-accent;
+    }
+
+    .icon + .input, .icon + .textarea { @apply
+      pl-14;
+    }
   }
 
-  & > .icon { @apply
-    absolute bottom-[7px] left-[7px]
-    bg-primary-dark h-9 w-9 p-2 rounded-xl
-    pointer-events-none transition-colors;
+  .input, .textarea { @apply
+    bg-transparent rounded-xl px-4 py-3 outline-none
+    border hover:border-accent focus:border-accent
+    transition-all resize-none;
   }
 
-  &:focus-within > .icon { @apply
-    bg-accent-10 text-accent;
+  /* Typography */
+
+  .section-heading { @apply
+    text-4xl font-bold tracking-wider;
   }
 
-  .icon + input, .icon + textarea { @apply
-    pl-14;
-  }
-}
-
-input, textarea { @apply
-  bg-transparent rounded-xl px-4 py-3 outline-none
-  border border-neutral-8 hover:border-accent focus:border-accent
-  transition-all resize-none;
-}
-
-/* Typography */
-
-.section-heading { @apply
-  text-4xl font-bold tracking-wider;
-}
-
-.section-subheading { @apply
-  text-xl font-bold tracking-wider;
-}
-
-/* Cards */
-
-.card { @apply
-  p-6 bg-primary rounded-xl shadow-xl overflow-hidden;
-}
-
-/* Tooltips */
-
-[data-tippy-root] { @apply
-  max-w-[calc(100vw-10px)];
-}
-
-.tippy-box { @apply
-  relative text-sm whitespace-normal outline-none transition-all
-  bg-inverted-primary text-inverted-neutral rounded-md;
-
-  &[data-animation=fade][data-state=hidden] { @apply
-    opacity-0;
+  .section-subheading { @apply
+    text-xl font-bold tracking-wider;
   }
 
-  .tippy-content { @apply
-    relative z-10 px-3 py-1.5;
+  /* Cards */
+
+  .card { @apply
+    p-6 bg-primary rounded-xl shadow-xl overflow-hidden;
+  }
+
+  /* Badges */
+
+  .badge { @apply
+    text-xs font-bold uppercase tracking-wide text-inverted-neutral
+    bg-accent rounded-full px-3 py-1;
   }
 }
 
-/* Badges */
+@layer utilities {
+  .absolute-center { @apply
+    absolute transform top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2;
+  }
 
-.badge { @apply
-  text-xs font-bold uppercase tracking-wide text-inverted-neutral
-  bg-accent rounded-full px-3 py-1;
+  .absolute-center-x { @apply
+    absolute transform left-[50%] -translate-x-1/2;
+  }
+
+  .absolute-center-y { @apply
+    absolute transform top-[50%] -translate-y-1/2;
+  }
+
+  .motion-1, .motion-2, .motion-3, .motion-4, .motion-5 {
+    opacity: 0;
+  }
 }

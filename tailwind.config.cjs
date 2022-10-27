@@ -73,6 +73,10 @@ module.exports = {
         },
       },
 
+      borderColor: {
+        DEFAULT: "var(--color-neutral-8)"
+      },
+
       transitionDuration: {
         DEFAULT: "400ms"
       },

@@ -25,10 +25,27 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fira+Code&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    <style>
+      body {
+        visibility: hidden;
+        opacity: 0;
+      }
+    </style>
   </head>
   <body>
+    <script>
+      import { setAccent, setTheme } from "~/lib/theme"
+      setTheme(localStorage.getItem("theme") as any)
+      setAccent(localStorage.getItem("accent") as any ?? "blue")
+      document.body.style.visibility = "visible"
+      document.body.style.opacity = "1"
+    </script>
     <noscript>
       <style>
+        body {
+          visibility: visible;
+          opacity: 1;
+        }
         .motion-1, .motion-2, .motion-3, .motion-4, .motion-5 {
           opacity: 1;
         }

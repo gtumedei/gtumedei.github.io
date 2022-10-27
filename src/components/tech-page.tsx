@@ -1,6 +1,6 @@
 import { Component, For, JSX } from "solid-js"
 import { stagger } from "motion"
-import { createTimeline } from "~/composables/motion"
+import { createTimeline } from "~/lib/motion"
 import CibFlutter from "~icons/cib/flutter"
 import CibMongodb from "~icons/cib/mongodb"
 import CibScala from "~icons/cib/scala"
@@ -179,9 +179,9 @@ const TechItem: Component<{
   return (
     <div class={props.class ?? ""}>
       <a href={props.item.url} target="_blank" class={`relative flex flex-col gap-2 ${props.item.hover.text} ${props.item.hover.bg}`}>
-        <div class="flex rounded-xl bg-primary mx-auto mb-7">
+        <div class="flex bg-primary mx-auto mb-7">
           <div class={`
-            icon-parent flex p-6 rounded-xl !text-xl text-accent fill-accent
+            icon-parent flex p-6 rounded-lg !text-xl text-accent fill-accent
             ${props.bg == "primary" ? "bg-primary" : "bg-primary-dark"} !bg-opacity-10 transition-colors
           `}>{props.item.icon()}</div>
         </div>

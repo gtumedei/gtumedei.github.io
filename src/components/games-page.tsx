@@ -1,6 +1,6 @@
 import { Component, For, JSX } from "solid-js"
 import { stagger } from "motion"
-import { createTimeline } from "~/composables/motion"
+import { createTimeline } from "~/lib/motion"
 import MdiEyedropperVariant from "~icons/mdi/eyedropper-variant"
 import MdiCards from "~icons/mdi/cards"
 
@@ -47,11 +47,11 @@ const GameItem: Component<{
   return (
     <a href={props.game.href} class={`
       group relative flex flex-col gap-2 items-center rounded-xl p-2 transition-colors
-      border border-neutral-8 hover:border-accent ${props.class ?? ""}
+      border hover:border-accent ${props.class ?? ""}
     `}>
       <div class="
         w-full flex justify-center items-center bg-primary-dark group-hover:bg-accent-10
-        text-3xl text-accent rounded-xl px-6 py-18 transition-colors
+        text-3xl text-accent rounded-lg px-6 py-18 transition-colors
       ">{props.game.icon}</div>
       <div class="w-full p-2">
         <h2 class="text-xl font-bold tracking-wider mb-1">{props.game.name}</h2>
