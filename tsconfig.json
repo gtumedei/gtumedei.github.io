@@ -26,5 +26,6 @@
     "paths": {
       "~/*": ["src/*"]
     }
-  }
+  },
+  "exclude": ["./src/supabase"]
 }
