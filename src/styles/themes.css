@@ -22,9 +22,9 @@
   --color-blue-20: rgba(0, 145, 234, 0.2);
   --color-blue-10: rgba(0, 145, 234, 0.1);
 
-  --color-light-blue: #40C4FF;
-  --color-light-blue-20: rgba(64, 196, 255, 0.2);
-  --color-light-blue-10: rgba(64, 196, 255, 0.1);
+  --color-light-blue: #4FC3F7;
+  --color-light-blue-20: rgba(79, 195, 247, 0.2);
+  --color-light-blue-10: rgba(79, 195, 247, 0.1);
 
   --color-orange: #FF8A65;
   --color-orange-20: rgba(255, 138, 101, 0.2);
@@ -42,13 +42,13 @@
   --color-light-teal-20: rgba(100, 255, 218, 0.2);
   --color-light-teal-10: rgba(100, 255, 218, 0.1);
 
-  --color-pink: #C51162;
-  --color-pink-20: rgba(197, 17, 98, 0.2);
-  --color-pink-10: rgba(197, 17, 98, 0.1);
+  --color-pink: #EC407A;
+  --color-pink-20: rgba(236, 64, 122, 0.2);
+  --color-pink-10: rgba(236, 64, 122, 0.1);
 
-  --color-light-pink: #FF80AB;
-  --color-light-pink-20: rgba(255, 128, 171, 0.2);
-  --color-light-pink-10: rgba(255, 128, 171, 0.1);
+  --color-light-pink: #F9A8D4;
+  --color-light-pink-20: rgba(249, 168, 212, 0.2);
+  --color-light-pink-10: rgba(249, 168, 212, 0.1);
 
   /* Dynamic light theme colors */
 
