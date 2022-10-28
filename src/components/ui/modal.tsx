@@ -3,7 +3,7 @@ import { Portal } from "solid-js/web"
 import { Transition } from "solid-transition-group"
 
 const Modal: ParentComponent<{
-  show: Accessor<boolean>,
+  show: Accessor<boolean>
   setShow: Setter<boolean>
 }> = (props) => {
   return (

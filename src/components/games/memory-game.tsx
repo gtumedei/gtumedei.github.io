@@ -12,7 +12,7 @@ const Toolbar = () => {
     <div class="w-full flex items-center p-2 rounded-xl border">
       <p class="ml-3 flex-grow">99 moves</p>
       <button class="btn icon" use:tooltip={[() => "Game Settings", "top"]}>
-        <MdiCog class="text-lg" />
+        <MdiCog />
       </button>
     </div>
   )

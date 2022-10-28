@@ -17,29 +17,29 @@ const Toolbar = () => {
   return (
     <div class="w-full flex overflow-x-auto p-2 rounded-xl border">
       <button class="btn icon ml-auto" use:tooltip={[() => "Pencil", "top"]}>
-        <MdiPencil class="text-lg" />
+        <MdiPencil />
       </button>
       <button class="btn icon" use:tooltip={[() => "Bucket", "top"]}>
-        <MdiFormatColorFill class="text-lg" />
+        <MdiFormatColorFill />
       </button>
       <button class="btn icon" use:tooltip={[() => "Eraser", "top"]}>
-        <MdiEraser class="text-lg" />
+        <MdiEraser />
       </button>
       <button class="btn icon" use:tooltip={[() => "Color", "top"]}>
-        <MdiCircle class="text-lg" />
+        <MdiCircle />
       </button>
       <div class="flex-grow" />
       <button class="btn icon" use:tooltip={[() => "Undo", "top"]}>
-        <MdiUndo class="text-lg" />
+        <MdiUndo />
       </button>
       <button class="btn icon" use:tooltip={[() => "Redo", "top"]}>
-        <MdiRedo class="text-lg" />
+        <MdiRedo />
       </button>
       <button class="btn icon" use:tooltip={[() => "Clear", "top"]}>
-        <MdiTrashCan class="text-lg" />
+        <MdiTrashCan />
       </button>
       <button class="btn icon" use:tooltip={[() => "Download image", "top"]}>
-        <MdiTrayArrowDown class="text-lg" />
+        <MdiTrayArrowDown />
       </button>
     </div>
   )

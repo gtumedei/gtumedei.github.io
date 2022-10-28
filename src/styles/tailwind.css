@@ -7,60 +7,45 @@
   /* Buttons */
 
   .btn { @apply
-    px-8 py-3 rounded-lg !outline-none
-    inline-flex justify-center items-center gap-4
-    border-2 border-transparent
-    text-sm font-bold text-neutral bg-primary shadow-md
-    transition-all
-    hover:shadow-xl
-    focus:bg-primary-dark
-    active:shadow-md;
+    px-8 py-3 rounded-lg outline-none
+    inline-flex justify-center items-center gap-3
+    border border-transparent
+    text-sm font-bold text-neutral bg-primary
+    transition-all;
 
     &:disabled { @apply
-      shadow-none cursor-not-allowed;
+      !shadow-none cursor-not-allowed;
 
       &:not(.loading) { @apply
         opacity-40;
       }
     }
 
-    &.inverted { @apply
-      text-inverted-neutral bg-inverted-primary
-      focus:bg-inverted-primary-dark;
-    }
-
     &.accent { @apply
-      text-inverted-neutral bg-accent;
+      text-inverted-neutral bg-accent
+      hover:shadow-xl hover:shadow-accent-20
+      focus:shadow-xl focus:shadow-accent-20
+      active:shadow-lg active:shadow-accent-20;
 
       &:not(.loading):disabled { @apply
         bg-inverted-primary;
       }
     }
 
-    &.light { @apply
-      text-black-80 bg-primary-100
-      focus:bg-primary-200;
-    }
-
-    &.dark { @apply
-      text-white-100 bg-primary-700
-      focus:bg-primary-800;
+    &.outline { @apply
+      border-neutral-8 text-accent
+      bg-transparent
+      hover:bg-accent-10 hover:border-accent
+      focus:bg-accent-10 focus:border-accent
+      active:bg-accent-20 active:border-accent;
     }
 
     &.transparent { @apply
-      bg-transparent !shadow-none
-      hover:bg-neutral-8
-      focus:bg-neutral-8
-      active:bg-neutral-12;
-    }
-
-    &.outline { @apply
-      border text-accent shadow-none
-      bg-transparent hover:bg-accent-10 hover:border-accent;
+      bg-transparent hover:bg-neutral-8 focus:bg-neutral-8 active:bg-neutral-12;
     }
 
     &.icon { @apply
-      p-2 !shadow-none bg-transparent
+      p-2 bg-transparent
       hover:bg-accent-10 hover:text-accent
       focus:bg-accent-10 focus:text-accent
       active:bg-accent-20 active:text-accent;

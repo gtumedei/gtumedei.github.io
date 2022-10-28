@@ -21,7 +21,7 @@ export const GameHeader: Component<{ title: string }> = (props) => {
 
 export const BoardContainer: ParentComponent = (props) => (
   <div class="w-full flex-grow relative">
-    <div class="absolute-center portrait:w-full landscape:h-full aspect-square">
+    <div class="absolute-center w-[min(calc(100vw-3rem),calc(100vh-12.85rem))] aspect-square">
       {props.children}
     </div>
   </div>
