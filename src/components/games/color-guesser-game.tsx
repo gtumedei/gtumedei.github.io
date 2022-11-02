@@ -6,7 +6,6 @@ import MdiChevronLeft from "~icons/mdi/chevron-left"
 import MdiChevronRight from "~icons/mdi/chevron-right"
 import MdiCog from "~icons/mdi/cog"
 import MdiEyedropperVariant from "~icons/mdi/eyedropper-variant"
-import MdiSpeedometer from "~icons/mdi/speedometer"
 
 tooltip
 
@@ -40,11 +39,8 @@ const SettingsModal = () => {
         Are you nerd enough to guess a color based on its RGB HEX code? Let's find out!
       </p>
 
-      <div class="w-full flex items-center gap-3 p-2 border rounded-xl mb-8">
-        <div class="flex bg-primary-dark text-accent rounded-lg p-3">
-          <MdiSpeedometer />
-        </div>
-        <h5 class="text-left font-bold tracking-wider flex-grow ml-2">Difficulty</h5>
+      <div class="w-full flex items-center gap-2 p-2 border rounded-xl mb-8">
+        <h5 class="text-left text-sm font-mono font-bold flex-grow ml-2">Difficulty</h5>
         <div class="flex gap-2 items-center">
           <button class="btn icon" onClick={decreaseDifficulty} disabled={difficulty() == 0}>
             <MdiChevronLeft />
