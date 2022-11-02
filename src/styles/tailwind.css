@@ -45,10 +45,13 @@
     }
 
     &.icon { @apply
-      p-2 bg-transparent
-      hover:bg-accent-10 hover:text-accent
-      focus:bg-accent-10 focus:text-accent
-      active:bg-accent-20 active:text-accent;
+      p-2 bg-transparent;
+
+      &:not(:disabled) { @apply
+        hover:bg-accent-10 hover:text-accent
+        focus:bg-accent-10 focus:text-accent
+        active:bg-accent-20 active:text-accent;
+      }
     }
 
     &.fab { @apply

@@ -117,32 +117,36 @@ const ContactForm: Component<{ class?: string }> = (props) => {
         </div>
       </form>
 
-      <Modal show={showSuccessModal} setShow={setShowSuccessModal}>
-        <div class="flex flex-col items-center text-center w-96">
-          <div class="bg-primary-dark flex rounded-full p-6 mb-6">
-            <MdiRocketLaunchOutline class="text-3xl text-accent" />
-          </div>
-          <h4 class="section-subheading mb-2">Message sent</h4>
-          <p class="text-sm mb-6">
-            Thanks for reaching out to me.<br/>I'll reply as soon as possible!
-          </p>
-          <button class="btn accent py-3" onClick={() => setShowSuccessModal(false)}>Close</button>
+      <Modal
+        class="flex flex-col items-center text-center w-96"
+        show={showSuccessModal}
+        setShow={setShowSuccessModal}
+      >
+        <div class="bg-primary-dark flex rounded-full p-6 mb-6">
+          <MdiRocketLaunchOutline class="text-3xl text-accent" />
         </div>
+        <h4 class="section-subheading mb-2">Message sent</h4>
+        <p class="text-sm mb-6">
+          Thanks for reaching out to me.<br/>I'll reply as soon as possible!
+        </p>
+        <button class="btn accent py-3" onClick={() => setShowSuccessModal(false)}>Close</button>
       </Modal>
 
-      <Modal show={showErrorModal} setShow={setShowErrorModal}>
-        <div class="flex flex-col items-center text-center w-96">
-          <div class="bg-primary-dark flex rounded-full p-6 mb-6">
-            <MdiEmoticonConfusedOutline class="text-3xl text-accent" />
-          </div>
-          <h4 class="section-subheading mb-2">Oops!<br/>Something went wrong</h4>
-          <p class="text-sm mb-6">
-            Looks like the message wasn't sent.<br/>
-            Please check if something strange is going on with your internet connection.
-            If that's not the case, then it's probably my fault!
-          </p>
-          <button class="btn accent py-3" onClick={() => setShowErrorModal(false)}>Close</button>
+      <Modal
+        class="flex flex-col items-center text-center w-96"
+        show={showErrorModal}
+        setShow={setShowErrorModal}
+      >
+        <div class="bg-primary-dark flex rounded-full p-6 mb-6">
+          <MdiEmoticonConfusedOutline class="text-3xl text-accent" />
         </div>
+        <h4 class="section-subheading mb-2">Oops!<br/>Something went wrong</h4>
+        <p class="text-sm mb-6">
+          Looks like the message wasn't sent.<br/>
+          Please check if something strange is going on with your internet connection.
+          If that's not the case, then it's probably my fault 😅
+        </p>
+        <button class="btn accent py-3" onClick={() => setShowErrorModal(false)}>Close</button>
       </Modal>
 
       <style>{`
