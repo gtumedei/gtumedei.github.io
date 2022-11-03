@@ -5,17 +5,17 @@ import { Transition } from "solid-transition-group"
 const Modal: ParentComponent<{
   show: Accessor<boolean>
   setShow: Setter<boolean>
+  persistent?: boolean
   class?: string
 }> = (props) => {
   return (
     <>
       <Portal>
-
         <Transition
           enterClass="opacity-0" exitToClass="opacity-0"
           enterActiveClass="transition-opacity" exitActiveClass="transition-opacity"
         >
-          {props.show() && <div class="fixed inset-0 bg-black-38 z-30" onClick={() => props.setShow(false)} />}
+          {props.show() && <div class="fixed inset-0 bg-black-38 z-30" onClick={() => !props.persistent && props.setShow(false)} />}
         </Transition>
 
         <div class="fixed inset-3 flex z-40 pointer-events-none">

@@ -1,5 +1,5 @@
 import { Component, createSignal, For, mergeProps } from "solid-js"
-import { BoardContainer } from "~/components/games/ui"
+import { BoardContainer } from "~/components/ui/game"
 import tooltip from "~/lib/tooltip"
 import MdiCog from "~icons/mdi/cog"
 import MdiEllipse from "~icons/mdi/ellipse"

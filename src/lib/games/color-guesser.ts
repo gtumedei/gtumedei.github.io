@@ -1,5 +1,7 @@
 import { createStore } from "solid-js/store"
 
+// TODO: add more colors, randomize colors by a small amount after grid creation, additional setting for color mode (HEX, RGB, CMYK, etc.)
+
 type Difficulty = { label: string, grid: number }
 
 type GameCtx = {
@@ -37,7 +39,9 @@ const colors = [
   "#607D8B"
 ]
 
-const [gameCtx, setGameCtx] = createStore<GameCtx>({})
+const [gameCtx, setGameCtx] = createStore<GameCtx>({
+  colorGrid: []
+})
 export { gameCtx }
 
 const pickRandom = <T>(arr: T[]) => arr[arr.length * Math.random() | 0]

@@ -18,7 +18,7 @@ const games: Game[] = [
     description: "Can you guess a color based on its code?",
     icon: () => <MdiEyedropperVariant />,
     href: "/games/color-guesser",
-    available: false
+    available: true
   },
   {
     name: "Memory",
@@ -73,7 +73,8 @@ const TechPage: Component = () => {
     <>
       <h1 class="motion-1 section-heading mb-2">Games</h1>
       <p class="motion-1 font-mono mb-12">
-        This page is a work in progress. Things are going to be added soon(ish).
+        These are just some minigames I make for fun whenever I feel like to. Have fun with them!
+        Oh and by the way, do not hesitate to <a href="/contact" class="link">contact me</a> if something is broken.
       </p>
       <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         <For each={games}>{game =>

@@ -1,12 +1,15 @@
-import { Component, createSignal, For } from "solid-js"
-import { BoardContainer } from "~/components/games/ui"
+import { Component, createSignal, For, Show } from "solid-js"
+import { Transition } from "solid-transition-group"
+import { BoardContainer } from "~/components/ui/game"
 import Modal from "~/components/ui/modal"
 import { difficulties, gameCtx, nextColor, startGame } from "~/lib/games/color-guesser"
 import tooltip from "~/lib/tooltip"
+import MdiCheck from "~icons/mdi/check"
+import MdiClose from "~icons/mdi/close"
 import MdiChevronLeft from "~icons/mdi/chevron-left"
 import MdiChevronRight from "~icons/mdi/chevron-right"
-import MdiCog from "~icons/mdi/cog"
 import MdiEyedropperVariant from "~icons/mdi/eyedropper-variant"
+import MdiMenu from "~icons/mdi/menu"
 
 tooltip
 
@@ -26,6 +29,7 @@ const SettingsModal = () => {
     <Modal
       class="flex flex-col items-center text-center w-full"
       show={showSettingsModal} setShow={setShowSettingsModal}
+      persistent={gameCtx.difficulty == undefined}
     >
       <div class="bg-primary-dark flex rounded-full p-6 mb-6">
         <MdiEyedropperVariant class="text-3xl text-accent" />
@@ -66,27 +70,66 @@ const Toolbar = () => {
         class="btn icon"
         onClick={() => setShowSettingsModal(v => !v)}
         use:tooltip={[() => "Game Settings", "top"]}
-      ><MdiCog /></button>
+      ><MdiMenu /></button>
     </div>
   )
 }
 
-const Board = () => {
-  const onColorClick = (color: string) => {
-    if (color == gameCtx.color) {
-      console.log("Correct!")
+const Tile: Component<{ color: string }> = (props) => {
+  const [success, setSuccess] = createSignal(false)
+  const [error, setError] = createSignal(false)
+
+  const sleep = (ms: number) => new Promise(r => setTimeout(r, ms))
+
+  const onClick = async () => {
+    if (props.color == gameCtx.color) {
+      setSuccess(true)
+      await sleep(500)
+      setSuccess(false)
       nextColor()
     } else {
-      console.log("Wrong guess :(")
+      setError(true)
+      await sleep(500)
+      setError(false)
     }
   }
 
   return (
-    <div class="h-full grid gap-3" style={`grid-template-columns: repeat(${gameCtx.difficulty?.grid}, minmax(0, 1fr));`}>
-      <For each={gameCtx.colorGrid ?? []}>{(color) =>
-        <div class="w-full h-full rounded-lg" style={`background-color: ${color};`} onClick={() => onColorClick(color)} />
-      }</For>
-    </div>
+    <button
+      class="group relative w-full h-full rounded-lg"
+      style={`background-color: ${props.color};`}
+      onClick={onClick}
+    >
+      <div class={`
+        absolute -inset-1.5 rounded-xl border border-accent pointer-events-none
+        bg-white-12 opacity-0 group-hover:opacity-100 transition-all
+        ${success() ? "!opacity-100 !bg-white-50" : ""}
+        ${error() ? "!opacity-100 !bg-white-50" : ""}
+      `}>
+        <MdiCheck class={`absolute-center h-1/2 w-1/2 text-black-54 ${success() ? "opacity-100" : "opacity-0"} transition-opacity`} />
+        <MdiClose class={`absolute-center h-1/2 w-1/2 text-black-54 ${error() ? "opacity-100" : "opacity-0"} transition-opacity`} />
+      </div>
+    </button>
+  )
+}
+
+const Board = () => {
+  return (
+    <Transition
+      enterClass="opacity-0" exitToClass="opacity-0"
+      enterActiveClass="transition-opacity" exitActiveClass="transition-opacity"
+      mode="outin"
+    >
+      <Show when={gameCtx.colorGrid} keyed>{(colorGrid) => {
+        const grid = gameCtx.difficulty?.grid // Make the grid size non-reactive to avoid bad looking animations on difficulty change
+        return (
+          <div class="h-full grid gap-3" style={`grid-template-columns: repeat(${grid}, minmax(0, 1fr));`}>
+            <For each={colorGrid ?? []}>{(color) => <Tile color={color} />}</For>
+          </div>
+        )
+      }
+      }</Show>
+    </Transition>
   )
 }
 

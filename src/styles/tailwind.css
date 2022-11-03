@@ -4,6 +4,10 @@
 
 @layer components {
 
+  .link { @apply
+    text-accent hover:underline;
+  }
+
   /* Buttons */
 
   .btn { @apply
