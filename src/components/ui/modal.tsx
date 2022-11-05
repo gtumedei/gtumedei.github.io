@@ -20,7 +20,7 @@ const Modal: ParentComponent<{
 
         <div
           class={`fixed inset-0 p-3 max-h-screen overflow-y-auto flex z-40 ${!props.show() ? "pointer-events-none" : ""}`}
-          onClick={() => !props.persistent && props.setShow(false)}
+          onClick={(e) => e.target == e.currentTarget && !props.persistent && props.setShow(false)}
         >
           <Transition
             enterClass="opacity-0 transform -translate-y-2" exitToClass="opacity-0 transform -translate-y-2"
