@@ -1,6 +1,6 @@
 {
-  "name": "@example/framework-solid",
-  "version": "0.0.1",
+  "name": "gtumedei.github.io",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev --host",
@@ -11,19 +11,18 @@
     "supa:deploy": "cd src && supabase functions deploy send-message"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.0.4",
-    "motion": "^10.13.1",
-    "solid-js": "^1.6.0",
-    "solid-transition-group": "^0.0.10",
-    "tippy.js": "^6.3.7"
-  },
-  "devDependencies": {
+    "@astrojs/sitemap": "^1.0.0",
     "@astrojs/solid-js": "^1.2.1",
     "@astrojs/tailwind": "^2.1.1",
     "@iconify-json/cib": "^1.1.2",
     "@iconify-json/mdi": "^1.1.29",
+    "@supabase/supabase-js": "^2.0.4",
     "astro": "^1.6.0",
+    "motion": "^10.13.1",
+    "solid-js": "^1.6.0",
+    "solid-transition-group": "^0.0.10",
     "tailwindcss": "^3.2.1",
+    "tippy.js": "^6.3.7",
     "unplugin-icons": "^0.14.12"
   }
 }

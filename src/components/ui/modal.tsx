@@ -15,10 +15,13 @@ const Modal: ParentComponent<{
           enterClass="opacity-0" exitToClass="opacity-0"
           enterActiveClass="transition-opacity" exitActiveClass="transition-opacity"
         >
-          {props.show() && <div class="fixed inset-0 bg-black-38 z-30" onClick={() => !props.persistent && props.setShow(false)} />}
+          {props.show() && <div class="fixed inset-0 bg-black-38 z-30" />}
         </Transition>
 
-        <div class="fixed inset-3 flex z-40 pointer-events-none">
+        <div
+          class={`fixed inset-0 p-3 max-h-screen overflow-y-auto flex z-40 ${!props.show() ? "pointer-events-none" : ""}`}
+          onClick={() => !props.persistent && props.setShow(false)}
+        >
           <Transition
             enterClass="opacity-0 transform -translate-y-2" exitToClass="opacity-0 transform -translate-y-2"
             enterActiveClass="transition-all" exitActiveClass="transition-all"

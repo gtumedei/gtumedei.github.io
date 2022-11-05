@@ -1,4 +1,4 @@
-import { Component, createSignal, For, Show } from "solid-js"
+import { Component, createSignal, For, onMount, Show } from "solid-js"
 import { Transition } from "solid-transition-group"
 import { BoardContainer } from "~/components/ui/game"
 import Modal from "~/components/ui/modal"
@@ -13,7 +13,7 @@ import MdiMenu from "~icons/mdi/menu"
 
 tooltip
 
-const [showSettingsModal, setShowSettingsModal] = createSignal(true)
+const [showSettingsModal, setShowSettingsModal] = createSignal(false)
 
 const SettingsModal = () => {
   const [difficulty, setDifficulty] = createSignal(0)
@@ -134,6 +134,8 @@ const Board = () => {
 }
 
 const ColorGuesserGame: Component = () => {
+  onMount(() => setShowSettingsModal(true))
+
   return (
     <>
       <BoardContainer>

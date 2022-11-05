@@ -4,5 +4,5 @@ My personal website.
 
 ## TODO
 
-- Add some games!
 - Find a solution for scoped styles
+- Make modals scroll when their content is bigger than the viewport
