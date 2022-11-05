@@ -2,7 +2,7 @@ import { Component, createSignal, For, onMount, Show } from "solid-js"
 import { Transition } from "solid-transition-group"
 import { BoardContainer } from "~/components/ui/game"
 import Modal from "~/components/ui/modal"
-import { difficulties, gameCtx, nextColor, startGame } from "~/lib/games/color-guesser"
+import { difficulties, gameCtx, modes, nextColor, startGame } from "~/lib/games/color-guesser"
 import tooltip from "~/lib/tooltip"
 import MdiCheck from "~icons/mdi/check"
 import MdiClose from "~icons/mdi/close"
@@ -20,9 +20,13 @@ const SettingsModal = () => {
   const increaseDifficulty = () => setDifficulty(v => Math.min(v + 1, difficulties.length - 1))
   const decreaseDifficulty = () => setDifficulty(v => Math.max(v - 1, 0))
 
+  const [mode, setMode] = createSignal(0)
+  const nextMode = () => setMode(v => Math.min(v + 1, modes.length - 1))
+  const prevMode = () => setMode(v => Math.max(v - 1, 0))
+
   const onStartBtnClick = () => {
     setShowSettingsModal(false)
-    startGame(difficulties[difficulty()])
+    startGame(difficulties[difficulty()], modes[mode()])
   }
 
   return (
@@ -39,16 +43,30 @@ const SettingsModal = () => {
         Are you nerd enough to guess a color based on its RGB HEX code? Let's find out!
       </p>
 
-      <div class="w-full flex items-center gap-2 p-2 border rounded-xl mb-8">
-        <h5 class="text-left text-sm font-mono font-bold flex-grow ml-2">Difficulty</h5>
-        <div class="flex gap-2 items-center">
-          <button class="btn icon" onClick={decreaseDifficulty} disabled={difficulty() == 0}>
-            <MdiChevronLeft />
-          </button>
-          <span class="text-sm w-16">{difficulties[difficulty()].label}</span>
-          <button class="btn icon" onClick={increaseDifficulty} disabled={difficulty() == difficulties.length - 1}>
-            <MdiChevronRight />
-          </button>
+      <div class="w-full flex flex-col border rounded-xl divide-y mb-8">
+        <div class="w-full flex items-center gap-2 p-2">
+          <h5 class="text-left text-sm font-mono font-bold flex-grow ml-2">Difficulty</h5>
+          <div class="flex gap-2 items-center">
+            <button class="btn icon" onClick={decreaseDifficulty} disabled={difficulty() == 0}>
+              <MdiChevronLeft />
+            </button>
+            <span class="text-sm w-16">{difficulties[difficulty()].label}</span>
+            <button class="btn icon" onClick={increaseDifficulty} disabled={difficulty() == difficulties.length - 1}>
+              <MdiChevronRight />
+            </button>
+          </div>
+        </div>
+        <div class="w-full flex items-center gap-2 p-2">
+          <h5 class="text-left text-sm font-mono font-bold flex-grow ml-2">Difficulty</h5>
+          <div class="flex gap-2 items-center">
+            <button class="btn icon" onClick={prevMode} disabled={mode() == 0}>
+              <MdiChevronLeft />
+            </button>
+            <span class="text-sm w-16">{modes[mode()]}</span>
+            <button class="btn icon" onClick={nextMode} disabled={mode() == difficulties.length - 1}>
+              <MdiChevronRight />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -65,7 +83,7 @@ const SettingsModal = () => {
 const Toolbar = () => {
   return (
     <div class="w-full flex items-center p-2 rounded-xl border">
-      <p class="ml-3 flex-grow">Color code: {gameCtx.color}</p>
+      <p class="ml-3 flex-grow">Color code: {gameCtx.color ?? "---"}</p>
       <button
         class="btn icon"
         onClick={() => setShowSettingsModal(v => !v)}
