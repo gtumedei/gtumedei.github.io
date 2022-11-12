@@ -2,7 +2,7 @@ import { Component, For, JSX } from "solid-js"
 import { stagger } from "motion"
 import { createTimeline } from "~/lib/motion"
 import MdiEyedropperVariant from "~icons/mdi/eyedropper-variant"
-import MdiCards from "~icons/mdi/cards"
+// import MdiCards from "~icons/mdi/cards"
 
 type Game = {
   name: string
@@ -20,7 +20,7 @@ const games: Game[] = [
     href: "/games/color-guesser",
     available: true
   },
-  {
+  /* {
     name: "Memory",
     description: "Just a minimalist memory game.",
     icon: () => <MdiCards />,
@@ -37,7 +37,7 @@ const games: Game[] = [
     ),
     href: "/games/px-art",
     available: false
-  }
+  } */
 ]
 
 const GameItem: Component<{
