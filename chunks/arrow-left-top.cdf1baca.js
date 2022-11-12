@@ -1,1 +1,0 @@
-import{g as r,s,r as o,t as a}from"./web.ae25b5d1.js";const l=a('<svg class="icon" viewBox="0 0 24 24" width="1.2em" height="1.2em"><path fill="currentColor" d="M20 13.5V20h-2v-6.5C18 11 16 9 13.5 9H7.83l3.08 3.09L9.5 13.5L4 8l5.5-5.5l1.42 1.41L7.83 7h5.67a6.5 6.5 0 0 1 6.5 6.5Z"></path></svg>'),i=(e={})=>(()=>{const t=r(l);return s(t,e,!0,!0),o(),t})();export{i as M};
