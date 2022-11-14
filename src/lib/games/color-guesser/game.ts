@@ -40,7 +40,7 @@ const colors = [
 export const [createColorGuesserCtx, useColorGuesserCtx] = create(() => {
   const [game, setGame] = createStore<Game>({
     state: "IDLE",
-    difficulty: difficulties[0],
+    difficulty: { ...difficulties[0] },
     mode: "HEX",
     streak: 0,
     color: "---",
