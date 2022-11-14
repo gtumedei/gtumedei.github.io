@@ -96,7 +96,7 @@ const StatsModal = () => {
       <div class="w-full flex flex-col border rounded-xl divide-y mb-8">
         <div class="w-full flex items-center gap-2 px-4 py-3">
           <h5 class="text-left text-sm font-mono font-bold flex-grow">Best streak</h5>
-          <p>{ctx.storage.streak ?? 0}</p>
+          <p>{ctx.storage.streak ? `(${ctx.storage.streakDifficulty}) ${ctx.storage.streak}` : 0}</p>
         </div>
         <div class="w-full flex items-center gap-2 px-4 py-3">
           <h5 class="text-left text-sm font-mono font-bold flex-grow">Total guesses</h5>
@@ -131,7 +131,7 @@ const Toolbar = () => {
       <button
         class="btn icon"
         onClick={() => ctx.setShowSettingsModal(true)}
-        use:tooltip={[() => "Game Settings", "top"]}
+        use:tooltip={[() => "Game Menu", "top"]}
       ><MdiMenu /></button>
     </div>
   )

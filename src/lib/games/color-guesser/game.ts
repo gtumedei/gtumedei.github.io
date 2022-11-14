@@ -1,7 +1,7 @@
 import { createSignal } from "solid-js"
 import { createStore } from "solid-js/store"
 import { create } from "~/lib/context"
-import { createColorGuesserStorage } from "./storage"
+import { createTypedStorage } from "~/lib/typed-storage"
 import { pickRandom, scrambleHex, hexToRgb, hexToHsl } from "./utils"
 
 export type Difficulty = { label: string, grid: number }
@@ -13,6 +13,12 @@ export type Game = {
   streak: number
   color: string
   colorGrid: string[]
+}
+type GameStorage = {
+  streak: number
+  streakDifficulty: string
+  rightGuesses: number
+  wrongGuesses: number
 }
 
 const difficulties: Difficulty[] = [
@@ -40,9 +46,10 @@ export const [createColorGuesserCtx, useColorGuesserCtx] = create(() => {
     color: "---",
     colorGrid: []
   })
-  const [storage, setStorage] = createColorGuesserStorage()
+  const [storage, setStorage] = createTypedStorage<GameStorage>("gtumedei.color-guesser")
   const resetStorage = () => {
     setStorage("streak", 0)
+    setStorage("streakDifficulty", 0)
     setStorage("rightGuesses", 0)
     setStorage("wrongGuesses", 0)
   }
@@ -74,6 +81,7 @@ export const [createColorGuesserCtx, useColorGuesserCtx] = create(() => {
       setGame("streak", v => v + 1)
       setStorage("rightGuesses", (storage.rightGuesses ?? 0) + 1)
       setStorage("streak", Math.max(storage.streak ?? 0, game.streak))
+      setStorage("streakDifficulty", game.difficulty.label)
     } else {
       setGame("streak", 0)
       setStorage("wrongGuesses", (storage.wrongGuesses ?? 0) + 1)
