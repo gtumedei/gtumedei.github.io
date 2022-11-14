@@ -80,8 +80,10 @@ export const [createColorGuesserCtx, useColorGuesserCtx] = create(() => {
     if (correct) {
       setGame("streak", v => v + 1)
       setStorage("rightGuesses", (storage.rightGuesses ?? 0) + 1)
-      setStorage("streak", Math.max(storage.streak ?? 0, game.streak))
-      setStorage("streakDifficulty", game.difficulty.label)
+      if (game.streak > (storage.streak ?? 0)) {
+        setStorage("streak", game.streak)
+        setStorage("streakDifficulty", game.difficulty.label)
+      }
     } else {
       setGame("streak", 0)
       setStorage("wrongGuesses", (storage.wrongGuesses ?? 0) + 1)

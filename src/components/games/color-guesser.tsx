@@ -131,7 +131,7 @@ const Toolbar = () => {
       <button
         class="btn icon"
         onClick={() => ctx.setShowSettingsModal(true)}
-        use:tooltip={[() => "Game Menu", "top"]}
+        use:tooltip={[() => "Menu", "top"]}
       ><MdiMenu /></button>
     </div>
   )
