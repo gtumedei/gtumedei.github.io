@@ -75,7 +75,7 @@ const SettingsModal = () => {
 
       <div class="w-full grid sm:grid-cols-2 gap-3">
         <button class="btn accent" onClick={onStartBtnClick}>
-          {ctx.game.state == "IDLE" ? "Play" : "Restart"}
+          {ctx.game.state == "IDLE" ? "Play" : "Apply"}
         </button>
         <a href="/games" class="btn outline">Back to Games</a>
       </div>
