@@ -36,7 +36,7 @@ module.exports = {
           700: "var(--color-primary-700)",
           800: "var(--color-primary-800)",
           DEFAULT: "var(--color-primary)",
-          dark: "var(--color-primary-dark)"
+          focus: "var(--color-primary-focus)"
         },
 
         accent: {
@@ -59,7 +59,7 @@ module.exports = {
         inverted: {
           primary: {
             DEFAULT: "var(--color-inverted-primary)",
-            dark: "var(--color-inverted-primary-dark)"
+            focus: "var(--color-inverted-primary-focus)"
           },
 
           neutral: {

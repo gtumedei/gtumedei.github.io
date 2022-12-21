@@ -24,7 +24,7 @@ const Card: Component<{ icon: string }> = (props) => {
   return (
     <button
       class={`
-        aspect-square bg-primary-dark rounded-xl p-2 border hover:border-accent transition-colors
+        aspect-square bg-primary-focus rounded-xl p-2 border hover:border-accent transition-colors
         ${face() == "up" ? "!border-accent-20" : ""}
       `}
       onClick={() => setFace(f => f == "up" ? "down" : "up")}

@@ -14,7 +14,7 @@
     px-8 py-3 rounded-lg outline-none
     inline-flex justify-center items-center gap-3
     border border-transparent
-    text-sm font-bold text-neutral bg-primary
+    text-sm font-bold text-neutral bg-primary fill-neutral-100
     transition-all;
 
     &:disabled { @apply
@@ -52,9 +52,9 @@
       p-2 bg-transparent;
 
       &:not(:disabled) { @apply
-        hover:bg-accent-10 hover:text-accent
-        focus:bg-accent-10 focus:text-accent
-        active:bg-accent-20 active:text-accent;
+        hover:bg-accent-10 hover:text-accent hover:fill-accent
+        focus:bg-accent-10 focus:text-accent focus:fill-accent
+        active:bg-accent-20 active:text-accent active:fill-accent;
       }
     }
 
@@ -74,7 +74,7 @@
 
     & > .icon { @apply
       absolute bottom-[7px] left-[7px]
-      bg-primary-dark h-9 w-9 p-2 rounded-lg
+      bg-primary-focus h-9 w-9 p-2 rounded-lg
       pointer-events-none transition-colors;
     }
 

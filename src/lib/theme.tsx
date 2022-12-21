@@ -29,14 +29,14 @@ export const setTheme = (theme: Theme) => {
   if (theme) {
     document.head.appendChild((theme == "light"
       ? <meta name="theme-color" content="#FFFFFF" />
-      : <meta name="theme-color" content="#303030" />
+      : <meta name="theme-color" content="#262626" />
     ) as Node)
   } else {
     document.head.append(
       // @ts-ignore
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FFFFFF" /> as Node,
       // @ts-ignore
-      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#303030" /> as Node
+      <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#262626" /> as Node
     )
   }
 }

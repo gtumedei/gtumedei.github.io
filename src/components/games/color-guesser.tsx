@@ -38,12 +38,12 @@ const SettingsModal = () => {
       show={ctx.showSettingsModal} setShow={ctx.setShowSettingsModal}
       persistent={ctx.game.difficulty == undefined}
     >
-      <div class="bg-primary-dark flex rounded-full p-6 mb-6">
+      <div class="bg-primary-focus flex rounded-full p-6 mb-6">
         <MdiEyedropperVariant class="text-3xl text-accent" />
       </div>
       <h4 class="section-subheading mb-2">Color Guesser</h4>
       <p class="text-sm mb-8">
-        Are you nerd enough to guess a color based on its RGB HEX code? Let's find out!
+        Are you nerd enough to guess a color based on its RGB code? Let's find out!
       </p>
 
       <div class="w-full flex flex-col border rounded-xl divide-y mb-8">
@@ -88,7 +88,7 @@ const StatsModal = () => {
 
   return (
     <Modal class="flex flex-col items-center text-center w-full" show={ctx.showStatsModal} setShow={ctx.setShowStatsModal}>
-      <div class="bg-primary-dark flex rounded-full p-6 mb-6">
+      <div class="bg-primary-focus flex rounded-full p-6 mb-6">
         <MdiPoll class="text-3xl text-accent" />
       </div>
       <h4 class="section-subheading mb-8">Your Color Guesser Stats</h4>

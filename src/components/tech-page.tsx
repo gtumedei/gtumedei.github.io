@@ -190,7 +190,7 @@ const tech: Technology[] = [
 
 const TechItem: Component<{
   item: Technology
-  bg: "primary" | "primary-dark"
+  bg: "primary" | "primary-focus"
   class?: string
 }> = (props) => {
   return (
@@ -199,7 +199,7 @@ const TechItem: Component<{
         <div class="flex bg-primary mx-auto mb-7">
           <div class={`
             icon-parent flex p-6 rounded-lg !text-xl text-accent fill-accent
-            ${props.bg == "primary" ? "bg-primary" : "bg-primary-dark"} !bg-opacity-10 transition-colors
+            ${props.bg == "primary" ? "bg-primary" : "bg-primary-focus"} !bg-opacity-10 transition-colors
           `}>{props.item.icon()}</div>
         </div>
         <p class="text-sm font-mono text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 bottom-0">
@@ -229,7 +229,7 @@ const TechPage: Component = () => {
         grid-cols-[repeat(auto-fill,minmax(84px,1fr))] md:grid-cols-[repeat(auto-fill,minmax(100px,1fr))]
       ">
         <For each={tech}>{item =>
-          <TechItem item={item} bg="primary-dark" class="motion-2" />
+          <TechItem item={item} bg="primary-focus" class="motion-2" />
         }</For>
       </div>
     </>

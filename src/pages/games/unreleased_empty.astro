@@ -1,0 +1,8 @@
+---
+import GameLayout from "~/layouts/game.astro"
+import EmptyGame from "~/components/games/empty"
+---
+
+<GameLayout title="Empty" description="Game skeleton UI.">
+  <EmptyGame client:only="solid-js" />
+</GameLayout>

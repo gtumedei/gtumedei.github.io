@@ -63,7 +63,7 @@ const HomePage: Component = () => {
             motion-3 group flex gap-6 items-center rounded-xl p-2 transition-colors
             border hover:border-accent
           ">
-            <div class="flex bg-primary-dark group-hover:bg-accent-10 text-xl text-accent rounded-lg p-6 transition-colors">
+            <div class="flex bg-primary-focus group-hover:bg-accent-10 text-xl text-accent rounded-lg p-6 transition-colors">
               {page.icon}
             </div>
             <div class="flex-grow">

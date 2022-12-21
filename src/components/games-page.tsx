@@ -2,7 +2,7 @@ import { Component, For, JSX } from "solid-js"
 import { stagger } from "motion"
 import { createTimeline } from "~/lib/motion"
 import MdiEyedropperVariant from "~icons/mdi/eyedropper-variant"
-// import MdiCards from "~icons/mdi/cards"
+import MdiTimerSand from "~icons/mdi/timer-sand"
 
 type Game = {
   name: string
@@ -19,7 +19,7 @@ const games: Game[] = [
     icon: () => <MdiEyedropperVariant />,
     href: "/games/color-guesser",
     available: true
-  },
+  }
   /* {
     name: "Memory",
     description: "Just a minimalist memory game.",
@@ -50,7 +50,7 @@ const GameItem: Component<{
       border hover:border-accent ${props.class ?? ""}
     `}>
       <div class="
-        w-full flex justify-center items-center bg-primary-dark group-hover:bg-accent-10
+        w-full flex justify-center items-center bg-primary-focus group-hover:bg-accent-10
         text-3xl text-accent rounded-lg px-6 py-18 transition-colors
       ">{props.game.icon}</div>
       <div class="w-full p-2">
@@ -62,7 +62,7 @@ const GameItem: Component<{
   )
 }
 
-const TechPage: Component = () => {
+const GamesPage: Component = () => {
 
   createTimeline([
     [".motion-1", { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: stagger(0.15) }],
@@ -80,9 +80,18 @@ const TechPage: Component = () => {
         <For each={games}>{game =>
           <GameItem game={game} class="motion-2" />
         }</For>
+        <div class="relative flex flex-col gap-2 items-center rounded-xl p-2 transition-colors border motion-2">
+          <div class="
+            w-full flex justify-center items-center bg-primary-focus
+            text-3xl text-accent rounded-lg px-6 py-18 transition-colors
+          "><MdiTimerSand /></div>
+          <div class="w-full p-2">
+            <p class="text-sm font-mono">More games coming soon! That is, when I find the time to create them :)</p>
+          </div>
+        </div>
       </div>
     </>
   )
 }
 
-export default TechPage
+export default GamesPage

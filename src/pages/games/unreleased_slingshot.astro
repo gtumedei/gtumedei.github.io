@@ -1,0 +1,8 @@
+---
+import GameLayout from "~/layouts/game.astro"
+import SlingshotGame from "~/components/games/slingshot"
+---
+
+<GameLayout title="Matter.js Playground" description="Matter.js Playground.">
+  <SlingshotGame client:only="solid-js" />
+</GameLayout>
