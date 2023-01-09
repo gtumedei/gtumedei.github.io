@@ -20,18 +20,18 @@ const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
   return (
     <header class="container max-w-4xl flex items-center p-3">
       {props.showBackButton &&
-        <a href="/" class="btn icon" use:tooltip={[() => "Go Home", "right"]}>
+        <a href="/" class="btn btn-icon" use:tooltip={[() => "Go Home", "right"]}>
           <MdiArrowLeftTop />
         </a>
       }
       <div class="flex-grow" />
       <button
-        class="btn icon"
+        class="btn btn-icon"
         onClick={cycleAccent}
         use:tooltip={[accentBtnTitle, "bottom"]}
       ><MdiCircle class="text-accent" /></button>
       <button
-        class="btn icon"
+        class="btn btn-icon"
         onClick={cycleTheme}
         use:tooltip={[themeBtnTitle, "bottom"]}
       >

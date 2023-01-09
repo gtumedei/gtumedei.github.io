@@ -25,7 +25,7 @@
       }
     }
 
-    &.accent { @apply
+    &.btn-accent { @apply
       text-inverted-neutral bg-accent
       hover:shadow-xl hover:shadow-accent-20
       focus:shadow-xl focus:shadow-accent-20
@@ -36,7 +36,7 @@
       }
     }
 
-    &.outline { @apply
+    &.btn-outline { @apply
       border-neutral-8 text-accent
       bg-transparent
       hover:bg-accent-10 hover:border-accent
@@ -44,11 +44,11 @@
       active:bg-accent-20 active:border-accent;
     }
 
-    &.transparent { @apply
+    &.btn-transparent { @apply
       bg-transparent hover:bg-neutral-8 focus:bg-neutral-8 active:bg-neutral-12;
     }
 
-    &.icon { @apply
+    &.btn-icon { @apply
       p-2 bg-transparent;
 
       &:not(:disabled) { @apply
@@ -56,10 +56,6 @@
         focus:bg-accent-10 focus:text-accent focus:fill-accent
         active:bg-accent-20 active:text-accent active:fill-accent;
       }
-    }
-
-    &.fab { @apply
-      p-4;
     }
   }
 

@@ -16,29 +16,29 @@ tooltip
 const Toolbar = () => {
   return (
     <div class="w-full flex overflow-x-auto p-2 rounded-xl border">
-      <button class="btn icon ml-auto" use:tooltip={[() => "Pencil", "top"]}>
+      <button class="btn btn-icon ml-auto" use:tooltip={[() => "Pencil", "top"]}>
         <MdiPencil />
       </button>
-      <button class="btn icon" use:tooltip={[() => "Bucket", "top"]}>
+      <button class="btn btn-icon" use:tooltip={[() => "Bucket", "top"]}>
         <MdiFormatColorFill />
       </button>
-      <button class="btn icon" use:tooltip={[() => "Eraser", "top"]}>
+      <button class="btn btn-icon" use:tooltip={[() => "Eraser", "top"]}>
         <MdiEraser />
       </button>
-      <button class="btn icon" use:tooltip={[() => "Color", "top"]}>
+      <button class="btn btn-icon" use:tooltip={[() => "Color", "top"]}>
         <MdiCircle />
       </button>
       <div class="flex-grow" />
-      <button class="btn icon" use:tooltip={[() => "Undo", "top"]}>
+      <button class="btn btn-icon" use:tooltip={[() => "Undo", "top"]}>
         <MdiUndo />
       </button>
-      <button class="btn icon" use:tooltip={[() => "Redo", "top"]}>
+      <button class="btn btn-icon" use:tooltip={[() => "Redo", "top"]}>
         <MdiRedo />
       </button>
-      <button class="btn icon" use:tooltip={[() => "Clear", "top"]}>
+      <button class="btn btn-icon" use:tooltip={[() => "Clear", "top"]}>
         <MdiTrashCan />
       </button>
-      <button class="btn icon" use:tooltip={[() => "Download image", "top"]}>
+      <button class="btn btn-icon" use:tooltip={[() => "Download image", "top"]}>
         <MdiTrayArrowDown />
       </button>
     </div>

@@ -134,7 +134,7 @@ const Toolbar = () => {
     <div class="w-full flex items-center p-2 rounded-xl border">
       <p class="ml-3 flex-grow">Color code</p>
       <button
-        class="btn icon"
+        class="btn btn-icon"
         use:tooltip={[() => "Menu", "top"]}
       ><MdiMenu /></button>
     </div>

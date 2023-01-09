@@ -11,7 +11,7 @@ const Toolbar = () => {
   return (
     <div class="w-full flex items-center p-2 rounded-xl border">
       <p class="ml-3 flex-grow">99 moves</p>
-      <button class="btn icon" use:tooltip={[() => "Game Settings", "top"]}>
+      <button class="btn btn-icon" use:tooltip={[() => "Game Settings", "top"]}>
         <MdiCog />
       </button>
     </div>

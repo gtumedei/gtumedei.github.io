@@ -44,7 +44,7 @@ const HomePage: Component = () => {
               <div class="motion-2">
                 <a
                   href={link.href} target="_blank"
-                  class="btn icon !text-lg"
+                  class="btn btn-icon !text-lg"
                   use:tooltip={[() => link.title, "bottom"]}
                 >{link.icon}</a>
               </div>
@@ -52,7 +52,7 @@ const HomePage: Component = () => {
           </div>
         </div>
         <div class="flex flex-wrap gap-3">
-          <a href={import.meta.env.PUBLIC_CV_URL} class="motion-1 btn accent">
+          <a href={import.meta.env.PUBLIC_CV_URL} class="motion-1 btn btn-accent">
             Download CV<MdiTrayArrowDown />
           </a>
         </div>

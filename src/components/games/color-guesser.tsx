@@ -50,11 +50,11 @@ const SettingsModal = () => {
         <div class="w-full flex items-center gap-2 p-2">
           <h5 class="text-left text-sm font-mono font-bold flex-grow ml-2">Difficulty</h5>
           <div class="flex gap-2 items-center">
-            <button class="btn icon" onClick={decreaseDifficulty} disabled={difficulty() == 0}>
+            <button class="btn btn-icon" onClick={decreaseDifficulty} disabled={difficulty() == 0}>
               <MdiChevronLeft />
             </button>
             <span class="text-sm w-16">{ctx.difficulties[difficulty()].label}</span>
-            <button class="btn icon" onClick={increaseDifficulty} disabled={difficulty() == ctx.difficulties.length - 1}>
+            <button class="btn btn-icon" onClick={increaseDifficulty} disabled={difficulty() == ctx.difficulties.length - 1}>
               <MdiChevronRight />
             </button>
           </div>
@@ -62,11 +62,11 @@ const SettingsModal = () => {
         <div class="w-full flex items-center gap-2 p-2">
           <h5 class="text-left text-sm font-mono font-bold flex-grow ml-2">Mode</h5>
           <div class="flex gap-2 items-center">
-            <button class="btn icon" onClick={prevMode} disabled={mode() == 0}>
+            <button class="btn btn-icon" onClick={prevMode} disabled={mode() == 0}>
               <MdiChevronLeft />
             </button>
             <span class="text-sm w-16">{ctx.modes[mode()]}</span>
-            <button class="btn icon" onClick={nextMode} disabled={mode() == ctx.difficulties.length - 1}>
+            <button class="btn btn-icon" onClick={nextMode} disabled={mode() == ctx.difficulties.length - 1}>
               <MdiChevronRight />
             </button>
           </div>
@@ -74,10 +74,10 @@ const SettingsModal = () => {
       </div>
 
       <div class="w-full grid sm:grid-cols-2 gap-3">
-        <button class="btn accent" onClick={onStartBtnClick}>
+        <button class="btn btn-accent" onClick={onStartBtnClick}>
           {ctx.game.state == "IDLE" ? "Play" : "Apply"}
         </button>
-        <a href="/games" class="btn outline">Back to Games</a>
+        <a href="/games" class="btn btn-outline">Back to Games</a>
       </div>
     </Modal>
   )
@@ -109,7 +109,7 @@ const StatsModal = () => {
       </div>
 
       <div class="w-full flex">
-        <button class="btn accent w-full sm:w-1/2 m-auto" onClick={ctx.resetStorage}>
+        <button class="btn btn-accent w-full sm:w-1/2 m-auto" onClick={ctx.resetStorage}>
           Reset stats
         </button>
       </div>
@@ -124,12 +124,12 @@ const Toolbar = () => {
     <div class="w-full flex items-center p-2 rounded-xl border">
       <p class="ml-3 flex-grow">Color code: {ctx.game.color}</p>
       <button
-        class="btn icon"
+        class="btn btn-icon"
         onClick={() => ctx.setShowStatsModal(true)}
         use:tooltip={[() => "Stats", "top"]}
       ><MdiPoll /></button>
       <button
-        class="btn icon"
+        class="btn btn-icon"
         onClick={() => ctx.setShowSettingsModal(true)}
         use:tooltip={[() => "Menu", "top"]}
       ><MdiMenu /></button>

@@ -103,7 +103,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
 
           <button
             type="submit"
-            class={`btn accent relative mt-4 mx-auto ${isLoading() ? "loading" : ""}`}
+            class={`btn btn-accent relative mt-4 mx-auto ${isLoading() ? "loading" : ""}`}
             disabled={!canSubmit()}
           >
             <div class={`flex gap-4 transition-opacity ${isLoading() ? "opacity-0" : ""}`}>
@@ -129,7 +129,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
         <p class="text-sm mb-6">
           Thanks for reaching out to me.<br/>I'll reply as soon as possible!
         </p>
-        <button class="btn accent py-3" onClick={() => setShowSuccessModal(false)}>Close</button>
+        <button class="btn btn-accent py-3" onClick={() => setShowSuccessModal(false)}>Close</button>
       </Modal>
 
       <Modal
@@ -146,7 +146,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
           Please check if something strange is going on with your internet connection.
           If that's not the case, then it's probably my fault 😅
         </p>
-        <button class="btn accent py-3" onClick={() => setShowErrorModal(false)}>Close</button>
+        <button class="btn btn-accent py-3" onClick={() => setShowErrorModal(false)}>Close</button>
       </Modal>
 
       <style>{`
