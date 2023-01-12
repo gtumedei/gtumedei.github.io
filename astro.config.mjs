@@ -5,7 +5,7 @@ import Icons from "unplugin-icons/vite"
 import Tailwind from "@astrojs/tailwind"
 
 export default defineConfig({
-  site: "https://gtumedei.github.io",
+  site: "https://gtumedei.io",
   integrations: [
     Sitemap({
       filter: (page) => !page.includes("unreleased_")
