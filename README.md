@@ -13,8 +13,6 @@ My personal website.
 
 - Logo
 - Upgrade to Astro 2 and prerender routes
-- Buy a domain
-- Host with SSR
 - Add analytics
 - Games:
   - Ideas with Matter.js: pinball, angry birds
