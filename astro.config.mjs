@@ -1,14 +1,26 @@
-import { defineConfig } from "astro/config"
+import Vercel from "@astrojs/vercel/serverless"
 import Sitemap from "@astrojs/sitemap"
 import Solid from "@astrojs/solid-js"
-import Icons from "unplugin-icons/vite"
 import Tailwind from "@astrojs/tailwind"
+import { defineConfig } from "astro/config"
+import Icons from "unplugin-icons/vite"
+import InlineCssModules from "vite-plugin-inline-css-modules"
+
+const site = "https://gtumedei.io"
 
 export default defineConfig({
-  site: "https://gtumedei.io",
+  output: "server",
+  adapter: Vercel(),
+  site,
   integrations: [
     Sitemap({
-      filter: (page) => !page.includes("unreleased_")
+      customPages: [
+        `${site}`,
+        `${site}/tech`,
+        `${site}/contact`,
+        `${site}/games`,
+        `${site}/games/color-guesser`
+      ]
     }),
     Solid(),
     Tailwind({
@@ -22,7 +34,8 @@ export default defineConfig({
       Icons({
         compiler: "solid",
         defaultClass: "icon"
-      })
+      }),
+      InlineCssModules()
     ]
   }
 })

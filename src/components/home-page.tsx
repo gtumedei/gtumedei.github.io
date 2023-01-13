@@ -52,7 +52,7 @@ const HomePage: Component = () => {
           </div>
         </div>
         <div class="flex flex-wrap gap-3">
-          <a href={import.meta.env.PUBLIC_CV_URL} class="motion-1 btn btn-accent">
+          <a href="/cv" class="motion-1 btn btn-accent">
             Download CV<MdiTrayArrowDown />
           </a>
         </div>

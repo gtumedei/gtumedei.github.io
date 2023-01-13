@@ -219,7 +219,7 @@ const TechPage: Component = () => {
 
   return (
     <>
-      <h1 class="motion-1 section-heading mb-2">Tech I Use</h1>
+      <h1 class="motion-1 section-heading mt-9 mb-2">Tech I Use</h1>
       <p class="motion-1 font-mono mb-12">
         There it is. In no particular order, some tech I like to work and tinker with,
         from programming and templating languages, to frameworks, to databases.

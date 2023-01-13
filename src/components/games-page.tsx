@@ -71,7 +71,7 @@ const GamesPage: Component = () => {
 
   return (
     <>
-      <h1 class="motion-1 section-heading mb-2">Games</h1>
+      <h1 class="motion-1 section-heading mt-9 mb-2">Games</h1>
       <p class="motion-1 font-mono mb-12">
         These are just some minigames I make for fun whenever I feel like to. Have fun with them!
         Oh and by the way, do not hesitate to <a href="/contact" class="link">contact me</a> if something is broken.

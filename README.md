@@ -2,12 +2,20 @@
 
 My personal website.
 
+## Getting started
+
+- Clone the repo
+- Install dependencies (`npm i`)
+- Create a `.env` file and populate it with the variables indicated by the schema under `src/lib/server/env.ts`
+- Start development server (`npm run dev`)
+
 ## TODO
 
+- Logo
+- Upgrade to Astro 2 and prerender routes
 - Buy a domain
-- Host on Vercel
-- Add analytics (with umami?, need a solution to host a static site with server logic, maybe Astro SSR is good enough)
-- Find a solution for scoped styles
+- Host with SSR
+- Add analytics
 - Games:
   - Ideas with Matter.js: pinball, angry birds
   - Endless runner

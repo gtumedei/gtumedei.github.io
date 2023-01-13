@@ -5,19 +5,20 @@ import LoadingSpinner from "~/components/ui/loading-spinner"
 import Modal from "~/components/ui/modal"
 import model from "~/lib/model"
 import { createTimeline } from "~/lib/motion"
-import { Message, sendMessage } from "~/lib/supabase"
 import tooltip from "~/lib/tooltip"
+import type { ContactApiSchema } from "~/pages/api/contact"
 import MdiAccountOutline from "~icons/mdi/account-outline"
 import MdiAlertCircleOutline from "~icons/mdi/alert-circle-outline"
 import MdiEmailOutline from "~icons/mdi/email-outline"
 import MdiEmoticonConfusedOutline from "~icons/mdi/emoticon-confused-outline"
 import MdiRocketLaunchOutline from "~icons/mdi/rocket-launch-outline"
 import MdiSend from "~icons/mdi/send"
+import { css } from "vite-plugin-inline-css-modules"
 
 model; tooltip
 
 const ContactForm: Component<{ class?: string }> = (props) => {
-  const defaultData: Message = { name: "", email: "", subject: "", message: "" }
+  const defaultData: ContactApiSchema = { name: "", email: "", subject: "", message: "" }
   const [data, setData] = createStore({ ...defaultData })
 
   const [isLoading, setIsLoading] = createSignal(false)
@@ -26,6 +27,14 @@ const ContactForm: Component<{ class?: string }> = (props) => {
 
   const isEmailValid = createMemo(() => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(data.email))
   const canSubmit = createMemo(() => !isLoading() && data.name != "" && isEmailValid() && data.subject != "" && data.message != "")
+
+  const sendMessage = async (message: ContactApiSchema) => {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      body: JSON.stringify(message)
+    })
+    if (!res.ok) throw new Error(`${res.status} - ${res.statusText}`)
+  }
 
   const onSubmit = async (e: Event) => {
     e.preventDefault()
@@ -49,8 +58,8 @@ const ContactForm: Component<{ class?: string }> = (props) => {
   return (
     <>
       <form class={`${props.class ?? ""} flex flex-col`} onSubmit={onSubmit}>
-        <div class="contact-form-grid grid w-full m-auto gap-x-6 gap-y-4">
-          <fieldset class="fieldset name-field">
+        <div class={`${style.formGrid} grid w-full m-auto gap-x-6 gap-y-4`}>
+          <fieldset class={`fieldset ${style.nameField}`}>
             <label class="label" for="contact-name">Name</label>
             <MdiAccountOutline />
             <input
@@ -62,7 +71,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
             />
           </fieldset>
 
-          <fieldset class="fieldset email-field">
+          <fieldset class={`fieldset ${style.emailField}`}>
             <label class="label" for="contact-email">Email</label>
             <MdiEmailOutline />
             <input
@@ -81,7 +90,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
             ><MdiAlertCircleOutline /></div>
           </fieldset>
 
-          <fieldset class="fieldset subject-field">
+          <fieldset class={`fieldset ${style.subjectField}`}>
             <label class="label" for="contact-subject">Subject</label>
             <input
               id="contact-subject"
@@ -91,7 +100,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
             />
           </fieldset>
 
-          <fieldset class="fieldset message-field">
+          <fieldset class={`fieldset ${style.messageField}`}>
             <label class="label" for="contact-message">Message</label>
             <textarea
               id="contact-message"
@@ -103,7 +112,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
 
           <button
             type="submit"
-            class={`btn btn-accent relative mt-4 mx-auto ${isLoading() ? "loading" : ""}`}
+            class={`btn btn-accent relative mt-4 mx-auto ${isLoading() ? "loading" : ""} ${style.submit}`}
             disabled={!canSubmit()}
           >
             <div class={`flex gap-4 transition-opacity ${isLoading() ? "opacity-0" : ""}`}>
@@ -111,7 +120,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
               <MdiSend />
             </div>
             <div class={`absolute-center transition-opacity ${!isLoading() ? "opacity-0" : ""}`}>
-              <LoadingSpinner inverted/>
+              <LoadingSpinner inverted />
             </div>
           </button>
         </div>
@@ -148,34 +157,36 @@ const ContactForm: Component<{ class?: string }> = (props) => {
         </p>
         <button class="btn btn-accent py-3" onClick={() => setShowErrorModal(false)}>Close</button>
       </Modal>
-
-      <style>{`
-        .contact-form-grid {
-          grid-template-areas:
-            "name"
-            "email"
-            "subject"
-            "message"
-            "button";
-        }
-        @media (min-width: 1024px) {
-          .contact-form-grid {
-            grid-template-areas:
-              "name email"
-              "subject subject"
-              "message message"
-              "button button";
-          }
-        }
-        .name-field { grid-area: name; }
-        .email-field { grid-area: email; }
-        .subject-field { grid-area: subject; }
-        .message-field { grid-area: message; }
-        .btn { grid-area: button; }
-      `}</style>
     </>
   )
 }
+
+const style = css`
+  .formGrid {
+    grid-template-areas:
+      "name"
+      "email"
+      "subject"
+      "message"
+      "button";
+  }
+
+  @media (min-width: 1024px) {
+    .formGrid {
+      grid-template-areas:
+        "name email"
+        "subject subject"
+        "message message"
+        "button button";
+    }
+  }
+
+  .nameField { grid-area: name; }
+  .emailField { grid-area: email; }
+  .subjectField { grid-area: subject; }
+  .messageField { grid-area: message; }
+  .submit { grid-area: button; }
+`
 
 const ContactPage: Component = () => {
 
@@ -186,7 +197,7 @@ const ContactPage: Component = () => {
 
   return (
     <>
-      <h1 class="motion-1 section-heading mb-2">Contact</h1>
+      <h1 class="motion-1 section-heading mt-9 mb-2">Contact</h1>
       <p class="motion-1 font-mono mb-12">
         Whether you want to hire me or just say hi, you can get in touch with me by filling the form below.
       </p>
