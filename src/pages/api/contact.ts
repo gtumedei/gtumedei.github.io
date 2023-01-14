@@ -23,7 +23,7 @@ export const post: APIRoute = async ({ request }) => {
   // Compose message
   const message = outdent`
     Hello Sir,
-    *${input.name}* ✉️[${input.email}](${input.email}) contacted you via the gtumedei.github.io form.
+    *${input.name}* ✉️[${input.email}](${input.email}) contacted you via the gtumedei.io form.
 
 
     *${input.subject}*

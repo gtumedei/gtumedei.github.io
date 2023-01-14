@@ -1,5 +1,6 @@
 ---
 import { ANALYTICS_URL, WEBSITE_ID } from "~/lib/server/analytics"
+import { env } from "~/lib/server/env"
 import "~/styles/main.css"
 
 export interface Props {
@@ -23,7 +24,9 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fira+Code&display=swap" rel="stylesheet" />
-    <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/stats.js`}></script>
+    {env.MODE == "production" &&
+      <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/stats.js`}></script>
+    }
     <title>{fullTitle}</title>
     <style>
       body {

@@ -19,6 +19,8 @@ type AnalyticsEvent = {
 
 /** Collect analytics data server-side. */
 export const sendEvent = async (request: Request, event: AnalyticsEvent) => {
+  if (env.MODE == "development") return
+
   const defaultPayload = {
     website: WEBSITE_ID,
     hostname: env.MODE == "production" ? "gtumedei.io" : "localhost",
@@ -26,7 +28,7 @@ export const sendEvent = async (request: Request, event: AnalyticsEvent) => {
     screen: "1920x1080"
   }
 
-  const res = await fetch(`${ANALYTICS_URL}/api/send`, {
+  await fetch(`${ANALYTICS_URL}/api/send`, {
     method: "POST",
     headers: {
       "User-Agent": request.headers.get("User-Agent") ?? ""
@@ -36,5 +38,4 @@ export const sendEvent = async (request: Request, event: AnalyticsEvent) => {
       type: event.type
     })
   })
-  console.log(res.ok)
 }

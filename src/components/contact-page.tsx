@@ -142,7 +142,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
       </Modal>
 
       <Modal
-        class="flex flex-col items-center text-center w-96"
+        class="flex flex-col items-center text-center w-[28rem]"
         show={showErrorModal}
         setShow={setShowErrorModal}
       >

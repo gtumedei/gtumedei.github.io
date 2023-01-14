@@ -80,10 +80,10 @@ const GamesPage: Component = () => {
         <For each={games}>{game =>
           <GameItem game={game} class="motion-2" />
         }</For>
-        <div class="relative flex flex-col gap-2 items-center rounded-xl p-2 transition-colors border motion-2">
+        <div class="relative flex flex-col gap-2 items-center rounded-xl p-2 border motion-2">
           <div class="
-            w-full flex justify-center items-center bg-primary-focus
-            text-3xl text-accent rounded-lg px-6 py-18 transition-colors
+            w-full flex justify-center items-center border border-dashed
+            text-3xl text-accent rounded-lg px-6 py-18
           "><MdiTimerSand /></div>
           <div class="w-full p-2">
             <p class="text-sm font-mono">More games coming soon! That is, when I find the time to create them :)</p>

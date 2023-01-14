@@ -23,11 +23,7 @@ export default defineConfig({
       ]
     }),
     Solid(),
-    Tailwind({
-      config: {
-        applyBaseStyles: false
-      }
-    })
+    Tailwind()
   ],
   vite: {
     plugins: [
