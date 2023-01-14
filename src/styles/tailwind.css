@@ -57,6 +57,10 @@
         active:bg-accent-20 active:text-accent active:fill-accent;
       }
     }
+
+    .icon {
+      @apply text-base;
+    }
   }
 
   /* Form elements */

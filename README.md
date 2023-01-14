@@ -13,7 +13,6 @@ My personal website.
 
 - Logo
 - Upgrade to Astro 2 and prerender routes
-- Add analytics
 - Games:
   - Ideas with Matter.js: pinball, angry birds
   - Endless runner

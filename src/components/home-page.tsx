@@ -44,7 +44,7 @@ const HomePage: Component = () => {
               <div class="motion-2">
                 <a
                   href={link.href} target="_blank"
-                  class="btn btn-icon !text-lg"
+                  class="btn btn-icon"
                   use:tooltip={[() => link.title, "bottom"]}
                 >{link.icon}</a>
               </div>
