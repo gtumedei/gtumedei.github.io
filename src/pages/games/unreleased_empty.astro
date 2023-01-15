@@ -1,8 +1,17 @@
 ---
-import GameLayout from "~/layouts/game.astro"
-import EmptyGame from "~/components/games/empty"
+import AspectRatio from "~/components/ui/aspect-ratio"
+import Root from "~/layouts/root.astro"
 ---
 
-<GameLayout title="Empty" description="Game skeleton UI.">
-  <EmptyGame client:only="solid-js" />
-</GameLayout>
+<Root title="Empty" description="Game skeleton UI.">
+  <main class="flex-grow w-full flex justify-center items-center overflow-hidden">
+    <AspectRatio w={9} h={16} client:idle>
+      <div class="h-full w-full bg-red-500 bg-opacity-20"></div>
+    </AspectRatio>
+  </main>
+  <style>
+    html, body { @apply
+      h-full max-h-full;
+    }
+  </style>
+</Root>

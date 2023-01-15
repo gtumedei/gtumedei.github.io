@@ -1,6 +1,6 @@
 import Matter from "matter-js"
 import { Component, onMount } from "solid-js"
-import { BoardContainer } from "~/components/ui/game"
+import AspectRatio from "~/components/ui/aspect-ratio"
 import { useThemeColors } from "~/lib/theme-colors"
 import tooltip from "~/lib/tooltip"
 import MdiMenu from "~icons/mdi/menu"
@@ -144,9 +144,9 @@ const Toolbar = () => {
 const SlingshotGame: Component = () => {
   return (
     <>
-      <BoardContainer>
+      <AspectRatio w={1} h={1}>
         <MatterSlingshot />
-      </BoardContainer>
+      </AspectRatio>
       <Toolbar />
     </>
   )

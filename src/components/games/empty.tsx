@@ -1,5 +1,5 @@
-import type { Component, ParentComponent } from "solid-js"
-import { BoardContainer } from "~/components/ui/game"
+import type { Component } from "solid-js"
+import AspectRatio from "~/components/ui/aspect-ratio"
 import tooltip from "~/lib/tooltip"
 import MdiMenu from "~icons/mdi/menu"
 
@@ -16,20 +16,12 @@ const Toolbar = () => {
   )
 }
 
-const AspectRatioConstraint: ParentComponent = (props) => {
-  return (
-    <div>
-      {props.children}
-    </div>
-  )
-}
-
 const EmptyGame: Component = () => {
   return (
     <>
-      <AspectRatioConstraint>
+      <AspectRatio w={1} h={1}>
         <div class="h-full w-full bg-red-300" />
-      </AspectRatioConstraint>
+      </AspectRatio>
       <Toolbar />
     </>
   )

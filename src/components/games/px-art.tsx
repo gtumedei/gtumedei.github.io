@@ -1,6 +1,6 @@
 import { Component, For, mergeProps } from "solid-js"
 import { createStore } from "solid-js/store"
-import { BoardContainer } from "~/components/ui/game"
+import AspectRatio from "~/components/ui/aspect-ratio"
 import tooltip from "~/lib/tooltip"
 import MdiCircle from "~icons/mdi/circle"
 import MdiFormatColorFill from "~icons/mdi/format-color-fill"
@@ -86,9 +86,9 @@ const Board: Component<{ size?: number }> = (props) => {
 const PxArtGame: Component = () => {
   return (
     <>
-      <BoardContainer>
+      <AspectRatio w={1} h={1}>
         <Board />
-      </BoardContainer>
+      </AspectRatio>
       <Toolbar />
     </>
   )

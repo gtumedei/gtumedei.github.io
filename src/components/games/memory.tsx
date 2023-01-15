@@ -1,5 +1,5 @@
 import { Component, createSignal, For, mergeProps } from "solid-js"
-import { BoardContainer } from "~/components/ui/game"
+import AspectRatio from "~/components/ui/aspect-ratio"
 import tooltip from "~/lib/tooltip"
 import MdiCog from "~icons/mdi/cog"
 import MdiEllipse from "~icons/mdi/ellipse"
@@ -18,7 +18,7 @@ const Toolbar = () => {
   )
 }
 
-const Card: Component<{ icon: string }> = (props) => {
+const Card: Component<{ icon: string }> = () => {
   const [face,  setFace] = createSignal<"up" | "down">("down")
 
   return (
@@ -56,9 +56,9 @@ const Board: Component<{ cardCount?: number }> = (props) => {
 const MemoryGame: Component = () => {
   return (
     <>
-      <BoardContainer>
+      <AspectRatio w={1} h={1}>
         <Board />
-      </BoardContainer>
+      </AspectRatio>
       <Toolbar />
     </>
   )

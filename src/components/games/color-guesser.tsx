@@ -1,6 +1,6 @@
 import { Component, createSignal, For, onMount, Show } from "solid-js"
 import { Transition } from "solid-transition-group"
-import { BoardContainer } from "~/components/ui/game"
+import AspectRatio from "~/components/ui/aspect-ratio"
 import Modal from "~/components/ui/modal"
 import { createColorGuesserCtx, useColorGuesserCtx } from "~/lib/games/color-guesser/game"
 import tooltip from "~/lib/tooltip"
@@ -204,9 +204,9 @@ const ColorGuesserGame: Component = () => {
   const [CtxProvider] = createColorGuesserCtx()
   return (
     <CtxProvider>
-      <BoardContainer>
+      <AspectRatio w={1} h={1}>
         <Board />
-      </BoardContainer>
+      </AspectRatio>
       <Toolbar />
       <SettingsModal />
       <StatsModal />
