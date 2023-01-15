@@ -128,7 +128,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
 
       <Modal
         class="flex flex-col items-center text-center w-96"
-        show={showSuccessModal}
+        show={showSuccessModal()}
         setShow={setShowSuccessModal}
       >
         <div class="bg-primary-focus flex rounded-full p-6 mb-6">
@@ -143,7 +143,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
 
       <Modal
         class="flex flex-col items-center text-center w-[28rem]"
-        show={showErrorModal}
+        show={showErrorModal()}
         setShow={setShowErrorModal}
       >
         <div class="bg-primary-focus flex rounded-full p-6 mb-6">

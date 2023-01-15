@@ -35,7 +35,7 @@ const SettingsModal = () => {
   return (
     <Modal
       class="flex flex-col items-center text-center w-full"
-      show={ctx.showSettingsModal} setShow={ctx.setShowSettingsModal}
+      show={ctx.showSettingsModal()} setShow={ctx.setShowSettingsModal}
       persistent={ctx.game.difficulty == undefined}
     >
       <div class="bg-primary-focus flex rounded-full p-6 mb-6">
@@ -87,7 +87,7 @@ const StatsModal = () => {
   const ctx = useColorGuesserCtx()
 
   return (
-    <Modal class="flex flex-col items-center text-center w-full" show={ctx.showStatsModal} setShow={ctx.setShowStatsModal}>
+    <Modal class="flex flex-col items-center text-center w-full" show={ctx.showStatsModal()} setShow={ctx.setShowStatsModal}>
       <div class="bg-primary-focus flex rounded-full p-6 mb-6">
         <MdiPoll class="text-3xl text-accent" />
       </div>
