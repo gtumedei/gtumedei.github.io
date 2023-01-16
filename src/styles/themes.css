@@ -178,25 +178,25 @@
 
   /* Manual light theme accent colors */
 
-  &.accent-blue {
+  &.accent-blue, .accent-blue {
     --color-accent: var(--color-blue);
     --color-accent-20: var(--color-blue-20);
     --color-accent-10: var(--color-blue-10);
   }
 
-  &.accent-orange {
+  &.accent-orange, .accent-orange {
     --color-accent: var(--color-orange);
     --color-accent-20: var(--color-orange-20);
     --color-accent-10: var(--color-orange-10);
   }
 
-  &.accent-teal {
+  &.accent-teal, .accent-teal {
     --color-accent: var(--color-teal);
     --color-accent-20: var(--color-teal-20);
     --color-accent-10: var(--color-teal-10);
   }
 
-  &.accent-pink {
+  &.accent-pink, .accent-pink {
     --color-accent: var(--color-pink);
     --color-accent-20: var(--color-pink-20);
     --color-accent-10: var(--color-pink-10);
@@ -226,25 +226,25 @@
 
   /* Manual dark theme accent colors */
 
-  &.accent-blue {
+  &.accent-blue, .accent-blue {
     --color-accent: var(--color-light-blue);
     --color-accent-20: var(--color-light-blue-20);
     --color-accent-10: var(--color-light-blue-10);
   }
 
-  &.accent-orange {
+  &.accent-orange, .accent-orange {
     --color-accent: var(--color-light-orange);
     --color-accent-20: var(--color-light-orange-20);
     --color-accent-10: var(--color-light-orange-10);
   }
 
-  &.accent-teal {
+  &.accent-teal, .accent-teal {
     --color-accent: var(--color-light-teal);
     --color-accent-20: var(--color-light-teal-20);
     --color-accent-10: var(--color-light-teal-10);
   }
 
-  &.accent-pink {
+  &.accent-pink, .accent-pink {
     --color-accent: var(--color-light-pink);
     --color-accent-20: var(--color-light-pink-20);
     --color-accent-10: var(--color-light-pink-10);

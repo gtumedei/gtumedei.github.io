@@ -28,7 +28,7 @@ const Modal: ParentComponent<ModalProps> = (props) => {
           enterClass="opacity-0" exitToClass="opacity-0"
           enterActiveClass="transition-opacity" exitActiveClass="transition-opacity"
         >
-          {props.show && <div class="fixed inset-0 bg-black-38 z-30" />}
+          {props.show && <div class="fixed inset-0 bg-black-38 z-[35]" />}
         </Transition>
 
         <div
