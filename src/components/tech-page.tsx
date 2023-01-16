@@ -198,11 +198,11 @@ const TechItem: Component<{
       <a href={props.item.url} target="_blank" class={`relative flex flex-col gap-2 ${props.item.hover.text} ${props.item.hover.bg}`}>
         <div class="flex bg-primary mx-auto mb-7">
           <div class={`
-            icon-parent flex p-6 rounded-lg !text-xl text-accent fill-accent
+            icon-parent flex p-6 rounded-lg !text-xl text-neutral fill-neutral
             ${props.bg == "primary" ? "bg-primary" : "bg-primary-focus"} !bg-opacity-10 transition-colors
           `}>{props.item.icon()}</div>
         </div>
-        <p class="text-sm font-mono text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 bottom-0">
+        <p class="text-sm text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 bottom-0">
           {props.item.name}
         </p>
       </a>
@@ -220,7 +220,7 @@ const TechPage: Component = () => {
   return (
     <>
       <h1 class="motion-1 section-heading mt-9 mb-2">Tech I Use</h1>
-      <p class="motion-1 font-mono mb-12">
+      <p class="motion-1 mb-12">
         There it is. In no particular order, some tech I like to work and tinker with,
         from programming and templating languages, to frameworks, to databases.
       </p>

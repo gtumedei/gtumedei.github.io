@@ -1,6 +1,7 @@
 import { Component, For, JSX } from "solid-js"
 import { stagger } from "motion"
 import { createTimeline } from "~/lib/motion"
+import MdiChevronRight from "~icons/mdi/chevron-right"
 import MdiEyedropperVariant from "~icons/mdi/eyedropper-variant"
 import MdiTimerSand from "~icons/mdi/timer-sand"
 
@@ -46,16 +47,16 @@ const GameItem: Component<{
 }> = (props) => {
   return (
     <a href={props.game.href} class={`
-      group relative flex flex-col gap-2 items-center rounded-xl p-2 transition-colors
+      group relative flex flex-col items-center gap-4 p-4 rounded-xl transition-colors
       border hover:border-accent ${props.class ?? ""}
     `}>
       <div class="
-        w-full flex justify-center items-center bg-primary-focus group-hover:bg-accent-10
-        text-3xl text-accent rounded-lg px-6 py-18 transition-colors
+        w-full flex justify-center items-center bg-primary-focus text-xl rounded-lg px-6 py-18
+        group-hover:bg-accent-10 group-hover:text-accent transition-colors
       ">{props.game.icon}</div>
-      <div class="w-full p-2">
+      <div class="w-full">
         <h2 class="section-subheading mb-1">{props.game.name}</h2>
-        <p class="text-sm font-mono">{props.game.description}</p>
+        <p class="text-sm">{props.game.description}</p>
       </div>
       {!props.game.available && <span class="absolute top-1 left-1 badge">Coming soon(ish)</span>}
     </a>
@@ -72,21 +73,21 @@ const GamesPage: Component = () => {
   return (
     <>
       <h1 class="motion-1 section-heading mt-9 mb-2">Games</h1>
-      <p class="motion-1 font-mono mb-12">
+      <p class="motion-1 mb-12">
         These are just some minigames I make for fun whenever I feel like to. Have fun with them!
-        Oh and by the way, do not hesitate to <a href="/contact" class="link">contact me</a> if something is broken.
+        Oh and by the way, do not hesitate to <a href="/contact" class="link">contact me<MdiChevronRight class="inline-block relative -top-px" /></a> if something is broken.
       </p>
-      <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <div class="grid gap-6 md:grid-cols-2">
         <For each={games}>{game =>
           <GameItem game={game} class="motion-2" />
         }</For>
         <div class="relative flex flex-col gap-2 items-center rounded-xl p-2 border motion-2">
           <div class="
             w-full flex justify-center items-center border border-dashed
-            text-3xl text-accent rounded-lg px-6 py-18
+            text-xl rounded-lg px-6 py-18
           "><MdiTimerSand /></div>
           <div class="w-full p-2">
-            <p class="text-sm font-mono">More games coming soon! That is, when I find the time to create them :)</p>
+            <p class="text-sm">More games coming soon! That is, when I find the time to create them :)</p>
           </div>
         </div>
       </div>

@@ -63,12 +63,13 @@ const HomePage: Component = () => {
             motion-3 group flex gap-6 items-center rounded-xl p-2 transition-colors
             border hover:border-accent
           ">
-            <div class="flex bg-primary-focus group-hover:bg-accent-10 text-xl text-accent rounded-lg p-6 transition-colors">
-              {page.icon}
-            </div>
+            <div class="
+              flex bg-primary-focus rounded-lg p-6
+              group-hover:bg-accent-10 group-hover:text-accent transition-colors
+            ">{page.icon}</div>
             <div class="flex-grow">
               <h3 class="section-subheading mb-1">{page.title}</h3>
-              <p class="text-sm font-mono">{page.subtitle}</p>
+              <p class="text-sm">{page.subtitle}</p>
             </div>
           </a>
         }</For>

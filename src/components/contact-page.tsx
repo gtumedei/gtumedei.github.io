@@ -132,7 +132,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
         setShow={setShowSuccessModal}
       >
         <div class="bg-primary-focus flex rounded-full p-6 mb-6">
-          <MdiRocketLaunchOutline class="text-3xl text-accent" />
+          <MdiRocketLaunchOutline class="text-xl text-accent" />
         </div>
         <h4 class="section-subheading mb-2">Message sent</h4>
         <p class="text-sm mb-6">
@@ -147,7 +147,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
         setShow={setShowErrorModal}
       >
         <div class="bg-primary-focus flex rounded-full p-6 mb-6">
-          <MdiEmoticonConfusedOutline class="text-3xl text-accent" />
+          <MdiEmoticonConfusedOutline class="text-xl text-accent" />
         </div>
         <h4 class="section-subheading mb-2">Oops!<br/>Something went wrong</h4>
         <p class="text-sm mb-6">
@@ -197,7 +197,7 @@ const ContactPage: Component = () => {
   return (
     <>
       <h1 class="motion-1 section-heading mt-9 mb-2">Contact</h1>
-      <p class="motion-1 font-mono mb-12">
+      <p class="motion-1 mb-12">
         Whether you want to hire me or just say hi, you can get in touch with me by filling the form below.
       </p>
       <ContactForm class="motion-2" />
