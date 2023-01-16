@@ -1,8 +1,8 @@
 ---
 import GameLayout from "~/layouts/game.astro"
-import ColorGuesserGame from "~/components/games/color-guesser"
+import ColorGuesserMain from "~/components/games/color-guesser/main"
 ---
 
 <GameLayout title="Color Guesser" description="Can you guess a color based on its code?">
-  <ColorGuesserGame client:only="solid-js" />
+  <ColorGuesserMain client:only="solid-js" />
 </GameLayout>

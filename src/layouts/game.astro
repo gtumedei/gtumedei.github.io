@@ -1,23 +1,17 @@
 ---
-import { GameHeader } from "~/components/ui/game"
 import Root from "./root.astro"
 
 export interface Props {
   title?: string
   description?: string
-  showBackButton?: boolean
 }
-const {
-  title = "Gianni Tumedei",
-  description = "My personal website"
-} = Astro.props as Props
+const { title, description } = Astro.props as Props
 ---
 
 <Root title={title} description={description}>
-  <div class="container relative max-w-4xl max-h-screen overflow-hidden flex-grow flex flex-col gap-6 p-6">
-    <GameHeader title={title} client:idle />
+  <main class="flex-grow w-full p-3 overflow-hidden">
     <slot />
-  </div>
+  </main>
   <style>
     html, body { @apply
       h-full max-h-full;

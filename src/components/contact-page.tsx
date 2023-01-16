@@ -169,10 +169,8 @@ const style = css`
       "subject"
       "message"
       "button";
-  }
 
-  @media (min-width: 1024px) {
-    .formGrid {
+    @media (min-width: 1024px) {
       grid-template-areas:
         "name email"
         "subject subject"
@@ -180,6 +178,7 @@ const style = css`
         "button button";
     }
   }
+
 
   .nameField { grid-area: name; }
   .emailField { grid-area: email; }

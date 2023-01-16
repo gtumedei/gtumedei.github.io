@@ -1,20 +1,12 @@
-import { Component, createSignal, For, onMount, Show } from "solid-js"
-import { Transition } from "solid-transition-group"
-import AspectRatio from "~/components/ui/aspect-ratio"
+import { createSignal, onMount } from "solid-js"
 import Modal from "~/components/ui/modal"
-import { createColorGuesserCtx, useColorGuesserCtx } from "~/lib/games/color-guesser/game"
-import tooltip from "~/lib/tooltip"
-import MdiCheck from "~icons/mdi/check"
-import MdiClose from "~icons/mdi/close"
+import { useColorGuesserCtx } from "~/lib/games/color-guesser/core"
 import MdiChevronLeft from "~icons/mdi/chevron-left"
 import MdiChevronRight from "~icons/mdi/chevron-right"
 import MdiEyedropperVariant from "~icons/mdi/eyedropper-variant"
-import MdiMenu from "~icons/mdi/menu"
 import MdiPoll from "~icons/mdi/poll"
 
-tooltip
-
-const SettingsModal = () => {
+export const SettingsModal = () => {
   const ctx = useColorGuesserCtx()
 
   const [difficulty, setDifficulty] = createSignal(0)
@@ -36,7 +28,7 @@ const SettingsModal = () => {
     <Modal
       class="flex flex-col items-center text-center w-full"
       show={ctx.showSettingsModal()} setShow={ctx.setShowSettingsModal}
-      persistent={ctx.game.difficulty == undefined}
+      persistent={ctx.game.state == "IDLE"}
     >
       <div class="bg-primary-focus flex rounded-full p-6 mb-6">
         <MdiEyedropperVariant class="text-3xl text-accent" />
@@ -83,7 +75,7 @@ const SettingsModal = () => {
   )
 }
 
-const StatsModal = () => {
+export const StatsModal = () => {
   const ctx = useColorGuesserCtx()
 
   return (
@@ -116,102 +108,3 @@ const StatsModal = () => {
     </Modal>
   )
 }
-
-const Toolbar = () => {
-  const ctx = useColorGuesserCtx()
-
-  return (
-    <div class="w-full flex items-center p-2 rounded-xl border">
-      <p class="ml-3 flex-grow">Color code: {ctx.game.color}</p>
-      <button
-        class="btn btn-icon"
-        onClick={() => ctx.setShowStatsModal(true)}
-        use:tooltip={[() => "Stats", "top"]}
-      ><MdiPoll /></button>
-      <button
-        class="btn btn-icon"
-        onClick={() => ctx.setShowSettingsModal(true)}
-        use:tooltip={[() => "Menu", "top"]}
-      ><MdiMenu /></button>
-    </div>
-  )
-}
-
-const Tile: Component<{ color: string }> = (props) => {
-  const [success, setSuccess] = createSignal(false)
-  const [error, setError] = createSignal(false)
-
-  const ctx = useColorGuesserCtx()
-
-  const sleep = (ms: number) => new Promise(r => setTimeout(r, ms))
-
-  const onClick = async () => {
-    const correct = ctx.gameActions.registerGuess(props.color)
-    if (correct) {
-      setSuccess(true)
-      await sleep(500)
-      setSuccess(false)
-      ctx.gameActions.nextColor()
-    } else {
-      setError(true)
-      await sleep(500)
-      setError(false)
-    }
-  }
-
-  return (
-    <button
-      class="group relative w-full h-full rounded-lg"
-      style={`background-color: ${props.color};`}
-      onClick={onClick}
-    >
-      <div class={`
-        absolute -inset-1.5 rounded-xl border border-accent pointer-events-none
-        bg-white-12 opacity-0 group-hover:opacity-100 transition-all
-        ${success() ? "!opacity-100 !bg-white-50" : ""}
-        ${error() ? "!opacity-100 !bg-white-50" : ""}
-      `}>
-        <MdiCheck class={`absolute-center h-1/2 w-1/2 text-black-54 ${success() ? "opacity-100" : "opacity-0"} transition-opacity`} />
-        <MdiClose class={`absolute-center h-1/2 w-1/2 text-black-54 ${error() ? "opacity-100" : "opacity-0"} transition-opacity`} />
-      </div>
-    </button>
-  )
-}
-
-const Board = () => {
-  const ctx = useColorGuesserCtx()
-
-  return (
-    <Transition
-      enterClass="opacity-0" exitToClass="opacity-0"
-      enterActiveClass="transition-opacity" exitActiveClass="transition-opacity"
-      mode="outin"
-    >
-      <Show when={ctx.game.colorGrid} keyed>{(colorGrid) => {
-        const grid = ctx.game.difficulty?.grid // Make the grid size non-reactive to avoid bad looking animations on difficulty change
-        return (
-          <div class="h-full grid gap-3" style={`grid-template-columns: repeat(${grid}, minmax(0, 1fr));`}>
-            <For each={colorGrid ?? []}>{(color) => <Tile color={color} />}</For>
-          </div>
-        )
-      }
-      }</Show>
-    </Transition>
-  )
-}
-
-const ColorGuesserGame: Component = () => {
-  const [CtxProvider] = createColorGuesserCtx()
-  return (
-    <CtxProvider>
-      <AspectRatio w={1} h={1}>
-        <Board />
-      </AspectRatio>
-      <Toolbar />
-      <SettingsModal />
-      <StatsModal />
-    </CtxProvider>
-  )
-}
-
-export default ColorGuesserGame
