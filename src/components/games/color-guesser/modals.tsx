@@ -38,7 +38,7 @@ export const SettingsModal = () => {
         Are you nerd enough to guess a color based on its RGB code? Let's find out!
       </p>
 
-      <div class="w-full flex flex-col border rounded-xl divide-y mb-8">
+      <div class="card w-full flex flex-col divide-y mb-8">
         <div class="w-full flex items-center gap-2 p-2">
           <h5 class="text-left text-sm font-mono font-bold flex-grow ml-2">Difficulty</h5>
           <div class="flex gap-2 items-center">
@@ -85,7 +85,7 @@ export const StatsModal = () => {
       </div>
       <h4 class="section-subheading mb-8">Your Color Guesser Stats</h4>
 
-      <div class="w-full flex flex-col border rounded-xl divide-y mb-8">
+      <div class="card w-full flex flex-col divide-y mb-8">
         <div class="w-full flex items-center gap-2 px-4 py-3">
           <h5 class="text-left text-sm font-mono font-bold flex-grow">Best streak</h5>
           <p>{ctx.storage.streak ? `(${ctx.storage.streakDifficulty}) ${ctx.storage.streak}` : 0}</p>

@@ -15,7 +15,7 @@ const ThemePopover = () => {
 
   return (
     <Popover
-      class="absolute top-0 right-0 bg-primary-focus p-4 rounded-xl border shadow-xl z-30"
+      class="absolute top-0 right-0 card bg-primary-focus p-4 shadow-xl z-30"
       show={show()}
       setShow={setShow}
       trigger={

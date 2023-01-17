@@ -33,7 +33,7 @@ export const Tile: Component<{ color: string }> = (props) => {
       onClick={onClick}
     >
       <div class={`
-        absolute -inset-1.5 rounded-xl border border-accent pointer-events-none
+        absolute -inset-1.5 card border-accent pointer-events-none
         bg-white-12 opacity-0 group-hover:opacity-100 transition-all
         ${success() ? "!opacity-100 !bg-white-50" : ""}
         ${error() ? "!opacity-100 !bg-white-50" : ""}

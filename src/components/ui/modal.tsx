@@ -18,7 +18,7 @@ const ModalCard: ParentComponent<ModalProps> = (props) => {
 
   return (
     <div
-      class={`card container max-w-lg m-auto pointer-events-auto ${props.class} ${!props.class?.includes("w-") ? "w-min" : ""}`}
+      class={`card container max-w-lg p-6 bg-primary shadow-xl m-auto pointer-events-auto ${props.class} ${!props.class?.includes("w-") ? "w-min" : ""}`}
       use:clickOutside={[closeModal]}
     >{props.children}</div>
   )

@@ -72,7 +72,7 @@ const ColorGuesserGame: Component = () => {
             <Board />
           </AspectRatio>
           <div class="absolute bottom-3 left-0 w-full flex">
-            <div class="inline-flex px-6 py-3 rounded-xl border m-auto">
+            <div class="card inline-flex px-6 py-3 m-auto">
               <p>Color code: {ctx.game.color}</p>
             </div>
           </div>

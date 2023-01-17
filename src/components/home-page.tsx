@@ -57,10 +57,10 @@ const HomePage: Component = () => {
       </div>
       <div class="flex flex-col gap-6 justify-center">
         <For each={pages} >{page =>
-          <a href={page.href} class="
-            motion-3 group flex gap-6 items-center rounded-xl p-2 transition-colors
-            border hover:border-accent
-          ">
+          <a
+            href={page.href}
+            class="motion-3 card group flex gap-6 items-center p-2 transition-colors hover:border-accent"
+          >
             <div class="
               flex bg-primary-focus rounded-lg p-6
               group-hover:bg-accent-10 group-hover:text-accent transition-colors

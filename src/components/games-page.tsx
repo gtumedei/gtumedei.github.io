@@ -47,8 +47,8 @@ const GameItem: Component<{
 }> = (props) => {
   return (
     <a href={props.game.href} class={`
-      group relative flex flex-col items-center gap-2 p-2 rounded-xl transition-colors
-      border hover:border-accent ${props.class ?? ""}
+      card group relative flex flex-col items-center gap-2 p-2
+      transition-colors hover:border-accent ${props.class ?? ""}
     `}>
       <div class="
         w-full flex justify-center items-center bg-primary-focus text-xl rounded-lg px-6 py-18
@@ -81,7 +81,7 @@ const GamesPage: Component = () => {
         <For each={games}>{game =>
           <GameItem game={game} class="motion-2" />
         }</For>
-        <div class="relative flex flex-col items-center gap-2 p-2 rounded-xl border motion-2">
+        <div class="card relative flex flex-col items-center gap-2 p-2 motion-2">
           <div class="
             w-full flex justify-center items-center border border-dashed
             text-xl rounded-lg px-6 py-18

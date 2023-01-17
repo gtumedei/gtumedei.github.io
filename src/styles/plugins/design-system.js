@@ -73,7 +73,7 @@ module.exports = plugin(({ addComponents, addUtilities }) => {
     ".section-subheading": apply`text-xl font-bold tracking-wider`,
 
     // Cards
-    ".card": apply`p-6 bg-primary rounded-xl shadow-xl overflow-hidden`,
+    ".card": apply`rounded-xl border overflow-hidden`,
 
     // Badges
     ".badge": apply`

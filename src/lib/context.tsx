@@ -7,7 +7,7 @@ export const create = <TContext,>(createValueFn: () => TContext) => {
     const value = createValueFn()
 
     const Provider: ParentComponent = (props) => (
-      <context.Provider value={createValueFn()}>
+      <context.Provider value={value}>
         {props.children}
       </context.Provider>
     )

@@ -14,7 +14,7 @@ const HomePage = () => {
         show={showPopover()}
         setShow={setShowPopover}
         trigger={<button class="btn btn-accent" onClick={() => setShowPopover(true)}>Show popover</button>}
-        class="absolute top-0 right-0 bg-primary-focus p-3 rounded-xl border"
+        class="absolute top-0 right-0 bg-primary-focus p-3 card"
       >
         <div>Popover content</div>
       </Popover>
