@@ -59,20 +59,8 @@ const RightMenu = () => {
   )
 }
 
-const CurrentColor = () => {
-  const ctx = useColorGuesserCtx()
-
-  return (
-    <div class="absolute bottom-3 left-0 w-full flex">
-      <div class="inline-flex px-6 py-3 rounded-xl border m-auto">
-        <p>Color code: {ctx.game.color}</p>
-      </div>
-    </div>
-  )
-}
-
 const ColorGuesserGame: Component = () => {
-  const [CtxProvider] = createColorGuesserCtx()
+  const [CtxProvider, ctx] = createColorGuesserCtx()
 
   return (
     <CtxProvider>
@@ -85,7 +73,11 @@ const ColorGuesserGame: Component = () => {
           <AspectRatio w={1} h={1}>
             <Board />
           </AspectRatio>
-          <CurrentColor />
+          <div class="absolute bottom-3 left-0 w-full flex">
+            <div class="inline-flex px-6 py-3 rounded-xl border m-auto">
+              <p>Color code: {ctx.game.color}</p>
+            </div>
+          </div>
         </div>
         <SettingsModal />
         <StatsModal />

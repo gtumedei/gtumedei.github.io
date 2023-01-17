@@ -13,7 +13,6 @@ import MdiEmailOutline from "~icons/mdi/email-outline"
 import MdiEmoticonConfusedOutline from "~icons/mdi/emoticon-confused-outline"
 import MdiRocketLaunchOutline from "~icons/mdi/rocket-launch-outline"
 import MdiSend from "~icons/mdi/send"
-import { css } from "vite-plugin-inline-css-modules"
 
 model; tooltip
 
@@ -58,8 +57,12 @@ const ContactForm: Component<{ class?: string }> = (props) => {
   return (
     <>
       <form class={`${props.class ?? ""} flex flex-col`} onSubmit={onSubmit}>
-        <div class={`${style.formGrid} grid w-full m-auto gap-x-6 gap-y-4`}>
-          <fieldset class={`fieldset ${style.nameField}`}>
+        <div class="
+          grid w-full m-auto gap-x-6 gap-y-4
+          [grid-template-areas:'name'_'email'_'subject'_'message'_'submit']
+          lg:[grid-template-areas:'name_email''subject_subject''message_message''submit_submit']
+        ">
+          <fieldset class="fieldset [grid-area:name]">
             <label class="label" for="contact-name">Name</label>
             <MdiAccountOutline />
             <input
@@ -71,7 +74,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
             />
           </fieldset>
 
-          <fieldset class={`fieldset ${style.emailField}`}>
+          <fieldset class="fieldset [grid-area:email]">
             <label class="label" for="contact-email">Email</label>
             <MdiEmailOutline />
             <input
@@ -90,7 +93,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
             ><MdiAlertCircleOutline /></div>
           </fieldset>
 
-          <fieldset class={`fieldset ${style.subjectField}`}>
+          <fieldset class="fieldset [grid-area:subject]">
             <label class="label" for="contact-subject">Subject</label>
             <input
               id="contact-subject"
@@ -100,7 +103,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
             />
           </fieldset>
 
-          <fieldset class={`fieldset ${style.messageField}`}>
+          <fieldset class="fieldset [grid-area:message]">
             <label class="label" for="contact-message">Message</label>
             <textarea
               id="contact-message"
@@ -112,7 +115,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
 
           <button
             type="submit"
-            class={`btn btn-accent relative mt-4 mx-auto ${isLoading() ? "loading" : ""} ${style.submit}`}
+            class={`btn btn-accent [grid-area:submit] relative mt-4 mx-auto ${isLoading() ? "loading" : ""}`}
             disabled={!canSubmit()}
           >
             <div class={`flex gap-4 transition-opacity ${isLoading() ? "opacity-0" : ""}`}>
@@ -160,32 +163,6 @@ const ContactForm: Component<{ class?: string }> = (props) => {
     </>
   )
 }
-
-const style = css`
-  .formGrid {
-    grid-template-areas:
-      "name"
-      "email"
-      "subject"
-      "message"
-      "button";
-
-    @media (min-width: 1024px) {
-      grid-template-areas:
-        "name email"
-        "subject subject"
-        "message message"
-        "button button";
-    }
-  }
-
-
-  .nameField { grid-area: name; }
-  .emailField { grid-area: email; }
-  .subjectField { grid-area: subject; }
-  .messageField { grid-area: message; }
-  .submit { grid-area: button; }
-`
 
 const ContactPage: Component = () => {
 

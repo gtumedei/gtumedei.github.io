@@ -1,5 +1,4 @@
 import { JSX, ParentComponent, type Component } from "solid-js"
-import { css } from "vite-plugin-inline-css-modules"
 import tooltip from "~/lib/tooltip"
 import MdiArrowLeftTop from "~icons/mdi/arrow-left-top"
 import MdiCardsDiamondOutline from "~icons/mdi/cards-diamond-outline"
@@ -26,41 +25,15 @@ export const GameLayout: ParentComponent<{
   rightMenu?: JSX.Element
 }> = (props) => {
   return (
-    <div class={`${style.grid} grid gap-6 h-full w-full`}>
-      <div class={style.mobileMenu}>{props.mobileMenu}</div>
-      <div class={style.leftMenu}>{props.leftMenu}</div>
-      <div class={style.rightMenu}>{props.rightMenu}</div>
-      <div class={style.mainArea}>{props.children}</div>
+    <div class="
+      grid gap-6 h-full w-full [&>*]:shrink-0
+      [grid-template-areas:'mobile-menu'_'main-area'] grid-rows-[min-content_1fr]
+      lg:[grid-template-areas:'left-menu_main-area_right-menu'] lg:grid-rows-[revert] lg:grid-cols-[min-content_1fr_min-content]
+    ">
+      <div class="[grid-area:mobile-menu] lg:hidden">{props.mobileMenu}</div>
+      <div class="[grid-area:left-menu] hidden lg:block">{props.leftMenu}</div>
+      <div class="[grid-area:right-menu] hidden lg:block">{props.rightMenu}</div>
+      <div class="[grid-area:main-area]">{props.children}</div>
     </div>
   )
 }
-
-const style = css`
-  .grid {
-    grid-template-areas:
-      "mobile-menu"
-      "main-area";
-    grid-template-rows: min-content 1fr;
-
-    * {
-      @apply shrink-0;
-    }
-  }
-
-  .mobileMenu { grid-area: mobile-menu; }
-  .leftMenu { grid-area: left-menu; display: none; }
-  .rightMenu { grid-area: right-menu; display: none; }
-  .mainArea { grid-area: main-area; }
-
-  @media (min-width: 1024px) {
-    .grid {
-      grid-template-areas: "left-menu main-area right-menu";
-      grid-template-rows: revert;
-      grid-template-columns: min-content 1fr min-content;
-    }
-
-    .mobileMenu { display: none; }
-    .leftMenu { display: revert; }
-    .rightMenu { display: revert; }
-  }
-`
