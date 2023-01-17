@@ -1,6 +1,6 @@
 import type { Component } from "solid-js"
+import GameLayout from "~/components/layout/game-layout"
 import AspectRatio from "~/components/ui/aspect-ratio"
-import { GameLayout } from "~/components/ui/game"
 
 const EmptyGame: Component = () => {
   return (

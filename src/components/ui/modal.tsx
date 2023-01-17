@@ -1,7 +1,8 @@
 import { createShortcut } from "@solid-primitives/keyboard"
-import type { ParentComponent, Setter } from "solid-js"
+import { onMount, type ParentComponent, type Setter } from "solid-js"
 import { Portal } from "solid-js/web"
 import { Transition } from "solid-transition-group"
+import clickOutside from "~/lib/click-outside"; clickOutside
 
 type ModalProps = {
   show: boolean
@@ -11,12 +12,15 @@ type ModalProps = {
 }
 
 const ModalCard: ParentComponent<ModalProps> = (props) => {
-  createShortcut(["Escape"], () => !props.persistent && props.setShow(false))
+  const closeModal = () => !props.persistent && props.setShow(false)
+  createShortcut(["Escape"], closeModal)
+  onMount(() => (document.activeElement as HTMLElement)?.blur())
 
   return (
-    <div class={`card container max-w-lg m-auto pointer-events-auto ${props.class} ${!props.class?.includes("w-") ? "w-min" : ""}`}>
-      {props.children}
-    </div>
+    <div
+      class={`card container max-w-lg m-auto pointer-events-auto ${props.class} ${!props.class?.includes("w-") ? "w-min" : ""}`}
+      use:clickOutside={[closeModal]}
+    >{props.children}</div>
   )
 }
 
@@ -24,24 +28,19 @@ const Modal: ParentComponent<ModalProps> = (props) => {
   return (
     <>
       <Portal>
-        <Transition
-          enterClass="opacity-0" exitToClass="opacity-0"
-          enterActiveClass="transition-opacity" exitActiveClass="transition-opacity"
-        >
-          {props.show && <div class="fixed inset-0 bg-black-38 z-[35]" />}
-        </Transition>
-
-        <div
-          class={`fixed inset-0 p-3 max-h-screen overflow-y-auto flex z-40 ${!props.show ? "pointer-events-none" : ""}`}
-          onClick={(e) => e.target == e.currentTarget && !props.persistent && props.setShow(false)}
-        >
+        {/* Modal */}
+        <div class="fixed inset-0 p-3 max-h-screen overflow-y-auto flex z-40 pointer-events-none">
           <Transition
             enterClass="opacity-0 transform -translate-y-2" exitToClass="opacity-0 transform -translate-y-2"
             enterActiveClass="transition-all" exitActiveClass="transition-all"
-          >
-            {props.show && <ModalCard {...props} />}
-          </Transition>
+          >{props.show && <ModalCard {...props} />}</Transition>
         </div>
+
+        {/* Backdrop */}
+        <Transition
+          enterClass="opacity-0" exitToClass="opacity-0"
+          enterActiveClass="transition-opacity" exitActiveClass="transition-opacity"
+        >{props.show && <div class="fixed inset-0 bg-black-38 z-[35]" />}</Transition>
       </Portal>
     </>
   )

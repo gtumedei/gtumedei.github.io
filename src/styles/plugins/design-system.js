@@ -88,6 +88,11 @@ module.exports = plugin(({ addComponents, addUtilities }) => {
     ".absolute-center-x": apply`absolute transform left-[50%] -translate-x-1/2`,
     ".absolute-center-y": apply`absolute transform top-[50%] -translate-y-1/2`,
 
+    // Fixed positioning
+    ".fixed-center": apply`fixed transform top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2`,
+    ".fixed-center-x": apply`fixed transform left-[50%] -translate-x-1/2`,
+    ".fixed-center-y": apply`fixed transform top-[50%] -translate-y-1/2`,
+
     // Motion base classes
     ".motion-1, .motion-2, .motion-3, .motion-4, .motion-5": {
       opacity: 0

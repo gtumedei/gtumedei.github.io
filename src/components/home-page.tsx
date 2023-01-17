@@ -1,7 +1,7 @@
 import { Component, For } from "solid-js"
 import { stagger } from "motion"
 import { createTimeline } from "~/lib/motion"
-import tooltip from "~/lib/tooltip"
+import tooltip from "~/lib/tooltip"; tooltip
 import MdiApplicationBrackets from "~icons/mdi/application-brackets"
 import MdiGamepadVariant from "~icons/mdi/gamepad-variant"
 import MdiGithub from "~icons/mdi/github"
@@ -9,8 +9,6 @@ import MdiLinkedin from "~icons/mdi/linkedin"
 import MdiMapMarker from "~icons/mdi/map-marker"
 import MdiSend from "~icons/mdi/send"
 import MdiTrayArrowDown from "~icons/mdi/tray-arrow-down"
-
-tooltip
 
 const HomePage: Component = () => {
 
@@ -45,7 +43,7 @@ const HomePage: Component = () => {
                 <a
                   href={link.href} target="_blank"
                   class="btn btn-icon"
-                  use:tooltip={[() => link.title, "bottom"]}
+                  use:tooltip={[link.title, "bottom"]}
                 >{link.icon}</a>
               </div>
             }</For>

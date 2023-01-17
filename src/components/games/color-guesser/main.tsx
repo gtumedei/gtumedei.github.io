@@ -1,14 +1,12 @@
 import { Component } from "solid-js"
+import GameLayout from "~/components/layout/game-layout"
 import AspectRatio from "~/components/ui/aspect-ratio"
-import { GameLayout } from "~/components/ui/game"
 import { createColorGuesserCtx, useColorGuesserCtx } from "~/lib/games/color-guesser/core"
-import tooltip from "~/lib/tooltip"
+import tooltip from "~/lib/tooltip"; tooltip
 import MdiMenu from "~icons/mdi/menu"
 import MdiPoll from "~icons/mdi/poll"
 import { Board } from "./board"
 import { SettingsModal, StatsModal } from "./modals"
-
-tooltip
 
 const MobileMenu = () => {
   const ctx = useColorGuesserCtx()
@@ -20,12 +18,12 @@ const MobileMenu = () => {
         <button
           class="btn btn-icon"
           onClick={() => ctx.setShowStatsModal(true)}
-          use:tooltip={[() => "Stats", "top"]}
+          use:tooltip={["Stats", "top"]}
         ><MdiPoll /></button>
         <button
           class="btn btn-icon"
           onClick={() => ctx.setShowSettingsModal(true)}
-          use:tooltip={[() => "Menu", "top"]}
+          use:tooltip={["Menu", "top"]}
         ><MdiMenu /></button>
       </div>
     </header>
@@ -48,12 +46,12 @@ const RightMenu = () => {
       <button
         class="btn btn-icon"
         onClick={() => ctx.setShowStatsModal(true)}
-        use:tooltip={[() => "Stats", "top"]}
+        use:tooltip={["Stats", "top"]}
       ><MdiPoll /></button>
       <button
         class="btn btn-icon"
         onClick={() => ctx.setShowSettingsModal(true)}
-        use:tooltip={[() => "Menu", "top"]}
+        use:tooltip={["Menu", "top"]}
       ><MdiMenu /></button>
     </div>
   )

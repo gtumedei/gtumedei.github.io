@@ -6,9 +6,10 @@ import type { Placement } from "tippy.js"
 declare module "solid-js" {
   namespace JSX {
     interface Directives {
-      tooltip: [Accessor<string>, Placement]
+      clickOutside: [() => void]
       model: [Accessor<string>, (value: string) => void]
       motion: [keyframes: MotionKeyframesDefinition, options?: AnimationOptionsWithOverrides]
+      tooltip: [string | Accessor<string>, Placement]
     }
   }
 }

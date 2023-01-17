@@ -3,9 +3,9 @@ import { createStore } from "solid-js/store"
 import { stagger } from "motion"
 import LoadingSpinner from "~/components/ui/loading-spinner"
 import Modal from "~/components/ui/modal"
-import model from "~/lib/model"
+import model from "~/lib/model"; model
 import { createTimeline } from "~/lib/motion"
-import tooltip from "~/lib/tooltip"
+import tooltip from "~/lib/tooltip"; tooltip
 import type { ContactApiSchema } from "~/pages/api/contact"
 import MdiAccountOutline from "~icons/mdi/account-outline"
 import MdiAlertCircleOutline from "~icons/mdi/alert-circle-outline"
@@ -13,8 +13,6 @@ import MdiEmailOutline from "~icons/mdi/email-outline"
 import MdiEmoticonConfusedOutline from "~icons/mdi/emoticon-confused-outline"
 import MdiRocketLaunchOutline from "~icons/mdi/rocket-launch-outline"
 import MdiSend from "~icons/mdi/send"
-
-model; tooltip
 
 const ContactForm: Component<{ class?: string }> = (props) => {
   const defaultData: ContactApiSchema = { name: "", email: "", subject: "", message: "" }
@@ -89,7 +87,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
                 absolute bottom-4 right-4 text-[#FF5252] transition-opacity flex
                 ${isEmailValid() || data.email == "" ? "opacity-0 pointer-events-none" : ""}
               `}
-              use:tooltip={[() => "Invalid email address", "top"]}
+              use:tooltip={["Invalid email address", "top"]}
             ><MdiAlertCircleOutline /></div>
           </fieldset>
 
