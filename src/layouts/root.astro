@@ -7,10 +7,7 @@ export interface Props {
   title?: string
   description?: string
 }
-const {
-  title = "Gianni Tumedei",
-  description = "My personal website"
-} = Astro.props as Props
+const { title, description = "My personal website" } = Astro.props as Props
 
 const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
 ---

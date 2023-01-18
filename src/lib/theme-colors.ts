@@ -1,7 +1,7 @@
 import { createMutationObserver } from "@solid-primitives/mutation-observer"
 import { createStore } from "solid-js/store"
 
-type ThemeColors = {
+export type ThemeColors = {
   // Base colors
 
   primary100: string

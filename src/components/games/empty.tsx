@@ -1,8 +1,7 @@
-import type { Component } from "solid-js"
 import GameLayout from "~/components/layout/game-layout"
 import AspectRatio from "~/components/ui/aspect-ratio"
 
-const EmptyGame: Component = () => {
+const EmptyGame = () => {
   return (
     <GameLayout
       mobileMenu={<>mobile</>}

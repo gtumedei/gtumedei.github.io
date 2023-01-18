@@ -83,7 +83,7 @@ const Board: Component<{ size?: number }> = (props) => {
   )
 }
 
-const PxArtGame: Component = () => {
+const PxArtGame = () => {
   return (
     <>
       <AspectRatio w={1} h={1}>

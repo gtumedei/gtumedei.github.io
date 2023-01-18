@@ -1,6 +1,5 @@
-import { Component, For } from "solid-js"
-import { stagger } from "motion"
-import { createTimeline } from "~/lib/motion"
+import { For } from "solid-js"
+import { createTimeline, stagger } from "~/lib/motion"
 import tooltip from "~/lib/tooltip"; tooltip
 import MdiApplicationBrackets from "~icons/mdi/application-brackets"
 import MdiGamepadVariant from "~icons/mdi/gamepad-variant"
@@ -10,7 +9,7 @@ import MdiMapMarker from "~icons/mdi/map-marker"
 import MdiSend from "~icons/mdi/send"
 import MdiTrayArrowDown from "~icons/mdi/tray-arrow-down"
 
-const HomePage: Component = () => {
+const HomePage = () => {
 
   const links = [
     { href: "https://github.com/gtumedei", icon: <MdiGithub />, title: "GitHub • @gtumedei" },

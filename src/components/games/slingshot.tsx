@@ -1,11 +1,7 @@
 import Matter from "matter-js"
-import { Component, onMount } from "solid-js"
+import { onMount } from "solid-js"
 import AspectRatio from "~/components/ui/aspect-ratio"
-import { useThemeColors } from "~/lib/theme-colors"
-import tooltip from "~/lib/tooltip"
-import MdiMenu from "~icons/mdi/menu"
-
-tooltip;
+import { ThemeColors, useThemeColors } from "~/lib/theme-colors"
 
 const {
   Engine,
@@ -20,8 +16,7 @@ const {
   Bodies
 } = Matter
 
-const createSlingShot = (container: HTMLElement) => {
-  const themeData = useThemeColors()
+const createSlingShot = (container: HTMLElement, themeColors: ThemeColors) => {
   const { offsetHeight: containerHeight, offsetWidth: containerWidth } = container
 
   // Create engine
@@ -36,7 +31,7 @@ const createSlingShot = (container: HTMLElement) => {
       width: containerWidth,
       height: containerHeight,
       wireframes: false,
-      background: themeData.primary
+      background: themeColors.primary
       // showAngleIndicator: true
     }
   })
@@ -48,7 +43,7 @@ const createSlingShot = (container: HTMLElement) => {
   Runner.run(runner, engine)
 
   // Add bodies
-  const ground = Bodies.rectangle(395, 600, 815, 50, { isStatic: true, render: { fillStyle: themeData.invertedPrimary } })
+  const ground = Bodies.rectangle(395, 600, 815, 50, { isStatic: true, render: { fillStyle: themeColors.invertedPrimary } })
   const rockOptions = { density: 0.004 }
   let rock = Bodies.polygon(170, 450, 8, 20, rockOptions)
   const anchor = { x: 170, y: 450 }
@@ -57,7 +52,7 @@ const createSlingShot = (container: HTMLElement) => {
     bodyB: rock,
     stiffness: 0.05,
     render: {
-      strokeStyle: `backgroundColor: ${themeData.invertedPrimary};`
+      strokeStyle: `backgroundColor: ${themeColors.invertedPrimary};`
     }
   })
 
@@ -117,10 +112,14 @@ const createSlingShot = (container: HTMLElement) => {
   }
 }
 
-const MatterSlingshot: Component = () => {
+const MatterSlingshot = () => {
   let container!: HTMLDivElement
+  const themeColors = useThemeColors()
 
-  onMount(() => createSlingShot(container))
+  onMount(async () => {
+    await new Promise(r => setTimeout(r, 500))
+    createSlingShot(container, themeColors)
+  })
 
   return (
     <div class="h-full w-full rounded-xl border overflow-hidden">
@@ -129,25 +128,12 @@ const MatterSlingshot: Component = () => {
   )
 }
 
-const Toolbar = () => {
-  return (
-    <div class="w-full flex items-center p-2 rounded-xl border">
-      <p class="ml-3 flex-grow">Color code</p>
-      <button
-        class="btn btn-icon"
-        use:tooltip={[() => "Menu", "top"]}
-      ><MdiMenu /></button>
-    </div>
-  )
-}
-
-const SlingshotGame: Component = () => {
+const SlingshotGame = () => {
   return (
     <>
       <AspectRatio w={1} h={1}>
         <MatterSlingshot />
       </AspectRatio>
-      <Toolbar />
     </>
   )
 }

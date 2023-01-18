@@ -1,6 +1,5 @@
 import { Component, For, JSX } from "solid-js"
-import { stagger } from "motion"
-import { createTimeline } from "~/lib/motion"
+import { createTimeline, stagger } from "~/lib/motion"
 import CibFlutter from "~icons/cib/flutter"
 import CibMongodb from "~icons/cib/mongodb"
 import CibScala from "~icons/cib/scala"
@@ -210,7 +209,7 @@ const TechItem: Component<{
   )
 }
 
-const TechPage: Component = () => {
+const TechPage = () => {
 
   createTimeline([
     [".motion-1", { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: stagger(0.15) }],

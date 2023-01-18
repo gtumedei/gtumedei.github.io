@@ -1,4 +1,3 @@
-import { Component } from "solid-js"
 import GameLayout from "~/components/layout/game-layout"
 import AspectRatio from "~/components/ui/aspect-ratio"
 import { createColorGuesserCtx, useColorGuesserCtx } from "~/lib/games/color-guesser/core"
@@ -57,7 +56,7 @@ const RightMenu = () => {
   )
 }
 
-const ColorGuesserGame: Component = () => {
+const ColorGuesserGame = () => {
   const [CtxProvider, ctx] = createColorGuesserCtx()
 
   return (

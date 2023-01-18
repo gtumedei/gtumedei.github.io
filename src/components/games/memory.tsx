@@ -53,7 +53,7 @@ const Board: Component<{ cardCount?: number }> = (props) => {
   )
 }
 
-const MemoryGame: Component = () => {
+const MemoryGame = () => {
   return (
     <>
       <AspectRatio w={1} h={1}>

@@ -1,6 +1,8 @@
 import { animate, AnimationOptionsWithOverrides, ElementOrSelector, MotionKeyframesDefinition, timeline } from "motion"
 import { onMount } from "solid-js"
 
+export * from "motion"
+
 export const motion = (
   elem: HTMLInputElement,
   value: () => [keyframes: MotionKeyframesDefinition, options?: AnimationOptionsWithOverrides]

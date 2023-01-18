@@ -1,10 +1,9 @@
 import { Component, createMemo, createSignal, onMount } from "solid-js"
 import { createStore } from "solid-js/store"
-import { stagger } from "motion"
 import LoadingSpinner from "~/components/ui/loading-spinner"
 import Modal from "~/components/ui/modal"
 import model from "~/lib/model"; model
-import { createTimeline } from "~/lib/motion"
+import { createTimeline, stagger } from "~/lib/motion"
 import tooltip from "~/lib/tooltip"; tooltip
 import type { ContactApiSchema } from "~/pages/api/contact"
 import MdiAccountOutline from "~icons/mdi/account-outline"
@@ -162,7 +161,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
   )
 }
 
-const ContactPage: Component = () => {
+const ContactPage = () => {
 
   createTimeline([
     [".motion-1", { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: stagger(0.15) }],
