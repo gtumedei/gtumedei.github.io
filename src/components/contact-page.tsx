@@ -55,7 +55,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
     <>
       <form class={`${props.class ?? ""} flex flex-col`} onSubmit={onSubmit}>
         <div class="
-          grid w-full m-auto gap-x-6 gap-y-4
+          grid w-full m-auto gap-6
           [grid-template-areas:'name'_'email'_'subject'_'message'_'submit']
           lg:[grid-template-areas:'name_email''subject_subject''message_message''submit_submit']
         ">
@@ -112,7 +112,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
 
           <button
             type="submit"
-            class={`btn btn-accent [grid-area:submit] relative mt-4 mx-auto ${isLoading() ? "loading" : ""}`}
+            class={`btn btn-accent [grid-area:submit] relative w-44 mt-6 mx-auto ${isLoading() ? "loading" : ""}`}
             disabled={!canSubmit()}
           >
             <div class={`flex gap-4 transition-opacity ${isLoading() ? "opacity-0" : ""}`}>
@@ -135,10 +135,10 @@ const ContactForm: Component<{ class?: string }> = (props) => {
           <MdiRocketLaunchOutline class="text-xl text-accent" />
         </div>
         <h4 class="section-subheading mb-2">Message sent</h4>
-        <p class="text-sm mb-6">
+        <p class="text-sm mb-8">
           Thanks for reaching out to me.<br/>I'll reply as soon as possible!
         </p>
-        <button class="btn btn-accent py-3" onClick={() => setShowSuccessModal(false)}>Close</button>
+        <button class="btn btn-accent w-1/2" onClick={() => setShowSuccessModal(false)}>Close</button>
       </Modal>
 
       <Modal
@@ -149,13 +149,13 @@ const ContactForm: Component<{ class?: string }> = (props) => {
         <div class="bg-primary-focus flex rounded-full p-6 mb-6">
           <MdiEmoticonConfusedOutline class="text-xl text-accent" />
         </div>
-        <h4 class="section-subheading mb-2">Oops!<br/>Something went wrong</h4>
-        <p class="text-sm mb-6">
+        <h4 class="section-subheading mb-2">Oops! <br class="sm:hidden"/> Something went wrong</h4>
+        <p class="text-sm mb-8">
           Looks like the message wasn't sent.<br/>
           Please check if something strange is going on with your internet connection.
           If that's not the case, then it's probably my fault 😅
         </p>
-        <button class="btn btn-accent py-3" onClick={() => setShowErrorModal(false)}>Close</button>
+        <button class="btn btn-accent w-1/2" onClick={() => setShowErrorModal(false)}>Close</button>
       </Modal>
     </>
   )

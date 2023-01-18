@@ -36,7 +36,7 @@ const HomePage = () => {
           <img src="/profile.jpg" class="motion-1 h-18 w-18 rounded-full shadow-lg mb-6" alt="Profile image" />
           <h1 class="motion-1 section-heading mb-1">Gianni Tumedei</h1>
           <h2 class="motion-1 font-mono">@gtumedei</h2>
-          <div class="flex mt-2 mb-6 -ml-3">
+          <div class="flex mt-1 mb-6 -ml-3">
             <For each={links} >{link =>
               <div class="motion-2">
                 <a
