@@ -1,10 +1,10 @@
 import { Component, createMemo, createSignal, onMount } from "solid-js"
 import { createStore } from "solid-js/store"
-import LoadingSpinner from "~/components/ui/loading-spinner"
-import Modal from "~/components/ui/modal"
-import model from "~/lib/model"; model
+import model from "~/lib/directives/model"; model
+import tooltip from "~/lib/directives/tooltip"; tooltip
 import { createTimeline, stagger } from "~/lib/motion"
-import tooltip from "~/lib/tooltip"; tooltip
+import LoadingSpinner from "~/lib/ui/loading-spinner"
+import Modal from "~/lib/ui/modal"
 import type { ContactApiSchema } from "~/pages/api/contact"
 import MdiAccountOutline from "~icons/mdi/account-outline"
 import MdiAlertCircleOutline from "~icons/mdi/alert-circle-outline"

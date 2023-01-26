@@ -1,6 +1,6 @@
 import { Component, createSignal, For, mergeProps } from "solid-js"
-import AspectRatio from "~/components/ui/aspect-ratio"
-import tooltip from "~/lib/tooltip"
+import tooltip from "~/lib/directives/tooltip"
+import AspectRatio from "~/lib/ui/aspect-ratio"
 import MdiCog from "~icons/mdi/cog"
 import MdiEllipse from "~icons/mdi/ellipse"
 import MdiTeddyBear from "~icons/mdi/teddy-bear"

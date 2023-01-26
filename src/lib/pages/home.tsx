@@ -1,6 +1,6 @@
 import { For } from "solid-js"
 import { createTimeline, stagger } from "~/lib/motion"
-import tooltip from "~/lib/tooltip"; tooltip
+import tooltip from "~/lib/directives/tooltip"; tooltip
 import MdiApplicationBrackets from "~icons/mdi/application-brackets"
 import MdiGamepadVariant from "~icons/mdi/gamepad-variant"
 import MdiGithub from "~icons/mdi/github"

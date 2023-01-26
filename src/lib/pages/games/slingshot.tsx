@@ -1,7 +1,7 @@
 import Matter from "matter-js"
 import { onMount } from "solid-js"
-import AspectRatio from "~/components/ui/aspect-ratio"
 import { ThemeColors, useThemeColors } from "~/lib/theme-colors"
+import AspectRatio from "~/lib/ui/aspect-ratio"
 
 const {
   Engine,

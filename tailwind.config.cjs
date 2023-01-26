@@ -91,6 +91,6 @@ module.exports = {
     }
   },
   plugins: [
-    require("./src/styles/plugins/design-system")
+    require("./src/styles/design-system.cjs")
   ]
 }

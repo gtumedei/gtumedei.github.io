@@ -1,7 +1,7 @@
 import { Component, For, mergeProps } from "solid-js"
 import { createStore } from "solid-js/store"
-import AspectRatio from "~/components/ui/aspect-ratio"
-import tooltip from "~/lib/tooltip"
+import tooltip from "~/lib/directives/tooltip"; tooltip
+import AspectRatio from "~/lib/ui/aspect-ratio"
 import MdiCircle from "~icons/mdi/circle"
 import MdiFormatColorFill from "~icons/mdi/format-color-fill"
 import MdiEraser from "~icons/mdi/eraser"
@@ -10,8 +10,6 @@ import MdiRedo from "~icons/mdi/redo"
 import MdiTrashCan from "~icons/mdi/trash-can"
 import MdiTrayArrowDown from "~icons/mdi/tray-arrow-down"
 import MdiUndo from "~icons/mdi/undo"
-
-tooltip
 
 const Toolbar = () => {
   return (

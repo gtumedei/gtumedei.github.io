@@ -1,5 +1,5 @@
-import GameLayout from "~/components/layout/game-layout"
-import AspectRatio from "~/components/ui/aspect-ratio"
+import GameLayout from "~/lib/layout/game-layout"
+import AspectRatio from "~/lib/ui/aspect-ratio"
 
 const EmptyGame = () => {
   return (

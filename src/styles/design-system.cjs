@@ -1,5 +1,5 @@
 const plugin = require("tailwindcss/plugin")
-const apply = require("./apply")
+const apply = require("./apply.cjs")
 
 module.exports = plugin(({ addComponents, addUtilities }) => {
   addComponents({

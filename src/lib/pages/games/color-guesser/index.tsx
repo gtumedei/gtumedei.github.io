@@ -1,10 +1,10 @@
-import GameLayout from "~/components/layout/game-layout"
-import AspectRatio from "~/components/ui/aspect-ratio"
-import { createColorGuesserCtx, useColorGuesserCtx } from "~/lib/games/color-guesser/core"
-import tooltip from "~/lib/tooltip"; tooltip
+import GameLayout from "~/lib/layout/game-layout"
+import tooltip from "~/lib/directives/tooltip"; tooltip
+import AspectRatio from "~/lib/ui/aspect-ratio"
 import MdiMenu from "~icons/mdi/menu"
 import MdiPoll from "~icons/mdi/poll"
 import { Board } from "./board"
+import { createColorGuesserCtx, useColorGuesserCtx } from "./core"
 import { SettingsModal, StatsModal } from "./modals"
 
 const MobileMenu = () => {

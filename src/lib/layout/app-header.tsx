@@ -1,8 +1,8 @@
 import { Component, createSignal } from "solid-js"
 import { css } from "vite-plugin-inline-css-modules"
-import Popover from "~/components/ui/popover"
+import tooltip from "~/lib/directives/tooltip"; tooltip
 import { accent, setAccent, setTheme, theme } from "~/lib/theme"
-import tooltip from "~/lib/tooltip"; tooltip
+import Popover from "~/lib/ui/popover"
 import MdiArrowLeftTop from "~icons/mdi/arrow-left-top"
 import MdiCircle from "~icons/mdi/circle"
 import MdiPaletteOutline from "~icons/mdi/palette-outline"

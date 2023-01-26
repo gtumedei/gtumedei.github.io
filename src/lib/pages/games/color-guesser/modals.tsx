@@ -1,10 +1,10 @@
 import { createSignal, onMount } from "solid-js"
-import Modal from "~/components/ui/modal"
-import { useColorGuesserCtx } from "~/lib/games/color-guesser/core"
+import Modal from "~/lib/ui/modal"
 import MdiChevronLeft from "~icons/mdi/chevron-left"
 import MdiChevronRight from "~icons/mdi/chevron-right"
 import MdiEyedropperVariant from "~icons/mdi/eyedropper-variant"
 import MdiPoll from "~icons/mdi/poll"
+import { useColorGuesserCtx } from "./core"
 
 export const SettingsModal = () => {
   const ctx = useColorGuesserCtx()

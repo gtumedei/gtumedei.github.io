@@ -1,8 +1,8 @@
 import { Component, createSignal, Show, For } from "solid-js"
 import { Transition } from "solid-transition-group"
-import { useColorGuesserCtx } from "~/lib/games/color-guesser/core"
 import MdiCheck from "~icons/mdi/check"
 import MdiClose from "~icons/mdi/close"
+import { useColorGuesserCtx } from "./core"
 
 export const Tile: Component<{ color: string }> = (props) => {
   const [success, setSuccess] = createSignal(false)
