@@ -3,10 +3,12 @@ import { css } from "vite-plugin-inline-css-modules"
 
 const LoadingSpinner: Component<{ inverted?: boolean }> = (props) => {
   return (
-    <div class={`
+    <div
+      class={`
       ${style.spinner} h-5 w-5 rounded-full border-2 border-b-transparent
       ${props.inverted ? "border-inverted-neutral" : "border-neutral"}
-    `}/>
+    `}
+    />
   )
 }
 

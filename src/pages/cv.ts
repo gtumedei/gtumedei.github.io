@@ -7,8 +7,8 @@ export const get: APIRoute = async ({ request, redirect }) => {
     type: "pageview",
     data: {
       url: "/cv",
-      referrer: ""
-    }
+      referrer: "",
+    },
   })
   return redirect(env.CV_URL)
 }

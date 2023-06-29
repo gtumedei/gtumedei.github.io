@@ -11,8 +11,9 @@ My personal website.
 
 ## TODO
 
-- Logo
-- Upgrade to Astro 2 and prerender routes
+- New logo with dynamic theming
+- Avataaar with custom appearance based on season + custom bg based on theme
+- Better focused states
 - Games:
   - Ideas with Matter.js: pinball, angry birds
   - Endless runner

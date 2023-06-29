@@ -1,8 +1,8 @@
 :root {
   /* Base colors */
 
-  --color-primary-100: #FFFFFF;
-  --color-primary-200: #F7F7F7;
+  --color-primary-100: #ffffff;
+  --color-primary-200: #f7f7f7;
   --color-primary-700: #303030;
   --color-primary-800: #262626;
 
@@ -18,35 +18,35 @@
   --color-black-12: rgba(0, 0, 0, 0.12);
   --color-black-8: rgba(0, 0, 0, 0.08);
 
-  --color-blue: #0091EA;
+  --color-blue: #0091ea;
   --color-blue-20: rgba(0, 145, 234, 0.2);
   --color-blue-10: rgba(0, 145, 234, 0.1);
 
-  --color-light-blue: #4FC3F7;
+  --color-light-blue: #4fc3f7;
   --color-light-blue-20: rgba(79, 195, 247, 0.2);
   --color-light-blue-10: rgba(79, 195, 247, 0.1);
 
-  --color-orange: #FF8A65;
+  --color-orange: #ff8a65;
   --color-orange-20: rgba(255, 138, 101, 0.2);
   --color-orange-10: rgba(255, 138, 101, 0.1);
 
-  --color-light-orange: #EF9A9A;
+  --color-light-orange: #ef9a9a;
   --color-light-orange-20: rgba(239, 154, 154, 0.2);
   --color-light-orange-10: rgba(239, 154, 154, 0.1);
 
-  --color-teal: #00BFA5;
+  --color-teal: #00bfa5;
   --color-teal-20: rgba(0, 191, 165, 0.2);
   --color-teal-10: rgba(0, 191, 165, 0.1);
 
-  --color-light-teal: #64FFDA;
+  --color-light-teal: #64ffda;
   --color-light-teal-20: rgba(100, 255, 218, 0.2);
   --color-light-teal-10: rgba(100, 255, 218, 0.1);
 
-  --color-pink: #EC407A;
+  --color-pink: #ec407a;
   --color-pink-20: rgba(236, 64, 122, 0.2);
   --color-pink-10: rgba(236, 64, 122, 0.1);
 
-  --color-light-pink: #F9A8D4;
+  --color-light-pink: #f9a8d4;
   --color-light-pink-20: rgba(249, 168, 212, 0.2);
   --color-light-pink-10: rgba(249, 168, 212, 0.1);
 
@@ -178,25 +178,29 @@
 
   /* Manual light theme accent colors */
 
-  &.accent-blue, .accent-blue {
+  &.accent-blue,
+  .accent-blue {
     --color-accent: var(--color-blue);
     --color-accent-20: var(--color-blue-20);
     --color-accent-10: var(--color-blue-10);
   }
 
-  &.accent-orange, .accent-orange {
+  &.accent-orange,
+  .accent-orange {
     --color-accent: var(--color-orange);
     --color-accent-20: var(--color-orange-20);
     --color-accent-10: var(--color-orange-10);
   }
 
-  &.accent-teal, .accent-teal {
+  &.accent-teal,
+  .accent-teal {
     --color-accent: var(--color-teal);
     --color-accent-20: var(--color-teal-20);
     --color-accent-10: var(--color-teal-10);
   }
 
-  &.accent-pink, .accent-pink {
+  &.accent-pink,
+  .accent-pink {
     --color-accent: var(--color-pink);
     --color-accent-20: var(--color-pink-20);
     --color-accent-10: var(--color-pink-10);
@@ -226,25 +230,29 @@
 
   /* Manual dark theme accent colors */
 
-  &.accent-blue, .accent-blue {
+  &.accent-blue,
+  .accent-blue {
     --color-accent: var(--color-light-blue);
     --color-accent-20: var(--color-light-blue-20);
     --color-accent-10: var(--color-light-blue-10);
   }
 
-  &.accent-orange, .accent-orange {
+  &.accent-orange,
+  .accent-orange {
     --color-accent: var(--color-light-orange);
     --color-accent-20: var(--color-light-orange-20);
     --color-accent-10: var(--color-light-orange-10);
   }
 
-  &.accent-teal, .accent-teal {
+  &.accent-teal,
+  .accent-teal {
     --color-accent: var(--color-light-teal);
     --color-accent-20: var(--color-light-teal-20);
     --color-accent-10: var(--color-light-teal-10);
   }
 
-  &.accent-pink, .accent-pink {
+  &.accent-pink,
+  .accent-pink {
     --color-accent: var(--color-light-pink);
     --color-accent-20: var(--color-light-pink-20);
     --color-accent-10: var(--color-light-pink-10);

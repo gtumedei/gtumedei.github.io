@@ -160,14 +160,18 @@ export const useThemeColors = () => {
       blue20: style.getPropertyValue(isDark ? "--color-blue-20" : "--color-light-blue-20").trim(),
       blue10: style.getPropertyValue(isDark ? "--color-blue-10" : "--color-light-blue-10").trim(),
       orange: style.getPropertyValue(isDark ? "--color-orange" : "--color-light-orange").trim(),
-      orange20: style.getPropertyValue(isDark ? "--color-orange-20" : "--color-light-orange-20").trim(),
-      orange10: style.getPropertyValue(isDark ? "--color-orange-10" : "--color-light-orange-10").trim(),
+      orange20: style
+        .getPropertyValue(isDark ? "--color-orange-20" : "--color-light-orange-20")
+        .trim(),
+      orange10: style
+        .getPropertyValue(isDark ? "--color-orange-10" : "--color-light-orange-10")
+        .trim(),
       teal: style.getPropertyValue(isDark ? "--color-teal" : "--color-light-teal").trim(),
       teal20: style.getPropertyValue(isDark ? "--color-teal-20" : "--color-light-teal-20").trim(),
       teal10: style.getPropertyValue(isDark ? "--color-teal-10" : "--color-light-teal-10").trim(),
       pink: style.getPropertyValue(isDark ? "--color-pink" : "--color-light-pink").trim(),
       pink20: style.getPropertyValue(isDark ? "--color-pink-20" : "--color-light-pink-20").trim(),
-      pink10: style.getPropertyValue(isDark ? "--color-pink-10" : "--color-light-pink-10").trim()
+      pink10: style.getPropertyValue(isDark ? "--color-pink-10" : "--color-light-pink-10").trim(),
     })
   }
 

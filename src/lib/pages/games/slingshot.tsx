@@ -13,7 +13,7 @@ const {
   MouseConstraint,
   Mouse,
   Composite,
-  Bodies
+  Bodies,
 } = Matter
 
 const createSlingShot = (container: HTMLElement, themeColors: ThemeColors) => {
@@ -31,9 +31,9 @@ const createSlingShot = (container: HTMLElement, themeColors: ThemeColors) => {
       width: containerWidth,
       height: containerHeight,
       wireframes: false,
-      background: themeColors.primary
+      background: themeColors.primary,
       // showAngleIndicator: true
-    }
+    },
   })
 
   Render.run(render)
@@ -43,7 +43,10 @@ const createSlingShot = (container: HTMLElement, themeColors: ThemeColors) => {
   Runner.run(runner, engine)
 
   // Add bodies
-  const ground = Bodies.rectangle(395, 600, 815, 50, { isStatic: true, render: { fillStyle: themeColors.invertedPrimary } })
+  const ground = Bodies.rectangle(395, 600, 815, 50, {
+    isStatic: true,
+    render: { fillStyle: themeColors.invertedPrimary },
+  })
   const rockOptions = { density: 0.004 }
   let rock = Bodies.polygon(170, 450, 8, 20, rockOptions)
   const anchor = { x: 170, y: 450 }
@@ -52,15 +55,18 @@ const createSlingShot = (container: HTMLElement, themeColors: ThemeColors) => {
     bodyB: rock,
     stiffness: 0.05,
     render: {
-      strokeStyle: `backgroundColor: ${themeColors.invertedPrimary};`
-    }
+      strokeStyle: `backgroundColor: ${themeColors.invertedPrimary};`,
+    },
   })
 
   const pyramid = Composites.pyramid(500, 300, 9, 10, 0, 0, (x: number, y: number) => {
     return Bodies.rectangle(x, y, 25, 40)
   })
 
-  const ground2 = Bodies.rectangle(610, 250, 200, 20, { isStatic: true, render: { fillStyle: "#00FF00" } })
+  const ground2 = Bodies.rectangle(610, 250, 200, 20, {
+    isStatic: true,
+    render: { fillStyle: "#00FF00" },
+  })
 
   const pyramid2 = Composites.pyramid(550, 0, 5, 10, 0, 0, (x: number, y: number) => {
     return Bodies.rectangle(x, y, 25, 40)
@@ -83,9 +89,9 @@ const createSlingShot = (container: HTMLElement, themeColors: ThemeColors) => {
     constraint: {
       stiffness: 0.2,
       render: {
-        visible: false
-      }
-    }
+        visible: false,
+      },
+    },
   })
 
   Composite.add(world, mouseConstraint)
@@ -96,7 +102,7 @@ const createSlingShot = (container: HTMLElement, themeColors: ThemeColors) => {
   // Fit the render viewport to the scene
   Render.lookAt(render, {
     min: { x: 0, y: 0 },
-    max: { x: containerWidth, y: containerHeight }
+    max: { x: containerWidth, y: containerHeight },
   })
 
   // Context for MatterTools.Demo
@@ -108,7 +114,7 @@ const createSlingShot = (container: HTMLElement, themeColors: ThemeColors) => {
     stop: () => {
       Matter.Render.stop(render)
       Matter.Runner.stop(runner)
-    }
+    },
   }
 }
 
@@ -117,7 +123,7 @@ const MatterSlingshot = () => {
   const themeColors = useThemeColors()
 
   onMount(async () => {
-    await new Promise(r => setTimeout(r, 500))
+    await new Promise((r) => setTimeout(r, 500))
     createSlingShot(container, themeColors)
   })
 

@@ -17,11 +17,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "types": [
-      "astro/client",
-      "unplugin-icons/types/solid",
-      "vite/client"
-    ],
+    "types": ["astro/client", "unplugin-icons/types/solid", "vite/client"],
     "baseUrl": "./",
     "paths": {
       "~/*": ["src/*"]

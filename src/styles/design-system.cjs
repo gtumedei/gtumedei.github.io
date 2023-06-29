@@ -17,9 +17,9 @@ module.exports = plugin(({ addComponents, addUtilities }) => {
       `,
       "&:disabled": {
         ...apply`!shadow-none cursor-not-allowed`,
-        "&:not(.loading)": apply`opacity-40`
+        "&:not(.loading)": apply`opacity-40`,
       },
-      ".icon": apply`text-base`
+      ".icon": apply`text-base`,
     },
     ".btn-accent": {
       ...apply`
@@ -28,7 +28,7 @@ module.exports = plugin(({ addComponents, addUtilities }) => {
         focus:shadow-xl focus:shadow-accent-20
         active:shadow-lg active:shadow-accent-20
       `,
-      "&:not(.loading):disabled": apply`bg-inverted-primary`
+      "&:not(.loading):disabled": apply`bg-inverted-primary`,
     },
     ".btn-outline": apply`
       border-neutral-8 text-accent bg-transparent
@@ -45,7 +45,7 @@ module.exports = plugin(({ addComponents, addUtilities }) => {
         hover:bg-accent-10 hover:text-accent hover:fill-accent
         focus:bg-accent-10 focus:text-accent focus:fill-accent
         active:bg-accent-20 active:text-accent active:fill-accent
-      `
+      `,
     },
 
     // Form elements
@@ -58,9 +58,9 @@ module.exports = plugin(({ addComponents, addUtilities }) => {
         pointer-events-none transition-colors
       `,
       "&:hover, &:focus-within": {
-        "& > .icon": apply`bg-accent-10 text-accent`
+        "& > .icon": apply`bg-accent-10 text-accent`,
       },
-      ".icon + .input, .icon + .textarea": apply`pl-14`
+      ".icon + .input, .icon + .textarea": apply`pl-14`,
     },
     ".input, .textarea": apply`
       bg-transparent rounded-xl px-4 py-3 outline-none
@@ -79,7 +79,7 @@ module.exports = plugin(({ addComponents, addUtilities }) => {
     ".badge": apply`
       text-xs font-bold uppercase tracking-wide text-inverted-neutral
       bg-accent rounded-full px-3 py-1
-    `
+    `,
   })
 
   addUtilities({
@@ -95,7 +95,7 @@ module.exports = plugin(({ addComponents, addUtilities }) => {
 
     // Motion base classes
     ".motion-1, .motion-2, .motion-3, .motion-4, .motion-5": {
-      opacity: 0
-    }
+      opacity: 0,
+    },
   })
 })

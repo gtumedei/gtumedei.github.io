@@ -11,9 +11,7 @@ const site = "https://gtumedei.io"
 
 export default defineConfig({
   output: "server",
-  adapter: process.env.ASTRO_ADAPTER == "node"
-    ? Node({ mode: "standalone" })
-    : Vercel(),
+  adapter: process.env.ASTRO_ADAPTER == "node" ? Node({ mode: "standalone" }) : Vercel(),
   site,
   integrations: [
     Sitemap({
@@ -22,19 +20,19 @@ export default defineConfig({
         `${site}/tech`,
         `${site}/contact`,
         `${site}/games`,
-        `${site}/games/color-guesser`
-      ]
+        `${site}/games/color-guesser`,
+      ],
     }),
     Solid(),
-    Tailwind()
+    Tailwind(),
   ],
   vite: {
     plugins: [
       Icons({
         compiler: "solid",
-        defaultClass: "icon"
+        defaultClass: "icon",
       }),
-      InlineCssModules()
-    ]
-  }
+      InlineCssModules(),
+    ],
+  },
 })

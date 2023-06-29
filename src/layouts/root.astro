@@ -20,9 +20,14 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
     <link rel="icon" type="image/svg" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fira+Code&display=swap" rel="stylesheet" />
-    {env.MODE == "production" &&
-      <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/stats.js`}></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+    {
+      env.MODE == "production" && (
+        <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/stats.js`} />
+      )
     }
     <title>{fullTitle}</title>
     <style>
@@ -36,7 +41,7 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
     <script>
       import { setAccent, setTheme } from "~/lib/theme"
       setTheme(localStorage.getItem("theme") as any)
-      setAccent(localStorage.getItem("accent") as any ?? "blue")
+      setAccent((localStorage.getItem("accent") as any) ?? "blue")
       document.body.style.visibility = "visible"
       document.body.style.opacity = "1"
     </script>
@@ -46,7 +51,11 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
           visibility: visible;
           opacity: 1;
         }
-        .motion-1, .motion-2, .motion-3, .motion-4, .motion-5 {
+        .motion-1,
+        .motion-2,
+        .motion-3,
+        .motion-4,
+        .motion-5 {
           opacity: 1;
         }
       </style>
