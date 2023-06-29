@@ -17,7 +17,7 @@
     "@astrojs/tailwind": "^3.1.1",
     "@astrojs/vercel": "^3.2.1",
     "@iconify-json/cib": "^1.1.4",
-    "@iconify-json/mdi": "^1.1.50",
+    "@iconify-json/tabler": "^1.1.80",
     "@solid-primitives/bounds": "^0.0.109",
     "@solid-primitives/keyboard": "^1.0.10",
     "@solid-primitives/mutation-observer": "^1.1.8",

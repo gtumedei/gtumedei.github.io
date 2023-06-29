@@ -1,8 +1,9 @@
+import tooltip from "~/lib/directives/tooltip"
+tooltip
 import GameLayout from "~/lib/layout/game-layout"
-import tooltip from "~/lib/directives/tooltip"; tooltip
 import AspectRatio from "~/lib/ui/aspect-ratio"
-import MdiMenu from "~icons/mdi/menu"
-import MdiPoll from "~icons/mdi/poll"
+import TablerChartBar from "~icons/tabler/chart-bar"
+import TablerMenu from "~icons/tabler/menu"
 import { Board } from "./board"
 import { createColorGuesserCtx, useColorGuesserCtx } from "./core"
 import { SettingsModal, StatsModal } from "./modals"
@@ -18,12 +19,16 @@ const MobileMenu = () => {
           class="btn btn-icon"
           onClick={() => ctx.setShowStatsModal(true)}
           use:tooltip={["Stats", "top"]}
-        ><MdiPoll /></button>
+        >
+          <TablerChartBar />
+        </button>
         <button
           class="btn btn-icon"
           onClick={() => ctx.setShowSettingsModal(true)}
           use:tooltip={["Menu", "top"]}
-        ><MdiMenu /></button>
+        >
+          <TablerMenu />
+        </button>
       </div>
     </header>
   )
@@ -46,12 +51,16 @@ const RightMenu = () => {
         class="btn btn-icon"
         onClick={() => ctx.setShowStatsModal(true)}
         use:tooltip={["Stats", "top"]}
-      ><MdiPoll /></button>
+      >
+        <TablerChartBar />
+      </button>
       <button
         class="btn btn-icon"
         onClick={() => ctx.setShowSettingsModal(true)}
         use:tooltip={["Menu", "top"]}
-      ><MdiMenu /></button>
+      >
+        <TablerMenu />
+      </button>
     </div>
   )
 }
@@ -61,11 +70,7 @@ const ColorGuesserGame = () => {
 
   return (
     <CtxProvider>
-      <GameLayout
-        mobileMenu={<MobileMenu />}
-        leftMenu={<LeftMenu />}
-        rightMenu={<RightMenu />}
-      >
+      <GameLayout mobileMenu={<MobileMenu />} leftMenu={<LeftMenu />} rightMenu={<RightMenu />}>
         <div class="relative h-full pt-3 pb-24">
           <AspectRatio w={1} h={1}>
             <Board />

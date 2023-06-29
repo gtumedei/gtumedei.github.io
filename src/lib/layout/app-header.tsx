@@ -1,14 +1,15 @@
 import { Component, createSignal } from "solid-js"
 import { css } from "vite-plugin-inline-css-modules"
-import tooltip from "~/lib/directives/tooltip"; tooltip
+import tooltip from "~/lib/directives/tooltip"
+tooltip
 import { accent, setAccent, setTheme, theme } from "~/lib/theme"
 import Popover from "~/lib/ui/popover"
-import MdiArrowLeftTop from "~icons/mdi/arrow-left-top"
-import MdiCircle from "~icons/mdi/circle"
-import MdiPaletteOutline from "~icons/mdi/palette-outline"
-import MdiThemeLightDark from "~icons/mdi/theme-light-dark"
-import MdiWeatherSunny from "~icons/mdi/weather-sunny"
-import MdiWeatherNight from "~icons/mdi/weather-night"
+import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
+import TablerCircleFilled from "~icons/tabler/circle-filled"
+import TablerMoonStars from "~icons/tabler/moon-stars"
+import TablerPalette from "~icons/tabler/palette"
+import TablerSun from "~icons/tabler/sun"
+import TablerSunMoon from "~icons/tabler/sun-moon"
 
 const ThemePopover = () => {
   const [show, setShow] = createSignal(false)
@@ -20,27 +21,39 @@ const ThemePopover = () => {
       setShow={setShow}
       trigger={
         <button class="btn btn-icon" onClick={() => setShow(true)} use:tooltip={["Theme", "left"]}>
-          <MdiPaletteOutline />
+          <TablerPalette />
         </button>
       }
     >
       <p class="text-sm mb-2">Theme</p>
       <div class="flex gap-2">
         <button
-          class={`btn btn-icon ${style.btnTheme} ${theme() == "light" ? "!border-accent" : ""} w-1/3 aspect-square`}
+          class={`btn btn-icon ${style.btnTheme} ${
+            theme() == "light" ? "!border-accent" : ""
+          } w-1/3 aspect-square`}
           onClick={() => setTheme("light")}
           use:tooltip={["Light theme", "bottom"]}
-        ><MdiWeatherSunny /></button>
+        >
+          <TablerSun />
+        </button>
         <button
-          class={`btn btn-icon ${style.btnTheme} ${theme() == "dark" ? "!border-accent" : ""} w-1/3 aspect-square`}
+          class={`btn btn-icon ${style.btnTheme} ${
+            theme() == "dark" ? "!border-accent" : ""
+          } w-1/3 aspect-square`}
           onClick={() => setTheme("dark")}
           use:tooltip={["Dark theme", "bottom"]}
-        ><MdiWeatherNight /></button>
+        >
+          <TablerMoonStars />
+        </button>
         <button
-          class={`btn btn-icon ${style.btnTheme} ${theme() == null ? "!border-accent" : ""} w-1/3 aspect-square`}
+          class={`btn btn-icon ${style.btnTheme} ${
+            theme() == null ? "!border-accent" : ""
+          } w-1/3 aspect-square`}
           onClick={() => setTheme(null)}
           use:tooltip={["System theme", "bottom"]}
-        ><MdiThemeLightDark /></button>
+        >
+          <TablerSunMoon />
+        </button>
       </div>
       <p class="text-sm mt-4 mb-2">Accent</p>
       <div class="flex gap-2">
@@ -49,28 +62,36 @@ const ThemePopover = () => {
             class={`btn btn-icon ${style.btnTheme} ${accent() == "blue" ? "!border-accent" : ""}`}
             use:tooltip={["Blue accent", "bottom"]}
             onClick={() => setAccent("blue")}
-          ><MdiCircle class="text-accent" /></button>
+          >
+            <TablerCircleFilled class="text-accent" />
+          </button>
         </div>
         <div class="accent-orange">
           <button
             class={`btn btn-icon ${style.btnTheme} ${accent() == "orange" ? "!border-accent" : ""}`}
             use:tooltip={["Orange accent", "bottom"]}
             onClick={() => setAccent("orange")}
-          ><MdiCircle class="text-accent" /></button>
+          >
+            <TablerCircleFilled class="text-accent" />
+          </button>
         </div>
         <div class="accent-teal">
           <button
             class={`btn btn-icon ${style.btnTheme} ${accent() == "teal" ? "!border-accent" : ""}`}
             use:tooltip={["Teal accent", "bottom"]}
             onClick={() => setAccent("teal")}
-          ><MdiCircle class="text-accent" /></button>
+          >
+            <TablerCircleFilled class="text-accent" />
+          </button>
         </div>
         <div class="accent-pink">
           <button
             class={`btn btn-icon ${style.btnTheme} ${accent() == "pink" ? "!border-accent" : ""}`}
             use:tooltip={["Pink accent", "bottom"]}
             onClick={() => setAccent("pink")}
-          ><MdiCircle class="text-accent" /></button>
+          >
+            <TablerCircleFilled class="text-accent" />
+          </button>
         </div>
       </div>
     </Popover>
@@ -86,13 +107,13 @@ const style = css`
 const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
   return (
     <header class="container max-w-4xl flex items-center p-3">
-      {props.showBackButton &&
+      {props.showBackButton && (
         <a href="/" class="btn btn-icon" use:tooltip={["Go Home", "right"]}>
-          <MdiArrowLeftTop />
+          <TablerArrowBackUp />
         </a>
-      }
+      )}
       <div class="flex-grow" />
-      <ThemePopover/>
+      <ThemePopover />
     </header>
   )
 }

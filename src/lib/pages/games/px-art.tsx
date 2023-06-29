@@ -1,43 +1,44 @@
 import { Component, For, mergeProps } from "solid-js"
 import { createStore } from "solid-js/store"
-import tooltip from "~/lib/directives/tooltip"; tooltip
+import tooltip from "~/lib/directives/tooltip"
+tooltip
 import AspectRatio from "~/lib/ui/aspect-ratio"
-import MdiCircle from "~icons/mdi/circle"
-import MdiFormatColorFill from "~icons/mdi/format-color-fill"
-import MdiEraser from "~icons/mdi/eraser"
-import MdiPencil from "~icons/mdi/pencil"
-import MdiRedo from "~icons/mdi/redo"
-import MdiTrashCan from "~icons/mdi/trash-can"
-import MdiTrayArrowDown from "~icons/mdi/tray-arrow-down"
-import MdiUndo from "~icons/mdi/undo"
+// import MdiCircle from "~icons/mdi/circle"
+// import MdiFormatColorFill from "~icons/mdi/format-color-fill"
+// import MdiEraser from "~icons/mdi/eraser"
+// import MdiPencil from "~icons/mdi/pencil"
+// import MdiRedo from "~icons/mdi/redo"
+// import MdiTrashCan from "~icons/mdi/trash-can"
+// import MdiTrayArrowDown from "~icons/mdi/tray-arrow-down"
+// import MdiUndo from "~icons/mdi/undo"
 
 const Toolbar = () => {
   return (
     <div class="w-full flex overflow-x-auto p-2 rounded-xl border">
       <button class="btn btn-icon ml-auto" use:tooltip={[() => "Pencil", "top"]}>
-        <MdiPencil />
+        {/* <MdiPencil /> */}
       </button>
       <button class="btn btn-icon" use:tooltip={[() => "Bucket", "top"]}>
-        <MdiFormatColorFill />
+        {/* <MdiFormatColorFill /> */}
       </button>
       <button class="btn btn-icon" use:tooltip={[() => "Eraser", "top"]}>
-        <MdiEraser />
+        {/* <MdiEraser /> */}
       </button>
       <button class="btn btn-icon" use:tooltip={[() => "Color", "top"]}>
-        <MdiCircle />
+        {/* <MdiCircle /> */}
       </button>
       <div class="flex-grow" />
       <button class="btn btn-icon" use:tooltip={[() => "Undo", "top"]}>
-        <MdiUndo />
+        {/* <MdiUndo /> */}
       </button>
       <button class="btn btn-icon" use:tooltip={[() => "Redo", "top"]}>
-        <MdiRedo />
+        {/* <MdiRedo /> */}
       </button>
       <button class="btn btn-icon" use:tooltip={[() => "Clear", "top"]}>
-        <MdiTrashCan />
+        {/* <MdiTrashCan /> */}
       </button>
       <button class="btn btn-icon" use:tooltip={[() => "Download image", "top"]}>
-        <MdiTrayArrowDown />
+        {/* <MdiTrayArrowDown /> */}
       </button>
     </div>
   )
@@ -48,8 +49,11 @@ type Pixel = { hexValue?: string }
 const Board: Component<{ size?: number }> = (props) => {
   const allProps = mergeProps({ size: 32 }, props)
   const [pixels, setPixels] = createStore(
-    new Array(allProps.size).fill(undefined).map(() =>
-      new Array(allProps.size).fill(undefined).map(() => ({ hexValue: undefined }))) as Pixel[][]
+    new Array(allProps.size)
+      .fill(undefined)
+      .map(() =>
+        new Array(allProps.size).fill(undefined).map(() => ({ hexValue: undefined }))
+      ) as Pixel[][]
   )
 
   const onClick = (i: number, j: number) => {
@@ -59,23 +63,29 @@ const Board: Component<{ size?: number }> = (props) => {
   return (
     <div class="relative rounded-xl border">
       <div class="aspect-square grid grid-rows-[repeat(32,1fr)] divide-y-[1px] divide-neutral-8">
-        <For each={pixels}>{(row) =>
-          <div class="grid grid-cols-[repeat(32,1fr)] divide-x-[1px] divide-neutral-8">
-            <For each={row}>{() => <div />}</For>
-          </div>
-        }</For>
+        <For each={pixels}>
+          {(row) => (
+            <div class="grid grid-cols-[repeat(32,1fr)] divide-x-[1px] divide-neutral-8">
+              <For each={row}>{() => <div />}</For>
+            </div>
+          )}
+        </For>
       </div>
       <div class="absolute inset-0 aspect-square grid grid-rows-[repeat(32,1fr)]">
-        <For each={pixels}>{(row, i) =>
-          <div class="grid grid-cols-[repeat(32,1fr)]">
-            <For each={row}>{(pixel, j) =>
-              <div
-                style={`background-color: ${pixel.hexValue ?? "transparent"};`}
-                onClick={() => onClick(i(), j())}
-              />
-            }</For>
-          </div>
-        }</For>
+        <For each={pixels}>
+          {(row, i) => (
+            <div class="grid grid-cols-[repeat(32,1fr)]">
+              <For each={row}>
+                {(pixel, j) => (
+                  <div
+                    style={`background-color: ${pixel.hexValue ?? "transparent"};`}
+                    onClick={() => onClick(i(), j())}
+                  />
+                )}
+              </For>
+            </div>
+          )}
+        </For>
       </div>
     </div>
   )

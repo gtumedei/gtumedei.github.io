@@ -1,8 +1,8 @@
 import { Component, For, JSX } from "solid-js"
 import { createTimeline, stagger } from "~/lib/motion"
-import MdiChevronRight from "~icons/mdi/chevron-right"
-import MdiEyedropperVariant from "~icons/mdi/eyedropper-variant"
-import MdiTimerSand from "~icons/mdi/timer-sand"
+import TablerChevronRight from "~icons/tabler/chevron-right"
+import TablerColorSwatch from "~icons/tabler/color-swatch"
+import TablerHourglass from "~icons/tabler/hourglass"
 
 type Game = {
   name: string
@@ -16,10 +16,10 @@ const games: Game[] = [
   {
     name: "Color Guesser",
     description: "Can you guess a color based on its code?",
-    icon: () => <MdiEyedropperVariant />,
+    icon: () => <TablerColorSwatch />,
     href: "/games/color-guesser",
-    available: true
-  }
+    available: true,
+  },
   /* {
     name: "Memory",
     description: "Just a minimalist memory game.",
@@ -45,14 +45,21 @@ const GameItem: Component<{
   class?: string
 }> = (props) => {
   return (
-    <a href={props.game.href} class={`
+    <a
+      href={props.game.href}
+      class={`
       card group relative flex flex-col items-center gap-2 p-2
       transition-colors hover:border-accent ${props.class ?? ""}
-    `}>
-      <div class="
+    `}
+    >
+      <div
+        class="
         w-full flex justify-center items-center bg-primary-focus text-xl rounded-lg px-6 py-18
         group-hover:bg-accent-10 group-hover:text-accent transition-colors
-      ">{props.game.icon}</div>
+      "
+      >
+        {props.game.icon}
+      </div>
       <div class="w-full p-2">
         <h2 class="section-subheading mb-1">{props.game.name}</h2>
         <p class="text-sm">{props.game.description}</p>
@@ -63,30 +70,42 @@ const GameItem: Component<{
 }
 
 const GamesPage = () => {
-
   createTimeline([
     [".motion-1", { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: stagger(0.15) }],
-    [".motion-2", { opacity: 1, scale: [0.95, 1], y: [10, 0] }, { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" }]
+    [
+      ".motion-2",
+      { opacity: 1, scale: [0.95, 1], y: [10, 0] },
+      { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" },
+    ],
   ])
 
   return (
     <>
       <h1 class="motion-1 section-heading mt-9 mb-2">Games</h1>
       <p class="motion-1 mb-12">
-        These are just some minigames I make for fun whenever I feel like to. Have fun with them!
-        Oh and by the way, do not hesitate to <a href="/contact" class="link">contact me<MdiChevronRight class="inline-block relative -top-px" /></a> if something is broken.
+        These are just some minigames I make for fun whenever I feel like to. Have fun with them! Oh
+        and by the way, do not hesitate to{" "}
+        <a href="/contact" class="link">
+          contact me
+          <TablerChevronRight class="inline-block relative -top-px" />
+        </a>{" "}
+        if something is broken.
       </p>
       <div class="grid gap-6 md:grid-cols-2">
-        <For each={games}>{game =>
-          <GameItem game={game} class="motion-2" />
-        }</For>
+        <For each={games}>{(game) => <GameItem game={game} class="motion-2" />}</For>
         <div class="card relative flex flex-col items-center gap-2 p-2 motion-2">
-          <div class="
+          <div
+            class="
             w-full flex justify-center items-center border border-dashed
             text-xl rounded-lg px-6 py-18
-          "><MdiTimerSand /></div>
+          "
+          >
+            <TablerHourglass />
+          </div>
           <div class="w-full p-2">
-            <p class="text-sm">More games coming soon! That is, when I find the time to create them :)</p>
+            <p class="text-sm">
+              More games coming soon! That is, when I find the time to create them :)
+            </p>
           </div>
         </div>
       </div>

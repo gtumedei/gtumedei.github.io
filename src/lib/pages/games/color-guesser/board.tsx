@@ -1,7 +1,7 @@
 import { Component, createSignal, Show, For } from "solid-js"
 import { Transition } from "solid-transition-group"
-import MdiCheck from "~icons/mdi/check"
-import MdiClose from "~icons/mdi/close"
+import TablerCheck from "~icons/tabler/check"
+import TablerX from "~icons/tabler/x"
 import { useColorGuesserCtx } from "./core"
 
 export const Tile: Component<{ color: string }> = (props) => {
@@ -10,7 +10,7 @@ export const Tile: Component<{ color: string }> = (props) => {
 
   const ctx = useColorGuesserCtx()
 
-  const sleep = (ms: number) => new Promise(r => setTimeout(r, ms))
+  const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
   const onClick = async () => {
     const correct = ctx.gameActions.registerGuess(props.color)
@@ -32,14 +32,24 @@ export const Tile: Component<{ color: string }> = (props) => {
       style={`background-color: ${props.color};`}
       onClick={onClick}
     >
-      <div class={`
+      <div
+        class={`
         absolute -inset-1.5 card border-accent pointer-events-none
         bg-white-12 opacity-0 group-hover:opacity-100 transition-all
         ${success() ? "!opacity-100 !bg-white-50" : ""}
         ${error() ? "!opacity-100 !bg-white-50" : ""}
-      `}>
-        <MdiCheck class={`absolute-center h-1/2 w-1/2 text-black-54 ${success() ? "opacity-100" : "opacity-0"} transition-opacity`} />
-        <MdiClose class={`absolute-center h-1/2 w-1/2 text-black-54 ${error() ? "opacity-100" : "opacity-0"} transition-opacity`} />
+      `}
+      >
+        <TablerCheck
+          class={`absolute-center h-1/2 w-1/2 text-black-54 ${
+            success() ? "opacity-100" : "opacity-0"
+          } transition-opacity`}
+        />
+        <TablerX
+          class={`absolute-center h-1/2 w-1/2 text-black-54 ${
+            error() ? "opacity-100" : "opacity-0"
+          } transition-opacity`}
+        />
       </div>
     </button>
   )
@@ -50,19 +60,25 @@ export const Board = () => {
 
   return (
     <Transition
-      enterClass="opacity-0" exitToClass="opacity-0"
-      enterActiveClass="transition-opacity" exitActiveClass="transition-opacity"
+      enterClass="opacity-0"
+      exitToClass="opacity-0"
+      enterActiveClass="transition-opacity"
+      exitActiveClass="transition-opacity"
       mode="outin"
     >
-      <Show when={ctx.game.colorGrid} keyed>{(colorGrid) => {
-        const grid = ctx.game.difficulty?.grid // Make the grid size non-reactive to avoid bad looking animations on difficulty change
-        return (
-          <div class="h-full grid gap-3" style={`grid-template-columns: repeat(${grid}, minmax(0, 1fr));`}>
-            <For each={colorGrid ?? []}>{(color) => <Tile color={color} />}</For>
-          </div>
-        )
-      }
-      }</Show>
+      <Show when={ctx.game.colorGrid} keyed>
+        {(colorGrid) => {
+          const grid = ctx.game.difficulty?.grid // Make the grid size non-reactive to avoid bad looking animations on difficulty change
+          return (
+            <div
+              class="h-full grid gap-3"
+              style={`grid-template-columns: repeat(${grid}, minmax(0, 1fr));`}
+            >
+              <For each={colorGrid ?? []}>{(color) => <Tile color={color} />}</For>
+            </div>
+          )
+        }}
+      </Show>
     </Transition>
   )
 }
