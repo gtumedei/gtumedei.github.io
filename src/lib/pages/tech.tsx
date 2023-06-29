@@ -33,8 +33,8 @@ const tech: Technology[] = [
     name: "TypeScript",
     icon: () => <CibTypescript />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#0284C7]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#0284C7]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#0284C7]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#0284C7]",
     },
     url: "https://www.typescriptlang.org/",
   },
@@ -42,8 +42,8 @@ const tech: Technology[] = [
     name: "JavaScript",
     icon: () => <CibJavascript />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#EAB308]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#EAB308]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#EAB308]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#EAB308]",
     },
     url: "https://www.javascript.com/",
   },
@@ -51,8 +51,8 @@ const tech: Technology[] = [
     name: "Vue.js",
     icon: () => <TablerBrandVue />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#00C985]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#00C985]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#00C985]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#00C985]",
     },
     url: "https://vuejs.org/",
   },
@@ -60,8 +60,8 @@ const tech: Technology[] = [
     name: "React",
     icon: () => <TablerBrandReact />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#33DBFB]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#33DBFB]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#33DBFB]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#33DBFB]",
     },
     url: "https://reactjs.org/",
   },
@@ -69,8 +69,8 @@ const tech: Technology[] = [
     name: "Svelte",
     icon: () => <TablerBrandSvelte />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#DC2626]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#DC2626]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#DC2626]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#DC2626]",
     },
     url: "https://svelte.dev/",
   },
@@ -78,8 +78,8 @@ const tech: Technology[] = [
     name: "Solid.js",
     icon: () => <TablerBrandSolidjs />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:fill-[#0EA5E9]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#0EA5E9]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:fill-[#0EA5E9]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#0EA5E9]",
     },
     url: "https://www.solidjs.com/",
   },
@@ -87,8 +87,8 @@ const tech: Technology[] = [
     name: "Electron",
     icon: () => <CibElectron />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#67E8F9]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#67E8F9]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#67E8F9]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#67E8F9]",
     },
     url: "https://www.electronjs.org/",
   },
@@ -96,8 +96,8 @@ const tech: Technology[] = [
     name: "HTML",
     icon: () => <TablerBrandHtml5 />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#EA580C]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#EA580C]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#EA580C]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#EA580C]",
     },
     url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
@@ -105,8 +105,8 @@ const tech: Technology[] = [
     name: "CSS",
     icon: () => <TablerBrandCss3 />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#2563EB]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#2563EB]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#2563EB]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#2563EB]",
     },
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
@@ -114,8 +114,8 @@ const tech: Technology[] = [
     name: "PHP",
     icon: () => <TablerBrandPhp />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#6D28D9]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#6D28D9]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#6D28D9]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#6D28D9]",
     },
     url: "https://www.php.net/",
   },
@@ -123,8 +123,8 @@ const tech: Technology[] = [
     name: "Go",
     icon: () => <TablerBrandGolang />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#00E5FF]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#00E5FF]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#00E5FF]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#00E5FF]",
     },
     url: "https://go.dev/",
   },
@@ -146,8 +146,8 @@ const tech: Technology[] = [
       </svg>
     ),
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#1976D2]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#1976D2]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#1976D2]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#1976D2]",
     },
     url: "https://dart.dev/",
   },
@@ -155,8 +155,8 @@ const tech: Technology[] = [
     name: "Flutter",
     icon: () => <TablerBrandFlutter />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#38BDF8]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#38BDF8]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#38BDF8]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#38BDF8]",
     },
     url: "https://flutter.dev/",
   },
@@ -164,8 +164,8 @@ const tech: Technology[] = [
     name: "C, C++",
     icon: () => <TablerBrandCpp />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#0369A1]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#0369A1]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#0369A1]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#0369A1]",
     },
     url: "https://www.cplusplus.com/",
   },
@@ -173,8 +173,8 @@ const tech: Technology[] = [
     name: "Java",
     icon: () => <CibJava />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#E11D48]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#E11D48]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#E11D48]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#E11D48]",
     },
     url: "https://www.java.com/",
   },
@@ -182,8 +182,8 @@ const tech: Technology[] = [
     name: "Scala",
     icon: () => <CibScala />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#E11D48]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#E11D48]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#E11D48]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#E11D48]",
     },
     url: "https://www.scala-lang.org/",
   },
@@ -191,8 +191,8 @@ const tech: Technology[] = [
     name: "Python",
     icon: () => <TablerBrandPython />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#EAB308]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#EAB308]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#EAB308]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#EAB308]",
     },
     url: "https://www.python.org/",
   },
@@ -200,8 +200,8 @@ const tech: Technology[] = [
     name: "Docker",
     icon: () => <TablerBrandDocker />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#0EA5E9]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#0EA5E9]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#0EA5E9]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#0EA5E9]",
     },
     url: "https://www.docker.com/",
   },
@@ -209,8 +209,8 @@ const tech: Technology[] = [
     name: "GraphQL",
     icon: () => <TablerBrandGraphql />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#DD36A3]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#DD36A3]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#DD36A3]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#DD36A3]",
     },
     url: "https://graphql.org/",
   },
@@ -218,8 +218,8 @@ const tech: Technology[] = [
     name: "SQL",
     icon: () => <TablerDatabase />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#FF7043]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#FF7043]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#FF7043]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#FF7043]",
     },
     url: "https://en.wikipedia.org/wiki/SQL",
   },
@@ -227,8 +227,8 @@ const tech: Technology[] = [
     name: "MongoDB",
     icon: () => <TablerBrandMongodb />,
     hover: {
-      text: "[&:hover>div>.icon-parent]:text-[#22C55E]",
-      bg: "[&:hover>div>.icon-parent]:bg-[#22C55E]",
+      text: "[&:where(:hover,:focus)>div>.icon-parent]:text-[#22C55E]",
+      bg: "[&:where(:hover,:focus)>div>.icon-parent]:bg-[#22C55E]",
     },
     url: "https://www.mongodb.com/",
   },
@@ -244,7 +244,7 @@ const TechItem: Component<{
       <a
         href={props.item.url}
         target="_blank"
-        class={`relative flex flex-col gap-2 ${props.item.hover.text} ${props.item.hover.bg}`}
+        class={`relative flex flex-col gap-2 outline-none ${props.item.hover.text} ${props.item.hover.bg}`}
       >
         <div class="flex bg-primary mx-auto mb-7">
           <div

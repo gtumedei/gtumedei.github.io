@@ -4,7 +4,7 @@ const apply = require("./apply.cjs")
 module.exports = plugin(({ addComponents, addUtilities }) => {
   addComponents({
     // Links
-    ".link": apply`text-accent hover:underline`,
+    ".link": apply`text-accent hover:underline focus:outline-accent`,
 
     // Buttons
     ".btn": {

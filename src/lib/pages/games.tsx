@@ -47,17 +47,11 @@ const GameItem: Component<{
   return (
     <a
       href={props.game.href}
-      class={`
-      card group relative flex flex-col items-center gap-2 p-2
-      transition-colors hover:border-accent ${props.class ?? ""}
-    `}
+      class={`card group relative flex flex-col items-center gap-2 p-2 transition-colors outline-none hover:border-accent focus:border-accent ${
+        props.class ?? ""
+      }`}
     >
-      <div
-        class="
-        w-full flex justify-center items-center bg-primary-focus text-xl rounded-lg px-6 py-18
-        group-hover:bg-accent-10 group-hover:text-accent transition-colors
-      "
-      >
+      <div class=" w-full flex justify-center items-center bg-primary-focus text-xl rounded-lg px-6 py-18 group-hover:bg-accent-10 group-hover:text-accent group-focus:bg-accent-10 group-focus:text-accent transition-colors">
         {props.game.icon}
       </div>
       <div class="w-full p-2">
