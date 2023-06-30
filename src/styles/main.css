@@ -1,9 +1,7 @@
 @import "./themes.css";
 
 html {
-  @apply min-h-full m-0 p-0
-  bg-primary
-  font-mono text-neutral;
+  @apply min-h-full bg-primary font-mono text-neutral;
 }
 
 html.theme-dark {
@@ -17,7 +15,7 @@ html.theme-dark {
 }
 
 body {
-  @apply m-0 p-0 flex flex-col items-center;
+  @apply flex flex-col items-center;
 }
 
 * {
@@ -33,18 +31,6 @@ h6 {
   @apply font-serif;
 }
 
-/* Transitions */
-
-.fade-enter,
-.fade-exit-to {
-  @apply opacity-0;
-}
-
-.fade-enter-active,
-.fade-exit-active {
-  @apply transition-opacity;
-}
-
 /* Tooltips */
 
 [data-tippy-root] {
@@ -52,8 +38,7 @@ h6 {
 }
 
 .tippy-box {
-  @apply relative text-sm whitespace-normal outline-none transition-all
-  bg-inverted-primary text-inverted-neutral rounded-md;
+  @apply relative text-sm whitespace-normal outline-none transition-all bg-inverted-primary text-inverted-neutral rounded-md;
 
   &[data-animation="fade"][data-state="hidden"] {
     @apply opacity-0;
