@@ -29,8 +29,8 @@ const Popover: ParentComponent<{
       {props.trigger}
 
       <Transition
-        enterClass="opacity-0 transform translate-x-2 -translate-y-2"
-        exitToClass="opacity-0 transform translate-x-2 -translate-y-2"
+        enterClass="opacity-0 transform translate-y-1"
+        exitToClass="opacity-0 transform translate-y-1"
         enterActiveClass="transition-all"
         exitActiveClass="transition-all"
       >

@@ -1,4 +1,5 @@
 import { For } from "solid-js"
+import Avatar from "~/lib/avatar"
 import tooltip from "~/lib/directives/tooltip"
 import { createTimeline, stagger } from "~/lib/motion"
 tooltip
@@ -64,6 +65,7 @@ const HomePage = () => {
     <div class="w-full grid md:grid-cols-2 gap-6 md:m-auto">
       <div class="flex flex-col justify-center my-12 md:m-0">
         <div class="flex flex-col justify-center pl-2">
+          {/* <Avatar clothing={"hoodie"} accessory={null} top={null} class="h-28 mr-auto mb-6" /> */}
           <img
             src="/profile.jpg"
             class="motion-1 h-18 w-18 rounded-full shadow-lg mb-6"

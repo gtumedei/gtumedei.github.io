@@ -25,7 +25,7 @@ const ThemePopover = () => {
         </button>
       }
     >
-      <p class="text-sm mb-2">Theme</p>
+      <p class="text-sm ml-1 mb-2">Theme</p>
       <div class="flex gap-2">
         <button
           class={`btn btn-icon ${style.btnTheme} ${
@@ -55,7 +55,7 @@ const ThemePopover = () => {
           <TablerSunMoon />
         </button>
       </div>
-      <p class="text-sm mt-4 mb-2">Accent</p>
+      <p class="text-sm mt-4 ml-1 mb-2">Accent</p>
       <div class="flex gap-2">
         <div class="accent-blue">
           <button
