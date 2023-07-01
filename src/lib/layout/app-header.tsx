@@ -16,7 +16,7 @@ const ThemePopover = () => {
 
   return (
     <Popover
-      class="absolute top-0 right-0 card bg-primary-focus p-4 shadow-xl z-30"
+      class="absolute top-0 right-0 card bg-base-focus p-4 shadow-xl z-30"
       show={show()}
       setShow={setShow}
       trigger={
@@ -100,7 +100,7 @@ const ThemePopover = () => {
 
 const style = css`
   .btnTheme {
-    @apply border-neutral-8 hover:border-accent;
+    @apply border-content/8 hover:border-accent;
   }
 `
 

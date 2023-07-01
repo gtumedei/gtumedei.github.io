@@ -6,7 +6,7 @@ const LoadingSpinner: Component<{ inverted?: boolean }> = (props) => {
     <div
       class={`
       ${style.spinner} h-5 w-5 rounded-full border-2 border-b-transparent
-      ${props.inverted ? "border-inverted-neutral" : "border-neutral"}
+      ${props.inverted ? "border-inverted-content" : "border-content"}
     `}
     />
   )

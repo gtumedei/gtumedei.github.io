@@ -19,7 +19,7 @@ const ModalCard: ParentComponent<ModalProps> = (props) => {
 
   return (
     <div
-      class={`card container max-w-lg p-6 bg-primary shadow-xl m-auto pointer-events-auto ${
+      class={`card container max-w-lg p-6 bg-base shadow-xl m-auto pointer-events-auto ${
         props.class
       } ${!props.class?.includes("w-") ? "w-min" : ""}`}
       use:clickOutside={[closeModal]}
@@ -52,7 +52,7 @@ const Modal: ParentComponent<ModalProps> = (props) => {
           enterActiveClass="transition-opacity"
           exitActiveClass="transition-opacity"
         >
-          {props.show && <div class="fixed inset-0 bg-black-38 z-[35]" />}
+          {props.show && <div class="fixed inset-0 bg-black/40 z-[35]" />}
         </Transition>
       </Portal>
     </>

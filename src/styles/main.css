@@ -1,7 +1,7 @@
 @import "./themes.css";
 
 html {
-  @apply min-h-full bg-primary font-mono text-neutral;
+  @apply min-h-full bg-base font-mono text-content;
 }
 
 html.theme-dark {
@@ -38,7 +38,7 @@ h6 {
 }
 
 .tippy-box {
-  @apply relative text-sm whitespace-normal outline-none transition-all bg-inverted-primary text-inverted-neutral rounded-md;
+  @apply relative text-sm whitespace-normal outline-none transition-all bg-inverted-base text-inverted-content rounded-md;
 
   &[data-animation="fade"][data-state="hidden"] {
     @apply opacity-0;

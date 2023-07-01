@@ -1,5 +1,5 @@
 import { For } from "solid-js"
-import Avatar from "~/lib/avatar"
+// import Avatar from "~/lib/avatar"
 import tooltip from "~/lib/directives/tooltip"
 import { createTimeline, stagger } from "~/lib/motion"
 tooltip
@@ -104,7 +104,7 @@ const HomePage = () => {
               href={page.href}
               class="motion-3 card flex gap-6 items-center p-2 transition-colors hover:border-accent focus:border-accent outline-none group"
             >
-              <div class="flex bg-primary-focus rounded-lg p-6 group-hover:bg-accent-10 group-hover:text-accent group-focus:bg-accent-10 group-focus:text-accent transition-colors">
+              <div class="flex bg-base-focus rounded-lg p-6 group-hover:bg-accent/10 group-hover:text-accent group-focus:bg-accent/10 group-focus:text-accent transition-colors">
                 {page.icon}
               </div>
               <div class="flex-grow">

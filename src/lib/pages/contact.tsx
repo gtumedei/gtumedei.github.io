@@ -152,7 +152,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
         show={showSuccessModal()}
         setShow={setShowSuccessModal}
       >
-        <div class="bg-primary-focus flex rounded-full p-6 mb-6">
+        <div class="bg-base-focus flex rounded-full p-6 mb-6">
           <TablerRocket class="text-xl text-accent" />
         </div>
         <h4 class="section-subheading mb-2">Message sent</h4>
@@ -171,7 +171,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
         show={showErrorModal()}
         setShow={setShowErrorModal}
       >
-        <div class="bg-primary-focus flex rounded-full p-6 mb-6">
+        <div class="bg-base-focus flex rounded-full p-6 mb-6">
           <TablerMoodSad class="text-xl text-accent" />
         </div>
         <h4 class="section-subheading mb-2">

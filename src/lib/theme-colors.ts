@@ -1,6 +1,8 @@
 import { createMutationObserver } from "@solid-primitives/mutation-observer"
 import { createStore } from "solid-js/store"
 
+// TODO: update for the new theming system
+
 export type ThemeColors = {
   // Base colors
 
@@ -99,12 +101,12 @@ export const useThemeColors = () => {
 
   const computeThemeColors = () => {
     const style = getComputedStyle(document.documentElement)
-    const isDark = !(style.getPropertyValue("--color-primary") == "#FFFFFF")
+    const isDark = !(style.getPropertyValue("--color-base") == "#FFFFFF")
     setThemeColors({
-      primary100: style.getPropertyValue("--color-primary-100").trim(),
-      primary200: style.getPropertyValue("--color-primary-200").trim(),
-      primary700: style.getPropertyValue("--color-primary-700").trim(),
-      primary800: style.getPropertyValue("--color-primary-800").trim(),
+      primary100: style.getPropertyValue("--color-base-100").trim(),
+      primary200: style.getPropertyValue("--color-base-200").trim(),
+      primary700: style.getPropertyValue("--color-base-700").trim(),
+      primary800: style.getPropertyValue("--color-base-800").trim(),
       white100: style.getPropertyValue("--color-white-100").trim(),
       white70: style.getPropertyValue("--color-white-70").trim(),
       white50: style.getPropertyValue("--color-white-50").trim(),
@@ -139,23 +141,23 @@ export const useThemeColors = () => {
       lightPink: style.getPropertyValue("--color-light-pink").trim(),
       lightPink20: style.getPropertyValue("--color-light-pink-20").trim(),
       lightPink10: style.getPropertyValue("--color-light-pink-10").trim(),
-      primary: style.getPropertyValue("--color-primary").trim(),
-      primaryDark: style.getPropertyValue("--color-primary-focus").trim(),
-      neutral100: style.getPropertyValue("--color-neutral-100").trim(),
-      neutral70: style.getPropertyValue("--color-neutral-70").trim(),
-      neutral40: style.getPropertyValue("--color-neutral-40").trim(),
-      neutral12: style.getPropertyValue("--color-neutral-12").trim(),
-      neutral8: style.getPropertyValue("--color-neutral-8").trim(),
-      invertedPrimary: style.getPropertyValue("--color-inverted-primary").trim(),
-      invertedPrimaryDark: style.getPropertyValue("--color-inverted-primary-focus").trim(),
-      invertedNeutral100: style.getPropertyValue("--color-inverted-neutral-100").trim(),
-      invertedNeutral70: style.getPropertyValue("--color-inverted-neutral-70").trim(),
-      invertedNeutral40: style.getPropertyValue("--color-inverted-neutral-40").trim(),
-      invertedNeutral12: style.getPropertyValue("--color-inverted-neutral-12").trim(),
-      invertedNeutral8: style.getPropertyValue("--color-inverted-neutral-8").trim(),
+      primary: style.getPropertyValue("--color-base").trim(),
+      primaryDark: style.getPropertyValue("--color-base-focus").trim(),
+      neutral100: style.getPropertyValue("--color-content-100").trim(),
+      neutral70: style.getPropertyValue("--color-content-70").trim(),
+      neutral40: style.getPropertyValue("--color-content-40").trim(),
+      neutral12: style.getPropertyValue("--color-content-12").trim(),
+      neutral8: style.getPropertyValue("--color-content-8").trim(),
+      invertedPrimary: style.getPropertyValue("--color-inverted-base").trim(),
+      invertedPrimaryDark: style.getPropertyValue("--color-inverted-base-focus").trim(),
+      invertedNeutral100: style.getPropertyValue("--color-inverted-content-100").trim(),
+      invertedNeutral70: style.getPropertyValue("--color-inverted-content-70").trim(),
+      invertedNeutral40: style.getPropertyValue("--color-inverted-content-40").trim(),
+      invertedNeutral12: style.getPropertyValue("--color-inverted-content-12").trim(),
+      invertedNeutral8: style.getPropertyValue("--color-inverted-content-8").trim(),
       accent: style.getPropertyValue("--color-accent").trim(),
-      accent20: style.getPropertyValue("--color-accent-20").trim(),
-      accent10: style.getPropertyValue("--color-accent-10").trim(),
+      accent20: style.getPropertyValue("--color-accent/20").trim(),
+      accent10: style.getPropertyValue("--color-accent/10").trim(),
       blue: style.getPropertyValue(isDark ? "--color-blue" : "--color-light-blue").trim(),
       blue20: style.getPropertyValue(isDark ? "--color-blue-20" : "--color-light-blue-20").trim(),
       blue10: style.getPropertyValue(isDark ? "--color-blue-10" : "--color-light-blue-10").trim(),

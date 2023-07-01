@@ -35,20 +35,20 @@ export const Tile: Component<{ color: string }> = (props) => {
       <div
         class={`
         absolute -inset-1.5 card border-accent pointer-events-none
-        bg-white-12 opacity-0 group-hover:opacity-100 transition-all
-        ${success() ? "!opacity-100 !bg-white-50" : ""}
-        ${error() ? "!opacity-100 !bg-white-50" : ""}
+        bg-white/12 opacity-0 group-hover:opacity-100 transition-all
+        ${success() ? "!opacity-100 !bg-white/50" : ""}
+        ${error() ? "!opacity-100 !bg-white/50" : ""}
       `}
       >
         <TablerCheck
-          class={`absolute-center h-1/2 w-1/2 text-black-54 ${
+          class={`absolute-center h-1/2 w-1/2 text-black/50 transition-opacity ${
             success() ? "opacity-100" : "opacity-0"
-          } transition-opacity`}
+          }`}
         />
         <TablerX
-          class={`absolute-center h-1/2 w-1/2 text-black-54 ${
+          class={`absolute-center h-1/2 w-1/2 text-black/50 transition-opacity ${
             error() ? "opacity-100" : "opacity-0"
-          } transition-opacity`}
+          }`}
         />
       </div>
     </button>
