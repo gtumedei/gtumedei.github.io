@@ -138,21 +138,21 @@
 
   &.accent-blue,
   .accent-blue {
-    --color-accent: var(--color-light-blue);
+    --color-accent: var(--color-light-blue) !important;
   }
 
   &.accent-orange,
   .accent-orange {
-    --color-accent: var(--color-light-orange);
+    --color-accent: var(--color-light-orange) !important;
   }
 
   &.accent-teal,
   .accent-teal {
-    --color-accent: var(--color-light-teal);
+    --color-accent: var(--color-light-teal) !important;
   }
 
   &.accent-pink,
   .accent-pink {
-    --color-accent: var(--color-light-pink);
+    --color-accent: var(--color-light-pink) !important;
   }
 }
