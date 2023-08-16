@@ -1,8 +1,8 @@
 import { createSignal } from "solid-js"
 import { createStore } from "solid-js/store"
 import { create } from "~/lib/context"
-import { createTypedStorage } from "~/lib/typed-storage"
 import { pickRandom, scrambleHex, hexToRgb, hexToHsl } from "./utils"
+import { makePersisted } from "@solid-primitives/storage"
 
 export type Difficulty = { label: string; grid: number }
 export type ColorMode = (typeof modes)[number]
@@ -13,12 +13,6 @@ export type Game = {
   streak: number
   color: string
   colorGrid: string[]
-}
-type GameStorage = {
-  streak: number
-  streakDifficulty: string
-  rightGuesses: number
-  wrongGuesses: number
 }
 
 const difficulties: Difficulty[] = [
@@ -61,13 +55,18 @@ export const [createColorGuesserCtx, useColorGuesserCtx] = create(() => {
     color: "---",
     colorGrid: [],
   })
-  const [storage, setStorage] = createTypedStorage<GameStorage>("gtumedei.color-guesser")
-  const resetStorage = () => {
-    setStorage("streak", 0)
-    setStorage("streakDifficulty", 0)
-    setStorage("rightGuesses", 0)
-    setStorage("wrongGuesses", 0)
+
+  const initialStats = {
+    streak: 0,
+    streakDifficulty: "",
+    rightGuesses: 0,
+    wrongGuesses: 0,
   }
+  const [stats, setStats] = makePersisted(createStore({ ...initialStats }), {
+    name: "gtumedei.color-guesser",
+    storage: localStorage,
+  })
+  const resetStorage = () => setStats({ ...initialStats })
 
   const createColorGrid = (size: number, mode: ColorMode) => {
     let grid = new Array(size * size).fill(0).map(() => pickRandom(colors))
@@ -94,14 +93,14 @@ export const [createColorGuesserCtx, useColorGuesserCtx] = create(() => {
     const correct = color == game.color
     if (correct) {
       setGame("streak", (v) => v + 1)
-      setStorage("rightGuesses", (storage.rightGuesses ?? 0) + 1)
-      if (game.streak > (storage.streak ?? 0)) {
-        setStorage("streak", game.streak)
-        setStorage("streakDifficulty", game.difficulty.label)
+      setStats("rightGuesses", (stats.rightGuesses ?? 0) + 1)
+      if (game.streak > (stats.streak ?? 0)) {
+        setStats("streak", game.streak)
+        setStats("streakDifficulty", game.difficulty.label)
       }
     } else {
       setGame("streak", 0)
-      setStorage("wrongGuesses", (storage.wrongGuesses ?? 0) + 1)
+      setStats("wrongGuesses", (stats.wrongGuesses ?? 0) + 1)
     }
     return correct
   }
@@ -119,7 +118,7 @@ export const [createColorGuesserCtx, useColorGuesserCtx] = create(() => {
     modes,
     game,
     gameActions: { startGame, registerGuess, nextColor },
-    storage,
+    storage: stats,
     resetStorage,
     showSettingsModal,
     setShowSettingsModal,

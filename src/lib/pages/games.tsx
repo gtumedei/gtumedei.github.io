@@ -52,7 +52,7 @@ const GameItem: Component<{
       }`}
     >
       <div class=" w-full flex justify-center items-center bg-base-focus text-xl rounded-lg px-6 py-18 group-hover:bg-accent/10 group-hover:text-accent group-focus:bg-accent/10 group-focus:text-accent transition-colors">
-        {props.game.icon}
+        {props.game.icon()}
       </div>
       <div class="w-full p-2">
         <h2 class="section-subheading mb-1">{props.game.name}</h2>

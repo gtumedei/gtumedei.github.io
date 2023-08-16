@@ -4,6 +4,9 @@ import Solid from "@astrojs/solid-js"
 import Tailwind from "@astrojs/tailwind"
 import Vercel from "@astrojs/vercel/serverless"
 import { defineConfig } from "astro/config"
+import Autoprefixer from "autoprefixer"
+import TailwindCSS from "tailwindcss"
+import TailwindNesting from "tailwindcss/nesting"
 import Icons from "unplugin-icons/vite"
 import InlineCssModules from "vite-plugin-inline-css-modules"
 
@@ -13,6 +16,9 @@ export default defineConfig({
   output: "server",
   adapter: process.env.ASTRO_ADAPTER == "node" ? Node({ mode: "standalone" }) : Vercel(),
   site,
+  /* experimental: {
+    viewTransitions: true,
+  }, */
   integrations: [
     Sitemap({
       customPages: [
@@ -34,5 +40,10 @@ export default defineConfig({
       }),
       InlineCssModules(),
     ],
+    css: {
+      postcss: {
+        plugins: [TailwindNesting, Autoprefixer, TailwindCSS],
+      },
+    },
   },
 })

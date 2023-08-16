@@ -15,7 +15,7 @@ const AspectRatio: ParentComponent<{ w: number; h: number }> = (props) => {
       computedHeight > height ? { height, width: computedWidth } : { height: computedHeight, width }
     )
   }, 200)
-  createEffect(() => onBoundsChange(bounds.height, bounds.width))
+  createEffect(() => onBoundsChange(bounds.height ?? 0, bounds.width ?? 0))
 
   return (
     <div ref={wrapper} class="relative flex-grow w-full h-full">

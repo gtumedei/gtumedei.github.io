@@ -12,7 +12,7 @@ const { title, description, showBackButton = true } = Astro.props as Props
 ---
 
 <Root title={title} description={description}>
-  <AppHeader showBackButton={showBackButton} client:load />
+  <AppHeader client:load showBackButton={showBackButton} />
   <main class="container relative max-w-4xl flex-grow flex flex-col px-6">
     <slot />
   </main>
