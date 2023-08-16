@@ -3,6 +3,7 @@ import { onMount, type ParentComponent, type Setter } from "solid-js"
 import { Portal } from "solid-js/web"
 import { Transition } from "solid-transition-group"
 import clickOutside from "~/lib/directives/click-outside"
+
 clickOutside
 
 type ModalProps = {

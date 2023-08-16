@@ -1,9 +1,7 @@
 import { Component, createMemo, createSignal, onMount } from "solid-js"
 import { createStore } from "solid-js/store"
 import model from "~/lib/directives/model"
-model
 import tooltip from "~/lib/directives/tooltip"
-tooltip
 import { createTimeline, stagger } from "~/lib/motion"
 import LoadingSpinner from "~/lib/ui/loading-spinner"
 import Modal from "~/lib/ui/modal"
@@ -14,6 +12,9 @@ import TablerMail from "~icons/tabler/mail"
 import TablerMoodSad from "~icons/tabler/mood-sad"
 import TablerRocket from "~icons/tabler/rocket"
 import TablerUser from "~icons/tabler/user"
+
+model
+tooltip
 
 const ContactForm: Component<{ class?: string }> = (props) => {
   const defaultData: ContactApiSchema = { name: "", email: "", subject: "", message: "" }

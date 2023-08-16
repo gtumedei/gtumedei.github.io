@@ -6,17 +6,16 @@ import Root from "./root.astro"
 export interface Props {
   title?: string
   description?: string
-  showBackButton?: boolean
 }
-const { title, description, showBackButton = true } = Astro.props as Props
+const { title, description } = Astro.props as Props
 ---
 
 <Root title={title} description={description}>
-  <AppHeader client:load showBackButton={showBackButton} />
+  <AppHeader client:load transition:persist />
   <main class="container relative max-w-4xl flex-grow flex flex-col px-6">
     <slot />
   </main>
-  <AppFooter />
+  <AppFooter transition:persist />
   <style>
     body {
       @apply min-h-screen;

@@ -1,5 +1,5 @@
 ---
-// import { ViewTransitions } from "astro:transitions"
+import { ViewTransitions } from "astro:transitions"
 import { ANALYTICS_URL, WEBSITE_ID } from "~/lib/server/analytics"
 import { env } from "~/lib/server/env"
 import "~/styles/main.css"
@@ -37,7 +37,18 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
         opacity: 0;
       }
     </style>
-    <!-- <ViewTransitions /> -->
+    <noscript>
+      <style>
+        .motion-1,
+        .motion-2,
+        .motion-3,
+        .motion-4,
+        .motion-5 {
+          opacity: 1 !important;
+        }
+      </style>
+    </noscript>
+    <ViewTransitions />
   </head>
   <body>
     <script>
@@ -52,13 +63,6 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
         body {
           visibility: visible;
           opacity: 1;
-        }
-        .motion-1,
-        .motion-2,
-        .motion-3,
-        .motion-4,
-        .motion-5 {
-          opacity: 1 !important;
         }
       </style>
     </noscript>

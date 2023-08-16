@@ -2,7 +2,6 @@ import { For } from "solid-js"
 // import Avatar from "~/lib/avatar"
 import tooltip from "~/lib/directives/tooltip"
 import { createTimeline, stagger } from "~/lib/motion"
-tooltip
 import TablerApps from "~icons/tabler/apps"
 import TablerBrandGithub from "~icons/tabler/brand-github"
 import TablerBrandLinkedin from "~icons/tabler/brand-linkedin"
@@ -10,6 +9,8 @@ import TablerBrandTelegram from "~icons/tabler/brand-telegram"
 import TablerDeviceGamepad2 from "~icons/tabler/device-gamepad-2"
 import TablerDownload from "~icons/tabler/download"
 import TablerMapPin from "~icons/tabler/map-pin"
+
+tooltip
 
 const HomePage = () => {
   const links = [

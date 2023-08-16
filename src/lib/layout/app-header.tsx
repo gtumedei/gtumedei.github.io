@@ -1,15 +1,17 @@
-import { Component, createSignal } from "solid-js"
+import { Show, createSignal } from "solid-js"
 import { css } from "vite-plugin-inline-css-modules"
 import tooltip from "~/lib/directives/tooltip"
-tooltip
 import { accent, setAccent, setTheme, theme } from "~/lib/theme"
 import Popover from "~/lib/ui/popover"
+import { onAstroBeforeLoad } from "~/lib/view-transition"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerCircleFilled from "~icons/tabler/circle-filled"
 import TablerMoonStars from "~icons/tabler/moon-stars"
 import TablerPalette from "~icons/tabler/palette"
 import TablerSun from "~icons/tabler/sun"
 import TablerSunMoon from "~icons/tabler/sun-moon"
+
+tooltip
 
 const ThemePopover = () => {
   const [show, setShow] = createSignal(false)
@@ -104,14 +106,17 @@ const style = css`
   }
 `
 
-const AppHeader: Component<{ showBackButton: boolean }> = (props) => {
+const AppHeader = () => {
+  const [showBackBtn, setShowBackBtn] = createSignal(false)
+  onAstroBeforeLoad(() => setShowBackBtn(location.pathname != "/"))
+
   return (
     <header class="container max-w-4xl flex items-center p-3">
-      {props.showBackButton && (
+      <Show when={showBackBtn()}>
         <a href="/" class="btn btn-icon" use:tooltip={["Go Home", "right"]}>
           <TablerArrowBackUp />
         </a>
-      )}
+      </Show>
       <div class="flex-grow" />
       <ThemePopover />
     </header>

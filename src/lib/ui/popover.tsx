@@ -1,7 +1,8 @@
 import { createShortcut } from "@solid-primitives/keyboard"
-import { type Setter, type ParentComponent, type JSX, onMount } from "solid-js"
+import { onMount, type JSX, type ParentComponent, type Setter } from "solid-js"
 import { Transition } from "solid-transition-group"
 import clickOutside from "~/lib/directives/click-outside"
+
 clickOutside
 
 const PopoverContent: ParentComponent<{

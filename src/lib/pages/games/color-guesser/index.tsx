@@ -1,5 +1,4 @@
 import tooltip from "~/lib/directives/tooltip"
-tooltip
 import GameLayout from "~/lib/layout/game-layout"
 import AspectRatio from "~/lib/ui/aspect-ratio"
 import TablerChartBar from "~icons/tabler/chart-bar"
@@ -7,6 +6,8 @@ import TablerMenu from "~icons/tabler/menu"
 import { Board } from "./board"
 import { createColorGuesserCtx, useColorGuesserCtx } from "./core"
 import { SettingsModal, StatsModal } from "./modals"
+
+tooltip
 
 const MobileMenu = () => {
   const ctx = useColorGuesserCtx()

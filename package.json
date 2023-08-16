@@ -19,6 +19,7 @@
     "@iconify-json/cib": "^1.1.5",
     "@iconify-json/tabler": "^1.1.80",
     "@solid-primitives/bounds": "^0.0.116",
+    "@solid-primitives/event-listener": "^2.2.14",
     "@solid-primitives/keyboard": "^1.2.4",
     "@solid-primitives/mutation-observer": "^1.1.14",
     "@solid-primitives/scheduled": "^1.4.1",
