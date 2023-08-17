@@ -7,7 +7,6 @@ import LoadingSpinner from "~/lib/ui/loading-spinner"
 import Modal from "~/lib/ui/modal"
 import type { ContactApiSchema } from "~/pages/api/contact"
 import TablerAlertCircle from "~icons/tabler/alert-circle"
-import TablerBrandTelegram from "~icons/tabler/brand-telegram"
 import TablerMail from "~icons/tabler/mail"
 import TablerMoodSad from "~icons/tabler/mood-sad"
 import TablerRocket from "~icons/tabler/rocket"
@@ -138,8 +137,7 @@ const ContactForm: Component<{ class?: string }> = (props) => {
             disabled={!canSubmit()}
           >
             <div class={`flex gap-4 transition-opacity ${isLoading() ? "opacity-0" : ""}`}>
-              <span>Send</span>
-              <TablerBrandTelegram />
+              Send
             </div>
             <div class={`absolute-center transition-opacity ${!isLoading() ? "opacity-0" : ""}`}>
               <LoadingSpinner inverted />

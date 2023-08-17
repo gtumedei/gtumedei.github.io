@@ -79,7 +79,7 @@ export default {
           "&:not(.loading):disabled": apply`bg-inverted-base`,
           ".icon": apply`text-inverted-content`,
         },
-        ".btn-outline": apply`border text-accent bg-transparent hover:bg-accent/10 hover:border-accent focus:bg-accent/10 focus:border-accent active:bg-accent/20 active:border-accent`,
+        ".btn-outline": apply`border-content/8 text-accent bg-transparent hover:bg-accent/10 hover:border-accent focus:bg-accent/10 focus:border-accent active:bg-accent/20 active:border-accent`,
         ".btn-transparent": apply`bg-transparent hover:bg-content/8 focus:bg-content/8 active:bg-content/12`,
         ".btn-icon": {
           ...apply`p-3 bg-transparent`,

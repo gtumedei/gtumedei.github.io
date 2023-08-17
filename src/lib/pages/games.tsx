@@ -77,8 +77,8 @@ const GamesPage = () => {
     <>
       <h1 class="motion-1 section-heading mt-9 mb-2">Games</h1>
       <p class="motion-1 mb-12">
-        These are just some minigames I make for fun whenever I feel like to. Have fun with them! Oh
-        and by the way, do not hesitate to{" "}
+        These are just some minigames I make for fun whenever I feel like to. Enjoy them! Oh and by
+        the way, do not hesitate to{" "}
         <a href="/contact" class="link">
           contact me
           <TablerChevronRight class="inline-block relative -top-px" />

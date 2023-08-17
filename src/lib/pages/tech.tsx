@@ -13,11 +13,13 @@ import TablerBrandFlutter from "~icons/tabler/brand-flutter"
 import TablerBrandGolang from "~icons/tabler/brand-golang"
 import TablerBrandGraphql from "~icons/tabler/brand-graphql"
 import TablerBrandHtml5 from "~icons/tabler/brand-html5"
+import TablerBrandKotlin from "~icons/tabler/brand-kotlin"
 import TablerBrandMongodb from "~icons/tabler/brand-mongodb"
 import TablerBrandPython from "~icons/tabler/brand-python"
 import TablerBrandReact from "~icons/tabler/brand-react"
 import TablerBrandSolidjs from "~icons/tabler/brand-solidjs"
 import TablerBrandSvelte from "~icons/tabler/brand-svelte"
+import TablerBrandSwift from "~icons/tabler/brand-swift"
 import TablerBrandVue from "~icons/tabler/brand-vue"
 import TablerDatabase from "~icons/tabler/database"
 
@@ -182,6 +184,34 @@ const tech: Technology[] = [
         }
       >
         <TablerBrandGolang class="group-hover:text-[#00E5FF] group-focus:text-[#00E5FF] transition-colors" />
+      </div>
+    ),
+  },
+  {
+    name: "Kotlin",
+    url: "https://kotlinlang.org/",
+    icon: () => (
+      <div
+        class={
+          iconParentClass +
+          "group-hover:bg-violet-500 group-focus:bg-violet-500 group-hover:bg-opacity-10 group-focus:bg-opacity-10"
+        }
+      >
+        <TablerBrandKotlin class="group-hover:text-violet-500 group-focus:text-[#8B5CF6] transition-colors" />
+      </div>
+    ),
+  },
+  {
+    name: "Swift",
+    url: "https://www.swift.org/",
+    icon: () => (
+      <div
+        class={
+          iconParentClass +
+          "group-hover:bg-[#F05238] group-focus:bg-[#F05238] group-hover:bg-opacity-10 group-focus:bg-opacity-10"
+        }
+      >
+        <TablerBrandSwift class="group-hover:text-[#F05238] group-focus:text-[#F05238] transition-colors" />
       </div>
     ),
   },
