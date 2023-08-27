@@ -1,5 +1,4 @@
 import { Show, createSignal } from "solid-js"
-import { css } from "vite-plugin-inline-css-modules"
 import tooltip from "~/lib/directives/tooltip"
 import { accent, setAccent, setTheme, theme } from "~/lib/theme"
 import Popover from "~/lib/ui/popover"
@@ -28,29 +27,26 @@ const ThemePopover = () => {
       }
     >
       <p class="text-sm ml-1 mb-2">Theme</p>
-      <div class="flex gap-2">
+      <div class="grid grid-cols-3 gap-2">
         <button
-          class={`btn btn-icon ${style.btnTheme} ${
-            theme() == "light" ? "!border-accent" : ""
-          } w-1/3 aspect-square`}
+          class="btn btn-icon aspect-square border-content/8 hover:border-accent"
+          classList={{ "!border-accent": theme() == "light" }}
           onClick={() => setTheme("light")}
           use:tooltip={["Light theme", "bottom"]}
         >
           <TablerSun />
         </button>
         <button
-          class={`btn btn-icon ${style.btnTheme} ${
-            theme() == "dark" ? "!border-accent" : ""
-          } w-1/3 aspect-square`}
+          class="btn btn-icon aspect-square border-content/8 hover:border-accent"
+          classList={{ "!border-accent": theme() == "dark" }}
           onClick={() => setTheme("dark")}
           use:tooltip={["Dark theme", "bottom"]}
         >
           <TablerMoonStars />
         </button>
         <button
-          class={`btn btn-icon ${style.btnTheme} ${
-            theme() == null ? "!border-accent" : ""
-          } w-1/3 aspect-square`}
+          class="btn btn-icon aspect-square border-content/8 hover:border-accent"
+          classList={{ "!border-accent": theme() == null }}
           onClick={() => setTheme(null)}
           use:tooltip={["System theme", "bottom"]}
         >
@@ -61,7 +57,8 @@ const ThemePopover = () => {
       <div class="flex gap-2">
         <div class="accent-blue">
           <button
-            class={`btn btn-icon ${style.btnTheme} ${accent() == "blue" ? "!border-accent" : ""}`}
+            class="btn btn-icon border-content/8 hover:border-accent"
+            classList={{ "!border-accent": accent() == "blue" }}
             use:tooltip={["Blue accent", "bottom"]}
             onClick={() => setAccent("blue")}
           >
@@ -70,7 +67,8 @@ const ThemePopover = () => {
         </div>
         <div class="accent-orange">
           <button
-            class={`btn btn-icon ${style.btnTheme} ${accent() == "orange" ? "!border-accent" : ""}`}
+            class="btn btn-icon border-content/8 hover:border-accent"
+            classList={{ "!border-accent": accent() == "orange" }}
             use:tooltip={["Orange accent", "bottom"]}
             onClick={() => setAccent("orange")}
           >
@@ -79,7 +77,8 @@ const ThemePopover = () => {
         </div>
         <div class="accent-teal">
           <button
-            class={`btn btn-icon ${style.btnTheme} ${accent() == "teal" ? "!border-accent" : ""}`}
+            class="btn btn-icon border-content/8 hover:border-accent"
+            classList={{ "!border-accent": accent() == "teal" }}
             use:tooltip={["Teal accent", "bottom"]}
             onClick={() => setAccent("teal")}
           >
@@ -88,7 +87,8 @@ const ThemePopover = () => {
         </div>
         <div class="accent-pink">
           <button
-            class={`btn btn-icon ${style.btnTheme} ${accent() == "pink" ? "!border-accent" : ""}`}
+            class="btn btn-icon border-content/8 hover:border-accent"
+            classList={{ "!border-accent": accent() == "pink" }}
             use:tooltip={["Pink accent", "bottom"]}
             onClick={() => setAccent("pink")}
           >
@@ -99,12 +99,6 @@ const ThemePopover = () => {
     </Popover>
   )
 }
-
-const style = css`
-  .btnTheme {
-    @apply border-content/8 hover:border-accent;
-  }
-`
 
 const AppHeader = () => {
   const [showBackBtn, setShowBackBtn] = createSignal(false)
