@@ -11,7 +11,6 @@ My personal website.
 
 ## TODO
 
-- Cleanup theme code, if possible
 - New logo with dynamic theming
 - Avataaar with custom appearance based on season + custom bg based on theme
 - Games:

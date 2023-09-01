@@ -52,11 +52,8 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
   </head>
   <body>
     <script>
-      import { setAccent, setTheme } from "~/lib/theme"
-      const loadTheme = () => setTheme(localStorage.getItem("theme") as any)
-      loadTheme()
-      document.addEventListener("astro:beforeload", loadTheme)
-      setAccent((localStorage.getItem("accent") as any) ?? "blue")
+      import { createThemeLoader } from "~/lib/theme"
+      createThemeLoader()
       document.body.style.visibility = "visible"
       document.body.style.opacity = "1"
     </script>
