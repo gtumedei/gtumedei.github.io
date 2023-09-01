@@ -13,7 +13,7 @@ import InlineCssModules from "vite-plugin-inline-css-modules"
 const site = "https://gtumedei.io"
 
 export default defineConfig({
-  output: "server",
+  output: "hybrid",
   adapter: process.env.ASTRO_ADAPTER == "node" ? Node({ mode: "standalone" }) : Vercel(),
   site,
   experimental: {

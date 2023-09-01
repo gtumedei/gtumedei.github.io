@@ -5,6 +5,8 @@ import { z } from "zod"
 import { env } from "~/lib/server/env"
 import { createError, createResponse } from "~/lib/server/response"
 
+export const prerender = false
+
 const schema = z.object({
   name: z.string().min(1),
   email: z.string().email(),
