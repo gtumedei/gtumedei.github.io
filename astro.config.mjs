@@ -16,9 +16,6 @@ export default defineConfig({
   output: "server",
   adapter: process.env.ASTRO_ADAPTER == "node" ? Node({ mode: "standalone" }) : Vercel(),
   site,
-  experimental: {
-    viewTransitions: true,
-  },
   integrations: [
     Sitemap({
       customPages: [

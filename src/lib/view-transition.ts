@@ -1,16 +1,18 @@
 import { makeEventListener } from "@solid-primitives/event-listener"
 import { onMount } from "solid-js"
 
-export const onAstroLoad = (callback: () => void) => {
+/** Run the callback at the end of page navigation, after the new page is visible to the user and blocking styles and scripts are loaded. */
+export const onAstroPageLoad = (callback: () => void) => {
   onMount(() => {
     callback()
-    makeEventListener(document, "astro:load", callback)
+    makeEventListener(document, "astro:page-load", callback)
   })
 }
 
-export const onAstroBeforeLoad = (callback: () => void) => {
+/** Run the callback immediately after the new page replaces the old page. */
+export const onAstroAfterSwap = (callback: () => void) => {
   onMount(() => {
     callback()
-    makeEventListener(document, "astro:beforeload", callback)
+    makeEventListener(document, "astro:after-swap", callback)
   })
 }
