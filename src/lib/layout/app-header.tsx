@@ -2,7 +2,7 @@ import { Show, createSignal } from "solid-js"
 import tooltip from "~/lib/directives/tooltip"
 import { accent, setAccent, setTheme, theme } from "~/lib/theme"
 import Popover from "~/lib/ui/popover"
-import { onAstroAfterSwap } from "~/lib/view-transition"
+import { onAstroBeforeLoad } from "~/lib/view-transition"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerCircleFilled from "~icons/tabler/circle-filled"
 import TablerMoonStars from "~icons/tabler/moon-stars"
@@ -102,7 +102,7 @@ const ThemePopover = () => {
 
 const AppHeader = () => {
   const [showBackBtn, setShowBackBtn] = createSignal(false)
-  onAstroAfterSwap(() => setShowBackBtn(location.pathname != "/"))
+  onAstroBeforeLoad(() => setShowBackBtn(location.pathname != "/"))
 
   return (
     <header class="container max-w-4xl flex items-center p-3">
