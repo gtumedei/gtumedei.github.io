@@ -4,7 +4,7 @@ import { env } from "~/lib/server/env"
 
 export const prerender = false
 
-export const get: APIRoute = async ({ request, redirect }) => {
+export const GET: APIRoute = async ({ request, redirect }) => {
   await sendEvent(request, {
     type: "pageview",
     data: {

@@ -16,7 +16,7 @@ const schema = z.object({
 
 export type ContactApiSchema = z.infer<typeof schema>
 
-export const post: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request }) => {
   // Validate body
   const res = schema.safeParse(await request.json())
   if (!res.success) return createError(400, "Bad request")
