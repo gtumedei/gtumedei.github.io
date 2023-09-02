@@ -65,5 +65,5 @@ const loadTheme = () => {
 export const createThemeLoader = () => {
   loadTheme()
   // Required to restore meta theme-color in the document's head after a navigation with Astro View Transition
-  document.addEventListener("astro:after-swap", loadTheme)
+  document.addEventListener("astro:beforeload", loadTheme)
 }
