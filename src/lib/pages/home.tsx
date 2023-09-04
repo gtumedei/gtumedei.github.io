@@ -92,7 +92,7 @@ const HomePage = () => {
           </div>
         </div>
         <div class="flex flex-wrap gap-3">
-          <a href="/cv" class="motion-1 btn btn-accent">
+          <a href="/cv" class="motion-1 btn btn-accent" data-astro-reload>
             Download CV
             <TablerDownload />
           </a>
