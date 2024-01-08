@@ -1,7 +1,7 @@
 import { env } from "./env"
 
 export const ANALYTICS_URL = "https://stats.gtumedei.io"
-export const WEBSITE_ID = "2fe7a931-c5a9-40c8-86cf-06922bf44149"
+export const WEBSITE_ID = "cc6e6286-12c8-4c13-abb1-19bcc83f6475"
 
 type AnalyticsEvent =
   | {
