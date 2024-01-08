@@ -27,7 +27,7 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
     />
     {
       env.MODE == "production" && (
-        <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/stats.js`} />
+        <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/script.js`} />
       )
     }
     <title>{fullTitle}</title>
