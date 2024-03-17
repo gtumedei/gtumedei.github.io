@@ -46,11 +46,21 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
   </head>
   <body>
     <script>
-      console.log("script")
+      // Load theme
       import { createThemeLoader } from "~/lib/theme"
       createThemeLoader()
       document.body.style.visibility = "visible"
       document.body.style.opacity = "1"
+      // Handle page load progress bar
+      import nprogress from "nprogress"
+      document.addEventListener("astro:before-preparation", () => {
+        console.log("show loading")
+        nprogress.start()
+      })
+      document.addEventListener("astro:page-load", () => {
+        console.log("hide loading")
+        nprogress.done()
+      })
     </script>
     <noscript>
       <style>

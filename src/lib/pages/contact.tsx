@@ -199,8 +199,8 @@ const ContactPage = () => {
     <>
       <h1 class="motion-1 section-heading mt-9 mb-2">Contact</h1>
       <p class="motion-1 mb-12">
-        Whether you want to hire me or just say hi, you can get in touch with me by filling the form
-        below.
+        Whether you want to work with me or just say hi, you can get in touch with me by filling the
+        form below.
       </p>
       <ContactForm class="motion-2" />
     </>
