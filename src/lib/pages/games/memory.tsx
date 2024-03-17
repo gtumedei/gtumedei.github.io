@@ -1,4 +1,5 @@
 import { Component, createSignal, For, mergeProps } from "solid-js"
+import cn from "~/lib/cn"
 import tooltip from "~/lib/directives/tooltip"
 import AspectRatio from "~/lib/ui/aspect-ratio"
 // import MdiCog from "~icons/mdi/cog"
@@ -23,10 +24,10 @@ const Card: Component<{ icon: string }> = () => {
 
   return (
     <button
-      class={`
-        aspect-square bg-base-focus rounded-xl p-2 border hover:border-accent transition-colors
-        ${face() == "up" ? "!border-accent/20" : ""}
-      `}
+      class={cn(
+        "aspect-square bg-base-focus rounded-xl p-2 border hover:border-accent transition-colors",
+        face() == "up" && "!border-accent/20"
+      )}
       onClick={() => setFace((f) => (f == "up" ? "down" : "up"))}
     >
       {face() == "up" ? (

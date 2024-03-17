@@ -3,6 +3,7 @@ import { Transition } from "solid-transition-group"
 import TablerCheck from "~icons/tabler/check"
 import TablerX from "~icons/tabler/x"
 import { useColorGuesserCtx } from "./core"
+import cn from "~/lib/cn"
 
 export const Tile: Component<{ color: string }> = (props) => {
   const [success, setSuccess] = createSignal(false)
@@ -33,22 +34,23 @@ export const Tile: Component<{ color: string }> = (props) => {
       onClick={onClick}
     >
       <div
-        class={`
-        absolute -inset-1.5 card border-accent pointer-events-none
-        bg-white/12 opacity-0 group-hover:opacity-100 transition-all
-        ${success() ? "!opacity-100 !bg-white/50" : ""}
-        ${error() ? "!opacity-100 !bg-white/50" : ""}
-      `}
+        class={cn(
+          "absolute -inset-1.5 card border-accent pointer-events-none bg-white/12 opacity-0 group-hover:opacity-100 transition-all",
+          success() && "!opacity-100 !bg-white/50",
+          error() && "!opacity-100 !bg-white/50"
+        )}
       >
         <TablerCheck
-          class={`absolute-center h-1/2 w-1/2 text-black/50 transition-opacity ${
+          class={cn(
+            "absolute-center h-1/2 w-1/2 text-black/50 transition-opacity",
             success() ? "opacity-100" : "opacity-0"
-          }`}
+          )}
         />
         <TablerX
-          class={`absolute-center h-1/2 w-1/2 text-black/50 transition-opacity ${
+          class={cn(
+            "absolute-center h-1/2 w-1/2 text-black/50 transition-opacity",
             error() ? "opacity-100" : "opacity-0"
-          }`}
+          )}
         />
       </div>
     </button>

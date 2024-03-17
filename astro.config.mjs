@@ -8,7 +8,6 @@ import Autoprefixer from "autoprefixer"
 import TailwindCSS from "tailwindcss"
 import TailwindNesting from "tailwindcss/nesting"
 import Icons from "unplugin-icons/vite"
-import InlineCssModules from "vite-plugin-inline-css-modules"
 
 const site = "https://gtumedei.io"
 
@@ -16,6 +15,7 @@ export default defineConfig({
   output: "hybrid",
   adapter: process.env.ASTRO_ADAPTER == "node" ? Node({ mode: "standalone" }) : Vercel(),
   site,
+  devToolbar: { enabled: false },
   integrations: [
     Sitemap({
       customPages: [
@@ -35,7 +35,6 @@ export default defineConfig({
         compiler: "solid",
         defaultClass: "icon",
       }),
-      InlineCssModules(),
     ],
     css: {
       postcss: {

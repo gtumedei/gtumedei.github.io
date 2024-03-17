@@ -11,11 +11,11 @@ const { title, description } = Astro.props as Props
 ---
 
 <Root title={title} description={description}>
-  <AppHeader client:load transition:persist />
+  <AppHeader client:load />
   <main class="container relative max-w-4xl flex-grow flex flex-col px-6">
     <slot />
   </main>
-  <AppFooter transition:persist />
+  <AppFooter />
   <style>
     body {
       @apply min-h-screen;

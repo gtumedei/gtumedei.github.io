@@ -1,4 +1,5 @@
 import { Component, For, JSX } from "solid-js"
+import cn from "~/lib/cn"
 import { createTimeline, stagger } from "~/lib/motion"
 import TablerChevronRight from "~icons/tabler/chevron-right"
 import TablerColorSwatch from "~icons/tabler/color-swatch"
@@ -47,9 +48,10 @@ const GameItem: Component<{
   return (
     <a
       href={props.game.href}
-      class={`card group relative flex flex-col items-center gap-2 p-2 transition-colors outline-none hover:border-accent focus:border-accent ${
-        props.class ?? ""
-      }`}
+      class={cn(
+        "card group relative flex flex-col items-center gap-2 p-2 transition-colors outline-none hover:border-accent focus:border-accent",
+        props.class
+      )}
     >
       <div class=" w-full flex justify-center items-center bg-base-focus text-xl rounded-lg px-6 py-18 group-hover:bg-accent/10 group-hover:text-accent group-focus:bg-accent/10 group-focus:text-accent transition-colors">
         {props.game.icon()}

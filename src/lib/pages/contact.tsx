@@ -1,5 +1,6 @@
 import { Component, createMemo, createSignal, onMount } from "solid-js"
 import { createStore } from "solid-js/store"
+import cn from "~/lib/cn"
 import model from "~/lib/directives/model"
 import tooltip from "~/lib/directives/tooltip"
 import { createTimeline, stagger } from "~/lib/motion"
@@ -11,9 +12,6 @@ import TablerMail from "~icons/tabler/mail"
 import TablerMoodSad from "~icons/tabler/mood-sad"
 import TablerRocket from "~icons/tabler/rocket"
 import TablerUser from "~icons/tabler/user"
-
-model
-tooltip
 
 const ContactForm: Component<{ class?: string }> = (props) => {
   const defaultData: ContactApiSchema = { name: "", email: "", subject: "", message: "" }
@@ -58,9 +56,11 @@ const ContactForm: Component<{ class?: string }> = (props) => {
   let nameInput!: HTMLInputElement
   onMount(() => nameInput.focus())
 
+  model
+  tooltip
   return (
     <>
-      <form class={`${props.class ?? ""} flex flex-col`} onSubmit={onSubmit}>
+      <form class={cn("flex flex-col", props.class)} onSubmit={onSubmit}>
         <div
           class="
           grid w-full m-auto gap-6
@@ -95,10 +95,10 @@ const ContactForm: Component<{ class?: string }> = (props) => {
               use:model={[() => data.email, (v) => setData("email", v.trim())]}
             />
             <div
-              class={`
-                absolute bottom-4 right-4 text-[#FF5252] transition-opacity flex
-                ${isEmailValid() || data.email == "" ? "opacity-0 pointer-events-none" : ""}
-              `}
+              class={cn(
+                "absolute bottom-4 right-4 text-[#FF5252] transition-opacity flex",
+                (isEmailValid() || data.email == "") && "opacity-0 pointer-events-none"
+              )}
               use:tooltip={["Invalid email address", "top"]}
             >
               <TablerAlertCircle />
@@ -131,15 +131,14 @@ const ContactForm: Component<{ class?: string }> = (props) => {
 
           <button
             type="submit"
-            class={`btn btn-accent [grid-area:submit] relative w-44 mt-6 mx-auto ${
-              isLoading() ? "loading" : ""
-            }`}
+            class={cn(
+              "btn btn-accent [grid-area:submit] relative w-44 mt-6 mx-auto",
+              isLoading() && "loading"
+            )}
             disabled={!canSubmit()}
           >
-            <div class={`flex gap-4 transition-opacity ${isLoading() ? "opacity-0" : ""}`}>
-              Send
-            </div>
-            <div class={`absolute-center transition-opacity ${!isLoading() ? "opacity-0" : ""}`}>
+            <div class={cn("flex gap-4 transition-opacity", isLoading() && "opacity-0")}>Send</div>
+            <div class={cn("absolute-center transition-opacity", !isLoading() && "opacity-0")}>
               <LoadingSpinner inverted />
             </div>
           </button>

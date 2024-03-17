@@ -31,12 +31,6 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
       )
     }
     <title>{fullTitle}</title>
-    <style>
-      body {
-        visibility: hidden;
-        opacity: 0;
-      }
-    </style>
     <noscript>
       <style>
         .motion-1,
@@ -52,6 +46,7 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
   </head>
   <body>
     <script>
+      console.log("script")
       import { createThemeLoader } from "~/lib/theme"
       createThemeLoader()
       document.body.style.visibility = "visible"

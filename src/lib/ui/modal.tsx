@@ -2,6 +2,7 @@ import { createShortcut } from "@solid-primitives/keyboard"
 import { onMount, type ParentComponent, type Setter } from "solid-js"
 import { Portal } from "solid-js/web"
 import { Transition } from "solid-transition-group"
+import cn from "~/lib/cn"
 import clickOutside from "~/lib/directives/click-outside"
 
 clickOutside
@@ -20,9 +21,11 @@ const ModalCard: ParentComponent<ModalProps> = (props) => {
 
   return (
     <div
-      class={`card container max-w-lg p-6 bg-base shadow-xl m-auto pointer-events-auto ${
-        props.class
-      } ${!props.class?.includes("w-") ? "w-min" : ""}`}
+      class={cn(
+        "card container max-w-lg p-6 bg-base shadow-xl m-auto pointer-events-auto",
+        props.class,
+        !props.class?.includes("w-") && "w-min"
+      )}
       use:clickOutside={[closeModal]}
     >
       {props.children}

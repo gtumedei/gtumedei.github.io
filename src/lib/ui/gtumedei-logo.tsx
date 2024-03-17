@@ -1,8 +1,9 @@
 import { type Component } from "solid-js"
+import cn from "~/lib/cn"
 
 const GTumedeiLogo: Component<{ class?: string }> = (props) => {
   return (
-    <svg class={`icon ${props.class ?? ""}`} viewBox="0 0 24 24" width="1.2em" height="1.2em">
+    <svg class={cn("icon", props.class)} viewBox="0 0 24 24" width="1.2em" height="1.2em">
       <path
         fill="none"
         stroke="currentColor"
