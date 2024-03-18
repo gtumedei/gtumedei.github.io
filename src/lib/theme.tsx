@@ -60,10 +60,11 @@ export const updateDOMAccent = (accent: Accent) => {
 const loadTheme = () => {
   updateDOMTheme(theme())
   updateDOMAccent(accent())
+  document.body.style.visibility = "visible"
+  document.body.style.opacity = "1"
 }
 
-export const createThemeLoader = () => {
+export const ThemeLoader = () => {
   loadTheme()
-  // Required to restore meta theme-color in the document's head after a navigation with Astro View Transition
-  document.addEventListener("astro:after-swap", loadTheme)
+  return <></>
 }

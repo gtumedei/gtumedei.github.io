@@ -10,11 +10,10 @@ import TablerPalette from "~icons/tabler/palette"
 import TablerSun from "~icons/tabler/sun"
 import TablerSunMoon from "~icons/tabler/sun-moon"
 
-tooltip
-
 const ThemePopover = () => {
   const [show, setShow] = createSignal(false)
 
+  tooltip
   return (
     <Popover
       class="absolute top-0 right-0 card bg-base-focus p-4 shadow-xl z-30"
@@ -104,6 +103,7 @@ const AppHeader = () => {
   const [showBackBtn, setShowBackBtn] = createSignal(false)
   onViewTransition("after-swap", () => setShowBackBtn(location.pathname != "/"))
 
+  tooltip
   return (
     <header class="container max-w-4xl flex items-center p-3">
       <Show when={showBackBtn()}>

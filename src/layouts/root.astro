@@ -1,14 +1,16 @@
 ---
 import { ViewTransitions } from "astro:transitions"
+import NProgress from "~/lib/layout/nprogress"
 import { ANALYTICS_URL, WEBSITE_ID } from "~/lib/server/analytics"
 import { env } from "~/lib/server/env"
+import { ThemeLoader } from "~/lib/theme"
 import "~/styles/main.css"
 
-export interface Props {
+type Props = {
   title?: string
   description?: string
 }
-const { title, description = "My personal website" } = Astro.props as Props
+const { title, description = "My personal website" } = Astro.props
 
 const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
 ---
@@ -42,26 +44,16 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
         }
       </style>
     </noscript>
+    <style>
+      body {
+        visibility: hidden;
+        opacity: 0;
+      }
+    </style>
     <ViewTransitions />
   </head>
   <body>
-    <script>
-      // Load theme
-      import { createThemeLoader } from "~/lib/theme"
-      createThemeLoader()
-      document.body.style.visibility = "visible"
-      document.body.style.opacity = "1"
-      // Handle page load progress bar
-      import nprogress from "nprogress"
-      document.addEventListener("astro:before-preparation", () => {
-        console.log("show loading")
-        nprogress.start()
-      })
-      document.addEventListener("astro:page-load", () => {
-        console.log("hide loading")
-        nprogress.done()
-      })
-    </script>
+    <ThemeLoader client:only />
     <noscript>
       <style>
         body {
@@ -70,6 +62,7 @@ const fullTitle = title ? `${title} • Gianni Tumedei` : "Gianni Tumedei"
         }
       </style>
     </noscript>
+    <NProgress client:only transition:persist transition:persist-props />
     <slot />
   </body>
 </html>

@@ -3,11 +3,11 @@ import AppFooter from "~/lib/layout/app-footer"
 import AppHeader from "~/lib/layout/app-header"
 import Root from "./root.astro"
 
-export interface Props {
+type Props = {
   title?: string
   description?: string
 }
-const { title, description } = Astro.props as Props
+const { title, description } = Astro.props
 ---
 
 <Root title={title} description={description}>
