@@ -11,7 +11,11 @@ My personal website.
 
 ## TODO
 
+- Migrate to Solid Start? Missing pieces:
+  - Automatic sitemap generator
+  - Anything else?
 - New logo with dynamic theming
+- Add Ark UI for modals and popovers
 - Avataaar with custom appearance based on season + custom bg based on theme
 - Games:
   - Ideas with Matter.js: pinball, angry birds

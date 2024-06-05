@@ -22,7 +22,7 @@ const ModalCard: ParentComponent<ModalProps> = (props) => {
   return (
     <div
       class={cn(
-        "card container max-w-lg p-6 bg-base shadow-xl m-auto pointer-events-auto",
+        "card container max-w-lg p-6 bg-base-100 shadow-xl m-auto pointer-events-auto",
         props.class,
         !props.class?.includes("w-") && "w-min"
       )}

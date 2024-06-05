@@ -16,7 +16,7 @@ const ThemePopover = () => {
   tooltip
   return (
     <Popover
-      class="absolute top-0 right-0 card bg-base-focus p-4 shadow-xl z-30"
+      class="absolute top-0 right-0 card bg-base-200 p-4 shadow-xl z-30"
       show={show()}
       setShow={setShow}
       trigger={
@@ -28,7 +28,7 @@ const ThemePopover = () => {
       <p class="text-sm ml-1 mb-2">Theme</p>
       <div class="grid grid-cols-3 gap-2">
         <button
-          class="btn btn-icon aspect-square border-content/8 hover:border-accent"
+          class="btn btn-icon aspect-square border-on-base/10 hover:border-accent"
           classList={{ "!border-accent": theme() == "light" }}
           onClick={() => setTheme("light")}
           use:tooltip={["Light theme", "bottom"]}
@@ -36,7 +36,7 @@ const ThemePopover = () => {
           <TablerSun />
         </button>
         <button
-          class="btn btn-icon aspect-square border-content/8 hover:border-accent"
+          class="btn btn-icon aspect-square border-on-base/10 hover:border-accent"
           classList={{ "!border-accent": theme() == "dark" }}
           onClick={() => setTheme("dark")}
           use:tooltip={["Dark theme", "bottom"]}
@@ -44,7 +44,7 @@ const ThemePopover = () => {
           <TablerMoonStars />
         </button>
         <button
-          class="btn btn-icon aspect-square border-content/8 hover:border-accent"
+          class="btn btn-icon aspect-square border-on-base/10 hover:border-accent"
           classList={{ "!border-accent": theme() == null }}
           onClick={() => setTheme(null)}
           use:tooltip={["System theme", "bottom"]}
@@ -54,9 +54,9 @@ const ThemePopover = () => {
       </div>
       <p class="text-sm mt-4 ml-1 mb-2">Accent</p>
       <div class="flex gap-2">
-        <div class="accent-blue">
+        <div data-accent="blue">
           <button
-            class="btn btn-icon border-content/8 hover:border-accent"
+            class="btn btn-icon border-on-base/10 hover:border-accent"
             classList={{ "!border-accent": accent() == "blue" }}
             use:tooltip={["Blue accent", "bottom"]}
             onClick={() => setAccent("blue")}
@@ -64,9 +64,9 @@ const ThemePopover = () => {
             <TablerCircleFilled class="text-accent" />
           </button>
         </div>
-        <div class="accent-orange">
+        <div data-accent="orange">
           <button
-            class="btn btn-icon border-content/8 hover:border-accent"
+            class="btn btn-icon border-on-base/10 hover:border-accent"
             classList={{ "!border-accent": accent() == "orange" }}
             use:tooltip={["Orange accent", "bottom"]}
             onClick={() => setAccent("orange")}
@@ -74,9 +74,9 @@ const ThemePopover = () => {
             <TablerCircleFilled class="text-accent" />
           </button>
         </div>
-        <div class="accent-teal">
+        <div data-accent="teal">
           <button
-            class="btn btn-icon border-content/8 hover:border-accent"
+            class="btn btn-icon border-on-base/10 hover:border-accent"
             classList={{ "!border-accent": accent() == "teal" }}
             use:tooltip={["Teal accent", "bottom"]}
             onClick={() => setAccent("teal")}
@@ -84,9 +84,9 @@ const ThemePopover = () => {
             <TablerCircleFilled class="text-accent" />
           </button>
         </div>
-        <div class="accent-pink">
+        <div data-accent="pink">
           <button
-            class="btn btn-icon border-content/8 hover:border-accent"
+            class="btn btn-icon border-on-base/10 hover:border-accent"
             classList={{ "!border-accent": accent() == "pink" }}
             use:tooltip={["Pink accent", "bottom"]}
             onClick={() => setAccent("pink")}

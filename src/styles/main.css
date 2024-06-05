@@ -1,17 +1,5 @@
-@import "./themes.css";
-
 html {
-  @apply min-h-full bg-base font-mono text-content;
-}
-
-html.theme-dark {
-  color-scheme: dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  html:not(.theme-light) {
-    color-scheme: dark;
-  }
+  @apply min-h-full font-mono;
 }
 
 body {
@@ -38,7 +26,7 @@ h6 {
 }
 
 .tippy-box {
-  @apply relative text-sm whitespace-normal outline-none transition-all bg-inverted-base text-inverted-content rounded-md;
+  @apply relative text-sm whitespace-normal outline-none transition-all bg-inverted-100 text-on-inverted rounded-md;
 
   &[data-animation="fade"][data-state="hidden"] {
     @apply opacity-0;

@@ -32,7 +32,7 @@ export const SettingsModal = () => {
       setShow={ctx.setShowSettingsModal}
       persistent={ctx.game.state == "IDLE"}
     >
-      <div class="bg-base-focus flex rounded-full p-6 mb-6">
+      <div class="bg-base-200 flex rounded-full p-6 mb-6">
         <TablerColorSwatch class="text-xl text-accent" />
       </div>
       <h4 class="section-subheading mb-2">Color Guesser</h4>
@@ -96,7 +96,7 @@ export const StatsModal = () => {
       show={ctx.showStatsModal()}
       setShow={ctx.setShowStatsModal}
     >
-      <div class="bg-base-focus flex rounded-full p-6 mb-6">
+      <div class="bg-base-200 flex rounded-full p-6 mb-6">
         <TablerChartBar class="text-xl text-accent" />
       </div>
       <h4 class="section-subheading mb-8">Your Color Guesser Stats</h4>

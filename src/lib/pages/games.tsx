@@ -53,7 +53,7 @@ const GameItem: Component<{
         props.class
       )}
     >
-      <div class=" w-full flex justify-center items-center bg-base-focus text-xl rounded-lg px-6 py-18 group-hover:bg-accent/10 group-hover:text-accent group-focus:bg-accent/10 group-focus:text-accent transition-colors">
+      <div class=" w-full flex justify-center items-center bg-base-200 text-xl rounded-lg px-6 py-18 group-hover:bg-accent/10 group-hover:text-accent group-focus:bg-accent/10 group-focus:text-accent transition-colors">
         {props.game.icon()}
       </div>
       <div class="w-full p-2">

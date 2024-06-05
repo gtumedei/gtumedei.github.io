@@ -62,10 +62,10 @@ const Board: Component<{ size?: number }> = (props) => {
 
   return (
     <div class="relative rounded-xl border">
-      <div class="aspect-square grid grid-rows-[repeat(32,1fr)] divide-y-[1px] divide-content-8">
+      <div class="aspect-square grid grid-rows-[repeat(32,1fr)] divide-y-[1px] divide-on-base/10">
         <For each={pixels}>
           {(row) => (
-            <div class="grid grid-cols-[repeat(32,1fr)] divide-x-[1px] divide-content-8">
+            <div class="grid grid-cols-[repeat(32,1fr)] divide-x-[1px] divide-on-base/10">
               <For each={row}>{() => <div />}</For>
             </div>
           )}

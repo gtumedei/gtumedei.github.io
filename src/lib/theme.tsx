@@ -1,15 +1,6 @@
 import { makePersisted } from "@solid-primitives/storage"
 import { createSignal } from "solid-js"
 
-const removeClass = (elem: HTMLElement, predicate: string | ((className: string) => boolean)) => {
-  const match =
-    typeof predicate == "string" ? (className: string) => className == predicate : predicate
-  for (let i = elem.classList.length - 1; i >= 0; i--) {
-    const className = elem.classList[i]
-    if (match(className)) elem.classList.remove(className)
-  }
-}
-
 export type Theme = "light" | "dark" | null
 export type Accent = "blue" | "orange" | "teal" | "pink"
 
@@ -32,9 +23,9 @@ export const setAccent = (accent: Accent) => {
 }
 
 const updateDOMTheme = (theme: Theme) => {
-  // Update the html tag class
-  removeClass(document.documentElement, (className) => className.startsWith("theme-"))
-  if (theme) document.documentElement.classList.add(`theme-${theme}`)
+  // Update the html tag data-theme attribute
+  if (theme) document.documentElement.setAttribute("data-theme", theme)
+  else document.documentElement.removeAttribute("data-theme")
   // Update the theme-color meta tag
   document.querySelectorAll(`meta[name="theme-color"]`).forEach((elem) => elem.remove())
   if (theme == "light") {
@@ -52,9 +43,8 @@ const updateDOMTheme = (theme: Theme) => {
 }
 
 export const updateDOMAccent = (accent: Accent) => {
-  // Update the html tag class
-  removeClass(document.documentElement, (className) => className.startsWith("accent-"))
-  document.documentElement.classList.add(`accent-${accent}`)
+  // Update the html tag data-theme attribute
+  document.documentElement.setAttribute("data-accent", accent)
 }
 
 const loadTheme = () => {

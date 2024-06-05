@@ -35,7 +35,7 @@ export const Tile: Component<{ color: string }> = (props) => {
     >
       <div
         class={cn(
-          "absolute -inset-1.5 card border-accent pointer-events-none bg-white/12 opacity-0 group-hover:opacity-100 transition-all",
+          "absolute -inset-1.5 card border-accent pointer-events-none bg-white/15 opacity-0 group-hover:opacity-100 transition-all",
           success() && "!opacity-100 !bg-white/50",
           error() && "!opacity-100 !bg-white/50"
         )}

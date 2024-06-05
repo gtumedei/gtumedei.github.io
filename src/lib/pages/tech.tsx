@@ -30,7 +30,7 @@ type Technology = {
 }
 
 const iconParentClass =
-  "flex p-6 rounded-lg !text-xl text-content fill-content bg-base-focus transition-colors "
+  "flex p-6 rounded-lg !text-xl text-on-base fill-on-base bg-base-200 transition-colors "
 
 const tech: Technology[] = [
   {
@@ -376,7 +376,7 @@ const TechItem: Component<{
         target="_blank"
         class="relative flex flex-col gap-2 outline-none group"
       >
-        <div class="flex bg-base mx-auto mb-7">{props.item.icon()}</div>
+        <div class="flex bg-base-100 mx-auto mb-7">{props.item.icon()}</div>
         <p class="text-sm text-center whitespace-nowrap absolute left-1/2 transform -translate-x-1/2 bottom-0">
           {props.item.name}
         </p>
