@@ -84,7 +84,10 @@ export default {
         },
         html: apply`base-light bg-base-100 text-on-base`,
         "@media (prefers-color-scheme: dark)": {
-          "html:not([data-theme='light'])": apply`base-dark`,
+          "html:not([data-theme='light'])": {
+            ...apply`base-dark`,
+            "color-scheme": "dark",
+          },
         },
         "[data-theme='light']": {
           ...apply`base-light`,
