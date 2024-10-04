@@ -1,0 +1,47 @@
+{
+  "name": "gtumedei.github.io",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev --host",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@ark-ui/solid": "^4.2.0",
+    "@felte/core": "^1.4.3",
+    "@felte/solid": "^1.2.13",
+    "@felte/validator-zod": "^1.0.17",
+    "@iconify-json/cib": "^1.2.0",
+    "@iconify-json/tabler": "^1.2.4",
+    "@solid-primitives/bounds": "^0.0.122",
+    "@solid-primitives/media": "^2.2.9",
+    "@solid-primitives/scheduled": "^1.4.3",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.14.7",
+    "@solidjs/start": "^1.0.8",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "@types/nprogress": "^0.2.3",
+    "autoprefixer": "^10.4.20",
+    "clsx": "^2.1.1",
+    "grammy": "^1.30.0",
+    "motion": "^10.18.0",
+    "nprogress": "^0.2.0",
+    "outdent": "^0.8.0",
+    "postcss": "^8.4.47",
+    "solid-js": "^1.9.1",
+    "tailwind-merge": "^2.5.3",
+    "tailwind-variants": "^0.2.1",
+    "tailwindcss": "^3.4.13",
+    "tailwindcss-animate": "^1.0.7",
+    "tippy.js": "^6.3.7",
+    "typescript": "^5.6.2",
+    "unplugin-icons": "^0.19.3",
+    "vinxi": "^0.4.3",
+    "zod": "^3.23.8"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

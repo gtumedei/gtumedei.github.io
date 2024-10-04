@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tooltips */
+
+[data-tippy-root] {
+  @apply max-w-[calc(100vw-10px)];
+}
+
+.tippy-box {
+  @apply relative text-sm whitespace-normal outline-none transition-all bg-neutral text-on-neutral rounded-md;
+
+  &[data-animation="fade"][data-state="hidden"] {
+    @apply opacity-0;
+  }
+
+  .tippy-content {
+    @apply relative z-10 px-3 py-1.5;
+  }
+}
+
+/* nprogress */
+
+#nprogress {
+  @apply pointer-events-none;
+
+  .bar {
+    @apply fixed top-0 left-0 w-full h-[3px] z-[3000] bg-accent;
+  }
+}
