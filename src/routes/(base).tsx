@@ -65,11 +65,13 @@ const Header = () => {
         >
           <Portal>
             <Dialog.Backdrop />
-            <Dialog.Positioner class="pt-[5.5rem] px-6">
-              <Dialog.Content class="w-full max-w-md py-3 mt-0 overflow-visible">
-                <Dialog.CloseTrigger class="h-10 w-10 bg-base-100 dark:bg-base-200 text-on-base/70 hover:text-on-base transition-colors flex justify-center items-center rounded-full border border-neutral/10 shadow-md shadow-black/5 -translate-y-full absolute -top-6 right-0">
+            <Dialog.Positioner class="flex flex-col gap-6 pt-6 px-6">
+              <div class="w-full max-w-md flex mx-auto pointer-events-none">
+                <Dialog.CloseTrigger class="h-10 w-10 bg-base-100 dark:bg-base-200 text-on-base/70 hover:text-on-base transition-colors flex justify-center items-center rounded-full border border-neutral/10 shadow-md shadow-black/5 ml-auto pointer-events-auto">
                   <TablerX />
                 </Dialog.CloseTrigger>
+              </div>
+              <Dialog.Content class="w-full max-w-md py-3 mt-0 overflow-visible">
                 <nav class="flex">
                   <ul class="w-full flex flex-col divide-y divide-on-base/10 font-medium">
                     <For each={mobileMenuItems}>
