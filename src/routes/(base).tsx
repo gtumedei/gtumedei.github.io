@@ -12,7 +12,7 @@ import TablerMoonStars from "~icons/tabler/moon-stars"
 import TablerPalette from "~icons/tabler/palette"
 import TablerSun from "~icons/tabler/sun"
 import TablerSunMoon from "~icons/tabler/sun-moon"
-import { button } from "~/components/ui/button"
+import { Button, button } from "~/components/ui/button"
 import cn from "~/lib/cn"
 
 const BaseLayout = (props: RouteSectionProps) => {
@@ -50,12 +50,13 @@ const Header = () => {
       <A href="/" class="h-10 w-10">
         H
       </A>
-      <button
+      <Button
+        variant="raised"
+        class="md:hidden bg-base-100/80 dark:bg-base-200/80 backdrop-blur px-4 ml-auto group"
         onClick={() => setMenuDialogOpen(true)}
-        class="md:hidden h-10 bg-base-100/80 dark:bg-base-200/80 backdrop-blur flex items-center gap-3 text-sm font-medium px-4 rounded-full border border-on-base/10 shadow-md shadow-black/5 ml-auto"
       >
-        Menu <TablerMenu />
-      </button>
+        Menu <TablerMenu class="text-on-base/70 group-hover:text-on-base transition-colors" />
+      </Button>
       {!breakpoints.md && (
         <Dialog
           open={menuDialogOpen()}
@@ -67,8 +68,13 @@ const Header = () => {
             <Dialog.Backdrop />
             <Dialog.Positioner class="flex flex-col gap-6 pt-6 px-6">
               <div class="w-full max-w-md flex mx-auto pointer-events-none">
-                <Dialog.CloseTrigger class="h-10 w-10 bg-base-100 dark:bg-base-200 text-on-base/70 hover:text-on-base transition-colors flex justify-center items-center rounded-full border border-neutral/10 shadow-md shadow-black/5 ml-auto pointer-events-auto">
-                  <TablerX />
+                <Dialog.CloseTrigger
+                  class={cn(
+                    button({ variant: "raised", shape: "circle" }),
+                    "ml-auto pointer-events-auto group"
+                  )}
+                >
+                  <TablerX class="text-base text-on-base/70 group-hover:text-on-base transition-colors" />
                 </Dialog.CloseTrigger>
               </div>
               <Dialog.Content class="w-full max-w-md py-3 mt-0 overflow-visible">
@@ -198,7 +204,12 @@ const ThemeSwitcher = () => {
 
   return (
     <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
-      <Popover.Trigger class="h-10 w-10 bg-base-100/80 dark:bg-base-200/80 backdrop-blur text-on-base/70 hover:text-on-base transition-colors flex justify-center items-center rounded-full border border-neutral/10 shadow-md shadow-black/5">
+      <Popover.Trigger
+        class={cn(
+          button({ variant: "raised", shape: "circle" }),
+          "bg-base-100/80 dark:bg-base-200/80 backdrop-blur text-on-base/70 hover:text-on-base"
+        )}
+      >
         <TablerPalette />
       </Popover.Trigger>
       <Popover.Positioner>
