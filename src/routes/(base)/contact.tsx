@@ -13,7 +13,7 @@ const ContactPage = () => {
       <A href="/" class={button({ variant: "raised", shape: "circle", class: "group mr-auto" })}>
         <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
       </A>
-      <div class="grow max-w-2xl -mt-1">
+      <div class="grow max-w-2xl md:-mt-1">
         <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6">Contact</h1>
         <p class="text-on-base/70 tall-lines">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus accusamus, tempora quod
@@ -45,7 +45,7 @@ const ContactPage = () => {
             <FormField.Label>Message</FormField.Label>
             <Textarea variant="outline" size="lg" class="w-full h-52" />
           </FormField>
-          <Button variant="solid" theme="accent" class="sm:w-1/2 mt-6 sm:mx-auto">
+          <Button theme="accent" class="sm:w-1/2 mt-6 sm:mx-auto">
             Send
           </Button>
         </form>

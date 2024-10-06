@@ -19,7 +19,7 @@ const TechPage = () => {
         </p>
       </div>
       <div class="space-y-16 px-6 py-20">
-        <TechSection heading="Setup">
+        <TechSection heading="Hardware">
           <h4>M1 Pro Macbook Pro 14" (2021)</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
@@ -50,7 +50,7 @@ const TechPage = () => {
           </p>
           <TechAnchor href="#">warp.dev</TechAnchor>
         </TechSection>
-        <TechSection heading="Tech stack">
+        <TechSection heading="Stack">
           <h4>SolidJS</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?

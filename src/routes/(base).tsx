@@ -51,13 +51,15 @@ const Header = () => {
       <A href="/" class={button({ variant: "raised", shape: "circle" })}>
         H
       </A>
-      <Button
-        variant="raised"
-        class="md:hidden bg-base-100/80 dark:bg-base-200/80 backdrop-blur px-4 ml-auto group"
-        onClick={() => setMenuDialogOpen(true)}
-      >
-        Menu <TablerMenu class="text-on-base/70 group-hover:text-on-base transition-colors" />
-      </Button>
+      {location.pathname != "/" && (
+        <Button
+          variant="raised"
+          class="md:hidden bg-base-100/80 dark:bg-base-200/80 backdrop-blur px-4 ml-auto group"
+          onClick={() => setMenuDialogOpen(true)}
+        >
+          Menu <TablerMenu class="text-on-base/70 group-hover:text-on-base transition-colors" />
+        </Button>
+      )}
       {!breakpoints.md && (
         <Dialog
           open={menuDialogOpen()}
@@ -102,25 +104,28 @@ const Header = () => {
           </Portal>
         </Dialog>
       )}
-      <div class="max-md:hidden bg-base-100/80 dark:bg-base-200/80 backdrop-blur rounded-full border border-on-base/10 shadow-md shadow-black/5 mx-auto">
-        <nav class="flex">
-          <ul class="text-sm font-medium flex justify-center px-3">
-            <For each={desktopMenuItems}>
-              {(item) => (
-                <li>
-                  <A
-                    href={item.href}
-                    class="inline-flex px-3 py-2.5 hover:text-accent transition-colors relative overflow-hidden after:[content:''] after:h-0.5 after:w-12 after:bg-gradient-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity"
-                    activeClass="text-accent after:opacity-100"
-                  >
-                    {item.label}
-                  </A>
-                </li>
-              )}
-            </For>
-          </ul>
-        </nav>
-      </div>
+      {location.pathname != "/" && (
+        <div class="max-md:hidden bg-base-100/80 dark:bg-base-200/80 backdrop-blur rounded-full border border-on-base/10 shadow-md shadow-black/5 mx-auto">
+          <nav class="flex">
+            <ul class="text-sm font-medium flex justify-center px-3">
+              <For each={desktopMenuItems}>
+                {(item) => (
+                  <li>
+                    <A
+                      href={item.href}
+                      class="inline-flex px-3 py-2.5 hover:text-accent transition-colors relative overflow-hidden after:[content:''] after:h-0.5 after:w-12 after:bg-gradient-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity"
+                      activeClass="text-accent after:opacity-100"
+                    >
+                      {item.label}
+                    </A>
+                  </li>
+                )}
+              </For>
+            </ul>
+          </nav>
+        </div>
+      )}
+      {location.pathname == "/" && <div class="mx-auto" />}
       <ThemeSwitcher />
     </header>
   )
