@@ -1,5 +1,6 @@
-import { json } from "@solidjs/router"
+import { redirect } from "@solidjs/router"
+import env from "~/lib/env"
 
 export const GET = async () => {
-  return json({ message: "cv" })
+  return redirect(env.private.CV_URL)
 }

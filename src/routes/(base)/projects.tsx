@@ -31,7 +31,7 @@ const ProjectsPage = () => {
             <p class="text-sm text-on-base/70 tall-lines mb-4">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!
             </p>
-            <p class="flex items-center gap-3 text-sm font-medium group-hover:text-accent transition-colors">
+            <p class="flex items-center gap-3 text-sm font-medium text-on-base/50 group-hover:text-accent transition-colors">
               <TablerLink /> github.com
             </p>
           </A>

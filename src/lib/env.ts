@@ -4,11 +4,10 @@ import { SafeParseSuccess, z, ZodFormattedError } from "zod"
 export const PrivateEnvSchema = z.object({
   TELEGRAM_BOT_TOKEN: z.string().min(1),
   TELEGRAM_CHAT_ID: z.string().min(1),
+  CV_URL: z.string().min(1),
 })
 
-export const PublicEnvSchema = z.object({
-  PUBLIC_CV_URL: z.string().min(1),
-})
+export const PublicEnvSchema = z.object({})
 
 const formatErrors = (errors: ZodFormattedError<Map<string, string>, string>) =>
   Object.entries(errors)

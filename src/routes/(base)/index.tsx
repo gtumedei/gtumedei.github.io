@@ -1,5 +1,7 @@
 import { A } from "@solidjs/router"
 import { button } from "~/components/ui/button"
+import tooltip from "~/lib/directives/tooltip"
+import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBrandGithub from "~icons/tabler/brand-github"
 import TablerBrandLinkedin from "~icons/tabler/brand-linkedin"
 import TablerBrandTelegram from "~icons/tabler/brand-telegram"
@@ -8,9 +10,9 @@ import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
 import TablerDownload from "~icons/tabler/download"
 import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 import TablerMapPin from "~icons/tabler/map-pin"
-import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 
 const HomePage = () => {
+  tooltip
   return (
     <>
       <div class="w-full md:pt-[5.5rem] px-6">
@@ -20,18 +22,35 @@ const HomePage = () => {
         </h1>
         <h2 class="font-mono">@gtumedei</h2>
         <div class="flex mt-6">
-          <A href="#" class={button({ theme: "accent", class: "mr-2" })}>
+          <A href="/cv" target="_self" class={button({ theme: "accent", class: "mr-2" })}>
             Download CV <TablerDownload />
           </A>
-          <A href="#" class={button({ variant: "ghost", shape: "square" })}>
-            <TablerBrandGithub />
-          </A>
-          <A href="#" class={button({ variant: "ghost", shape: "square" })}>
-            <TablerBrandLinkedin />
-          </A>
-          <A href="#" class={button({ variant: "ghost", shape: "square" })}>
-            <TablerMapPin />
-          </A>
+          {[
+            {
+              href: "https://github.com/gtumedei",
+              icon: <TablerBrandGithub />,
+              title: "GitHub • @gtumedei",
+            },
+            {
+              href: "https://www.linkedin.com/in/gianni-tumedei-7171961b8/",
+              icon: <TablerBrandLinkedin />,
+              title: "LinkedIn • @giannitumedei",
+            },
+            {
+              href: "https://goo.gl/maps/knzcetCBj6cHLAAW7",
+              icon: <TablerMapPin />,
+              title: "Location • Cesena (IT)",
+            },
+          ].map((item) => (
+            <a
+              href={item.href}
+              target="_blank"
+              class={button({ variant: "ghost", shape: "square" })}
+              use:tooltip={[item.title, "bottom"]}
+            >
+              {item.icon}
+            </a>
+          ))}
         </div>
       </div>
       <div class="grid md:grid-cols-2 gap-y-6 py-20">

@@ -1,6 +1,7 @@
 import { A } from "@solidjs/router"
-import { ParentComponent } from "solid-js"
+import { Component, ParentComponent } from "solid-js"
 import { button } from "~/components/ui/button"
+import tech, { Technology } from "~/lib/content/tech"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerLink from "~icons/tabler/link"
 
@@ -35,41 +36,111 @@ const TechPage = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
+          <h4>Google Pixel Buds Pro</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
         </TechSection>
+
         <TechSection heading="Software">
           <h4>Visual Studio Code</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
-          <TechAnchor href="#">code.visualstudio.com</TechAnchor>
+          <TechAnchor href="https://code.visualstudio.com/">code.visualstudio.com</TechAnchor>
           <h4>Warp</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
-          <TechAnchor href="#">warp.dev</TechAnchor>
+          <TechAnchor href="https://www.warp.dev/">warp.dev</TechAnchor>
+          <h4>Notion</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://www.notion.so/">notion.so</TechAnchor>
+          <h4>Figma</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://www.figma.com/">figma.com</TechAnchor>
+          <h4>Affinity Photo & Designer</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://affinity.serif.com/">affinity.serif.com</TechAnchor>
         </TechSection>
+
         <TechSection heading="Stack">
           <h4>SolidJS</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
-          <h4>Astro</h4>
+          <TechAnchor href="https://docs.solidjs.com/">solidjs.com</TechAnchor>
+          <h4>Tailwind CSS</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
+          <TechAnchor href="https://tailwindcss.com/">tailwindcss.com</TechAnchor>
+          <h4>Ark UI</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://ark-ui.com/">ark-ui.com</TechAnchor>
+          <h4>unplugin-icons</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://github.com/unplugin/unplugin-icons">github.com</TechAnchor>
+          <h4>Payload</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://payloadcms.com/">payloadcms.com</TechAnchor>
+          <h4>Drizzle</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://orm.drizzle.team/">orm.drizzle.team</TechAnchor>
+          <h4>Turso</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://turso.tech/">turso.tech</TechAnchor>
+          <h4>Lucia</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://lucia-auth.com/">lucia-auth.com</TechAnchor>
+          <h4>Backblaze</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
+            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+          </p>
+          <TechAnchor href="https://www.backblaze.com/">backblaze.com</TechAnchor>
         </TechSection>
+
         <TechSection heading="Experience">
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quo pariatur sed vitae
-            unde corporis?
+            In no particular order, some tech I worked and tinkered with, from programming and
+            templating languages, to frameworks, to databases.
           </p>
           <div class="not-prose grid gap-12 grid-cols-[repeat(auto-fill,minmax(84px,1fr))] mt-12">
-            {new Array(20).fill(null).map(() => (
-              <TechItem />
+            {tech.map((tech) => (
+              <TechItem tech={tech} />
             ))}
           </div>
         </TechSection>
@@ -94,7 +165,8 @@ const TechAnchor: ParentComponent<{ href: string }> = (props) => {
     <div class="not-prose">
       <A
         href={props.href}
-        class="flex items-center gap-3 text-sm font-medium hover:text-accent transition-colors"
+        target="_blank"
+        class="flex items-center gap-3 text-sm font-medium text-on-base/50 hover:text-accent transition-colors"
       >
         <TablerLink /> {props.children}
       </A>
@@ -104,19 +176,24 @@ const TechAnchor: ParentComponent<{ href: string }> = (props) => {
 
 const rotations = ["rotate-1", "rotate-2", "rotate-3", "-rotate-1", "-rotate-2", "-rotate-3"]
 
-const TechItem = () => {
+const TechItem: Component<{ tech: Technology }> = (props) => {
   return (
-    <A href="#" target="_blank" class="flex flex-col gap-2 relative group">
+    <A
+      href={props.tech.url}
+      target="_blank"
+      class="flex flex-col gap-2 relative group"
+      style={{ "--color": props.tech.color }}
+    >
       <div
         class={
-          "h-18 w-18 flex bg-base-300 rounded-lg mx-auto mb-7 group-hover:bg-accent/10 group-hover:text-accent group-hover:rotate-0 transition-all " +
+          "h-18 w-18 flex justify-center items-center text-lg bg-base-300 rounded-lg mx-auto mb-7 group-hover:text-[--color] group-hover:rotate-0 transition-all " +
           rotations[Math.floor(Math.random() * rotations.length)]
         }
       >
-        <span class="m-auto">IC</span>
+        {props.tech.icon()}
       </div>
-      <p class="font-medium text-sm text-center whitespace-nowrap group-hover:text-accent transition-colors absolute-center-x bottom-0">
-        tech name
+      <p class="font-medium text-sm text-center whitespace-nowrap group-hover:text-[--color] transition-colors absolute-center-x bottom-0">
+        {props.tech.name}
       </p>
     </A>
   )
