@@ -24,26 +24,26 @@ const ContactPage = () => {
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
             <FormField class="relative">
               <FormField.Label>Name</FormField.Label>
-              <Input variant="outline" class="w-full pl-11 peer" />
-              <div class="h-7 w-7 flex bg-base-300 peer-hover:bg-accent/10 peer-hover:text-accent peer-focus-visible:bg-accent/10 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
+              <Input variant="outline" size="lg" class="w-full pl-12 peer" />
+              <div class="h-8 w-8 flex bg-base-300 peer-hover:bg-accent/10 peer-hover:text-accent peer-focus-visible:bg-accent/10 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
                 <TablerUser class="m-auto" />
               </div>
             </FormField>
             <FormField class="relative">
               <FormField.Label>Email</FormField.Label>
-              <Input variant="outline" class="w-full pl-11 peer" />
-              <div class="h-7 w-7 flex bg-base-300 peer-hover:bg-accent/10 peer-hover:text-accent peer-focus-visible:bg-accent/10 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
+              <Input variant="outline" size="lg" class="w-full pl-12 peer" />
+              <div class="h-8 w-8 flex bg-base-300 peer-hover:bg-accent/10 peer-hover:text-accent peer-focus-visible:bg-accent/10 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
                 <TablerMail class="m-auto" />
               </div>
             </FormField>
           </div>
           <FormField>
             <FormField.Label>Subject</FormField.Label>
-            <Input variant="outline" class="w-full" />
+            <Input variant="outline" size="lg" class="w-full" />
           </FormField>
           <FormField>
             <FormField.Label>Message</FormField.Label>
-            <Textarea variant="outline" class="w-full h-44" />
+            <Textarea variant="outline" size="lg" class="w-full h-52" />
           </FormField>
           <Button variant="solid" theme="accent" class="sm:w-1/2 mt-6 sm:mx-auto">
             Send

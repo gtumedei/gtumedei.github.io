@@ -4,12 +4,12 @@ import { tv, type VariantProps } from "tailwind-variants"
 
 export const textarea = tv(
   {
-    base: "rounded-md border outline-none placeholder:text-on-base/40 disabled:bg-transparent disabled:text-on-base/30 transition-all",
+    base: "rounded-lg border outline-none placeholder:text-on-base/40 disabled:bg-transparent disabled:text-on-base/30 transition-all",
     defaultVariants: { variant: "outline", theme: "accent", size: "md" },
     variants: {
       variant: {
         outline:
-          "bg-transparent text-on-base shadow-sm focus-visible:ring disabled:bg-on-base/5 disabled:border-on-base/10 disabled:shadow-none",
+          "bg-transparent text-on-base focus-visible:ring disabled:bg-on-base/5 disabled:border-on-base/10",
         ghost:
           "border-transparent bg-transparent text-on-base focus-visible:border-accent focus-visible:ring focus-visible:ring-accent/20 disabled:bg-on-base/10",
         unstyled:
@@ -32,7 +32,8 @@ export const textarea = tv(
       {
         variant: "outline",
         theme: "accent",
-        class: "border-on-base/20 focus-visible:border-accent focus-visible:ring-accent/20",
+        class:
+          "border-on-base/20 hover:border-accent/50 focus-visible:border-accent/70 focus-visible:ring-accent/20",
       },
       {
         variant: "outline",
