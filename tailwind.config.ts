@@ -21,6 +21,9 @@ export default {
       spacing: {
         18: "4.5rem",
       },
+      transitionDuration: {
+        DEFAULT: "400ms",
+      },
     },
   },
   plugins: [

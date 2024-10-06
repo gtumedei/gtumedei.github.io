@@ -2,24 +2,25 @@ import { RadioGroup } from "@ark-ui/solid"
 import { A, RouteSectionProps, useLocation } from "@solidjs/router"
 import { createEffect, createSignal, For, Index, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
+import { Button, button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { Popover } from "~/components/ui/popover"
 import { createBreakpoints } from "~/lib/breakpoints"
+import cn from "~/lib/cn"
 import stickyOnScrollUp from "~/lib/directives/sticky-on-scroll-up"
+import TablerCopyright from "~icons/tabler/copyright"
 import TablerMenu from "~icons/tabler/menu"
-import TablerX from "~icons/tabler/x"
 import TablerMoonStars from "~icons/tabler/moon-stars"
 import TablerPalette from "~icons/tabler/palette"
 import TablerSun from "~icons/tabler/sun"
 import TablerSunMoon from "~icons/tabler/sun-moon"
-import { Button, button } from "~/components/ui/button"
-import cn from "~/lib/cn"
+import TablerX from "~icons/tabler/x"
 
 const BaseLayout = (props: RouteSectionProps) => {
   return (
     <div class="container grow xl:max-w-6xl flex flex-col bg-base-100 mx-auto sm:border-x border-on-base/5">
       <Header />
-      <main class="grow flex flex-col md:px-6 lg:px-10 xl:px-14">{props.children}</main>
+      <main class="grow flex flex-col pt-14 md:px-6 lg:px-10 xl:px-14">{props.children}</main>
       <Footer />
     </div>
   )
@@ -47,7 +48,7 @@ const Header = () => {
       use:stickyOnScrollUp
       class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 pointer-events-none [&>*]:pointer-events-auto"
     >
-      <A href="/" class="h-10 w-10">
+      <A href="/" class={button({ variant: "raised", shape: "circle" })}>
         H
       </A>
       <Button
@@ -292,8 +293,8 @@ const Footer = () => {
           </li>
         </ul>
       </nav>
-      <p class="text-on-base/50 max-sm:text-center">
-        © 2021 - {new Date().getFullYear()} Gianni Tumedei
+      <p class="text-on-base/50 max-sm:text-center inline-flex items-center">
+        <TablerCopyright class="text-sm mr-1.5" /> 2021 - {new Date().getFullYear()} Gianni Tumedei
       </p>
     </footer>
   )

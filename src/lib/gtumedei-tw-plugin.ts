@@ -135,6 +135,8 @@ const Gtumedei = ({ theme }: PluginOptions) =>
           height: "0px",
           width: "0px",
         },
+        // Taller line height
+        ".tall-lines": apply`[line-height:1.8em]`,
       })
     },
     {

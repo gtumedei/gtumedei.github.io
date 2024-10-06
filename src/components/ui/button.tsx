@@ -18,7 +18,7 @@ export const button = tv(
           "border-transparent bg-transparent text-on-base hover:bg-on-base/5 focus-visible:border-on-base/20 focus-visible:ring-on-base/10 [&:where(:disabled,[data-disabled])]:!bg-transparent [&:where(:disabled,[data-disabled])]:!text-on-base/50",
         link: "border-transparent !h-min !px-0",
         raised:
-          "bg-base-100 dark:bg-base-200 rounded-full border border-on-base/10 shadow-md shadow-black/5",
+          "bg-base-100 dark:bg-base-200 rounded-full border border-on-base/10 hover:border-on-base/20 shadow-md shadow-black/5",
       },
       theme: {
         neutral: "",
