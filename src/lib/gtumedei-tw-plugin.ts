@@ -113,7 +113,7 @@ const Gtumedei = ({ theme }: PluginOptions) =>
         "[data-accent='pink']": {
           "--color-accent": "var(--color-accent-pink)",
         },
-        ".theme-dark .prose, .theme-dark.prose": apply`prose-invert`,
+        ".prose": apply`!text-on-base prose-p:!text-on-base/70 prose-headings:!text-on-base prose-lead:!text-on-base/80 prose-a:!text-accent prose-a:!no-underline hover:prose-a:!underline prose-strong:!text-on-base prose-em:!text-on-base prose-blockquote:!border-on-base/20 prose-ol:!text-on-base/70 prose-ul:!text-on-base/70 prose-li:!text-on-base/70 prose-li:marker:!text-on-base/60 prose-code:!text-on-base prose-pre:!bg-base-200 prose-pre:border prose-pre:border-on-base/5 prose-hr:!border-on-base/10 prose-thead:!border-on-base/15 prose-tr:!border-on-base/10 prose-td:!text-on-base/70 prose-figcaption:!text-on-base/70 prose-kbd:!bg-on-base/5 prose-kbd:!text-on-base prose-kbd:border prose-kbd:border-on-base/5 prose-kbd:!shadow-none`,
         "*": apply`outline-offset-1 outline-accent/20`,
       })
       addUtilities({

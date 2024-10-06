@@ -42,23 +42,13 @@ const TechPage = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
-          <A
-            href="#"
-            class="flex items-center gap-3 no-underline text-sm font-medium hover:text-accent transition-colors"
-          >
-            <TablerLink /> code.visualstudio.com
-          </A>
+          <TechAnchor href="#">code.visualstudio.com</TechAnchor>
           <h4>Warp</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
-          <A
-            href="#"
-            class="flex items-center gap-3 no-underline text-sm font-medium hover:text-accent transition-colors"
-          >
-            <TablerLink /> warp.dev
-          </A>
+          <TechAnchor href="#">warp.dev</TechAnchor>
         </TechSection>
         <TechSection heading="Tech stack">
           <h4>SolidJS</h4>
@@ -96,6 +86,19 @@ const TechSection: ParentComponent<{ heading: string }> = (props) => {
       </div>
       <div class="col-span-3 max-w-xl prose">{props.children}</div>
     </section>
+  )
+}
+
+const TechAnchor: ParentComponent<{ href: string }> = (props) => {
+  return (
+    <div class="not-prose">
+      <A
+        href={props.href}
+        class="flex items-center gap-3 text-sm font-medium hover:text-accent transition-colors"
+      >
+        <TablerLink /> {props.children}
+      </A>
+    </div>
   )
 }
 
