@@ -15,7 +15,7 @@ const HomePage = () => {
   tooltip
   return (
     <>
-      <div class="w-full md:pt-[5.5rem] px-6">
+      <div class="w-full px-6">
         <img src="/profile.jpg" alt="Profile image" class="h-40 w-40 rounded-xl -rotate-3 mb-8" />
         <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1">
           Gianni Tumedei

@@ -100,7 +100,7 @@ const tech: Technology[] = [
     name: "Kotlin",
     url: "https://kotlinlang.org/",
     icon: () => <TablerBrandKotlin />,
-    color: "iolet-500",
+    color: "#8B5CF6",
   },
   {
     name: "Swift",

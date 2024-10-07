@@ -2,7 +2,6 @@ import { RadioGroup } from "@ark-ui/solid"
 import { A, RouteSectionProps, useLocation } from "@solidjs/router"
 import { createEffect, createSignal, For, Index, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
-import GTumedeiLogo from "~/components/gtumedei-logo"
 import { Button, button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { Popover } from "~/components/ui/popover"
@@ -49,9 +48,10 @@ const Header = () => {
       use:stickyOnScrollUp
       class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 pointer-events-none [&>*]:pointer-events-auto"
     >
-      <A href="/" class={button({ variant: "raised", shape: "circle" })}>
+      <div class="h-10 w-10" />
+      {/* <A href="/" class={button({ variant: "raised", shape: "circle" })}>
         <GTumedeiLogo />
-      </A>
+      </A> */}
       {location.pathname != "/" && (
         <Button
           variant="raised"
