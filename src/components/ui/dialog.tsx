@@ -5,11 +5,10 @@ import { createStyleContext } from "~/lib/style-context"
 
 export const dialog = tv(
   {
-    defaultVariants: { variant: "base" },
     slots: {
       trigger: "",
       backdrop:
-        "bg-on-base/50 dark:bg-base-200/50 backdrop-blur-sm fixed top-0 left-0 z-50 h-screen w-screen data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
+        "bg-on-base/50 dark:bg-base-200/50 backdrop-blur fixed top-0 left-0 z-50 h-screen w-screen data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
       positioner: "flex px-4 py-12 fixed top-0 left-0 z-50 h-screen w-screen",
       content:
         "bg-base-100 dark:bg-base-200 flex flex-col max-h-full overflow-y-auto gap-6 p-6 rounded-3xl border border-on-base/10 shadow-md shadow-black/5 m-auto relative outline-none data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
@@ -20,14 +19,7 @@ export const dialog = tv(
       closeTrigger: "",
       x: [button({ variant: "ghost", shape: "square", size: "sm" }), "absolute top-3 right-3"],
     },
-    variants: {
-      variant: {
-        base: {},
-        modal: {
-          backdrop: "backdrop-blur-sm",
-        },
-      },
-    },
+    variants: {},
   },
   { twMerge: false }
 )
