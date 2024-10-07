@@ -5,7 +5,12 @@ import Nesting from "tailwindcss/nesting/index.js"
 import Icons from "unplugin-icons/vite"
 
 export default defineConfig({
-  vite: () => ({
+  server: {
+    prerender: {
+      routes: ["/", "/contact", "/minigames", "/projects", "/tech"],
+    },
+  },
+  vite: {
     envPrefix: "PUBLIC_",
     plugins: [Icons({ compiler: "solid" })],
     css: {
@@ -13,5 +18,5 @@ export default defineConfig({
         plugins: [Nesting(), Tailwind(), Autoprefixer()],
       },
     },
-  }),
+  },
 })

@@ -30,6 +30,7 @@
     "nprogress": "^0.2.0",
     "outdent": "^0.8.0",
     "postcss": "^8.4.47",
+    "sitemap": "^8.0.0",
     "solid-js": "^1.9.1",
     "tailwind-merge": "^2.5.3",
     "tailwind-variants": "^0.2.1",
