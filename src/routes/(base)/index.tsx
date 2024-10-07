@@ -1,4 +1,5 @@
 import { A } from "@solidjs/router"
+import Seo from "~/components/seo"
 import { button } from "~/components/ui/button"
 import tooltip from "~/lib/directives/tooltip"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
@@ -15,12 +16,13 @@ const HomePage = () => {
   tooltip
   return (
     <>
+      <Seo description="My personal website." />
       <div class="w-full px-6">
         <img src="/profile.jpg" alt="Profile image" class="h-40 w-40 rounded-xl -rotate-3 mb-8" />
         <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1">
           Gianni Tumedei
         </h1>
-        <h2 class="font-mono">@gtumedei</h2>
+        <h2 class="font-mono text-on-base/70">@gtumedei</h2>
         <div class="flex mt-6">
           <A href="/cv" target="_self" class={button({ theme: "accent", class: "mr-2" })}>
             Download CV <TablerDownload />

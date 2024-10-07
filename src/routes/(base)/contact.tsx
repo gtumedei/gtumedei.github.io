@@ -5,6 +5,7 @@ import outdent from "outdent"
 import { Component, createSignal } from "solid-js"
 import { Portal } from "solid-js/web"
 import { z } from "zod"
+import Seo from "~/components/seo"
 import { Button, button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { FormField } from "~/components/ui/form-field"
@@ -83,6 +84,10 @@ const ContactPage = () => {
   tooltip
   return (
     <>
+      <Seo
+        title="Contact"
+        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
+      />
       <div class="lg:w-2/3 px-6">
         <A href="/" class={button({ variant: "raised", shape: "circle", class: "group" })}>
           <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />

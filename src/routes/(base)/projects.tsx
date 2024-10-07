@@ -1,4 +1,5 @@
 import { A } from "@solidjs/router"
+import Seo from "~/components/seo"
 import { button } from "~/components/ui/button"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerLink from "~icons/tabler/link"
@@ -6,6 +7,10 @@ import TablerLink from "~icons/tabler/link"
 const ProjectsPage = () => {
   return (
     <>
+      <Seo
+        title="Projects"
+        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
+      />
       <div class="lg:w-2/3 px-6">
         <A href="/" class={button({ variant: "raised", shape: "circle", class: "group" })}>
           <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />

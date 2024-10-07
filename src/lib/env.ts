@@ -7,7 +7,9 @@ export const PrivateEnvSchema = z.object({
   CV_URL: z.string().min(1),
 })
 
-export const PublicEnvSchema = z.object({})
+export const PublicEnvSchema = z.object({
+  PUBLIC_BASE_URL: z.string().url(),
+})
 
 const formatErrors = (errors: ZodFormattedError<Map<string, string>, string>) =>
   Object.entries(errors)
