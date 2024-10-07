@@ -2,6 +2,7 @@ import { A } from "@solidjs/router"
 import Seo from "~/components/seo"
 import { button } from "~/components/ui/button"
 import tooltip from "~/lib/directives/tooltip"
+import { createTimeline, stagger } from "~/lib/motion"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBrandGithub from "~icons/tabler/brand-github"
 import TablerBrandLinkedin from "~icons/tabler/brand-linkedin"
@@ -13,20 +14,46 @@ import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 import TablerMapPin from "~icons/tabler/map-pin"
 
 const HomePage = () => {
+  createTimeline([
+    [`[data-motion="image"]`, { opacity: 1, x: [-10, 0], rotate: [3, -3] }, { duration: 0.4 }],
+    [
+      `[data-motion="hero"]`,
+      { opacity: 1, x: [-10, 0] },
+      { duration: 0.4, delay: stagger(0.15), at: "<" },
+    ],
+    [
+      `[data-motion="menu"]`,
+      { opacity: 1, scale: [0.95, 1], y: [10, 0] },
+      { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" },
+    ],
+  ])
+
   tooltip
   return (
     <>
       <Seo description="My personal website." />
       <div class="w-full px-6">
-        <img src="/profile.jpg" alt="Profile image" class="h-40 w-40 rounded-xl -rotate-3 mb-8" />
-        <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1">
+        <img
+          src="/profile.jpg"
+          alt="Profile image"
+          class="h-40 w-40 rounded-xl -rotate-3 mb-8"
+          data-motion="image"
+        />
+        <h1
+          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1"
+          data-motion="hero"
+        >
           Gianni Tumedei
         </h1>
-        <h2 class="font-mono text-on-base/70">@gtumedei</h2>
+        <h2 class="font-mono text-on-base/70" data-motion="hero">
+          @gtumedei
+        </h2>
         <div class="flex mt-6">
-          <A href="/cv" target="_self" class={button({ theme: "accent", class: "mr-2" })}>
-            Download CV <TablerDownload />
-          </A>
+          <div class="flex" data-motion="hero">
+            <a href="/cv" class={button({ theme: "accent", class: "mr-2" })}>
+              Download CV <TablerDownload />
+            </a>
+          </div>
           {[
             {
               href: "https://github.com/gtumedei",
@@ -49,6 +76,7 @@ const HomePage = () => {
               target="_blank"
               class={button({ variant: "ghost", shape: "square" })}
               use:tooltip={[item.title, "bottom"]}
+              data-motion="hero"
             >
               {item.icon}
             </a>
@@ -93,6 +121,7 @@ const HomePage = () => {
           <A
             href={item.href}
             class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group"
+            data-motion="menu"
           >
             <div class="flex gap-4 items-center mb-3">
               {item.icon()}

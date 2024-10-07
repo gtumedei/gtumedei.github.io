@@ -15,6 +15,7 @@ import { Textarea } from "~/components/ui/textarea"
 import tooltip from "~/lib/directives/tooltip"
 import env from "~/lib/env"
 import { createForm } from "~/lib/form"
+import { createTimeline, stagger } from "~/lib/motion"
 import { safeAction } from "~/lib/safe-data"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
@@ -80,6 +81,19 @@ const ContactPage = () => {
 
   const [dialogState, setDialogState] = createSignal<"success" | "error" | null>(null)
 
+  createTimeline([
+    [
+      `[data-motion="heading"]`,
+      { opacity: 1, x: [-10, 0] },
+      { duration: 0.4, delay: stagger(0.15) },
+    ],
+    [
+      `[data-motion="form"]`,
+      { opacity: 1, x: [-10, 0] },
+      { duration: 0.4, delay: stagger(0.075, { start: 0.2 }), at: "<" },
+    ],
+  ])
+
   form
   tooltip
   return (
@@ -92,15 +106,20 @@ const ContactPage = () => {
         <A href="/" class={button({ variant: "raised", shape: "circle", class: "group" })}>
           <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
         </A>
-        <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mt-8 mb-6">Contact</h1>
-        <p class="text-on-base/70 tall-lines">
+        <h1
+          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mt-8 mb-6"
+          data-motion="heading"
+        >
+          Contact
+        </h1>
+        <p class="text-on-base/70 tall-lines" data-motion="heading">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus accusamus, tempora quod
           placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
           minima eaque fugiat quia, dignissimos perspiciatis harum?
         </p>
       </div>
       <form use:form class="flex flex-col px-6 py-20">
-        <FormField class="md:grid md:grid-cols-5 gap-x-12">
+        <FormField class="md:grid md:grid-cols-5 gap-x-12" data-motion="form">
           <FormField.Label class="lg:text-base md:![line-height:2.75rem]">Name</FormField.Label>
           <div class="md:col-span-3 sm:max-w-xs relative">
             <Input type="text" name="name" variant="outline" size="lg" class="w-full pl-12 peer" />
@@ -109,8 +128,8 @@ const ContactPage = () => {
             </div>
           </div>
         </FormField>
-        <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" />
-        <FormField class="md:grid md:grid-cols-5 gap-x-12">
+        <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" data-motion="form" />
+        <FormField class="md:grid md:grid-cols-5 gap-x-12" data-motion="form">
           <FormField.Label class="lg:text-base md:![line-height:2.75rem]">Email</FormField.Label>
           <div class="md:col-span-3 sm:max-w-sm relative">
             <Input
@@ -133,22 +152,22 @@ const ContactPage = () => {
             )}
           </div>
         </FormField>
-        <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" />
-        <FormField class="md:grid md:grid-cols-5 gap-x-12">
+        <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" data-motion="form" />
+        <FormField class="md:grid md:grid-cols-5 gap-x-12" data-motion="form">
           <FormField.Label class="lg:text-base md:![line-height:2.75rem]">Subject</FormField.Label>
           <div class="md:col-span-3">
             <Input type="text" name="subject" variant="outline" size="lg" class="w-full" />
           </div>
         </FormField>
-        <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" />
-        <FormField class="md:grid md:grid-cols-5 gap-x-12">
+        <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" data-motion="form" />
+        <FormField class="md:grid md:grid-cols-5 gap-x-12" data-motion="form">
           <FormField.Label class="lg:text-base md:![line-height:2.75rem]">Message</FormField.Label>
           <div class="md:col-span-3 flex">
             <Textarea name="message" variant="outline" size="lg" class="w-full h-52" />
           </div>
         </FormField>
-        <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" />
-        <div class="grid md:grid-cols-5 gap-x-12">
+        <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" data-motion="form" />
+        <div class="grid md:grid-cols-5 gap-x-12" data-motion="form">
           <Button
             type="submit"
             theme="accent"

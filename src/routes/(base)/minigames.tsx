@@ -1,6 +1,7 @@
 import { A } from "@solidjs/router"
 import Seo from "~/components/seo"
 import { button } from "~/components/ui/button"
+import { createTimeline, stagger } from "~/lib/motion"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerColorSwatch from "~icons/tabler/color-swatch"
 
@@ -20,6 +21,19 @@ const palette = [
 ]
 
 const MinigamesPage = () => {
+  createTimeline([
+    [
+      `[data-motion="heading"]`,
+      { opacity: 1, x: [-10, 0] },
+      { duration: 0.4, delay: stagger(0.15) },
+    ],
+    [
+      `[data-motion="minigames"]`,
+      { opacity: 1, scale: [0.95, 1], y: [10, 0] },
+      { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" },
+    ],
+  ])
+
   return (
     <>
       <Seo
@@ -30,10 +44,13 @@ const MinigamesPage = () => {
         <A href="/" class={button({ variant: "raised", shape: "circle", class: "group" })}>
           <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
         </A>
-        <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mt-8 mb-6">
+        <h1
+          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mt-8 mb-6"
+          data-motion="heading"
+        >
           Minigames
         </h1>
-        <p class="text-on-base/70 tall-lines">
+        <p class="text-on-base/70 tall-lines" data-motion="heading">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus accusamus, tempora quod
           placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
           minima eaque fugiat quia, dignissimos perspiciatis harum?
@@ -43,6 +60,7 @@ const MinigamesPage = () => {
         <A
           href="/minigames/color-guesser"
           class="hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group"
+          data-motion="minigames"
         >
           <div class="w-full aspect-[2/1] flex bg-base-200 group-hover:bg-on-base/5 rounded-2xl mb-6 rotate-3 group-hover:rotate-0 transition-all relative overflow-hidden">
             <div class="grid grid-cols-12 gap-2 p-2 w-max absolute-center opacity-70 transition-opacity">
@@ -68,7 +86,7 @@ const MinigamesPage = () => {
             available for the classy ones.
           </p>
         </A>
-        <div class="md:grounded-3xl p-6">
+        <div class="md:grounded-3xl p-6" data-motion="minigames">
           <div class="w-full aspect-[2/1] bg-base-300 rounded-2xl mb-6 -rotate-1"></div>
           <p class="text-sm text-on-base/70 tall-lines">
             More minigames might be coming soon! Or not, it really depends if I get inspired AND

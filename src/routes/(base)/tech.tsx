@@ -3,10 +3,15 @@ import { Component, ParentComponent } from "solid-js"
 import Seo from "~/components/seo"
 import { button } from "~/components/ui/button"
 import tech, { Technology } from "~/lib/content/tech"
+import { createTimeline, stagger } from "~/lib/motion"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerLink from "~icons/tabler/link"
 
 const TechPage = () => {
+  createTimeline([
+    [`[data-motion]`, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: stagger(0.15) }],
+  ])
+
   return (
     <>
       <Seo
@@ -17,14 +22,16 @@ const TechPage = () => {
         <A href="/" class={button({ variant: "raised", shape: "circle", class: "group" })}>
           <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
         </A>
-        <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mt-8 mb-6">Tech</h1>
-        <p class="text-on-base/70 tall-lines">
+        <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mt-8 mb-6" data-motion>
+          Tech
+        </h1>
+        <p class="text-on-base/70 tall-lines" data-motion>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus accusamus, tempora quod
           placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
           minima eaque fugiat quia, dignissimos perspiciatis harum?
         </p>
       </div>
-      <div class="space-y-16 px-6 py-20">
+      <div class="space-y-16 px-6 py-20" data-motion>
         <TechSection heading="Hardware">
           <h4>M1 Pro Macbook Pro 14" (2021)</h4>
           <p>
@@ -171,7 +178,7 @@ const TechAnchor: ParentComponent<{ href: string }> = (props) => {
       <A
         href={props.href}
         target="_blank"
-        class="flex items-center gap-3 text-sm font-medium text-on-base/50 hover:text-accent transition-colors"
+        class="inline-flex items-center gap-3 text-sm font-medium text-on-base/50 hover:text-accent transition-colors"
       >
         <TablerLink /> {props.children}
       </A>

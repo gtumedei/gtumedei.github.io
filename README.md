@@ -11,14 +11,9 @@ My personal website.
 
 ## TODO
 
-- Migrate to Solid Start? Missing pieces:
-  - Automatic sitemap generator (try https://github.com/jbaubree/vite-plugin-sitemap)
-  - Anything else?
 - New logo with dynamic theming (tangerine?)
-- Add Ark UI for modals and popovers
 - Avataaar with custom appearance based on season + custom bg based on theme
 - Work experience summary
-- Favorites page: hardware, software, development stack, ...
 - Projects
 - Games:
   - Ideas with Matter.js: pinball, angry birds

@@ -20,6 +20,18 @@ export default createHandler(() => (
           {import.meta.env.PROD && (
             <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/script.js`} />
           )}
+          <style>
+            {`[data-motion] {
+              opacity: 0;
+            }`}
+          </style>
+          <noscript>
+            <style>
+              {`[data-motion] {
+                opacity: 1 !important;
+              }`}
+            </style>
+          </noscript>
           {assets}
         </head>
         <body class="grow flex">
