@@ -1,6 +1,6 @@
 import { RadioGroup } from "@ark-ui/solid"
 import { A, RouteSectionProps, useLocation } from "@solidjs/router"
-import { createEffect, createSignal, For, Index, onMount } from "solid-js"
+import { createEffect, createSignal, For, Index, JSX } from "solid-js"
 import { Portal } from "solid-js/web"
 import { Button, button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
@@ -8,6 +8,8 @@ import { Popover } from "~/components/ui/popover"
 import { createBreakpoints } from "~/lib/breakpoints"
 import cn from "~/lib/cn"
 import stickyOnScrollUp from "~/lib/directives/sticky-on-scroll-up"
+import tooltip from "~/lib/directives/tooltip"
+import { Accent, Theme, useTheme } from "~/lib/theme"
 import TablerCopyright from "~icons/tabler/copyright"
 import TablerMenu from "~icons/tabler/menu"
 import TablerMoonStars from "~icons/tabler/moon-stars"
@@ -18,11 +20,16 @@ import TablerX from "~icons/tabler/x"
 
 const BaseLayout = (props: RouteSectionProps) => {
   return (
-    <div class="container grow xl:max-w-6xl flex flex-col bg-base-100 mx-auto sm:border-x border-on-base/5">
-      <Header />
-      <main class="grow flex flex-col pt-14 md:px-6 lg:px-10 xl:px-14">{props.children}</main>
-      <Footer />
-    </div>
+    <>
+      <div class="bg-base-200 dark:bg-black/40 fixed inset-0 -z-10">
+        <div class="container h-full xl:max-w-6xl flex flex-col bg-base-100 mx-auto sm:border-x border-on-base/10 dark:border-on-base/5" />
+      </div>
+      <div class="container grow xl:max-w-6xl flex flex-col mx-auto sm:border-x border-transparent">
+        <Header />
+        <main class="grow flex flex-col pt-14 md:px-6 lg:px-10 xl:px-14">{props.children}</main>
+        <Footer />
+      </div>
+    </>
   )
 }
 
@@ -46,7 +53,7 @@ const Header = () => {
   return (
     <header
       use:stickyOnScrollUp
-      class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 pointer-events-none [&>*]:pointer-events-auto"
+      class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 pointer-events-none [&>*]:pointer-events-auto"
     >
       <div class="h-10 w-10" />
       {/* <A href="/" class={button({ variant: "raised", shape: "circle" })}>
@@ -133,7 +140,13 @@ const Header = () => {
 }
 
 const ThemeSwitcher = () => {
-  const themes = [
+  const { theme, setTheme, accent, setAccent } = useTheme()
+
+  const themes: {
+    value: Theme
+    label: string
+    icon: () => JSX.Element
+  }[] = [
     {
       value: "light",
       label: "Light theme",
@@ -151,7 +164,11 @@ const ThemeSwitcher = () => {
     },
   ]
 
-  const accents = [
+  const accents: {
+    value: Accent
+    label: string
+    bgClass: string
+  }[] = [
     {
       value: "blue",
       label: "Blue accent",
@@ -174,41 +191,7 @@ const ThemeSwitcher = () => {
     },
   ]
 
-  const [theme, _setTheme] = createSignal("system")
-  const setTheme = (value: string) => {
-    _setTheme(value)
-    localStorage.setItem("gtumedei-io-theme", value)
-  }
-
-  createEffect(() => {
-    const currentTheme = theme()
-    if (currentTheme == "system") {
-      document.documentElement.removeAttribute("data-theme")
-    } else {
-      document.documentElement.setAttribute("data-theme", currentTheme)
-    }
-  })
-
-  const [accent, _setAccent] = createSignal("blue")
-  const setAccent = (value: string) => {
-    _setAccent(value)
-    localStorage.setItem("gtumedei-io-accent", value)
-  }
-
-  createEffect(() => {
-    const currentAccent = accent()
-    if (currentAccent == "blue") {
-      document.documentElement.removeAttribute("data-accent")
-    } else {
-      document.documentElement.setAttribute("data-accent", currentAccent)
-    }
-  })
-
-  onMount(() => {
-    setTheme(localStorage.getItem("gtumedei-io-theme") ?? "system")
-    setAccent(localStorage.getItem("gtumedei-io-accent") ?? "blue")
-  })
-
+  tooltip
   return (
     <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
       <Popover.Trigger
@@ -221,13 +204,16 @@ const ThemeSwitcher = () => {
       </Popover.Trigger>
       <Popover.Positioner>
         <Popover.Content class="p-5">
-          <RadioGroup.Root value={theme()} onValueChange={({ value }) => setTheme(value)}>
+          <RadioGroup.Root value={theme()} onValueChange={({ value }) => setTheme(value as Theme)}>
             <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Theme</RadioGroup.Label>
             <div class="grid grid-cols-3 gap-2">
               <RadioGroup.Indicator class="h-14 w-14 bg-base-300 rounded-lg left-[--left] pointer-events-none" />
               <Index each={themes}>
                 {(t) => (
-                  <RadioGroup.Item value={t().value}>
+                  <RadioGroup.Item
+                    value={t().value}
+                    asChild={(props) => <label {...props()} use:tooltip={[t().label, "bottom"]} />}
+                  >
                     <RadioGroup.ItemControl
                       class={cn(
                         button({ variant: "ghost", shape: "square" }),
@@ -243,13 +229,19 @@ const ThemeSwitcher = () => {
               </Index>
             </div>
           </RadioGroup.Root>
-          <RadioGroup.Root value={accent()} onValueChange={({ value }) => setAccent(value)}>
+          <RadioGroup.Root
+            value={accent()}
+            onValueChange={({ value }) => setAccent(value as Accent)}
+          >
             <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Accent</RadioGroup.Label>
             <div class="grid grid-cols-4 gap-2">
               <RadioGroup.Indicator class="h-10 w-10 bg-base-300 rounded-lg left-[--left] pointer-events-none" />
               <Index each={accents}>
                 {(a) => (
-                  <RadioGroup.Item value={a().value}>
+                  <RadioGroup.Item
+                    value={a().value}
+                    asChild={(props) => <label {...props()} use:tooltip={[a().label, "bottom"]} />}
+                  >
                     <RadioGroup.ItemControl
                       class={cn(
                         button({ variant: "ghost", shape: "square" }),

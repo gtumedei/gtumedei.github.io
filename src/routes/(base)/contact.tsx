@@ -123,7 +123,7 @@ const ContactPage = () => {
           <FormField.Label class="lg:text-base md:![line-height:2.75rem]">Name</FormField.Label>
           <div class="md:col-span-3 sm:max-w-xs relative">
             <Input type="text" name="name" variant="outline" size="lg" class="w-full pl-12 peer" />
-            <div class="h-8 w-8 flex bg-base-300 peer-hover:bg-accent/10 peer-hover:text-accent peer-focus-visible:bg-accent/10 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
+            <div class="h-8 w-8 flex bg-base-300 peer-hover:bg-accent/20 peer-hover:text-accent peer-focus-visible:bg-accent/20 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
               <TablerUser class="m-auto" />
             </div>
           </div>
@@ -139,7 +139,7 @@ const ContactPage = () => {
               size="lg"
               class="w-full pl-12 peer"
             />
-            <div class="h-8 w-8 flex bg-base-300 peer-hover:bg-accent/10 peer-hover:text-accent peer-focus-visible:bg-accent/10 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
+            <div class="h-8 w-8 flex bg-base-300 peer-hover:bg-accent/20 peer-hover:text-accent peer-focus-visible:bg-accent/20 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
               <TablerMail class="m-auto" />
             </div>
             {errors("email") && (
