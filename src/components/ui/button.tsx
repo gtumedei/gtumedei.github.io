@@ -6,7 +6,7 @@ import cn from "~/lib/cn"
 export const button = tv(
   {
     base: "inline-flex justify-center items-center gap-2 rounded-lg border font-semibold transition-all outline-none focus-visible:ring [&:where(:disabled,[data-disabled])]:!shadow-none",
-    defaultVariants: { variant: "solid", theme: "neutral", size: "md", shape: "rectangle" },
+    defaultVariants: { variant: "solid", theme: "accent", size: "md", shape: "rectangle" },
     variants: {
       variant: {
         solid: "",

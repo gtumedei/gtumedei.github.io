@@ -66,7 +66,7 @@ const createColorGuesser = () => {
     name: "gtumedei.color-guesser",
     storage: isServer ? undefined : localStorage,
   })
-  const resetStorage = () => setStats({ ...initialStats })
+  const resetStats = () => setStats({ ...initialStats })
 
   const createColorGrid = (size: number, mode: ColorMode) => {
     let grid = new Array(size * size).fill(0).map(() => pickRandom(colors))
@@ -117,10 +117,12 @@ const createColorGuesser = () => {
     modes,
     game,
     gameActions: { startGame, registerGuess, nextColor },
-    storage: stats,
-    resetStorage,
-    dialogState,
-    setDialogState,
+    stats,
+    resetStats,
+    ui: {
+      dialogState,
+      setDialogState,
+    },
   }
 }
 

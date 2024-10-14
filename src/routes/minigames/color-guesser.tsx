@@ -1,11 +1,12 @@
-import tooltip from "~/lib/directives/tooltip"
 import GameLayout from "~/components/game-layout"
 import AspectRatio from "~/components/ui/aspect-ratio"
+import { Button } from "~/components/ui/button"
+import tooltip from "~/lib/directives/tooltip"
+import { Board } from "~/minigames/color-guesser/board"
+import { ColorGuesserGameProvider, useColorGuesserGame } from "~/minigames/color-guesser/core"
+import { MenuDialog, StatsDialog } from "~/minigames/color-guesser/dialogs"
 import TablerChartBar from "~icons/tabler/chart-bar"
 import TablerMenu from "~icons/tabler/menu"
-import { ColorGuesserGameProvider, useColorGuesserGame } from "~/lib/minigames/color-guesser/core"
-import { Board } from "~/lib/minigames/color-guesser/board"
-import { Button } from "~/components/ui/button"
 
 tooltip
 
@@ -19,7 +20,7 @@ const MobileMenu = () => {
         <Button
           variant="ghost"
           shape="square"
-          onClick={() => ctx.setDialogState("stats")}
+          onClick={() => ctx.ui.setDialogState("stats")}
           asChild={(props) => <button {...props()} use:tooltip={["Stats", "bottom"]} />}
         >
           <TablerChartBar />
@@ -27,7 +28,7 @@ const MobileMenu = () => {
         <Button
           variant="ghost"
           shape="square"
-          onClick={() => ctx.setDialogState("menu")}
+          onClick={() => ctx.ui.setDialogState("menu")}
           asChild={(props) => <button {...props()} use:tooltip={["Menu", "bottom"]} />}
         >
           <TablerMenu />
@@ -53,7 +54,7 @@ const RightMenu = () => {
       <Button
         variant="ghost"
         shape="square"
-        onClick={() => ctx.setDialogState("stats")}
+        onClick={() => ctx.ui.setDialogState("stats")}
         asChild={(props) => <button {...props()} use:tooltip={["Stats", "bottom"]} />}
       >
         <TablerChartBar />
@@ -61,7 +62,7 @@ const RightMenu = () => {
       <Button
         variant="ghost"
         shape="square"
-        onClick={() => ctx.setDialogState("menu")}
+        onClick={() => ctx.ui.setDialogState("menu")}
         asChild={(props) => <button {...props()} use:tooltip={["Menu", "bottom"]} />}
       >
         <TablerMenu />
@@ -76,7 +77,9 @@ const ColorIndicator = () => {
   return (
     <div class="absolute bottom-3 left-0 w-full flex">
       <div class="flex bg-base-100/80 dark:bg-base-200/80 backdrop-blur px-6 py-2.5 rounded-full border border-on-base/10 shadow-md shadow-black/5 m-auto">
-        <p>Color code: {ctx.game.color}</p>
+        <p class="text-on-base/70">
+          Color code: <span class="text-on-base">{ctx.game.color}</span>
+        </p>
       </div>
     </div>
   )
@@ -92,8 +95,8 @@ const ColorGuesserGame = () => {
           </AspectRatio>
           <ColorIndicator />
         </div>
-        {/* <SettingsModal />
-        <StatsModal /> */}
+        <MenuDialog />
+        <StatsDialog />
       </GameLayout>
     </ColorGuesserGameProvider>
   )
