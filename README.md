@@ -12,8 +12,12 @@ My personal website.
 ## TODO
 
 - New logo with dynamic theming (tangerine?)
-- Avataaar with custom appearance based on season + custom bg based on theme
+- Cartoonize profile image
+- Add cartoonized images row to the homepage
+- Link to the v1 website
 - Projects
+  - Work: MoreThanTech, MoreThanTech Build, Radio Centrale, Nexthardware, TBG Studio, Sketchlagoon, Sonification demo
+  - Personal: Sailing Ark, Open Movies, taggui, go-droid, yt-dlapp, goaway, dotfiles, vscode-adw-material-theme, taggo
 - Games:
   - Ideas with Matter.js: pinball, angry birds
   - Endless runner

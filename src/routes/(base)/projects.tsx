@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router"
-import Seo from "~/components/seo"
+import Meta from "~/components/meta"
 import { button } from "~/components/ui/button"
 import { createTimeline, stagger } from "~/lib/motion"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
@@ -21,7 +21,7 @@ const ProjectsPage = () => {
 
   return (
     <>
-      <Seo
+      <Meta
         title="Projects"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />

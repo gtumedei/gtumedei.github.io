@@ -1,6 +1,6 @@
 import { A } from "@solidjs/router"
 import { Component, ParentComponent } from "solid-js"
-import Seo from "~/components/seo"
+import Meta from "~/components/meta"
 import { button } from "~/components/ui/button"
 import tech, { Technology } from "~/lib/content/tech"
 import { createTimeline, stagger } from "~/lib/motion"
@@ -14,7 +14,7 @@ const TechPage = () => {
 
   return (
     <>
-      <Seo
+      <Meta
         title="Tech"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />

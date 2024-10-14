@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router"
-import Seo from "~/components/seo"
+import Meta from "~/components/meta"
 import { button } from "~/components/ui/button"
 import tooltip from "~/lib/directives/tooltip"
 import { createTimeline, stagger } from "~/lib/motion"
@@ -31,7 +31,7 @@ const HomePage = () => {
   tooltip
   return (
     <>
-      <Seo description="My personal website." />
+      <Meta description="My personal website." />
       <div class="w-full px-6">
         <img
           src="/profile.jpg"

@@ -5,7 +5,7 @@ import outdent from "outdent"
 import { Component, createSignal } from "solid-js"
 import { Portal } from "solid-js/web"
 import { z } from "zod"
-import Seo from "~/components/seo"
+import Meta from "~/components/meta"
 import { Button, button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { FormField } from "~/components/ui/form-field"
@@ -98,7 +98,7 @@ const ContactPage = () => {
   tooltip
   return (
     <>
-      <Seo
+      <Meta
         title="Contact"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
@@ -197,8 +197,8 @@ const SuccessDialog: Component<Pick<DialogRootProps, "open" | "onOpenChange">> =
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          <Dialog.Content class="w-full max-w-sm text-center">
-            <div class="flex bg-accent/15 text-accent rounded-full p-4 mx-auto">
+          <Dialog.Content class="w-full max-w-xs text-center">
+            <div class="flex bg-base-300 text-accent rounded-full p-4 mx-auto">
               <TablerRocket class="text-2xl" />
             </div>
             <Dialog.Header class="gap-1.5">
@@ -223,8 +223,8 @@ const ErrorDialog: Component<Pick<DialogRootProps, "open" | "onOpenChange">> = (
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          <Dialog.Content class="w-full max-w-sm text-center">
-            <div class="flex bg-error/15 text-error rounded-full p-4 mx-auto">
+          <Dialog.Content class="w-full max-w-xs text-center">
+            <div class="flex bg-base-300 text-error rounded-full p-4 mx-auto">
               <TablerExclamationCircle class="text-2xl" />
             </div>
             <Dialog.Header class="gap-1.5">
