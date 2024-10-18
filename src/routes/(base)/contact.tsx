@@ -1,5 +1,5 @@
 import { DialogRootProps } from "@ark-ui/solid"
-import { A, json, useAction } from "@solidjs/router"
+import { json, useAction } from "@solidjs/router"
 import { Bot, GrammyError, HttpError } from "grammy"
 import outdent from "outdent"
 import { Component, createSignal } from "solid-js"
@@ -17,7 +17,6 @@ import env from "~/lib/env"
 import { createForm } from "~/lib/form"
 import { createTimeline, stagger } from "~/lib/motion"
 import { safeAction } from "~/lib/safe-data"
-import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
 import TablerMail from "~icons/tabler/mail"
 import TablerRocket from "~icons/tabler/rocket"
@@ -102,12 +101,9 @@ const ContactPage = () => {
         title="Contact"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
-      <div class="lg:w-2/3 px-6">
-        <A href="/" class={button({ variant: "raised", shape: "circle", class: "group" })}>
-          <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
-        </A>
+      <div class="lg:w-2/3 px-6 mt-4">
         <h1
-          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mt-8 mb-6"
+          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6"
           data-motion="heading"
         >
           Contact

@@ -1,9 +1,7 @@
 import { A } from "@solidjs/router"
 import ColorGuesserBanner from "~/components/color-guesser-banner"
 import Meta from "~/components/meta"
-import { button } from "~/components/ui/button"
 import { createTimeline, stagger } from "~/lib/motion"
-import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerColorSwatch from "~icons/tabler/color-swatch"
 
 const MinigamesPage = () => {
@@ -26,12 +24,9 @@ const MinigamesPage = () => {
         title="Minigames"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
-      <div class="lg:w-2/3 px-6">
-        <A href="/" class={button({ variant: "raised", shape: "circle", class: "group" })}>
-          <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
-        </A>
+      <div class="lg:w-2/3 px-6 mt-4">
         <h1
-          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mt-8 mb-6"
+          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6"
           data-motion="heading"
         >
           Minigames

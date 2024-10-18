@@ -3,9 +3,9 @@ import { Transition } from "solid-transition-group"
 import cn from "~/lib/cn"
 import TablerCheck from "~icons/tabler/check"
 import TablerX from "~icons/tabler/x"
-import { useColorGuesserGame } from "./core"
+import { useColorGuesserGame } from "."
 
-export const Tile: Component<{ color: string }> = (props) => {
+const Tile: Component<{ color: string }> = (props) => {
   const [success, setSuccess] = createSignal(false)
   const [error, setError] = createSignal(false)
 
@@ -29,15 +29,20 @@ export const Tile: Component<{ color: string }> = (props) => {
 
   return (
     <button
-      class="group relative w-full h-full rounded-lg"
+      class="group relative w-full h-full rounded-2xl"
       style={`background-color: ${props.color};`}
       onClick={onClick}
     >
       <div
         class={cn(
-          "absolute -inset-1.5 card border-accent pointer-events-none bg-white/15 opacity-0 group-hover:opacity-100 transition-all",
-          success() && "!opacity-100 !bg-white/50",
-          error() && "!opacity-100 !bg-white/50"
+          "bg-base-300 rounded-[20px] border border-on-base/20 shadow-md shadow-black/5 absolute -inset-1.5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity -z-10",
+          (success() || error()) && "!opacity-100"
+        )}
+      />
+      <div
+        class={cn(
+          "bg-white/30 rounded-2xl absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity",
+          (success() || error()) && "!opacity-100"
         )}
       >
         <TablerCheck
@@ -57,7 +62,7 @@ export const Tile: Component<{ color: string }> = (props) => {
   )
 }
 
-export const Board = () => {
+export const ColorGuesserBoard = () => {
   const ctx = useColorGuesserGame()
 
   return (

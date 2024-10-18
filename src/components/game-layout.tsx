@@ -2,8 +2,8 @@ import type { JSX, ParentComponent } from "solid-js"
 
 const GameLayout: ParentComponent<{
   mobileMenu?: JSX.Element
-  leftMenu?: JSX.Element
-  rightMenu?: JSX.Element
+  leftDesktopMenu?: JSX.Element
+  rightDesktopMenu?: JSX.Element
 }> = (props) => {
   return (
     <div
@@ -14,8 +14,8 @@ const GameLayout: ParentComponent<{
     "
     >
       <div class="[grid-area:mobile-menu] lg:hidden">{props.mobileMenu}</div>
-      <div class="[grid-area:left-menu] hidden lg:block">{props.leftMenu}</div>
-      <div class="[grid-area:right-menu] hidden lg:block">{props.rightMenu}</div>
+      <div class="[grid-area:left-menu] hidden lg:block">{props.leftDesktopMenu}</div>
+      <div class="[grid-area:right-menu] hidden lg:block">{props.rightDesktopMenu}</div>
       <div class="[grid-area:main-area]">{props.children}</div>
     </div>
   )

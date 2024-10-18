@@ -1,8 +1,8 @@
-import { createContext, createSignal, ParentComponent, useContext } from "solid-js"
-import { createStore } from "solid-js/store"
-import { pickRandom, scrambleHex, hexToRgb, hexToHsl } from "./utils"
 import { makePersisted } from "@solid-primitives/storage"
+import { createSignal } from "solid-js"
+import { createStore } from "solid-js/store"
 import { isServer } from "solid-js/web"
+import { hexToHsl, hexToRgb, pickRandom, scrambleHex } from "./utils"
 
 export type Game = {
   state: "IDLE" | "PLAYING"
@@ -13,7 +13,7 @@ export type Game = {
   colorGrid: string[]
 }
 
-const difficulties: Difficulty[] = [
+export const difficulties: Difficulty[] = [
   { label: "Easy", grid: 2 },
   { label: "Normal", grid: 3 },
   { label: "Hard", grid: 4 },
@@ -22,10 +22,10 @@ const difficulties: Difficulty[] = [
 ]
 export type Difficulty = { label: string; grid: number }
 
-const modes = ["HEX", "RGB", "HSL"] as const
+export const modes = ["HEX", "RGB", "HSL"] as const
 export type ColorMode = (typeof modes)[number]
 
-const colors = [
+export const colors = [
   "#F44336",
   "#E91E63",
   "#9C27B0",
@@ -46,7 +46,7 @@ const colors = [
   "#607D8B",
 ]
 
-const createColorGuesser = () => {
+export const createColorGuesser = () => {
   const [game, setGame] = createStore<Game>({
     state: "IDLE",
     difficulty: { ...difficulties[0]! },
@@ -125,17 +125,3 @@ const createColorGuesser = () => {
     },
   }
 }
-
-type Ctx = ReturnType<typeof createColorGuesser>
-
-const ColorGuesserCtx = createContext<Ctx>()
-
-export const ColorGuesserGameProvider: ParentComponent = (props) => {
-  return (
-    <ColorGuesserCtx.Provider value={createColorGuesser()}>
-      {props.children}
-    </ColorGuesserCtx.Provider>
-  )
-}
-
-export const useColorGuesserGame = () => useContext(ColorGuesserCtx)!

@@ -1,10 +1,8 @@
 import { A } from "@solidjs/router"
 import { Component, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
-import { button } from "~/components/ui/button"
 import tech, { Technology } from "~/lib/content/tech"
 import { createTimeline, stagger } from "~/lib/motion"
-import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerLink from "~icons/tabler/link"
 
 const TechPage = () => {
@@ -18,11 +16,8 @@ const TechPage = () => {
         title="Tech"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
-      <div class="lg:w-2/3 px-6">
-        <A href="/" class={button({ variant: "raised", shape: "circle", class: "group" })}>
-          <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
-        </A>
-        <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mt-8 mb-6" data-motion>
+      <div class="lg:w-2/3 px-6 mt-4">
+        <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6" data-motion>
           Tech
         </h1>
         <p class="text-on-base/70 tall-lines" data-motion>
@@ -31,7 +26,7 @@ const TechPage = () => {
           minima eaque fugiat quia, dignissimos perspiciatis harum?
         </p>
       </div>
-      <div class="space-y-16 px-6 py-20" data-motion>
+      <div class="px-6 py-8 md:py-12 max-md:divide-y divide-on-base/10" data-motion>
         <TechSection heading="Hardware">
           <h4>M1 Pro Macbook Pro 14" (2021)</h4>
           <p>
@@ -163,8 +158,8 @@ const TechPage = () => {
 
 const TechSection: ParentComponent<{ heading: string }> = (props) => {
   return (
-    <section class="flex flex-col md:grid md:grid-cols-5 gap-x-12 gap-y-8 md:border-l md:border-on-base/10">
-      <div class="md:pl-6">
+    <section class="flex flex-col md:grid md:grid-cols-5 gap-x-12 gap-y-8 py-12 md:py-8">
+      <div class="md:pl-6 md:border-l md:border-on-base/10">
         <h2 class="font-semibold max-md:text-xl">{props.heading}</h2>
       </div>
       <div class="col-span-3 max-w-xl prose">{props.children}</div>
@@ -194,17 +189,20 @@ const TechItem: Component<{ tech: Technology }> = (props) => {
       href={props.tech.url}
       target="_blank"
       class="flex flex-col gap-2 relative group"
-      style={{ "--color": props.tech.color }}
+      style={{
+        "--color-light": props.tech.color.light,
+        "--color-dark": props.tech.color.dark,
+      }}
     >
       <div
         class={
-          "h-18 w-18 flex justify-center items-center text-lg bg-base-300 rounded-lg mx-auto mb-7 group-hover:text-[--color] group-hover:rotate-0 transition-all " +
+          "h-18 w-18 flex justify-center items-center text-lg bg-base-300 rounded-lg mx-auto mb-7 group-hover:text-[--color-light] group-hover:dark:text-[--color-dark] group-hover:rotate-0 group-hover:scale-105 transition-all " +
           rotations[Math.floor(Math.random() * rotations.length)]
         }
       >
         {props.tech.icon()}
       </div>
-      <p class="font-medium text-sm text-center whitespace-nowrap group-hover:text-[--color] transition-colors absolute-center-x bottom-0">
+      <p class="font-medium text-sm text-center whitespace-nowrap group-hover:text-[--color-light] dark:group-hover:text-[--color-dark] transition-colors absolute-center-x bottom-0">
         {props.tech.name}
       </p>
     </A>

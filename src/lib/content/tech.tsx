@@ -26,7 +26,10 @@ export type Technology = {
   name: string
   url: string
   icon: () => JSX.Element
-  color: string
+  color: {
+    light: string
+    dark: string
+  }
 }
 
 const tech: Technology[] = [
@@ -34,79 +37,79 @@ const tech: Technology[] = [
     name: "TypeScript",
     url: "https://www.typescriptlang.org/",
     icon: () => <CibTypescript />,
-    color: "#0284C7",
+    color: { light: "#0284c7", dark: "#7dd3fc" },
   },
   {
     name: "JavaScript",
     url: "https://www.javascript.com/",
     icon: () => <CibJavascript />,
-    color: "#EAB308",
+    color: { light: "#ca8a04", dark: "#fde047" },
   },
   {
     name: "Vue.js",
     url: "https://vuejs.org/",
     icon: () => <TablerBrandVue />,
-    color: "#00C985",
+    color: { light: "#059669", dark: "#6ee7b7" },
   },
   {
     name: "React",
     url: "https://reactjs.org/",
     icon: () => <TablerBrandReact />,
-    color: "#33DBFB",
+    color: { light: "#0891b2", dark: "#67e8f9" },
   },
   {
     name: "Svelte",
     url: "https://svelte.dev/",
     icon: () => <TablerBrandSvelte />,
-    color: "#DC2626",
+    color: { light: "#dc2626", dark: "#fca5a5" },
   },
   {
     name: "Solid.js",
     url: "https://www.solidjs.com/",
     icon: () => <TablerBrandSolidjs />,
-    color: "#0EA5E9",
+    color: { light: "#0284c7", dark: "#7dd3fc" },
   },
   {
     name: "Electron",
     url: "https://www.electronjs.org/",
     icon: () => <CibElectron />,
-    color: "#67E8F9",
+    color: { light: "#0891b2", dark: "#67e8f9" },
   },
   {
     name: "HTML",
     url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
     icon: () => <TablerBrandHtml5 />,
-    color: "#EA580C",
+    color: { light: "#ea580c", dark: "#fdba74" },
   },
   {
     name: "CSS",
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
     icon: () => <TablerBrandCss3 />,
-    color: "#2563EB",
+    color: { light: "#2563eb", dark: "#93c5fd" },
   },
   {
     name: "PHP",
     url: "https://www.php.net/",
     icon: () => <CibPhp />,
-    color: "#6D28D9",
+    color: { light: "#7c3aed", dark: "#c4b5fd" },
   },
   {
     name: "Go",
     url: "https://go.dev/",
     icon: () => <TablerBrandGolang />,
-    color: "#00E5FF",
+    color: { light: "#0891b2", dark: "#67e8f9" },
   },
   {
     name: "Kotlin",
     url: "https://kotlinlang.org/",
     icon: () => <TablerBrandKotlin />,
-    color: "#8B5CF6",
+    color: { light: "#c026d3", dark: "#f0abfc" },
   },
   {
     name: "Swift",
     url: "https://www.swift.org/",
     icon: () => <TablerBrandSwift />,
-    color: "#F05238",
+    color: { light: "#ea580c", dark: "#fdba74" },
   },
   {
     name: "Dart",
@@ -119,61 +122,61 @@ const tech: Technology[] = [
         />
       </svg>
     ),
-    color: "#1976D2",
+    color: { light: "#0284c7", dark: "#7dd3fc" },
   },
   {
     name: "Flutter",
     url: "https://flutter.dev/",
     icon: () => <TablerBrandFlutter />,
-    color: "#38BDF8",
+    color: { light: "#0284c7", dark: "#7dd3fc" },
   },
   {
     name: "C, C++",
     url: "https://www.cplusplus.com/",
     icon: () => <TablerBrandCpp />,
-    color: "#0369A1",
+    color: { light: "#4f46e5", dark: "#a5b4fc" },
   },
   {
     name: "Java",
     url: "https://www.java.com/",
     icon: () => <CibJava />,
-    color: "#E11D48",
+    color: { light: "#e11d48", dark: "#fda4af" },
   },
   {
     name: "Scala",
     url: "https://www.scala-lang.org/",
     icon: () => <CibScala />,
-    color: "#E11D48",
+    color: { light: "#e11d48", dark: "#fda4af" },
   },
   {
     name: "Python",
     url: "https://www.python.org/",
     icon: () => <TablerBrandPython />,
-    color: "#EAB308",
+    color: { light: "#ca8a04", dark: "#fde047" },
   },
   {
     name: "Docker",
     url: "https://www.docker.com/",
     icon: () => <TablerBrandDocker />,
-    color: "#0EA5E9",
+    color: { light: "#2563eb", dark: "#93c5fd" },
   },
   {
     name: "GraphQL",
     url: "https://graphql.org/",
     icon: () => <TablerBrandGraphql />,
-    color: "#DD36A3",
+    color: { light: "#db2777", dark: "#f9a8d4" },
   },
   {
     name: "SQL",
     url: "https://en.wikipedia.org/wiki/SQL",
     icon: () => <TablerDatabase />,
-    color: "#FF7043",
+    color: { light: "#ea580c", dark: "#fdba74" },
   },
   {
     name: "MongoDB",
     url: "https://www.mongodb.com/",
     icon: () => <TablerBrandMongodb />,
-    color: "#22C55E",
+    color: { light: "#16a34a", dark: "#86efac" },
   },
 ]
 

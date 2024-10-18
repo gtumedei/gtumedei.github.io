@@ -12,8 +12,6 @@ My personal website.
 ## TODO
 
 - New logo with dynamic theming (tangerine?)
-- Cartoonize profile image
-- Add cartoonized images row to the homepage
 - Link to the v1 website
 - Projects
   - Work: MoreThanTech, MoreThanTech Build, Radio Centrale, Nexthardware, TBG Studio, Sketchlagoon, Sonification demo

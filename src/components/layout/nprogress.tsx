@@ -1,6 +1,6 @@
+import { useIsRouting } from "@solidjs/router"
 import nprogress from "nprogress"
 import { createEffect } from "solid-js"
-import { useIsRouting } from "@solidjs/router"
 
 export const NProgress = () => {
   const isRouting = useIsRouting()

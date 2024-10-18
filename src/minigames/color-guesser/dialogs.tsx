@@ -6,9 +6,9 @@ import TablerChartBar from "~icons/tabler/chart-bar"
 import TablerChevronLeft from "~icons/tabler/chevron-left"
 import TablerChevronRight from "~icons/tabler/chevron-right"
 import TablerColorSwatch from "~icons/tabler/color-swatch"
-import { useColorGuesserGame } from "./core"
+import { useColorGuesserGame } from "."
 
-export const MenuDialog = () => {
+const MenuDialog = () => {
   const ctx = useColorGuesserGame()
 
   const [difficulty, setDifficulty] = createSignal(0)
@@ -111,7 +111,7 @@ export const MenuDialog = () => {
   )
 }
 
-export const StatsDialog = () => {
+const StatsDialog = () => {
   const ctx = useColorGuesserGame()
 
   return (
@@ -165,5 +165,14 @@ export const StatsDialog = () => {
         </Dialog.Positioner>
       </Portal>
     </Dialog>
+  )
+}
+
+export const ColorGuesserDialogs = () => {
+  return (
+    <>
+      <MenuDialog />
+      <StatsDialog />
+    </>
   )
 }

@@ -15,7 +15,7 @@ const Meta: Component<{
     props.canonicalLocation ? env.public.PUBLIC_BASE_URL + props.canonicalLocation : null
   )
   const imageUrl = createMemo(() => {
-    const image = props.image ?? "/profile.jpg"
+    const image = props.image ?? "/img/profile.jpg"
     return image.startsWith("/") ? env.public.PUBLIC_BASE_URL + image : image
   })
 

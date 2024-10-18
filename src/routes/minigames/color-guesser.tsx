@@ -2,19 +2,18 @@ import GameLayout from "~/components/game-layout"
 import AspectRatio from "~/components/ui/aspect-ratio"
 import { Button } from "~/components/ui/button"
 import tooltip from "~/lib/directives/tooltip"
-import { Board } from "~/minigames/color-guesser/board"
-import { ColorGuesserGameProvider, useColorGuesserGame } from "~/minigames/color-guesser/core"
-import { MenuDialog, StatsDialog } from "~/minigames/color-guesser/dialogs"
+import { ColorGuesserGameProvider, useColorGuesserGame } from "~/minigames/color-guesser"
+import { ColorGuesserBoard } from "~/minigames/color-guesser/board"
+import { ColorGuesserDialogs } from "~/minigames/color-guesser/dialogs"
 import TablerChartBar from "~icons/tabler/chart-bar"
 import TablerMenu from "~icons/tabler/menu"
-
-tooltip
 
 const MobileMenu = () => {
   const ctx = useColorGuesserGame()
 
+  tooltip
   return (
-    <header class="w-full flex items-center gap-3">
+    <header class="w-full flex items-center gap-3 p-3">
       <h1 class="font-serif text-xl font-bold tracking-wider mb-1 flex-grow ml-3">Color Guesser</h1>
       <div class="flex">
         <Button
@@ -40,8 +39,10 @@ const MobileMenu = () => {
 
 const LeftMenu = () => {
   return (
-    <header class="w-44">
-      <h1 class="font-serif text-xl font-bold tracking-wider">Color Guesser</h1>
+    <header class="w-48 p-6">
+      <div class="h-10">
+        <h1 class="font-serif text-xl font-bold tracking-wider">Color Guesser</h1>
+      </div>
     </header>
   )
 }
@@ -49,8 +50,9 @@ const LeftMenu = () => {
 const RightMenu = () => {
   const ctx = useColorGuesserGame()
 
+  tooltip
   return (
-    <div class="w-44 flex justify-end">
+    <div class="w-48 flex justify-end p-6">
       <Button
         variant="ghost"
         shape="square"
@@ -75,7 +77,7 @@ const ColorIndicator = () => {
   const ctx = useColorGuesserGame()
 
   return (
-    <div class="absolute bottom-3 left-0 w-full flex">
+    <div class="absolute bottom-6 left-0 w-full flex">
       <div class="flex bg-base-100/80 dark:bg-base-200/80 backdrop-blur px-6 py-2.5 rounded-full border border-on-base/10 shadow-md shadow-black/5 m-auto">
         <p class="text-on-base/70">
           Color code: <span class="text-on-base">{ctx.game.color}</span>
@@ -88,15 +90,18 @@ const ColorIndicator = () => {
 const ColorGuesserGame = () => {
   return (
     <ColorGuesserGameProvider>
-      <GameLayout mobileMenu={<MobileMenu />} leftMenu={<LeftMenu />} rightMenu={<RightMenu />}>
-        <div class="relative h-full pt-3 pb-24">
+      <GameLayout
+        mobileMenu={<MobileMenu />}
+        leftDesktopMenu={<LeftMenu />}
+        rightDesktopMenu={<RightMenu />}
+      >
+        <div class="relative h-full pt-6 pb-24 px-3">
           <AspectRatio w={1} h={1}>
-            <Board />
+            <ColorGuesserBoard />
           </AspectRatio>
           <ColorIndicator />
         </div>
-        <MenuDialog />
-        <StatsDialog />
+        <ColorGuesserDialogs />
       </GameLayout>
     </ColorGuesserGameProvider>
   )
