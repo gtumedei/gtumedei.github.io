@@ -1,3 +1,4 @@
+import { usePrefersDark } from "@solid-primitives/media"
 import {
   Accessor,
   createContext,
@@ -17,6 +18,7 @@ export type Accent = (typeof accents)[number]
 type Ctx = {
   theme: Accessor<Theme>
   setTheme: (value: Theme) => void
+  actualTheme: Accessor<"light" | "dark">
   accent: Accessor<Accent>
   setAccent: (value: Accent) => void
 }
@@ -29,6 +31,13 @@ export const ThemeProvider: ParentComponent = (props) => {
     _setTheme(value)
     localStorage.setItem("gtumedei-io-theme", value)
     applyTheme(value)
+  }
+
+  const prefersDark = usePrefersDark()
+  const actualTheme = () => {
+    const t = theme()
+    if (t != "system") return t
+    return prefersDark() ? "dark" : "light"
   }
 
   const [accent, _setAccent] = createSignal<Accent>("blue")
@@ -48,6 +57,7 @@ export const ThemeProvider: ParentComponent = (props) => {
       value={{
         theme,
         setTheme,
+        actualTheme,
         accent,
         setAccent,
       }}

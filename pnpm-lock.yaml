@@ -53,6 +53,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.15
         version: 0.5.15(tailwindcss@3.4.13)
+      '@types/matter-js':
+        specifier: ^0.19.7
+        version: 0.19.7
       '@types/nprogress':
         specifier: ^0.2.3
         version: 0.2.3
@@ -65,6 +68,9 @@ importers:
       grammy:
         specifier: ^1.30.0
         version: 1.30.0
+      matter-js:
+        specifier: ^0.20.0
+        version: 0.20.0
       motion:
         specifier: ^10.18.0
         version: 10.18.0
@@ -1010,6 +1016,9 @@ packages:
 
   '@types/http-proxy@1.17.15':
     resolution: {integrity: sha512-25g5atgiVNTIv0LBDTg1H74Hvayx0ajtJPLLcYE3whFv75J0pWNtOBzaXJQgDTmrX1bx5U9YC2w/n65BN1HwRQ==}
+
+  '@types/matter-js@0.19.7':
+    resolution: {integrity: sha512-dlh50YEh1lQS4fiCDGBnK75ocHQIq/1E371Qk6hASJImICIivdZQC2GkOqnfBm0Hac2xLk5+yrqRFDAEfj/yLA==}
 
   '@types/micromatch@4.0.9':
     resolution: {integrity: sha512-7V+8ncr22h4UoYRLnLXSpTxjQrNUXtWHGeMPRJt1nULXI57G9bIcpyrHlmrQ7QK24EyyuXvYcSSWAM8GA9nqCg==}
@@ -2219,6 +2228,9 @@ packages:
   make-dir@3.1.0:
     resolution: {integrity: sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==}
     engines: {node: '>=8'}
+
+  matter-js@0.20.0:
+    resolution: {integrity: sha512-iC9fYR7zVT3HppNnsFsp9XOoQdQN2tUyfaKg4CHLH8bN+j6GT4Gw7IH2rP0tflAebrHFw730RR3DkVSZRX8hwA==}
 
   merge-anything@5.1.7:
     resolution: {integrity: sha512-eRtbOb1N5iyH0tkQDAoQ4Ipsp/5qSR79Dzrz8hEPxRX10RWWR/iQXdoKmBSRCThY1Fh5EhISDtpSc93fpxUniQ==}
@@ -4105,6 +4117,8 @@ snapshots:
     dependencies:
       '@types/node': 22.7.4
 
+  '@types/matter-js@0.19.7': {}
+
   '@types/micromatch@4.0.9':
     dependencies:
       '@types/braces': 3.0.4
@@ -5691,6 +5705,8 @@ snapshots:
   make-dir@3.1.0:
     dependencies:
       semver: 6.3.1
+
+  matter-js@0.20.0: {}
 
   merge-anything@5.1.7:
     dependencies:
