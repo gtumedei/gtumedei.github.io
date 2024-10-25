@@ -16,10 +16,6 @@ const NotFoundPage = () => {
       <HttpStatusCode code={404} />
       <div class="text-center pb-28 my-auto">
         <Matter404 />
-        {/* <div class="h-56 bg-base-200 flex mb-2">
-          <p class="font-serif font-black text-12xl text-on-base/30 m-auto">404</p>
-        </div> */}
-        {/* <p class="text-lg tracking-wide font-mono font-bold text-on-base/50 mb-2">404</p> */}
         <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-4">
           Page not found
         </h1>
@@ -121,7 +117,7 @@ const Matter404 = () => {
 
     const x2 = offset + gap * 2
     const [body2, constraint2] = createHangingChar({
-      body: { x: x2, y: 80, texture: `/img/0-${t}.png` },
+      body: { x: x2 + 20, y: 80, texture: `/img/0-${t}.png` },
       spring: { x: x2, y: 100, stiffness: 0.001 },
     })
     Composite.add(world, [body2, constraint2])
@@ -129,7 +125,7 @@ const Matter404 = () => {
 
     const x3 = offset + gap * 3
     const [body3, constraint3] = createHangingChar({
-      body: { x: x3, y: 80, texture: `/img/4-${t}.png` },
+      body: { x: x3 + 20, y: 80, texture: `/img/4-${t}.png` },
       spring: { x: x3, y: 100, stiffness: 0.0015 },
     })
     Composite.add(world, [body3, constraint3])
@@ -176,7 +172,7 @@ const Matter404 = () => {
     onCleanup(() => window.removeEventListener("resize", handleResize))
   })
 
-  return <canvas ref={canvas} class="h-[300px] w-full" />
+  return <canvas ref={canvas} class="h-[300px] w-full" aria-label="404" />
 }
 
 export default NotFoundPage

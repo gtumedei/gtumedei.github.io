@@ -83,12 +83,12 @@ const HomePage = () => {
           ))}
         </div>
       </div>
-      <div class="grid md:grid-cols-2 gap-y-6 py-20">
+      <div class="grid md:grid-cols-2 gap-6 py-20">
         {[
           {
             title: "Projects",
             description:
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
+              "I'm always creating stuff. You can find both my work and personal projects listed inside here.",
             href: "/projects",
             icon: () => <TablerGrid3x3 />,
             action: "Check them out",
@@ -96,7 +96,7 @@ const HomePage = () => {
           {
             title: "Tech",
             description:
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
+              "It's the longest page on this website. Maybe you'll find something interesting in it.",
             href: "/tech",
             icon: () => <TablerCpu />,
             action: "Read more",
@@ -104,7 +104,7 @@ const HomePage = () => {
           {
             title: "Minigames",
             description:
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
+              "Just hanging around? You can play some minigames I built. Just do not expect too much, I'm not a game dev.",
             href: "/minigames",
             icon: () => <TablerDeviceGamepad />,
             action: "Play some",
@@ -112,7 +112,7 @@ const HomePage = () => {
           {
             title: "Contact",
             description:
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
+              "Wanna work together or just chat? Reaching out to me is easy and I reply pretty quickly most of the time.",
             href: "/contact",
             icon: () => <TablerBrandTelegram />,
             action: "Get in touch",

@@ -3,6 +3,7 @@ import { Component, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
 import tech, { Technology } from "~/lib/content/tech"
 import { createTimeline, stagger } from "~/lib/motion"
+import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLink from "~icons/tabler/link"
 
 const TechPage = () => {
@@ -30,55 +31,67 @@ const TechPage = () => {
         <TechSection heading="Hardware">
           <h4>M1 Pro Macbook Pro 14" (2021)</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            Might be one of the best pieces of tech I ever bought. Apple Silicon is some kind of
+            wizardry: crazy performance, long battery life, low temperatures, dead silent fans, and
+            I could go on. Working on this thing is simply a pleasure.
           </p>
-          <h4>Logitech MX Keys mini</h4>
+          <h4>Logitech MX Keys Mini</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            This keyboard has the perfect layout for me (I'm left-handed, so I don't use numpads). I
+            also might have a problem because I like the feel of clicky laptop keyboards more than
+            most mechanical keyboards. I know, I'm weird, but the MX Keys Mini has just that feel.
           </p>
-          <h4>Logitech MX Anythere 3</h4>
+          <h4>Logitech MX Anywhere 3</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            The best mouse to take around with you, period. Except maybe for the 3S with those
+            silent buttons... I have to resist, it's not enough to switch. It's not.
           </p>
           <h4>Google Pixel Buds Pro</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            I didn't use to believe in wireless earbuds. Yeah no wires is nice, but it's another
+            thing to charge, plus it's not the best experience when switching among multiple
+            devices. Until I was gifted these: long battery life + multipoint Bluetooth = I no
+            longer miss the headphone jack.
           </p>
         </TechSection>
 
         <TechSection heading="Software">
           <h4>Visual Studio Code</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            Yeah, I know, Electron JavaScript memory hog blah blah. But name another editor that
+            offers a good dev experience with so many languages AND is open source.
           </p>
           <TechAnchor href="https://code.visualstudio.com/">code.visualstudio.com</TechAnchor>
           <h4>Warp</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            Honestly, I dislike this terminal in many ways. Like I don't need the AI features and I
+            hate that it requires an account. I just use it for the autocompletion and nice UI.
           </p>
           <TechAnchor href="https://www.warp.dev/">warp.dev</TechAnchor>
           <h4>Notion</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            Note taking with Notion is incredible, on desktop. Mobile is a bit of a mixed bag, at
+            least on Android, but still miles ahead of anything else I tried.
           </p>
           <TechAnchor href="https://www.notion.so/">notion.so</TechAnchor>
           <h4>Figma</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            I use their website as a PWA because the desktop app requires a background process to
+            load custom fonts{" "}
+            <a
+              href="https://forum.figma.com/t/stop-automatically-adding-figmaagent-to-login-items/43826"
+              target="_blank"
+              class="!text-on-base"
+            >
+              <TablerArrowUpRight class="inline-flex text-sm relative bottom-1" />
+            </a>
+            . Seriously Figma? Besides that, it's an awesome tool for mockups and vector graphics.
           </p>
           <TechAnchor href="https://www.figma.com/">figma.com</TechAnchor>
           <h4>Affinity Photo & Designer</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            Snagged the whole suite at a discount and although I'm no expert it has come in handy
+            plenty of times for some quick and dirty graphics work.
           </p>
           <TechAnchor href="https://affinity.serif.com/">affinity.serif.com</TechAnchor>
         </TechSection>
@@ -86,26 +99,52 @@ const TechPage = () => {
         <TechSection heading="Stack">
           <h4>SolidJS</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            Hands down the best frontend framework in my opinion. Performant, minimal, JSX-based,
+            easily composable, and it's starting to have a great ecosystem of libraries. There
+            aren't many cases where I wouldn't pick Solid for a new project.
           </p>
           <TechAnchor href="https://docs.solidjs.com/">solidjs.com</TechAnchor>
+          <h4>Astro</h4>
+          <p>
+            For content-driven websites, Astro is my go-to. It's awesome to work with and they are
+            adding more and more opt-in features that make it really hard not to choose this
+            framework.
+          </p>
+          <TechAnchor href="https://astro.build/">astro.build</TechAnchor>
+          <h4>SolidStart</h4>
+          <p>
+            The best example of how to build a meta framework for the web. For more dynamic websites
+            and web apps, Solid Start is the way to go.
+          </p>
+          <TechAnchor href="https://docs.solidjs.com/solid-start">start.solidjs.com</TechAnchor>
+          <h4>Wails</h4>
+          <p>
+            I started looking into Wails because I wanted to learn Go, but I quickly realized I had
+            found my new favorite way to build cross-platform desktop apps. Write some Go to
+            interact with the OS, slap a Vite + SolidJS project on top and you've got an awesome and
+            performant app you also had fun building.
+          </p>
+          <TechAnchor href="https://wails.io/">wails.io</TechAnchor>
           <h4>Tailwind CSS</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            Tailwind is so awesome I <em>almost</em> don't write regular CSS anymore. Embrace it and
+            you won't look back.
           </p>
           <TechAnchor href="https://tailwindcss.com/">tailwindcss.com</TechAnchor>
           <h4>Ark UI</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            This library is so underrated. It has everything needed to build complex, fully
+            accessible user interfaces with SolidJS.
           </p>
           <TechAnchor href="https://ark-ui.com/">ark-ui.com</TechAnchor>
           <h4>unplugin-icons</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            Need an icon on your web project? This is the library you are looking for. Works with
+            pretty much any framework and has an awesome website where you can search all the icons{" "}
+            <a href="https://icones.js.org/" target="_blank" class="!text-on-base">
+              <TablerArrowUpRight class="inline-flex text-sm relative bottom-1" />
+            </a>
+            .
           </p>
           <TechAnchor href="https://github.com/unplugin/unplugin-icons">github.com</TechAnchor>
           <h4>Payload</h4>
@@ -126,12 +165,12 @@ const TechPage = () => {
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
           <TechAnchor href="https://turso.tech/">turso.tech</TechAnchor>
-          <h4>Lucia</h4>
+          {/* <h4>Lucia</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
-          <TechAnchor href="https://lucia-auth.com/">lucia-auth.com</TechAnchor>
+          <TechAnchor href="https://lucia-auth.com/">lucia-auth.com</TechAnchor> */}
           <h4>Backblaze</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
