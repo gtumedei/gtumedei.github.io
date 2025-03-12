@@ -11,12 +11,12 @@ My personal website.
 
 ## TODO
 
-- New logo with dynamic theming (tangerine?)
 - Link to the v1 website
+- Mention the inspiration from https://tailwindcss.com/plus/templates/spotlight
 - Something interactive in the homepage using Matter.js
-- Some 404 easter egg (Matter.js here too?)
 - Projects
-  - Work: MoreThanTech, MoreThanTech Build, Radio Centrale, Nexthardware, TBG Studio, Sketchlagoon, Sonification demo
+  - Work: MoreThanTech, MoreThanTech Build, Radio Centrale, Nexthardware, TBG Studio
+  - Research: Sketchlagoon, Sonification demo, Navile
   - Personal: Sailing Ark, Open Movies, taggui, go-droid, yt-dlapp, goaway, dotfiles, vscode-adw-material-theme, taggo
 - Games:
   - Include a game based on icons

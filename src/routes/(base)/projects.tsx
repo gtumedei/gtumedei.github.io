@@ -1,5 +1,7 @@
 import Meta from "~/components/meta"
+import PageHeadingIcon from "~/components/page-heading-icon"
 import { createTimeline, stagger } from "~/lib/motion"
+import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 import TablerLink from "~icons/tabler/link"
 
 const ProjectsPage = () => {
@@ -22,7 +24,10 @@ const ProjectsPage = () => {
         title="Projects"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
-      <div class="lg:w-2/3 px-6 mt-4 mb-20">
+      <div class="lg:w-2/3 px-6 mb-20">
+        <PageHeadingIcon>
+          <TablerGrid3x3 />
+        </PageHeadingIcon>
         <h1
           class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6"
           data-motion="heading"
@@ -47,7 +52,7 @@ const ProjectsPage = () => {
               class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group"
               data-motion="projects"
             >
-              <div class="bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
+              <div class="bg-base-200 dark:bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
                 <div class="h-8 w-8 rounded-full bg-on-base" />
               </div>
               <h3 class="font-medium mb-3">Project name</h3>

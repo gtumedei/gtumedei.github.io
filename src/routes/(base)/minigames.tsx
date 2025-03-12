@@ -1,8 +1,10 @@
 import { A } from "@solidjs/router"
 import ColorGuesserBanner from "~/components/color-guesser-banner"
 import Meta from "~/components/meta"
+import PageHeadingIcon from "~/components/page-heading-icon"
 import { createTimeline, stagger } from "~/lib/motion"
 import TablerColorSwatch from "~icons/tabler/color-swatch"
+import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
 
 const MinigamesPage = () => {
   createTimeline([
@@ -24,7 +26,10 @@ const MinigamesPage = () => {
         title="Minigames"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
-      <div class="lg:w-2/3 px-6 mt-4">
+      <div class="lg:w-2/3 px-6">
+        <PageHeadingIcon>
+          <TablerDeviceGamepad />
+        </PageHeadingIcon>
         <h1
           class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6"
           data-motion="heading"

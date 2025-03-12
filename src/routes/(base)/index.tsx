@@ -7,11 +7,12 @@ import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBrandGithub from "~icons/tabler/brand-github"
 import TablerBrandLinkedin from "~icons/tabler/brand-linkedin"
 import TablerBrandTelegram from "~icons/tabler/brand-telegram"
-import TablerCpu from "~icons/tabler/cpu"
 import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
 import TablerDownload from "~icons/tabler/download"
 import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 import TablerMapPin from "~icons/tabler/map-pin"
+// import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
+import TablerTools from "~icons/tabler/tools"
 
 const HomePage = () => {
   createTimeline([
@@ -33,24 +34,41 @@ const HomePage = () => {
     <>
       <Meta description="My personal website." />
       <div class="w-full px-6">
-        <img
+        {/* <img
           src="/profile.jpg"
           alt="Profile image"
           class="h-40 w-40 rounded-xl -rotate-3 mb-8"
           data-motion="image"
-        />
+        /> */}
+        <div class="inline-flex rounded-full mb-6 relative">
+          <img
+            src="/profile.jpg"
+            alt=""
+            class="h-[4.625rem] w-[4.625rem] rounded-full"
+            aria-hidden={true}
+          />
+          <div class="border-[8px] backdrop-blur-sm border-base-300/40 rounded-full absolute inset-0" />
+          <img
+            src="/profile.jpg"
+            alt="Profile image"
+            class="h-[calc(4.625rem-8px)] w-[calc(4.625rem-8px)] rounded-full absolute-center"
+          />
+        </div>
+        {/* <div class="inline-flex bg-base-300 p-1 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
+          <img src="/profile.jpg" alt="Profile image" class="h-16 w-16 rounded-full" />
+        </div> */}
         <h1
           class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1"
           data-motion="hero"
         >
           Gianni Tumedei
         </h1>
-        <h2 class="font-mono text-on-base/70" data-motion="hero">
+        <h2 class="text-lg font-mono text-on-base/70" data-motion="hero">
           @gtumedei
         </h2>
         <div class="flex mt-6">
-          <div class="flex" data-motion="hero">
-            <a href="/cv" class={button({ theme: "accent", class: "mr-2" })}>
+          <div class="max-sm:grow flex mr-2" data-motion="hero">
+            <a href="/cv" class={button({ theme: "accent", class: "grow" })}>
               Download CV <TablerDownload />
             </a>
           </div>
@@ -83,6 +101,71 @@ const HomePage = () => {
           ))}
         </div>
       </div>
+      {/* <div class="relative">
+        <div class="h-44 lg:h-72 w-px my-24" />
+        <div class="w-screen flex gap-6 lg:gap-10 justify-center py-24 absolute-center overflow-hidden">
+          <a
+            href="#"
+            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-blue-200 rounded-2xl lg:rounded-3xl overflow-hidden rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
+          ></a>
+          <a
+            href="#"
+            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-orange-200 rounded-2xl lg:rounded-3xl -rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
+          ></a>
+          <a
+            href="#"
+            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-teal-200 rounded-2xl lg:rounded-3xl rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
+          ></a>
+          <a
+            href="#"
+            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-pink-200 rounded-2xl lg:rounded-3xl -rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
+          ></a>
+          <a
+            href="#"
+            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-slate-200 rounded-2xl lg:rounded-3xl rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
+          ></a>
+        </div>
+      </div> */}
+      {/* <div class="relative">
+        <div class="h-80 w-px my-24" />
+        <div class="w-screen flex gap-4 justify-center py-24 absolute-center overflow-hidden">
+          {[1, 2, 3, 4, 5].map(() => (
+            <div class="shrink-0 h-80 w-60 rounded-2xl lg:rounded-3xl border border-on-base/10 relative overflow-hidden">
+              <img
+                src="https://jedvxusexliwihumabdp.supabase.co/storage/v1/object/public/gtumedei//mtt-build.png"
+                alt=""
+                class="h-full w-full object-cover"
+              />
+              <Button
+                variant="subtle"
+                shape="circle"
+                class="bg-base-300/40 hover:bg-base-300/70 backdrop-blur-xl absolute top-3 right-3"
+              >
+                <TablerArrowUpRight />
+              </Button>
+            </div>
+          ))}
+        </div>
+      </div> */}
+      {/* <div class="relative">
+        <div class="h-40 lg:h-80 w-px my-24" />
+        <div class="w-screen flex gap-4 justify-center py-24 absolute-center overflow-hidden">
+          {[1, 2, 3, 4, 5].map((_, i) => (
+            <div
+              class={cn(
+                "shrink-0 h-40 w30 lg:h-80 lg:w-60 rounded-2xl lg:rounded-3xl border border-on-base/10 relative overflow-hidden",
+                i % 2 == 0 ? "-translate-y-2" : "translate-y-2"
+              )}
+            >
+              <img
+                src="https://jedvxusexliwihumabdp.supabase.co/storage/v1/object/public/gtumedei//mtt-build.png"
+                alt=""
+                class="h-full w-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div> */}
       <div class="grid md:grid-cols-2 gap-6 py-20">
         {[
           {
@@ -98,7 +181,7 @@ const HomePage = () => {
             description:
               "It's the longest page on this website. Maybe you'll find something interesting in it.",
             href: "/tech",
-            icon: () => <TablerCpu />,
+            icon: () => <TablerTools />,
             action: "Read more",
           },
           {

@@ -1,10 +1,12 @@
 import { A } from "@solidjs/router"
 import { Component, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
+import PageHeadingIcon from "~/components/page-heading-icon"
 import tech, { Technology } from "~/lib/content/tech"
 import { createTimeline, stagger } from "~/lib/motion"
 import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLink from "~icons/tabler/link"
+import TablerTools from "~icons/tabler/tools"
 
 const TechPage = () => {
   createTimeline([
@@ -17,7 +19,10 @@ const TechPage = () => {
         title="Tech"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
-      <div class="lg:w-2/3 px-6 mt-4">
+      <div class="lg:w-2/3 px-6">
+        <PageHeadingIcon>
+          <TablerTools />
+        </PageHeadingIcon>
         <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6" data-motion>
           Tech
         </h1>

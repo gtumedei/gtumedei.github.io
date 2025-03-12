@@ -6,6 +6,7 @@ import { Component, createSignal } from "solid-js"
 import { Portal } from "solid-js/web"
 import { z } from "zod"
 import Meta from "~/components/meta"
+import PageHeadingIcon from "~/components/page-heading-icon"
 import { Button, button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { FormField } from "~/components/ui/form-field"
@@ -17,6 +18,7 @@ import env from "~/lib/env"
 import { createForm } from "~/lib/form"
 import { createTimeline, stagger } from "~/lib/motion"
 import { safeAction } from "~/lib/safe-data"
+import TablerBrandTelegram from "~icons/tabler/brand-telegram"
 import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
 import TablerMail from "~icons/tabler/mail"
 import TablerRocket from "~icons/tabler/rocket"
@@ -101,7 +103,10 @@ const ContactPage = () => {
         title="Contact"
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
-      <div class="lg:w-2/3 px-6 mt-4">
+      <div class="lg:w-2/3 px-6">
+        <PageHeadingIcon>
+          <TablerBrandTelegram />
+        </PageHeadingIcon>
         <h1
           class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6"
           data-motion="heading"

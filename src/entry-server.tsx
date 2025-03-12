@@ -6,7 +6,7 @@ import { applyAccentFnString, applyThemeFnString } from "~/lib/theme/apply"
 export default createHandler(() => (
   <StartServer
     document={({ assets, children, scripts }) => (
-      <html lang="en" class="min-h-full flex bg-base-100">
+      <html lang="en" class="min-h-full flex bg-base-100 overflow-x-hidden overflow-y-auto">
         <head>
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
