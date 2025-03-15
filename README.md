@@ -13,7 +13,9 @@ My personal website.
 
 - Link to the v1 website
 - Mention the inspiration from https://tailwindcss.com/plus/templates/spotlight
-- Something interactive in the homepage using Matter.js
+- Something interactive in the homepage using Matter.js?
+- Animate sections individually with `inView` instead of using a single timeline for each page
+- Migrate to Tailwind v4
 - Projects
   - Work: MoreThanTech, MoreThanTech Build, Radio Centrale, Nexthardware, TBG Studio
   - Research: Sketchlagoon, Sonification demo, Navile

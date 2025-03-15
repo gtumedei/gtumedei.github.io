@@ -1,22 +1,35 @@
+import { inView, stagger, timeline } from "motion"
+import { onMount } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
-import { createTimeline, stagger } from "~/lib/motion"
 import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 import TablerLink from "~icons/tabler/link"
 
 const ProjectsPage = () => {
-  createTimeline([
-    [
-      `[data-motion="heading"]`,
-      { opacity: 1, x: [-10, 0] },
-      { duration: 0.4, delay: stagger(0.15) },
-    ],
-    [
-      `[data-motion="projects"]`,
-      { opacity: 1, scale: [0.95, 1], y: [10, 0] },
-      { duration: 0.4, delay: stagger(0.15, { start: 0.4 }), at: "<" },
-    ],
-  ])
+  onMount(() => {
+    timeline([
+      [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
+      [
+        `[data-motion="heading"]`,
+        { opacity: 1, x: [-10, 0] },
+        { duration: 0.4, delay: stagger(0.15), at: "<" },
+      ],
+    ])
+    inView(
+      `[data-motion="section-heading"]`,
+      ({ target }) => {
+        timeline([
+          [target, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 }],
+          [
+            target.parentElement!.querySelectorAll(`[data-motion="project-item"]`),
+            { opacity: 1, scale: [0.95, 1], y: [10, 0] },
+            { duration: 0.4, delay: stagger(0.15, { start: 0.4 }), at: "<" },
+          ],
+        ])
+      },
+      { amount: "all" }
+    )
+  })
 
   return (
     <>
@@ -25,7 +38,7 @@ const ProjectsPage = () => {
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
       <div class="lg:w-2/3 px-6 mb-20">
-        <PageHeadingIcon>
+        <PageHeadingIcon data-motion="image">
           <TablerGrid3x3 />
         </PageHeadingIcon>
         <h1
@@ -41,8 +54,8 @@ const ProjectsPage = () => {
         </p>
       </div>
       <div class="mb-20">
-        <h2 class="font-semibold text-xl px-6 mb-6" data-motion="heading">
-          Work
+        <h2 class="font-semibold text-xl px-6 mb-6" data-motion="section-heading">
+          Work & Research
         </h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3">
           {[1, 2, 3, 4, 5].map(() => (
@@ -50,7 +63,7 @@ const ProjectsPage = () => {
               href="#"
               target="_blank"
               class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group"
-              data-motion="projects"
+              data-motion="project-item"
             >
               <div class="bg-base-200 dark:bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
                 <div class="h-8 w-8 rounded-full bg-on-base" />
@@ -67,7 +80,7 @@ const ProjectsPage = () => {
         </div>
       </div>
       <div class="mb-20">
-        <h2 class="font-semibold text-xl px-6 mb-6" data-motion="heading">
+        <h2 class="font-semibold text-xl px-6 mb-6" data-motion="section-heading">
           Personal
         </h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-y-6">
@@ -76,7 +89,7 @@ const ProjectsPage = () => {
               href="#"
               target="_blank"
               class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group"
-              data-motion="projects"
+              data-motion="project-item"
             >
               <div class="bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
                 <div class="h-8 w-8 rounded-full bg-on-base" />

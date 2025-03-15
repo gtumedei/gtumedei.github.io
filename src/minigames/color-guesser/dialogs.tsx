@@ -93,7 +93,7 @@ const MenuDialog = () => {
               </div>
             </div>
             <Dialog.Actions class="grid grid-cols-1 sm:grid-cols-2">
-              <Button theme="accent" class="sm:order-2" onClick={onStartBtnClick}>
+              <Button class="sm:order-2" onClick={onStartBtnClick}>
                 {ctx.game.state == "IDLE" ? "Play" : "Apply"}
               </Button>
               <Button
@@ -157,7 +157,7 @@ const StatsDialog = () => {
               </div>
             </div>
             <Dialog.Actions class="grid grid-cols-1">
-              <Button theme="accent" class="sm:w-1/2 sm:mx-auto" onClick={ctx.resetStats}>
+              <Button class="sm:w-1/2 sm:mx-auto" onClick={ctx.resetStats}>
                 Reset stats
               </Button>
             </Dialog.Actions>

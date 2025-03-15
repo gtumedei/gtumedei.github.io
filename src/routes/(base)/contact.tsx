@@ -1,8 +1,9 @@
 import { DialogRootProps } from "@ark-ui/solid"
 import { json, useAction } from "@solidjs/router"
 import { Bot, GrammyError, HttpError } from "grammy"
+import { stagger, timeline } from "motion"
 import outdent from "outdent"
-import { Component, createSignal } from "solid-js"
+import { Component, createSignal, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import { z } from "zod"
 import Meta from "~/components/meta"
@@ -16,7 +17,6 @@ import { Textarea } from "~/components/ui/textarea"
 import tooltip from "~/lib/directives/tooltip"
 import env from "~/lib/env"
 import { createForm } from "~/lib/form"
-import { createTimeline, stagger } from "~/lib/motion"
 import { safeAction } from "~/lib/safe-data"
 import TablerBrandTelegram from "~icons/tabler/brand-telegram"
 import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
@@ -82,18 +82,21 @@ const ContactPage = () => {
 
   const [dialogState, setDialogState] = createSignal<"success" | "error" | null>(null)
 
-  createTimeline([
-    [
-      `[data-motion="heading"]`,
-      { opacity: 1, x: [-10, 0] },
-      { duration: 0.4, delay: stagger(0.15) },
-    ],
-    [
-      `[data-motion="form"]`,
-      { opacity: 1, x: [-10, 0] },
-      { duration: 0.4, delay: stagger(0.075, { start: 0.2 }), at: "<" },
-    ],
-  ])
+  onMount(() => {
+    timeline([
+      [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
+      [
+        `[data-motion="heading"]`,
+        { opacity: 1, x: [-10, 0] },
+        { duration: 0.4, delay: stagger(0.15), at: "<" },
+      ],
+      [
+        `[data-motion="form"]`,
+        { opacity: 1, x: [-10, 0] },
+        { duration: 0.4, delay: stagger(0.075, { start: 0.2 }), at: "<" },
+      ],
+    ])
+  })
 
   form
   tooltip
@@ -104,7 +107,7 @@ const ContactPage = () => {
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
       <div class="lg:w-2/3 px-6">
-        <PageHeadingIcon>
+        <PageHeadingIcon data-motion="image">
           <TablerBrandTelegram />
         </PageHeadingIcon>
         <h1
@@ -171,7 +174,6 @@ const ContactPage = () => {
         <div class="grid md:grid-cols-5 gap-x-12" data-motion="form">
           <Button
             type="submit"
-            theme="accent"
             class="md:col-span-3 md:col-start-2 sm:w-1/2 md:w-full lg:w-1/2 sm:mx-auto md:mx-0 lg:mx-auto"
             disabled={!isValid() || isSubmitting()}
           >
@@ -209,7 +211,7 @@ const SuccessDialog: Component<Pick<DialogRootProps, "open" | "onOpenChange">> =
               </Dialog.Description>
             </Dialog.Header>
             <Dialog.Actions class="grid grid-cols-1">
-              <Dialog.CloseTrigger class={button({ theme: "accent" })}>Ok</Dialog.CloseTrigger>
+              <Dialog.CloseTrigger class={button()}>Ok</Dialog.CloseTrigger>
             </Dialog.Actions>
           </Dialog.Content>
         </Dialog.Positioner>

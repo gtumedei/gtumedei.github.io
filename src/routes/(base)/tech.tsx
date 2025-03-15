@@ -1,17 +1,39 @@
 import { A } from "@solidjs/router"
-import { Component, ParentComponent } from "solid-js"
+import { animate, inView, stagger, timeline } from "motion"
+import { Component, onMount, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
 import tech, { Technology } from "~/lib/content/tech"
-import { createTimeline, stagger } from "~/lib/motion"
 import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLink from "~icons/tabler/link"
 import TablerTools from "~icons/tabler/tools"
 
 const TechPage = () => {
-  createTimeline([
-    [`[data-motion]`, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: stagger(0.15) }],
-  ])
+  onMount(() => {
+    timeline([
+      [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
+      [
+        `[data-motion="heading"]`,
+        { opacity: 1, x: [-10, 0] },
+        { duration: 0.4, delay: stagger(0.15), at: "<" },
+      ],
+    ])
+    inView(
+      `[data-motion="section"]`,
+      ({ target }) => {
+        animate(target, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
+      },
+      { amount: 0.1 }
+    )
+    inView(`[data-motion="tech"]`, ({ target }) => {
+      animate(target, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
+      animate(
+        `[data-motion="tech-item"]`,
+        { opacity: 1, x: [-10, 0] },
+        { duration: 0.4, delay: stagger(0.05) }
+      )
+    })
+  })
 
   return (
     <>
@@ -20,19 +42,22 @@ const TechPage = () => {
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
       <div class="lg:w-2/3 px-6">
-        <PageHeadingIcon>
+        <PageHeadingIcon data-motion="image">
           <TablerTools />
         </PageHeadingIcon>
-        <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6" data-motion>
+        <h1
+          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6"
+          data-motion="heading"
+        >
           Tech
         </h1>
-        <p class="text-on-base/70 tall-lines" data-motion>
+        <p class="text-on-base/70 tall-lines" data-motion="heading">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus accusamus, tempora quod
           placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
           minima eaque fugiat quia, dignissimos perspiciatis harum?
         </p>
       </div>
-      <div class="px-6 py-8 md:py-12 max-md:divide-y divide-on-base/10" data-motion>
+      <div class="px-6 py-8 md:py-12 max-md:divide-y divide-on-base/10">
         <TechSection heading="Hardware">
           <h4>M1 Pro Macbook Pro 14" (2021)</h4>
           <p>
@@ -170,12 +195,12 @@ const TechPage = () => {
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
           <TechAnchor href="https://turso.tech/">turso.tech</TechAnchor>
-          {/* <h4>Lucia</h4>
+          <h4>Better Auth</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
             Earum illum consequuntur maxime, repellat sequi dolorem officia.
           </p>
-          <TechAnchor href="https://lucia-auth.com/">lucia-auth.com</TechAnchor> */}
+          <TechAnchor href="https://www.better-auth.com/">better-auth.com</TechAnchor>
           <h4>Backblaze</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
@@ -189,7 +214,7 @@ const TechPage = () => {
             In no particular order, some tech I worked and tinkered with, from programming and
             templating languages, to frameworks, to databases.
           </p>
-          <div class="not-prose grid gap-12 grid-cols-[repeat(auto-fill,minmax(84px,1fr))] mt-12">
+          <div class="not-prose flex gap-3 flex-wrap mt-12" data-motion="tech">
             {tech.map((tech) => (
               <TechItem tech={tech} />
             ))}
@@ -202,7 +227,10 @@ const TechPage = () => {
 
 const TechSection: ParentComponent<{ heading: string }> = (props) => {
   return (
-    <section class="flex flex-col md:grid md:grid-cols-5 gap-x-12 gap-y-8 py-12 md:py-8">
+    <section
+      class="flex flex-col md:grid md:grid-cols-5 gap-x-12 gap-y-8 py-12 md:py-8"
+      data-motion="section"
+    >
       <div class="md:pl-6 md:border-l md:border-on-base/10">
         <h2 class="font-semibold max-md:text-xl">{props.heading}</h2>
       </div>
@@ -225,28 +253,23 @@ const TechAnchor: ParentComponent<{ href: string }> = (props) => {
   )
 }
 
-const rotations = ["rotate-1", "rotate-2", "rotate-3", "-rotate-1", "-rotate-2", "-rotate-3"]
-
 const TechItem: Component<{ tech: Technology }> = (props) => {
   return (
     <A
       href={props.tech.url}
       target="_blank"
-      class="flex flex-col gap-2 relative group"
+      class="h-8 flex items-center gap-2 px-3 rounded-full relative group"
       style={{
         "--color-light": props.tech.color.light,
         "--color-dark": props.tech.color.dark,
       }}
+      data-motion="tech-item"
     >
-      <div
-        class={
-          "h-18 w-18 flex justify-center items-center text-lg bg-base-300 rounded-lg mx-auto mb-7 group-hover:text-[--color-light] group-hover:dark:text-[--color-dark] group-hover:rotate-0 group-hover:scale-105 transition-all " +
-          rotations[Math.floor(Math.random() * rotations.length)]
-        }
-      >
+      <div class="bg-base-300 rounded-full absolute inset-0 -z-10" />
+      <div class="group-hover:text-[--color-light] group-hover:dark:text-[--color-dark] transition-colors">
         {props.tech.icon()}
       </div>
-      <p class="font-medium text-sm text-center whitespace-nowrap group-hover:text-[--color-light] dark:group-hover:text-[--color-dark] transition-colors absolute-center-x bottom-0">
+      <p class="font-medium text-sm whitespace-nowrap group-hover:text-[--color-light] dark:group-hover:text-[--color-dark] transition-colors">
         {props.tech.name}
       </p>
     </A>

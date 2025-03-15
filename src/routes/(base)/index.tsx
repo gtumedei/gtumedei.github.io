@@ -1,8 +1,9 @@
 import { A } from "@solidjs/router"
+import { stagger, timeline } from "motion"
+import { onMount } from "solid-js"
 import Meta from "~/components/meta"
 import { button } from "~/components/ui/button"
 import tooltip from "~/lib/directives/tooltip"
-import { createTimeline, stagger } from "~/lib/motion"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBrandGithub from "~icons/tabler/brand-github"
 import TablerBrandLinkedin from "~icons/tabler/brand-linkedin"
@@ -11,36 +12,31 @@ import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
 import TablerDownload from "~icons/tabler/download"
 import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 import TablerMapPin from "~icons/tabler/map-pin"
-// import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerTools from "~icons/tabler/tools"
 
 const HomePage = () => {
-  createTimeline([
-    [`[data-motion="image"]`, { opacity: 1, x: [-10, 0], rotate: [3, -3] }, { duration: 0.4 }],
-    [
-      `[data-motion="hero"]`,
-      { opacity: 1, x: [-10, 0] },
-      { duration: 0.4, delay: stagger(0.15), at: "<" },
-    ],
-    [
-      `[data-motion="menu"]`,
-      { opacity: 1, scale: [0.95, 1], y: [10, 0] },
-      { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" },
-    ],
-  ])
+  onMount(() => {
+    timeline([
+      [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
+      [
+        `[data-motion="hero"]`,
+        { opacity: 1, x: [-10, 0] },
+        { duration: 0.4, delay: stagger(0.15), at: "<" },
+      ],
+      [
+        `[data-motion="menu"]`,
+        { opacity: 1, scale: [0.95, 1], y: [10, 0] },
+        { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" },
+      ],
+    ])
+  })
 
   tooltip
   return (
     <>
       <Meta description="My personal website." />
       <div class="w-full px-6">
-        {/* <img
-          src="/profile.jpg"
-          alt="Profile image"
-          class="h-40 w-40 rounded-xl -rotate-3 mb-8"
-          data-motion="image"
-        /> */}
-        <div class="inline-flex rounded-full mb-6 relative">
+        <div class="inline-flex rounded-full mb-6 relative" data-motion="image">
           <img
             src="/profile.jpg"
             alt=""
@@ -54,9 +50,6 @@ const HomePage = () => {
             class="h-[calc(4.625rem-8px)] w-[calc(4.625rem-8px)] rounded-full absolute-center"
           />
         </div>
-        {/* <div class="inline-flex bg-base-300 p-1 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
-          <img src="/profile.jpg" alt="Profile image" class="h-16 w-16 rounded-full" />
-        </div> */}
         <h1
           class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1"
           data-motion="hero"
@@ -66,9 +59,9 @@ const HomePage = () => {
         <h2 class="text-lg font-mono text-on-base/70" data-motion="hero">
           @gtumedei
         </h2>
-        <div class="flex mt-6">
-          <div class="max-sm:grow flex mr-2" data-motion="hero">
-            <a href="/cv" class={button({ theme: "accent", class: "grow" })}>
+        <div class="flex gap-2 mt-6">
+          <div class="max-sm:grow flex" data-motion="hero">
+            <a href="/cv" class={button({ class: "grow" })}>
               Download CV <TablerDownload />
             </a>
           </div>
@@ -89,15 +82,24 @@ const HomePage = () => {
               title: "Location • Cesena (IT)",
             },
           ].map((item) => (
-            <a
-              href={item.href}
-              target="_blank"
-              class={button({ variant: "ghost", shape: "square" })}
-              use:tooltip={[item.title, "bottom"]}
-              data-motion="hero"
-            >
-              {item.icon}
-            </a>
+            <div data-motion="hero">
+              <a
+                href={item.href}
+                target="_blank"
+                class={button({ variant: "subtle", shape: "square", class: "sm:hidden" })}
+                use:tooltip={[item.title, "bottom"]}
+              >
+                {item.icon}
+              </a>
+              <a
+                href={item.href}
+                target="_blank"
+                class={button({ variant: "ghost", shape: "square", class: "max-sm:hidden" })}
+                use:tooltip={[item.title, "bottom"]}
+              >
+                {item.icon}
+              </a>
+            </div>
           ))}
         </div>
       </div>
