@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router"
-import { animate, inView, stagger, timeline } from "motion"
+import { animate, inView, stagger } from "motion"
 import { Component, onMount, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
@@ -10,7 +10,7 @@ import TablerTools from "~icons/tabler/tools"
 
 const TechPage = () => {
   onMount(() => {
-    timeline([
+    animate([
       [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
       [
         `[data-motion="heading"]`,
@@ -20,13 +20,13 @@ const TechPage = () => {
     ])
     inView(
       `[data-motion="section"]`,
-      ({ target }) => {
-        animate(target, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
+      (elem) => {
+        animate(elem, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
       },
       { amount: 0.1 }
     )
-    inView(`[data-motion="tech"]`, ({ target }) => {
-      animate(target, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
+    inView(`[data-motion="tech"]`, (elem) => {
+      animate(elem, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
       animate(
         `[data-motion="tech-item"]`,
         { opacity: 1, x: [-10, 0] },
@@ -266,10 +266,10 @@ const TechItem: Component<{ tech: Technology }> = (props) => {
       data-motion="tech-item"
     >
       <div class="bg-base-300 rounded-full absolute inset-0 -z-10" />
-      <div class="group-hover:text-[--color-light] group-hover:dark:text-[--color-dark] transition-colors">
+      <div class="group-hover:text-[var(--color-light)] group-hover:dark:text-[var(--color-dark)] transition-colors">
         {props.tech.icon()}
       </div>
-      <p class="font-medium text-sm whitespace-nowrap group-hover:text-[--color-light] dark:group-hover:text-[--color-dark] transition-colors">
+      <p class="font-medium text-sm whitespace-nowrap group-hover:text-[var(--color-light)] dark:group-hover:text-[var(--color-dark)] transition-colors">
         {props.tech.name}
       </p>
     </A>

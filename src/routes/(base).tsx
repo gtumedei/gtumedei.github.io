@@ -181,22 +181,22 @@ const ThemeSwitcher = () => {
     {
       value: "blue",
       label: "Blue accent",
-      bgClass: "bg-blue-accent",
+      bgClass: "bg-accent-blue",
     },
     {
       value: "orange",
       label: "Orange accent",
-      bgClass: "bg-orange-accent",
+      bgClass: "bg-accent-orange",
     },
     {
       value: "teal",
       label: "Teal accent",
-      bgClass: "bg-teal-accent",
+      bgClass: "bg-accent-teal",
     },
     {
       value: "pink",
       label: "Pink accent",
-      bgClass: "bg-pink-accent",
+      bgClass: "bg-accent-pink",
     },
   ]
 
@@ -216,7 +216,7 @@ const ThemeSwitcher = () => {
           <RadioGroup.Root value={theme()} onValueChange={({ value }) => setTheme(value as Theme)}>
             <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Theme</RadioGroup.Label>
             <div class="grid grid-cols-3 gap-2">
-              <RadioGroup.Indicator class="h-14 w-14 bg-base-300 rounded-lg left-[--left] pointer-events-none" />
+              <RadioGroup.Indicator class="h-14 w-14 bg-base-300 rounded-lg left-[var(--left)] pointer-events-none" />
               <Index each={themes}>
                 {(t) => (
                   <RadioGroup.Item
@@ -244,7 +244,7 @@ const ThemeSwitcher = () => {
           >
             <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Accent</RadioGroup.Label>
             <div class="grid grid-cols-4 gap-2">
-              <RadioGroup.Indicator class="h-10 w-10 bg-base-300 rounded-lg left-[--left] pointer-events-none" />
+              <RadioGroup.Indicator class="h-10 w-10 bg-base-300 rounded-lg left-[var(--left)] pointer-events-none" />
               <Index each={accents}>
                 {(a) => (
                   <RadioGroup.Item

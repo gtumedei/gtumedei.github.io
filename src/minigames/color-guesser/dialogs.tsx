@@ -8,6 +8,15 @@ import TablerChevronRight from "~icons/tabler/chevron-right"
 import TablerColorSwatch from "~icons/tabler/color-swatch"
 import { useColorGuesserGame } from "."
 
+export const ColorGuesserDialogs = () => {
+  return (
+    <>
+      <MenuDialog />
+      <StatsDialog />
+    </>
+  )
+}
+
 const MenuDialog = () => {
   const ctx = useColorGuesserGame()
 
@@ -25,7 +34,10 @@ const MenuDialog = () => {
     ctx.gameActions.startGame(ctx.difficulties[difficulty()]!, ctx.modes[mode()]!)
   }
 
-  onMount(() => ctx.ui.setDialogState("menu"))
+  onMount(async () => {
+    await new Promise((r) => setTimeout(r, 100))
+    ctx.ui.setDialogState("menu")
+  })
 
   return (
     <Dialog
@@ -165,14 +177,5 @@ const StatsDialog = () => {
         </Dialog.Positioner>
       </Portal>
     </Dialog>
-  )
-}
-
-export const ColorGuesserDialogs = () => {
-  return (
-    <>
-      <MenuDialog />
-      <StatsDialog />
-    </>
   )
 }

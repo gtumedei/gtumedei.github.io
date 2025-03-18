@@ -8,6 +8,26 @@ import { ColorGuesserDialogs } from "~/minigames/color-guesser/dialogs"
 import TablerChartBar from "~icons/tabler/chart-bar"
 import TablerMenu from "~icons/tabler/menu"
 
+const ColorGuesserGame = () => {
+  return (
+    <ColorGuesserGameProvider>
+      <GameLayout
+        mobileMenu={<MobileMenu />}
+        leftDesktopMenu={<LeftMenu />}
+        rightDesktopMenu={<RightMenu />}
+      >
+        <div class="relative h-full pt-6 pb-24 px-3">
+          <AspectRatio w={1} h={1}>
+            <ColorGuesserBoard />
+          </AspectRatio>
+          <ColorIndicator />
+        </div>
+        <ColorGuesserDialogs />
+      </GameLayout>
+    </ColorGuesserGameProvider>
+  )
+}
+
 const MobileMenu = () => {
   const ctx = useColorGuesserGame()
 
@@ -84,26 +104,6 @@ const ColorIndicator = () => {
         </p>
       </div>
     </div>
-  )
-}
-
-const ColorGuesserGame = () => {
-  return (
-    <ColorGuesserGameProvider>
-      <GameLayout
-        mobileMenu={<MobileMenu />}
-        leftDesktopMenu={<LeftMenu />}
-        rightDesktopMenu={<RightMenu />}
-      >
-        <div class="relative h-full pt-6 pb-24 px-3">
-          <AspectRatio w={1} h={1}>
-            <ColorGuesserBoard />
-          </AspectRatio>
-          <ColorIndicator />
-        </div>
-        <ColorGuesserDialogs />
-      </GameLayout>
-    </ColorGuesserGameProvider>
   )
 }
 

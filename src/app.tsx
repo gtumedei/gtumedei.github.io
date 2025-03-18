@@ -5,7 +5,7 @@ import { Suspense } from "solid-js"
 import { NProgress } from "~/components/layout/nprogress"
 import { ThemeProvider } from "~/lib/theme"
 
-import "~/app.css"
+import "~/global.css"
 
 const App = () => {
   return (

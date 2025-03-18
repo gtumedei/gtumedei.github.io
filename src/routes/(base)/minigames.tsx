@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router"
-import { stagger, timeline } from "motion"
+import { animate, stagger } from "motion"
 import { onMount } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
@@ -9,7 +9,7 @@ import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
 
 const MinigamesPage = () => {
   onMount(() => {
-    timeline([
+    animate([
       [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
       [
         `[data-motion="heading"]`,
@@ -19,7 +19,7 @@ const MinigamesPage = () => {
       [
         `[data-motion="minigame-item"]`,
         { opacity: 1, scale: [0.95, 1], y: [10, 0] },
-        { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" },
+        { duration: 0.4, delay: stagger(0.15, { startDelay: 0.2 }), at: "<" },
       ],
     ])
   })

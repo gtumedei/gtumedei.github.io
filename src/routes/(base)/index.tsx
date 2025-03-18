@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router"
-import { stagger, timeline } from "motion"
+import { animate, stagger } from "motion"
 import { onMount } from "solid-js"
 import Meta from "~/components/meta"
 import { button } from "~/components/ui/button"
@@ -16,7 +16,7 @@ import TablerTools from "~icons/tabler/tools"
 
 const HomePage = () => {
   onMount(() => {
-    timeline([
+    animate([
       [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
       [
         `[data-motion="hero"]`,
@@ -26,7 +26,7 @@ const HomePage = () => {
       [
         `[data-motion="menu"]`,
         { opacity: 1, scale: [0.95, 1], y: [10, 0] },
-        { duration: 0.4, delay: stagger(0.15, { start: 0.2 }), at: "<" },
+        { duration: 0.4, delay: stagger(0.15, { startDelay: 0.2 }), at: "<" },
       ],
     ])
   })
@@ -68,17 +68,17 @@ const HomePage = () => {
           {[
             {
               href: "https://github.com/gtumedei",
-              icon: <TablerBrandGithub />,
+              icon: () => <TablerBrandGithub />,
               title: "GitHub • @gtumedei",
             },
             {
               href: "https://www.linkedin.com/in/gianni-tumedei-7171961b8/",
-              icon: <TablerBrandLinkedin />,
+              icon: () => <TablerBrandLinkedin />,
               title: "LinkedIn • @giannitumedei",
             },
             {
               href: "https://goo.gl/maps/knzcetCBj6cHLAAW7",
-              icon: <TablerMapPin />,
+              icon: () => <TablerMapPin />,
               title: "Location • Cesena (IT)",
             },
           ].map((item) => (
@@ -89,7 +89,7 @@ const HomePage = () => {
                 class={button({ variant: "subtle", shape: "square", class: "sm:hidden" })}
                 use:tooltip={[item.title, "bottom"]}
               >
-                {item.icon}
+                {item.icon()}
               </a>
               <a
                 href={item.href}
@@ -97,7 +97,7 @@ const HomePage = () => {
                 class={button({ variant: "ghost", shape: "square", class: "max-sm:hidden" })}
                 use:tooltip={[item.title, "bottom"]}
               >
-                {item.icon}
+                {item.icon()}
               </a>
             </div>
           ))}

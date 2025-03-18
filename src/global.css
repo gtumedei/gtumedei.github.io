@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@theme {
+  --color-base-100: var(--color-white);
+  --color-base-200: var(--color-gray-50);
+  --color-base-300: var(--color-gray-100);
+  --color-on-base: var(--color-gray-800);
+  --color-neutral: var(--color-gray-800);
+  --color-on-neutral: var(--color-white);
+  --color-accent-blue: var(--color-blue-500);
+  --color-accent-orange: "#FF8A65";
+  --color-accent-teal: var(--color-teal-500);
+  --color-accent-pink: var(--color-pink-500);
+  --color-accent: var(--color-blue-500);
+  --color-on-accent: var(--color-white);
+  --color-info: var(--color-sky-500);
+  --color-on-info: var(--color-white);
+  --color-success: var(--color-emerald-500);
+  --color-on-success: var(--color-white);
+  --color-warning: var(--color-amber-500);
+  --color-on-warning: var(--color-white);
+  --color-error: var(--color-rose-500);
+  --color-on-error: var(--color-white);
+}
+
+@utility theme-light {
+  --color-base-100: var(--color-white);
+  --color-base-200: var(--color-gray-50);
+  --color-base-300: var(--color-gray-100);
+  --color-on-base: var(--color-gray-800);
+  --color-neutral: var(--color-gray-800);
+  --color-on-neutral: var(--color-white);
+  --color-accent-blue: var(--color-blue-500);
+  --color-accent-orange: #ff8a65;
+  --color-accent-teal: var(--color-teal-500);
+  --color-accent-pink: var(--color-pink-500);
+  --color-on-accent: var(--color-white);
+  --color-info: var(--color-sky-500);
+  --color-on-info: var(--color-white);
+  --color-success: var(--color-emerald-500);
+  --color-on-success: var(--color-white);
+  --color-warning: var(--color-amber-500);
+  --color-on-warning: var(--color-white);
+  --color-error: var(--color-rose-500);
+  --color-on-error: var(--color-white);
+}
+
+@utility theme-dark {
+  --color-base-100: var(--color-neutral-900);
+  --color-base-200: var(--color-neutral-800);
+  --color-base-300: var(--color-neutral-700);
+  --color-on-base: var(--color-white);
+  --color-neutral: var(--color-gray-100);
+  --color-on-neutral: var(--color-gray-800);
+  --color-accent-blue: var(--color-blue-300);
+  --color-accent-orange: #ef9a9a;
+  --color-accent-teal: var(--color-teal-300);
+  --color-accent-pink: var(--color-pink-300);
+  --color-on-accent: var(--color-black);
+  --color-info: var(--color-sky-300);
+  --color-on-info: var(--color-sky-800);
+  --color-success: var(--color-emerald-300);
+  --color-on-success: var(--color-emerald-800);
+  --color-warning: var(--color-amber-200);
+  --color-on-warning: var(--color-amber-800);
+  --color-error: var(--color-rose-300);
+  --color-on-error: var(--color-rose-800);
+}
+
+@layer base {
+  html {
+    @apply bg-base-100 text-on-base;
+  }
+
+  [data-theme="light"] {
+    @apply theme-light;
+    color-scheme: light;
+  }
+
+  [data-theme="dark"] {
+    @apply theme-dark;
+    color-scheme: dark;
+  }
+
+  [data-accent="blue"] {
+    --color-accent: var(--color-accent-blue);
+  }
+
+  [data-accent="orange"] {
+    --color-accent: var(--color-accent-orange);
+  }
+
+  [data-accent="teal"] {
+    --color-accent: var(--color-accent-teal);
+  }
+
+  [data-accent="pink"] {
+    --color-accent: var(--color-accent-pink);
+  }
+
+  .prose {
+    @apply !text-on-base prose-p:!text-on-base/70 prose-headings:!text-on-base prose-lead:!text-on-base/80 prose-a:!text-accent prose-a:!no-underline hover:prose-a:!underline prose-strong:!text-on-base prose-em:!text-on-base prose-blockquote:!border-on-base/20 prose-ol:!text-on-base/70 prose-ul:!text-on-base/70 prose-li:!text-on-base/70 prose-li:marker:!text-on-base/60 prose-code:!text-on-base prose-pre:!bg-base-200 prose-pre:border prose-pre:border-on-base/5 prose-hr:!border-on-base/10 prose-thead:!border-on-base/15 prose-tr:!border-on-base/10 prose-td:!text-on-base/70 prose-figcaption:!text-on-base/70 prose-kbd:!bg-on-base/5 prose-kbd:!text-on-base prose-kbd:border prose-kbd:border-on-base/5 prose-kbd:!shadow-none;
+  }
+
+  * {
+    @apply outline-offset-1 outline-accent/20;
+  }
+}
+
+/* Absolute positioning */
+
+@utility absolute-center {
+  @apply absolute transform top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2;
+}
+@utility absolute-center-x {
+  @apply absolute transform left-[50%] -translate-x-1/2;
+}
+@utility absolute-center-y {
+  @apply absolute transform top-[50%] -translate-y-1/2;
+}
+
+/* Fixed positioning */
+
+@utility fixed-center {
+  @apply fixed transform top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2;
+}
+@utility fixed-center-x {
+  @apply fixed transform left-[50%] -translate-x-1/2;
+}
+@utility fixed-center-y {
+  @apply fixed transform top-[50%] -translate-y-1/2;
+}
+
+/* Hide scrollbar, but keep overflow auto */
+
+@utility no-scrollbars {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
+  &::-webkit-scrollbar {
+    background: transparent; /* Chrome, Safari, Webkit */
+    height: 0px;
+    width: 0px;
+  }
+}
+
+/* Taller line height */
+
+@utility tall-lines {
+  @apply [line-height:1.8em];
+}
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  --font-mono: "Fira Code", mono;
+
+  --spacing-18: 4.5rem;
+
+  --default-transition-duration: 400ms;
+
+  --animate-slide-down: slide-down 250ms ease-out;
+  @keyframes slide-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--height);
+    }
+  }
+
+  --animate-slide-up: slide-up 200ms ease-out;
+  @keyframes slide-up {
+    from {
+      height: var(--height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  --animate-progress-indeterminate: progress-indeterminate 1.75s infinite linear;
+  @keyframes progress-indeterminate {
+    0% {
+      transform: translateX(-100%) scaleX(0.3);
+    }
+    50% {
+      transform: translateX(0) scaleX(0.35);
+    }
+    100% {
+      transform: translateX(100%) scaleX(0.3);
+    }
+  }
+
+  --animate-wiggle: wiggle 1s ease-in-out infinite;
+  @keyframes wiggle {
+    0%,
+    100% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+  }
+}
+
+/* Remove ugly highlight when interacting with some elements */
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Tooltips */
+
+[data-tippy-root] {
+  @apply max-w-[calc(100vw-10px)];
+}
+
+.tippy-box {
+  @apply relative text-sm whitespace-normal outline-none transition-all bg-neutral text-on-neutral rounded-md;
+
+  &[data-animation="fade"][data-state="hidden"] {
+    @apply opacity-0;
+  }
+
+  .tippy-content {
+    @apply relative z-10 px-3 py-1.5;
+  }
+}
+
+/* nprogress */
+
+#nprogress {
+  @apply pointer-events-none;
+
+  .bar {
+    @apply fixed top-0 left-0 w-full h-[3px] z-[3000] bg-accent;
+  }
+}

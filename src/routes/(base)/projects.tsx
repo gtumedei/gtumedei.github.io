@@ -1,4 +1,4 @@
-import { inView, stagger, timeline } from "motion"
+import { animate, inView, stagger } from "motion"
 import { onMount } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
@@ -7,7 +7,7 @@ import TablerLink from "~icons/tabler/link"
 
 const ProjectsPage = () => {
   onMount(() => {
-    timeline([
+    animate([
       [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
       [
         `[data-motion="heading"]`,
@@ -17,13 +17,13 @@ const ProjectsPage = () => {
     ])
     inView(
       `[data-motion="section-heading"]`,
-      ({ target }) => {
-        timeline([
-          [target, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 }],
+      (elem) => {
+        animate([
+          [elem, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 }],
           [
-            target.parentElement!.querySelectorAll(`[data-motion="project-item"]`),
+            elem.parentElement!.querySelectorAll(`[data-motion="project-item"]`),
             { opacity: 1, scale: [0.95, 1], y: [10, 0] },
-            { duration: 0.4, delay: stagger(0.15, { start: 0.4 }), at: "<" },
+            { duration: 0.4, delay: stagger(0.15, { startDelay: 0.4 }), at: "<" },
           ],
         ])
       },

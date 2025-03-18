@@ -1,7 +1,7 @@
 import { DialogRootProps } from "@ark-ui/solid"
 import { json, useAction } from "@solidjs/router"
 import { Bot, GrammyError, HttpError } from "grammy"
-import { stagger, timeline } from "motion"
+import { animate, stagger } from "motion"
 import outdent from "outdent"
 import { Component, createSignal, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
@@ -83,7 +83,7 @@ const ContactPage = () => {
   const [dialogState, setDialogState] = createSignal<"success" | "error" | null>(null)
 
   onMount(() => {
-    timeline([
+    animate([
       [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
       [
         `[data-motion="heading"]`,
@@ -93,7 +93,7 @@ const ContactPage = () => {
       [
         `[data-motion="form"]`,
         { opacity: 1, x: [-10, 0] },
-        { duration: 0.4, delay: stagger(0.075, { start: 0.2 }), at: "<" },
+        { duration: 0.4, delay: stagger(0.075, { startDelay: 0.2 }), at: "<" },
       ],
     ])
   })
