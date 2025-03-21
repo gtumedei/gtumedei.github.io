@@ -1,5 +1,5 @@
 import { animate, inView, stagger } from "motion"
-import { onMount } from "solid-js"
+import { onCleanup, onMount } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
 import TablerGrid3x3 from "~icons/tabler/grid-3x3"
@@ -7,6 +7,7 @@ import TablerLink from "~icons/tabler/link"
 
 const ProjectsPage = () => {
   onMount(() => {
+    // Animate hero
     animate([
       [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
       [
@@ -15,20 +16,36 @@ const ProjectsPage = () => {
         { duration: 0.4, delay: stagger(0.15), at: "<" },
       ],
     ])
+    // Animate section headings
     inView(
       `[data-motion="section-heading"]`,
       (elem) => {
-        animate([
-          [elem, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 }],
-          [
-            elem.parentElement!.querySelectorAll(`[data-motion="project-item"]`),
-            { opacity: 1, scale: [0.95, 1], y: [10, 0] },
-            { duration: 0.4, delay: stagger(0.15, { startDelay: 0.4 }), at: "<" },
-          ],
-        ])
+        animate(elem, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
       },
       { amount: "all" }
     )
+    // Animate project cards
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let delayCount = 0 // Reset delay for each batch of elements entering together
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animate(
+              entry.target,
+              { opacity: 1, scale: [0.95, 1], y: [10, 0] },
+              { duration: 0.4, delay: 0.4 + delayCount * 0.15, ease: "easeOut" }
+            )
+            delayCount++ // Increase delay for this batch
+            observer.unobserve(entry.target) // Only animate once
+          }
+        })
+      },
+      { threshold: 0.5 } // Trigger when 50% visible
+    )
+    document
+      .querySelectorAll(`[data-motion="project-item"]`)
+      .forEach((elem) => observer.observe(elem))
+    onCleanup(() => observer.disconnect())
   })
 
   return (

@@ -97,7 +97,7 @@ const Header = () => {
                   <TablerX class="text-base text-on-base/70 group-hover:text-on-base transition-colors" />
                 </Dialog.CloseTrigger>
               </div>
-              <Dialog.Content class="w-full max-w-md py-3 mt-0 overflow-visible">
+              <Dialog.Content class="w-full max-w-md py-3 mt-0 overflow-visible origin-top-right data-[state=open]:zoom-in-90 data-[state=closed]:zoom-in-90">
                 <nav class="flex">
                   <ul class="w-full flex flex-col divide-y divide-on-base/10 font-medium">
                     <For each={mobileMenuItems}>
@@ -212,7 +212,7 @@ const ThemeSwitcher = () => {
         <TablerPalette />
       </Popover.Trigger>
       <Popover.Positioner>
-        <Popover.Content class="p-5">
+        <Popover.Content class="p-5 origin-top-right">
           <RadioGroup.Root value={theme()} onValueChange={({ value }) => setTheme(value as Theme)}>
             <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Theme</RadioGroup.Label>
             <div class="grid grid-cols-3 gap-2">
