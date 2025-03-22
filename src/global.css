@@ -165,6 +165,8 @@
 
   --default-transition-duration: 400ms;
 
+  --default-ring-width: 3px;
+
   --animate-slide-down: slide-down 250ms ease-out;
   @keyframes slide-down {
     from {
