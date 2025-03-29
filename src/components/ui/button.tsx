@@ -9,9 +9,8 @@ export const button = tv(
     defaultVariants: { variant: "solid", theme: "accent", size: "md", shape: "rectangle" },
     variants: {
       variant: {
-        solid: "",
-        outline:
-          "border-on-base/20 bg-transparent text-on-base hover:bg-accent/10 hover:text-accent hover:border-accent/50 focus-visible:ring-on-base/10 [&:where(:disabled,[data-disabled])]:!border-on-base/10 [&:where(:disabled,[data-disabled])]:!bg-transparent [&:where(:disabled,[data-disabled])]:!text-on-base/50",
+        solid:
+          "shadow-sm hover:shadow-md active:shadow-md [&:where(:disabled,[data-disabled])]:!bg-neutral/30 [&:where(:disabled,[data-disabled])]:!text-on-base/50 [&:where(:disabled,[data-disabled])]:!border-transparent",
         subtle:
           "border-transparent bg-neutral/5 text-neutral hover:bg-accent/15 hover:text-accent focus-visible:border-neutral/15 focus-visible:ring-neutral/10 [&:where(:disabled,[data-disabled])]:!text-neutral/50 [&:where(:disabled,[data-disabled])]:!bg-neutral/5",
         ghost:
@@ -46,25 +45,25 @@ export const button = tv(
         variant: "solid",
         theme: "accent",
         class:
-          "bg-accent border-transparent text-on-accent hover:bg-accent/90 hover:shadow-lg hover:shadow-accent/30 focus:shadow-accent/30 active:shadow-md active:shadow-accent/30 focus-visible:ring-accent/20 [&:where(:disabled,[data-disabled])]:!bg-accent/30 [&:where(:disabled,[data-disabled])]:!text-on-base/50",
+          "bg-accent text-on-accent border-on-accent/20 shadow-accent/50 hover:bg-accent/90 focus-visible:ring-accent/20",
       },
       {
         variant: "solid",
         theme: "success",
         class:
-          "bg-success border-transparent text-on-success hover:bg-success/90 focus-visible:ring-success/20 [&:where(:disabled,[data-disabled])]:!bg-success/30 [&:where(:disabled,[data-disabled])]:!text-on-base/50",
+          "bg-success text-on-success border-on-success/20 shadow-success/50 hover:bg-success/90 focus-visible:ring-success/20",
       },
       {
         variant: "solid",
         theme: "warning",
         class:
-          "bg-warning border-transparent text-on-warning hover:bg-warning/90 focus-visible:ring-warning/20 [&:where(:disabled,[data-disabled])]:!bg-warning/30 [&:where(:disabled,[data-disabled])]:!text-on-base/50",
+          "bg-warning text-on-warning border-on-warning/20 shadow-warning/50 hover:bg-warning/90 focus-visible:ring-warning/20",
       },
       {
         variant: "solid",
         theme: "error",
         class:
-          "bg-error border-transparent text-on-error hover:bg-error/90 focus-visible:ring-error/20 [&:where(:disabled,[data-disabled])]:!bg-error/30 [&:where(:disabled,[data-disabled])]:!text-on-base/50",
+          "bg-error text-on-error border-on-error/20 shadow-error/50 hover:bg-error/90 focus-visible:ring-error/20",
       },
       {
         variant: "link",
