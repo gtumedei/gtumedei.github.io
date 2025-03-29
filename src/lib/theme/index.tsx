@@ -1,9 +1,8 @@
-import { usePrefersDark } from "@solid-primitives/media"
 import {
   Accessor,
   createContext,
-  createEffect,
   createSignal,
+  onCleanup,
   onMount,
   ParentComponent,
   useContext,
@@ -27,8 +26,6 @@ type Ctx = {
 const ThemeCtx = createContext<Ctx>()
 
 export const ThemeProvider: ParentComponent = (props) => {
-  const prefersDark = usePrefersDark()
-
   const [theme, _setTheme] = createSignal<Theme>("system")
   const setTheme = (value: Theme) => {
     _setTheme(value)
@@ -39,7 +36,7 @@ export const ThemeProvider: ParentComponent = (props) => {
   const actualTheme = () => {
     const t = theme()
     if (t != "system") return t
-    return prefersDark() ? "dark" : "light"
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
   }
 
   const [accent, _setAccent] = createSignal<Accent>("blue")
@@ -49,14 +46,23 @@ export const ThemeProvider: ParentComponent = (props) => {
     applyAccent(value)
   }
 
-  createEffect(() => {
-    if (theme() != "system") return
-    document.documentElement.setAttribute("data-theme", prefersDark() ? "dark" : "light")
-  })
-
   onMount(() => {
     _setTheme((localStorage.getItem("gtumedei-io-theme") as Theme) ?? "system")
     _setAccent((localStorage.getItem("gtumedei-io-accent") as Accent) ?? "blue")
+
+    // Listen for the (prefers-color-scheme: dark) media query to change theme
+    const onPrefersColorSchemeChange = (e: MediaQueryListEvent) => {
+      if (theme() != "system") return
+      document.documentElement.setAttribute("data-theme", e.matches ? "dark" : "light")
+    }
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", onPrefersColorSchemeChange)
+    onCleanup(() =>
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .removeEventListener("change", onPrefersColorSchemeChange)
+    )
   })
 
   return (
