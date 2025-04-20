@@ -45,25 +45,25 @@ export const button = tv(
         variant: "solid",
         theme: "accent",
         class:
-          "bg-accent text-on-accent border-on-accent/20 shadow-accent/50 hover:bg-accent/90 focus-visible:ring-accent/20",
+          "bg-accent text-on-accent border-on-accent/10 shadow-accent/50 hover:bg-accent/90 focus-visible:ring-accent/20",
       },
       {
         variant: "solid",
         theme: "success",
         class:
-          "bg-success text-on-success border-on-success/20 shadow-success/50 hover:bg-success/90 focus-visible:ring-success/20",
+          "bg-success text-on-success border-on-success/10 shadow-success/50 hover:bg-success/90 focus-visible:ring-success/20",
       },
       {
         variant: "solid",
         theme: "warning",
         class:
-          "bg-warning text-on-warning border-on-warning/20 shadow-warning/50 hover:bg-warning/90 focus-visible:ring-warning/20",
+          "bg-warning text-on-warning border-on-warning/10 shadow-warning/50 hover:bg-warning/90 focus-visible:ring-warning/20",
       },
       {
         variant: "solid",
         theme: "error",
         class:
-          "bg-error text-on-error border-on-error/20 shadow-error/50 hover:bg-error/90 focus-visible:ring-error/20",
+          "bg-error text-on-error border-on-error/10 shadow-error/50 hover:bg-error/90 focus-visible:ring-error/20",
       },
       {
         variant: "link",

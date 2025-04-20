@@ -13,18 +13,11 @@ const TechPage = () => {
     animate([
       [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
       [
-        `[data-motion="heading"]`,
+        `[data-motion="heading"], [data-motion="section"]`,
         { opacity: 1, x: [-10, 0] },
         { duration: 0.4, delay: stagger(0.15), at: "<" },
       ],
     ])
-    inView(
-      `[data-motion="section"]`,
-      (elem) => {
-        animate(elem, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
-      },
-      { amount: 0.1 }
-    )
     inView(`[data-motion="tech"]`, (elem) => {
       animate(elem, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
       animate(
