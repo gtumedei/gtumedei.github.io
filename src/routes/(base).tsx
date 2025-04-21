@@ -58,26 +58,32 @@ const Header = () => {
       class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 pointer-events-none [&>*]:pointer-events-auto"
     >
       {location.pathname == "/" ? (
-        <a href="/cv" class={cn(button(), "rounded-full")}>
-          Download CV <TablerDownload />
+        <a href="/cv" class={cn(button({ size: "lg" }), "rounded-full")}>
+          <span class="text-sm">Download CV</span>
+          <TablerDownload />
         </a>
       ) : (
-        <A href="/" class={cn(button({ variant: "subtle" }), "group rounded-full px-1.5")}>
+        <A
+          href="/"
+          class={cn(button({ variant: "subtle", size: "lg" }), "group rounded-full px-1.5")}
+        >
           <TablerArrowBackUp class="group-hover:text-accent transition-colors" />
           <img
             src="/profile.jpg"
             alt=""
-            class="h-7 w-7 rounded-full opacity-90 group-hover:opacity-100 transition-opacity"
+            class="h-8 w-8 rounded-full opacity-90 group-hover:opacity-100 transition-opacity"
           />
         </A>
       )}
       {location.pathname != "/" && (
         <Button
           variant="subtle"
+          size="lg"
           class="md:hidden backdrop-blur px-4 rounded-full ml-auto group"
           onClick={() => setMenuDialogOpen(true)}
         >
-          Menu <TablerMenu class="text-on-base/70 group-hover:text-on-base transition-colors" />
+          <span class="text-sm">Menu</span>
+          <TablerMenu class="text-on-base/70 group-hover:text-on-base transition-colors" />
         </Button>
       )}
       {!breakpoints.md && (
@@ -93,7 +99,7 @@ const Header = () => {
               <div class="w-full max-w-md flex mx-auto pointer-events-none">
                 <Dialog.CloseTrigger
                   class={cn(
-                    button({ variant: "raised", shape: "circle" }),
+                    button({ variant: "raised", shape: "circle", size: "lg" }),
                     "ml-auto pointer-events-auto group"
                   )}
                 >
@@ -133,7 +139,7 @@ const Header = () => {
                   <li>
                     <A
                       href={item.href}
-                      class="inline-flex px-3 py-2.5 hover:text-accent transition-colors relative overflow-hidden after:[content:''] after:h-0.5 after:w-12 after:bg-gradient-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity"
+                      class="inline-flex px-3.5 py-3 hover:text-accent transition-colors relative overflow-hidden after:[content:''] after:h-0.5 after:w-12 after:bg-gradient-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity"
                       activeClass="text-accent after:opacity-100"
                     >
                       {item.label}
@@ -206,7 +212,7 @@ const ThemeSwitcher = () => {
   tooltip
   return (
     <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
-      <Popover.Trigger class={button({ variant: "subtle", shape: "circle" })}>
+      <Popover.Trigger class={button({ variant: "subtle", shape: "circle", size: "lg" })}>
         <TablerPalette />
       </Popover.Trigger>
       <Popover.Positioner>
