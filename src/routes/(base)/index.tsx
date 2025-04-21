@@ -36,7 +36,7 @@ const HomePage = () => {
       <Meta description="My personal website." />
       <div class="w-full flex flex-col items-center px-6">
         <div
-          class="inline-flex bg-base-200 dark:bg-base-300 p-2 rounded-full border border-on-base/10 shadow shadow-black/5 mb-6"
+          class="inline-flex bg-base-200 p-2 rounded-full border border-on-base/10 shadow shadow-black/5 mb-6"
           data-motion="image"
         >
           <img src="/profile.jpg" alt="Profile image" class="h-20 w-20 rounded-full" />

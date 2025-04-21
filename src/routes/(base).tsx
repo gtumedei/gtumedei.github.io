@@ -58,12 +58,12 @@ const Header = () => {
       class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 pointer-events-none [&>*]:pointer-events-auto"
     >
       {location.pathname == "/" ? (
-        <a href="/cv" class={button({ variant: "raised" })}>
+        <a href="/cv" class={cn(button(), "rounded-full")}>
           Download CV <TablerDownload />
         </a>
       ) : (
-        <A href="/" class={cn(button({ variant: "raised" }), "group rounded-full px-1.5")}>
-          <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
+        <A href="/" class={cn(button({ variant: "subtle" }), "group rounded-full px-1.5")}>
+          <TablerArrowBackUp class="group-hover:text-accent transition-colors" />
           <img
             src="/profile.jpg"
             alt=""
@@ -73,8 +73,8 @@ const Header = () => {
       )}
       {location.pathname != "/" && (
         <Button
-          variant="raised"
-          class="md:hidden bg-base-100/80 dark:bg-base-200/80 backdrop-blur px-4 ml-auto group"
+          variant="subtle"
+          class="md:hidden backdrop-blur px-4 rounded-full ml-auto group"
           onClick={() => setMenuDialogOpen(true)}
         >
           Menu <TablerMenu class="text-on-base/70 group-hover:text-on-base transition-colors" />
@@ -125,7 +125,7 @@ const Header = () => {
         </Dialog>
       )}
       {location.pathname != "/" && (
-        <div class="max-md:hidden bg-base-100/80 dark:bg-base-200/80 backdrop-blur rounded-full border border-on-base/10 shadow-md shadow-black/5 mx-auto">
+        <div class="max-md:hidden bg-neutral/5 backdrop-blur rounded-full mx-auto">
           <nav class="flex">
             <ul class="text-sm font-medium flex justify-center px-3">
               <For each={desktopMenuItems}>
@@ -206,12 +206,7 @@ const ThemeSwitcher = () => {
   tooltip
   return (
     <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
-      <Popover.Trigger
-        class={cn(
-          button({ variant: "raised", shape: "circle" }),
-          "bg-base-100/80 dark:bg-base-200/80 backdrop-blur text-on-base/70 hover:text-on-base"
-        )}
-      >
+      <Popover.Trigger class={button({ variant: "subtle", shape: "circle" })}>
         <TablerPalette />
       </Popover.Trigger>
       <Popover.Positioner>

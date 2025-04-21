@@ -174,7 +174,8 @@ const ContactPage = () => {
         <div class="grid md:grid-cols-5 gap-x-12" data-motion="form">
           <Button
             type="submit"
-            class="md:col-span-3 md:col-start-2 sm:w-1/2 md:w-full lg:w-1/2 sm:mx-auto md:mx-0 lg:mx-auto"
+            size="lg"
+            class="text-sm md:col-span-3 md:col-start-2 sm:w-1/2 md:w-full lg:w-1/2 sm:mx-auto md:mx-0 lg:mx-auto"
             disabled={!isValid() || isSubmitting()}
           >
             {isSubmitting() ? <Loading /> : "Send"}
