@@ -36,19 +36,11 @@ const HomePage = () => {
     <>
       <Meta description="My personal website." />
       <div class="w-full px-6">
-        <div class="inline-flex rounded-full mb-6 relative" data-motion="image">
-          <img
-            src="/profile.jpg"
-            alt=""
-            class="h-[4.625rem] w-[4.625rem] rounded-full"
-            aria-hidden={true}
-          />
-          <div class="border-[8px] backdrop-blur-sm border-base-300/40 rounded-full absolute inset-0" />
-          <img
-            src="/profile.jpg"
-            alt="Profile image"
-            class="h-[calc(4.625rem-8px)] w-[calc(4.625rem-8px)] rounded-full absolute-center"
-          />
+        <div
+          class="inline-flex bg-base-200 dark:bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mb-6"
+          data-motion="image"
+        >
+          <img src="/profile.jpg" alt="Profile image" class="h-15 w-15 rounded-full" />
         </div>
         <h1
           class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1"

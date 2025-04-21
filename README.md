@@ -11,7 +11,6 @@ My personal website.
 
 ## TODO
 
-- Link to the v1 website
 - Mention the inspiration from https://tailwindcss.com/plus/templates/spotlight
 - Something interactive in the homepage using Matter.js?
 - Projects
