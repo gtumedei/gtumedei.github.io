@@ -12,6 +12,7 @@ import tooltip from "~/lib/directives/tooltip"
 import { Accent, Theme, useTheme } from "~/lib/theme"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerCopyright from "~icons/tabler/copyright"
+import TablerDownload from "~icons/tabler/download"
 import TablerMenu from "~icons/tabler/menu"
 import TablerMoonStars from "~icons/tabler/moon-stars"
 import TablerPalette from "~icons/tabler/palette"
@@ -56,7 +57,11 @@ const Header = () => {
       use:stickyOnScrollUp
       class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 pointer-events-none [&>*]:pointer-events-auto"
     >
-      {location.pathname != "/" ? (
+      {location.pathname == "/" ? (
+        <a href="/cv" class={button({ variant: "raised" })}>
+          Download CV <TablerDownload />
+        </a>
+      ) : (
         <A href="/" class={cn(button({ variant: "raised" }), "group rounded-full px-1.5")}>
           <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
           <img
@@ -65,8 +70,6 @@ const Header = () => {
             class="h-7 w-7 rounded-full opacity-90 group-hover:opacity-100 transition-opacity"
           />
         </A>
-      ) : (
-        <div class="h-10 w-10" />
       )}
       {location.pathname != "/" && (
         <Button

@@ -9,7 +9,6 @@ import TablerBrandGithub from "~icons/tabler/brand-github"
 import TablerBrandLinkedin from "~icons/tabler/brand-linkedin"
 import TablerBrandTelegram from "~icons/tabler/brand-telegram"
 import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
-import TablerDownload from "~icons/tabler/download"
 import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 import TablerMapPin from "~icons/tabler/map-pin"
 import TablerTools from "~icons/tabler/tools"
@@ -20,7 +19,7 @@ const HomePage = () => {
       [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
       [
         `[data-motion="hero"]`,
-        { opacity: 1, x: [-10, 0] },
+        { opacity: 1, y: [10, 0] },
         { duration: 0.4, delay: stagger(0.15), at: "<" },
       ],
       [
@@ -35,28 +34,23 @@ const HomePage = () => {
   return (
     <>
       <Meta description="My personal website." />
-      <div class="w-full px-6">
+      <div class="w-full flex flex-col items-center px-6">
         <div
-          class="inline-flex bg-base-200 dark:bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mb-6"
+          class="inline-flex bg-base-200 dark:bg-base-300 p-2 rounded-full border border-on-base/10 shadow shadow-black/5 mb-6"
           data-motion="image"
         >
-          <img src="/profile.jpg" alt="Profile image" class="h-15 w-15 rounded-full" />
+          <img src="/profile.jpg" alt="Profile image" class="h-20 w-20 rounded-full" />
         </div>
         <h1
-          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1"
+          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1.5"
           data-motion="hero"
         >
           Gianni Tumedei
         </h1>
-        <h2 class="text-lg font-mono text-on-base/70" data-motion="hero">
+        <h2 class="text-xl text-on-base/60 tracking-wide" data-motion="hero">
           @gtumedei
         </h2>
-        <div class="flex gap-2 mt-6">
-          <div class="max-sm:grow flex" data-motion="hero">
-            <a href="/cv" class={button({ class: "grow" })}>
-              Download CV <TablerDownload />
-            </a>
-          </div>
+        <div class="flex gap-3 mt-6">
           {[
             {
               href: "https://github.com/gtumedei",
@@ -78,15 +72,7 @@ const HomePage = () => {
               <a
                 href={item.href}
                 target="_blank"
-                class={button({ variant: "subtle", shape: "square", class: "sm:hidden" })}
-                use:tooltip={[item.title, "bottom"]}
-              >
-                {item.icon()}
-              </a>
-              <a
-                href={item.href}
-                target="_blank"
-                class={button({ variant: "ghost", shape: "square", class: "max-sm:hidden" })}
+                class={button({ variant: "subtle", shape: "square", size: "lg" })}
                 use:tooltip={[item.title, "bottom"]}
               >
                 {item.icon()}
@@ -95,71 +81,6 @@ const HomePage = () => {
           ))}
         </div>
       </div>
-      {/* <div class="relative">
-        <div class="h-44 lg:h-72 w-px my-24" />
-        <div class="w-screen flex gap-6 lg:gap-10 justify-center py-24 absolute-center overflow-hidden">
-          <a
-            href="#"
-            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-blue-200 rounded-2xl lg:rounded-3xl overflow-hidden rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
-          ></a>
-          <a
-            href="#"
-            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-orange-200 rounded-2xl lg:rounded-3xl -rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
-          ></a>
-          <a
-            href="#"
-            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-teal-200 rounded-2xl lg:rounded-3xl rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
-          ></a>
-          <a
-            href="#"
-            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-pink-200 rounded-2xl lg:rounded-3xl -rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
-          ></a>
-          <a
-            href="#"
-            class="shrink-0 h-44 w-44 lg:h-72 lg:w-72 bg-slate-200 rounded-2xl lg:rounded-3xl rotate-3 hover:rotate-0 hover:scale-105 transition-transform"
-          ></a>
-        </div>
-      </div> */}
-      {/* <div class="relative">
-        <div class="h-80 w-px my-24" />
-        <div class="w-screen flex gap-4 justify-center py-24 absolute-center overflow-hidden">
-          {[1, 2, 3, 4, 5].map(() => (
-            <div class="shrink-0 h-80 w-60 rounded-2xl lg:rounded-3xl border border-on-base/10 relative overflow-hidden">
-              <img
-                src="https://jedvxusexliwihumabdp.supabase.co/storage/v1/object/public/gtumedei//mtt-build.png"
-                alt=""
-                class="h-full w-full object-cover"
-              />
-              <Button
-                variant="subtle"
-                shape="circle"
-                class="bg-base-300/40 hover:bg-base-300/70 backdrop-blur-xl absolute top-3 right-3"
-              >
-                <TablerArrowUpRight />
-              </Button>
-            </div>
-          ))}
-        </div>
-      </div> */}
-      {/* <div class="relative">
-        <div class="h-40 lg:h-80 w-px my-24" />
-        <div class="w-screen flex gap-4 justify-center py-24 absolute-center overflow-hidden">
-          {[1, 2, 3, 4, 5].map((_, i) => (
-            <div
-              class={cn(
-                "shrink-0 h-40 w30 lg:h-80 lg:w-60 rounded-2xl lg:rounded-3xl border border-on-base/10 relative overflow-hidden",
-                i % 2 == 0 ? "-translate-y-2" : "translate-y-2"
-              )}
-            >
-              <img
-                src="https://jedvxusexliwihumabdp.supabase.co/storage/v1/object/public/gtumedei//mtt-build.png"
-                alt=""
-                class="h-full w-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      </div> */}
       <div class="grid md:grid-cols-2 gap-6 py-20">
         {[
           {
