@@ -58,12 +58,16 @@ const Header = () => {
       class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 pointer-events-none [&>*]:pointer-events-auto"
     >
       {location.pathname == "/" ? (
-        <a href="/cv" class={cn(button({ size: "lg" }), "font-normal rounded-full pl-5 pr-4")}>
+        <A
+          href="/cv"
+          target="_self"
+          class={cn(button({ size: "lg" }), "font-normal rounded-full pl-5 pr-4")}
+        >
           <span class="text-sm">
             <span class="max-sm:hidden">Download </span>CV
           </span>
           <TablerDownload />
-        </a>
+        </A>
       ) : (
         <A
           href="/"
