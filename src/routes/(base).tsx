@@ -58,14 +58,19 @@ const Header = () => {
       class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 pointer-events-none [&>*]:pointer-events-auto"
     >
       {location.pathname == "/" ? (
-        <a href="/cv" class={cn(button({ size: "lg" }), "rounded-full")}>
-          <span class="text-sm">Download CV</span>
+        <a href="/cv" class={cn(button({ size: "lg" }), "font-normal rounded-full pl-5 pr-4")}>
+          <span class="text-sm">
+            <span class="max-sm:hidden">Download </span>CV
+          </span>
           <TablerDownload />
         </a>
       ) : (
         <A
           href="/"
-          class={cn(button({ variant: "subtle", size: "lg" }), "group rounded-full px-1.5")}
+          class={cn(
+            button({ variant: "subtle", size: "lg" }),
+            "backdrop-blur-2xl rounded-full px-1.5 group"
+          )}
         >
           <TablerArrowBackUp class="group-hover:text-accent transition-colors" />
           <img
@@ -79,7 +84,7 @@ const Header = () => {
         <Button
           variant="subtle"
           size="lg"
-          class="md:hidden backdrop-blur px-4 rounded-full ml-auto group"
+          class="md:hidden backdrop-blur-2xl px-4 rounded-full ml-auto group"
           onClick={() => setMenuDialogOpen(true)}
         >
           <span class="text-sm">Menu</span>
@@ -131,7 +136,7 @@ const Header = () => {
         </Dialog>
       )}
       {location.pathname != "/" && (
-        <div class="max-md:hidden bg-neutral/5 backdrop-blur rounded-full mx-auto">
+        <div class="max-md:hidden bg-neutral/5 backdrop-blur-2xl rounded-full mx-auto">
           <nav class="flex">
             <ul class="text-sm font-medium flex justify-center px-3">
               <For each={desktopMenuItems}>
@@ -212,7 +217,9 @@ const ThemeSwitcher = () => {
   tooltip
   return (
     <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
-      <Popover.Trigger class={button({ variant: "subtle", shape: "circle", size: "lg" })}>
+      <Popover.Trigger
+        class={cn(button({ variant: "subtle", shape: "circle", size: "lg" }), "backdrop-blur-2xl")}
+      >
         <TablerPalette />
       </Popover.Trigger>
       <Popover.Positioner>
