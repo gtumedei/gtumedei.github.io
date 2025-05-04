@@ -1,7 +1,6 @@
-import { createEffect, on } from "solid-js"
+import { createMutationObserver } from "@solid-primitives/mutation-observer"
 import { createStore } from "solid-js/store"
 import { isServer } from "solid-js/web"
-import { useTheme } from "~/lib/theme"
 
 export type ThemeColors = {
   base100: string
@@ -22,10 +21,7 @@ const computeThemeColors = () => {
   const getColor = (() => {
     if (isServer) return (_: string) => ""
     const style = getComputedStyle(document.documentElement)
-    return (property: string) => {
-      const value = style.getPropertyValue(property).trim()
-      return value == "" ? "" : `rgb(${value} / 100)`
-    }
+    return (property: string) => style.getPropertyValue(property).trim()
   })()
 
   const colors = {
@@ -46,18 +42,18 @@ const computeThemeColors = () => {
 }
 
 export const useThemeColors = () => {
-  const { actualTheme, accent } = useTheme()
-
   const [colors, setColors] = createStore(computeThemeColors())
 
-  createEffect(
-    on(
-      () => [actualTheme(), accent()],
-      async () => {
-        await new Promise((r) => setTimeout(r, 100)) // Wait for the html tag to be updated
+  createMutationObserver(
+    () => document.documentElement,
+    { attributes: true },
+    (records) => {
+      if (
+        records.some((r) => r.attributeName == "data-theme" || r.attributeName == "data-accent")
+      ) {
         setColors(computeThemeColors())
       }
-    )
+    }
   )
 
   return colors

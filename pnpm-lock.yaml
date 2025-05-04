@@ -32,6 +32,9 @@ importers:
       '@solid-primitives/media':
         specifier: ^2.3.0
         version: 2.3.0(solid-js@1.9.5)
+      '@solid-primitives/mutation-observer':
+        specifier: ^1.2.0
+        version: 1.2.0(solid-js@1.9.5)
       '@solid-primitives/scheduled':
         specifier: ^1.5.0
         version: 1.5.0(solid-js@1.9.5)
@@ -1208,6 +1211,11 @@ packages:
 
   '@solid-primitives/media@2.3.0':
     resolution: {integrity: sha512-7+C3wfbWnGE/WPoNsqcp/EeOP2aNNB92RCpsWhBth8E5lZo/J+rK6jMb7umVsK0zguT8HBpeXp1pFyFbcsHStA==}
+    peerDependencies:
+      solid-js: ^1.6.12
+
+  '@solid-primitives/mutation-observer@1.2.0':
+    resolution: {integrity: sha512-U7ZuO7IE5cPK2qPRJF5pyoI/H/D1TCdS6pXfC8gt6m+SUkLHllN2vcX7GtEHPU0xVOXw/zf+EMafo++qtGDn5Q==}
     peerDependencies:
       solid-js: ^1.6.12
 
@@ -4860,6 +4868,11 @@ snapshots:
       '@solid-primitives/event-listener': 2.4.0(solid-js@1.9.5)
       '@solid-primitives/rootless': 1.5.0(solid-js@1.9.5)
       '@solid-primitives/static-store': 0.1.0(solid-js@1.9.5)
+      '@solid-primitives/utils': 6.3.0(solid-js@1.9.5)
+      solid-js: 1.9.5
+
+  '@solid-primitives/mutation-observer@1.2.0(solid-js@1.9.5)':
+    dependencies:
       '@solid-primitives/utils': 6.3.0(solid-js@1.9.5)
       solid-js: 1.9.5
 

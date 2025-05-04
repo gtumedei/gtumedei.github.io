@@ -16,6 +16,7 @@
     "@iconify-json/tabler": "^1.2.17",
     "@solid-primitives/bounds": "^0.1.0",
     "@solid-primitives/media": "^2.3.0",
+    "@solid-primitives/mutation-observer": "^1.2.0",
     "@solid-primitives/scheduled": "^1.5.0",
     "@solid-primitives/storage": "^4.3.1",
     "@solidjs/meta": "^0.29.4",
