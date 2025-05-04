@@ -1,4 +1,5 @@
 import { Link, Meta as SolidMeta, Title } from "@solidjs/meta"
+import { useLocation } from "@solidjs/router"
 import { Component, createMemo } from "solid-js"
 import env from "~/lib/env"
 
@@ -8,14 +9,16 @@ const Meta: Component<{
   image?: string
   canonicalLocation?: string
 }> = (props) => {
+  const location = useLocation()
+
   const title = createMemo(() =>
     props.title ? `${props.title} • Gianni Tumedei` : "Gianni Tumedei"
   )
-  const canonicalUrl = createMemo(() =>
-    props.canonicalLocation ? env.public.PUBLIC_BASE_URL + props.canonicalLocation : null
+  const canonicalUrl = createMemo(
+    () => env.public.PUBLIC_BASE_URL + (props.canonicalLocation ?? location.pathname)
   )
   const imageUrl = createMemo(() => {
-    const image = props.image ?? "/profile-circle.png"
+    const image = props.image ?? "/og-image.png"
     return image.startsWith("/") ? env.public.PUBLIC_BASE_URL + image : image
   })
 
