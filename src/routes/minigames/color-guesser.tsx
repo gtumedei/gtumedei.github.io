@@ -35,18 +35,20 @@ const MobileMenu = () => {
   return (
     <header class="w-full flex items-center gap-3 p-3">
       <h1 class="font-serif text-xl font-bold tracking-wider mb-1 flex-grow ml-3">Color Guesser</h1>
-      <div class="flex">
+      <div class="flex gap-4">
         <Button
-          variant="ghost"
-          shape="square"
+          variant="subtle"
+          size="lg"
+          shape="circle"
           onClick={() => ctx.ui.setDialogState("stats")}
           asChild={(props) => <button {...props()} use:tooltip={["Stats", "bottom"]} />}
         >
           <TablerChartBar />
         </Button>
         <Button
-          variant="ghost"
-          shape="square"
+          variant="subtle"
+          size="lg"
+          shape="circle"
           onClick={() => ctx.ui.setDialogState("menu")}
           asChild={(props) => <button {...props()} use:tooltip={["Menu", "bottom"]} />}
         >
@@ -72,18 +74,20 @@ const RightMenu = () => {
 
   tooltip
   return (
-    <div class="w-48 flex justify-end p-6">
+    <div class="w-48 flex justify-end gap-4 p-6">
       <Button
-        variant="ghost"
-        shape="square"
+        variant="subtle"
+        size="lg"
+        shape="circle"
         onClick={() => ctx.ui.setDialogState("stats")}
         asChild={(props) => <button {...props()} use:tooltip={["Stats", "bottom"]} />}
       >
         <TablerChartBar />
       </Button>
       <Button
-        variant="ghost"
-        shape="square"
+        variant="subtle"
+        size="lg"
+        shape="circle"
         onClick={() => ctx.ui.setDialogState("menu")}
         asChild={(props) => <button {...props()} use:tooltip={["Menu", "bottom"]} />}
       >
