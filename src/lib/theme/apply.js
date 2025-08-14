@@ -12,7 +12,14 @@ export const applyTheme = (theme) => {
         : "light"
       : theme
   // Add/update data-theme attribute
-  document.documentElement.setAttribute("data-theme", actualTheme)
+  if ("startViewTransition" in document) {
+    document.startViewTransition(() =>
+      document.documentElement.setAttribute("data-theme", actualTheme)
+    )
+  } else {
+    // @ts-ignore
+    document.documentElement.setAttribute("data-theme", actualTheme)
+  }
   // Remove existing theme color meta tags
   document.querySelectorAll(`meta[name="theme-color"]`).forEach((elem) => elem.remove())
   if (theme == "system") {
