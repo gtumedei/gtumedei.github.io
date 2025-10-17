@@ -5,6 +5,7 @@ import { Portal } from "solid-js/web"
 import { Button, button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { Popover } from "~/components/ui/popover"
+import { ProgressiveBlur } from "~/components/ui/progressive-blur"
 import { createBreakpoints } from "~/lib/breakpoints"
 import cn from "~/lib/cn"
 import stickyOnScrollUp from "~/lib/directives/sticky-on-scroll-up"
@@ -55,10 +56,15 @@ const Header = () => {
   return (
     <header
       use:stickyOnScrollUp
-      class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 pointer-events-none [&>*]:pointer-events-auto"
+      class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 relative pointer-events-none [&>*]:pointer-events-auto"
     >
+      <ProgressiveBlur gradient class="inset-0 z-[-1]" />
       {location.pathname == "/" ? (
-        <A href="/cv" target="_self" class={cn(button({ size: "lg" }), "rounded-full pl-5 pr-4")}>
+        <A
+          href="/cv"
+          target="_self"
+          class={cn(button({ size: "lg" }), "rounded-full pl-5 pr-4 shadow-md")}
+        >
           <span class="text-sm">
             <span class="max-sm:hidden">Download </span>CV
           </span>
@@ -68,11 +74,11 @@ const Header = () => {
         <A
           href="/"
           class={cn(
-            button({ variant: "subtle", size: "lg" }),
-            "backdrop-blur-2xl rounded-full px-1.5 group"
+            button({ variant: "raised", size: "lg" }),
+            "bg-base-100/90 dark:bg-base-200/90 rounded-full px-1.5 group"
           )}
         >
-          <TablerArrowBackUp class="group-hover:text-accent transition-colors" />
+          <TablerArrowBackUp />
           <img
             src="/profile.jpg"
             alt=""
@@ -82,9 +88,9 @@ const Header = () => {
       )}
       {location.pathname != "/" && (
         <Button
-          variant="subtle"
+          variant="raised"
           size="lg"
-          class="md:hidden backdrop-blur-2xl px-4 rounded-full ml-auto group"
+          class="md:hidden bg-base-100/90 dark:bg-base-200/90 px-4 rounded-full ml-auto group"
           onClick={() => setMenuDialogOpen(true)}
         >
           <span class="text-sm">Menu</span>
@@ -105,7 +111,7 @@ const Header = () => {
                 <Dialog.CloseTrigger
                   class={cn(
                     button({ variant: "raised", shape: "circle", size: "lg" }),
-                    "ml-auto pointer-events-auto group"
+                    "bg-base-100/90 dark:bg-base-200/90 ml-auto pointer-events-auto group"
                   )}
                 >
                   <TablerX class="text-base text-on-base/70 group-hover:text-on-base transition-colors" />
@@ -136,7 +142,7 @@ const Header = () => {
         </Dialog>
       )}
       {location.pathname != "/" && (
-        <div class="max-md:hidden bg-neutral/5 backdrop-blur-2xl rounded-full mx-auto">
+        <div class="max-md:hidden bg-base-100/90 dark:bg-base-200/90 rounded-full border border-on-base/10 shadow-md shadow-black/3 mx-auto">
           <nav class="flex">
             <ul class="text-sm font-medium flex justify-center px-3">
               <For each={desktopMenuItems}>
@@ -218,7 +224,10 @@ const ThemeSwitcher = () => {
   return (
     <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
       <Popover.Trigger
-        class={cn(button({ variant: "subtle", shape: "circle", size: "lg" }), "backdrop-blur-2xl")}
+        class={cn(
+          button({ variant: "raised", shape: "circle", size: "lg" }),
+          "bg-base-100/90 dark:bg-base-200/90"
+        )}
       >
         <TablerPalette />
       </Popover.Trigger>

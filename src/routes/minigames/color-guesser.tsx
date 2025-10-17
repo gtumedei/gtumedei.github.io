@@ -102,7 +102,7 @@ const ColorIndicator = () => {
 
   return (
     <div class="absolute bottom-6 left-0 w-full flex">
-      <div class="flex bg-base-100/80 dark:bg-base-200/80 backdrop-blur px-6 py-2.5 rounded-full border border-on-base/10 shadow-md shadow-black/5 m-auto">
+      <div class="flex bg-base-100/90 dark:bg-base-200/90 px-6 py-2.5 rounded-full border border-on-base/10 shadow-md shadow-black/3 m-auto">
         <p class="text-on-base/70">
           Color code: <span class="text-on-base">{ctx.game.color}</span>
         </p>

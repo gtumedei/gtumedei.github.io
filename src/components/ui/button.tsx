@@ -10,14 +10,14 @@ export const button = tv(
     variants: {
       variant: {
         solid:
-          "shadow-sm [&:where(:disabled,[data-disabled])]:!bg-neutral/30 [&:where(:disabled,[data-disabled])]:!text-on-base/50 [&:where(:disabled,[data-disabled])]:!border-transparent",
+          "shadow-xs shadow-black/3 [&:where(:disabled,[data-disabled])]:!bg-neutral/30 [&:where(:disabled,[data-disabled])]:!text-on-base/50 [&:where(:disabled,[data-disabled])]:!border-transparent",
         subtle:
           "border-transparent bg-neutral/5 text-neutral/70 hover:bg-accent/15 hover:text-accent focus-visible:border-neutral/15 focus-visible:ring-neutral/10 [&:where(:disabled,[data-disabled])]:!text-neutral/50 [&:where(:disabled,[data-disabled])]:!bg-neutral/5",
         ghost:
           "border-transparent bg-transparent text-on-base hover:bg-on-base/5 focus-visible:border-on-base/20 focus-visible:ring-on-base/10 [&:where(:disabled,[data-disabled])]:!bg-transparent [&:where(:disabled,[data-disabled])]:!text-on-base/50",
         link: "border-transparent !h-min !px-0",
         raised:
-          "bg-base-100 dark:bg-base-200 !rounded-full border border-on-base/10 hover:border-on-base/20 shadow-md shadow-black/5",
+          "bg-base-100 dark:bg-base-200 hover:bg-base-200 !rounded-full border border-on-base/10 hover:border-on-base/20 shadow-md shadow-black/3 focus-visible:ring-on-base/10",
       },
       theme: {
         neutral: "",

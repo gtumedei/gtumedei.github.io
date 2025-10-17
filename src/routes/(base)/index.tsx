@@ -65,7 +65,7 @@ const HomePage = () => {
             {
               href: "https://goo.gl/maps/knzcetCBj6cHLAAW7",
               icon: () => <TablerMapPin />,
-              title: "Location • Cesena (IT)",
+              title: "Based in Cesena (IT)",
             },
           ].map((item) => (
             <div data-motion="hero">

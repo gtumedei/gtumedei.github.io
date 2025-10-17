@@ -3,8 +3,9 @@
 /**
  * Applies the given theme to the website by setting the `data-theme` attribute on the `<html>` tag and updating `meta[name="theme-color"]`.
  * @param {"light" | "dark" | "system"} theme
+ * @param {boolean} disableTransition
  */
-export const applyTheme = (theme) => {
+export const applyTheme = (theme, disableTransition = false) => {
   const actualTheme =
     theme == "system"
       ? window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -12,7 +13,7 @@ export const applyTheme = (theme) => {
         : "light"
       : theme
   // Add/update data-theme attribute
-  if ("startViewTransition" in document) {
+  if ("startViewTransition" in document && !disableTransition) {
     document.startViewTransition(() =>
       document.documentElement.setAttribute("data-theme", actualTheme)
     )
@@ -47,7 +48,7 @@ export const LOCAL_STORAGE_THEME_KEY = "gtumedei-io-theme"
 // Can't use LOCAL_STORAGE_THEME_KEY in this function because it gets stringified and exported without that variable. This would lead to using a variable that's not defined.
 const getTheme = () => localStorage.getItem("gtumedei-io-theme") ?? "system"
 
-export const applyThemeFnString = `(${applyTheme})((${getTheme})())`
+export const applyThemeFnString = `(${applyTheme})((${getTheme})(), true)`
 
 /**
  * Applies the given accent to the website by setting the `data-theme` attribute on the `<html>` tag.

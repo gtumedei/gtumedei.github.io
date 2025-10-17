@@ -17,8 +17,14 @@ My personal website.
 - Projects
   - Work: MoreThanTech, MoreThanTech Build, Radio Centrale, Nexthardware, TBG Studio
   - Research: Sketchlagoon, Sonification demo, Navile
-  - Personal: Sailing Ark, Open Movies, taggui, go-droid, yt-dlapp, goaway, dotfiles, vscode-adw-material-theme, taggo
+  - Personal: Sailing Ark, Open Movies, metaviewer, taggui, go-droid, yt-dlapp, goaway, dotfiles, vscode-adw-material-theme, taggo
 - Games:
-  - Include a game based on icons
-    - Idea: cloud of icons floating around, you have to shoot to the same icon you have in your gun
-  - Other: pinball, endless runner (car based with Tabler icons cars?)
+  - Cloud of icons floating around, you have to shoot to the same icon you have in your gun
+  - 2D endless runner with Tabler icons cars
+    - Top-down view
+    - 4 lanes with cars you have to dodge, 2 lanes for each direction
+    - Dynamic obstacles i.e. other vehicles to dodge
+    - Static obstacles such as roadworks
+    - Possibility to customize your car: choose icon, color, particle effect
+    - Pick up bonuses during the game
+    - Progressively increase speed and add new spawnable elements
