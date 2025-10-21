@@ -19,7 +19,7 @@ export const ProgressiveBlur: ParentComponent<
         {gradientProps.gradient && (
           <div
             class={cn(
-              "absolute inset-0 bg-gradient-to-b from-base-100 to-transparent",
+              "absolute inset-0 bg-gradient-to-b from-base-100/90 to-transparent",
               props.gradientClass
             )}
           />
