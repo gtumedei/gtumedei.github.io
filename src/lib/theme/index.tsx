@@ -1,12 +1,5 @@
-import {
-  Accessor,
-  createContext,
-  createSignal,
-  onCleanup,
-  onMount,
-  ParentComponent,
-  useContext,
-} from "solid-js"
+import { createSignal, onCleanup, onMount } from "solid-js"
+import { create } from "~/lib/context"
 import { applyAccent, applyTheme } from "./apply"
 
 const themes = ["light", "dark", "system"] as const
@@ -15,17 +8,7 @@ export type Theme = (typeof themes)[number]
 const accents = ["blue", "orange", "teal", "pink"] as const
 export type Accent = (typeof accents)[number]
 
-type Ctx = {
-  theme: Accessor<Theme>
-  setTheme: (value: Theme) => void
-  actualTheme: Accessor<"light" | "dark">
-  accent: Accessor<Accent>
-  setAccent: (value: Accent) => void
-}
-
-const ThemeCtx = createContext<Ctx>()
-
-export const ThemeProvider: ParentComponent = (props) => {
+export const [ThemeProvider, useTheme] = create(() => {
   const [theme, _setTheme] = createSignal<Theme>("system")
   const setTheme = (value: Theme) => {
     _setTheme(value)
@@ -65,19 +48,11 @@ export const ThemeProvider: ParentComponent = (props) => {
     )
   })
 
-  return (
-    <ThemeCtx.Provider
-      value={{
-        theme,
-        setTheme,
-        actualTheme,
-        accent,
-        setAccent,
-      }}
-    >
-      {props.children}
-    </ThemeCtx.Provider>
-  )
-}
-
-export const useTheme = () => useContext(ThemeCtx)!
+  return {
+    theme,
+    setTheme,
+    actualTheme,
+    accent,
+    setAccent,
+  }
+})

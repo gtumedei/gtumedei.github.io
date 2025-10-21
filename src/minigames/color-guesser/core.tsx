@@ -2,6 +2,7 @@ import { makePersisted } from "@solid-primitives/storage"
 import { createSignal } from "solid-js"
 import { createStore } from "solid-js/store"
 import { isServer } from "solid-js/web"
+import { useAchievements } from "~/lib/achievements"
 import { hexToHsl, hexToRgb, pickRandom, scrambleHex } from "./utils"
 
 export type Game = {
@@ -89,6 +90,8 @@ export const createColorGuesser = () => {
     nextColor()
   }
 
+  const { unlockAchievement } = useAchievements()
+
   const registerGuess = (color: string) => {
     const correct = color == game.color
     if (correct) {
@@ -97,6 +100,7 @@ export const createColorGuesser = () => {
       if (game.streak > (stats.streak ?? 0)) {
         setStats("streak", game.streak)
         setStats("streakDifficulty", game.difficulty.label)
+        if (game.streak == 10) unlockAchievement("COLOR_GURU")
       }
     } else {
       setGame("streak", 0)

@@ -49,7 +49,7 @@ const MinigamesPage = () => {
       <div class="grid md:grid-cols-2 gap-6 px-6 py-20">
         <A
           href="/minigames/color-guesser"
-          class="flex flex-col gap-2 p-2 rounded-2xl border border-on-base/10 group hover:bg-base-300 hover:border-transparent transition-colors"
+          class="flex flex-col gap-2 p-2 rounded-2xl border border-on-base/10 group hover:bg-on-base/5 hover:border-transparent transition-colors"
           data-motion="minigame-item"
         >
           <div class="w-full aspect-[2/1] bg-on-base/5 rounded-xl" />

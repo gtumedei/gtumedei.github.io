@@ -1,21 +1,31 @@
 import { debounce } from "@solid-primitives/scheduled"
+import { Title } from "@solidjs/meta"
 import { A } from "@solidjs/router"
 import { HttpStatusCode } from "@solidjs/start"
 import Matter from "matter-js"
 import { createEffect, on, onCleanup, onMount } from "solid-js"
 import { isServer } from "solid-js/web"
 import { button } from "~/components/ui/button"
+import { useAchievements } from "~/lib/achievements"
 import { useTheme } from "~/lib/theme"
 import { useThemeColors } from "~/lib/theme/colors"
 
-const { Engine, Render, Runner, Constraint, MouseConstraint, Mouse, Composite, Bodies } = Matter
+const { Engine, Render, Runner, Constraint, MouseConstraint, Mouse, Composite, Bodies, Events } =
+  Matter
 
 const NotFoundPage = () => {
+  const { unlockAchievement } = useAchievements()
+  onMount(async () => {
+    await new Promise((r) => setTimeout(r, 750))
+    unlockAchievement("LOST")
+  })
+
   return (
     <>
       <HttpStatusCode code={404} />
+      <Title>Page not found • Gianni Tumedei</Title>
       <div class="text-center pb-28 my-auto">
-        <Matter404 />
+        <PageNotFoundDoodle />
         <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-4">
           Page not found
         </h1>
@@ -30,7 +40,7 @@ const NotFoundPage = () => {
   )
 }
 
-const Matter404 = () => {
+const PageNotFoundDoodle = () => {
   let canvas!: HTMLCanvasElement
   let engine!: Matter.Engine
   let world!: Matter.World
@@ -41,6 +51,8 @@ const Matter404 = () => {
 
   const { actualTheme } = useTheme()
   const colors = useThemeColors()
+
+  const { unlockAchievement } = useAchievements()
 
   onMount(async () => {
     await new Promise((r) => setTimeout(r, 100))
@@ -78,6 +90,26 @@ const Matter404 = () => {
     Render.lookAt(render, {
       min: { x: 0, y: 0 },
       max: { x: w, y: h },
+    })
+
+    // Setup achievement
+    let interactionDetails: {
+      body: Matter.Body
+      timestamp: number
+    } | null = null
+    Events.on(mouseConstraint, "mousedown", () => {
+      if (!mouseConstraint.body) return
+      interactionDetails = {
+        body: mouseConstraint.body,
+        timestamp: Date.now(),
+      }
+    })
+    Events.on(mouseConstraint, "mouseup", () => {
+      if (!interactionDetails) return
+      if (Date.now() - interactionDetails.timestamp > 200) {
+        unlockAchievement("AND_FOUND")
+      }
+      interactionDetails = null
     })
 
     // Add objects

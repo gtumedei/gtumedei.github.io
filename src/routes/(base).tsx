@@ -302,13 +302,13 @@ const Footer = () => {
     { href: "/minigames", label: "Minigames" },
     { href: "/contact", label: "Contact" },
   ]
-  const prevWebsites = [{ href: "#", label: "v1 Website" }]
+  const achievements = [{ href: "/achievements", label: "Achievements" }]
 
   return (
     <footer class="text-sm flex max-sm:flex-col justify-between max-sm:items-center gap-6 px-6 md:px-12 lg:px-16 xl:px-20 py-12 border-t border-on-base/10">
       <nav class="flex">
         <ul class="font-medium flex flex-wrap max-sm:justify-center gap-4">
-          <For each={location.pathname == "/" ? prevWebsites : pages}>
+          <For each={location.pathname == "/" ? achievements : pages}>
             {(item) => (
               <li>
                 <A href={item.href} class="hover:text-accent transition-colors">

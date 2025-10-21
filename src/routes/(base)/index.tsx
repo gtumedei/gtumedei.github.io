@@ -34,7 +34,7 @@ const HomePage = () => {
   return (
     <>
       <Meta description="My personal website." />
-      <div class="w-full flex flex-col items-center px-6">
+      <section class="w-full flex flex-col items-center px-6 mt-auto">
         <div
           class="inline-flex bg-base-200 p-2 rounded-full border border-on-base/10 shadow shadow-black/5 mb-6"
           data-motion="image"
@@ -80,8 +80,8 @@ const HomePage = () => {
             </div>
           ))}
         </div>
-      </div>
-      <div class="grid md:grid-cols-2 gap-6 py-20">
+      </section>
+      <section class="grid md:grid-cols-2 gap-6 py-20 mb-auto">
         {[
           {
             title: "Projects",
@@ -132,7 +132,7 @@ const HomePage = () => {
             </p>
           </A>
         ))}
-      </div>
+      </section>
     </>
   )
 }
