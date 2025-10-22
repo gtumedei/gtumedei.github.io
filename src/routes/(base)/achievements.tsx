@@ -1,3 +1,4 @@
+import { Progress } from "@ark-ui/solid"
 import { animate, stagger } from "motion"
 import { Component, For, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
@@ -46,8 +47,9 @@ const AchievementPage = () => {
           placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
           minima eaque fugiat quia, dignissimos perspiciatis harum?
         </p>
-        <div data-motion="heading">
+        <div class="flex flex-wrap items-center gap-6" data-motion="heading">
           <ResetAchievementsPopover />
+          <AchievementsProgress />
         </div>
       </div>
       <div class="grid md:grid-cols-2 gap-6 px-6 py-20">
@@ -80,7 +82,7 @@ const ResetAchievementsPopover = () => {
         class={button({ variant: "subtle" })}
         disabled={completedAchievements().length == 0}
       >
-        Reset achievements
+        Reset progress
       </Popover.Trigger>
       <Portal>
         <Popover.Positioner>
@@ -93,13 +95,36 @@ const ResetAchievementsPopover = () => {
                 Yes, let's start all over
               </Popover.CloseTrigger>
               <Popover.CloseTrigger class={button({ variant: "subtle" })}>
-                Nope, let's keep them
+                Actually, nevermind
               </Popover.CloseTrigger>
             </div>
           </Popover.Content>
         </Popover.Positioner>
       </Portal>
     </Popover>
+  )
+}
+
+const AchievementsProgress = () => {
+  const { completedAchievements } = useAchievements()
+
+  return (
+    <div class="flex gap-2 items-center">
+      <Progress.Root
+        class="[--size:32px] [--thickness:6px]"
+        value={completedAchievements().length}
+        min={0}
+        max={Object.keys(achievements).length}
+      >
+        <Progress.Circle>
+          <Progress.CircleTrack class="stroke-neutral/10" />
+          <Progress.CircleRange class="stroke-accent [stroke-linecap:round] transition-all" />
+        </Progress.Circle>
+      </Progress.Root>
+      <p class="text-sm text-on-base/70 font-semibold">
+        {completedAchievements().length} / {Object.keys(achievements).length} unlocked
+      </p>
+    </div>
   )
 }
 

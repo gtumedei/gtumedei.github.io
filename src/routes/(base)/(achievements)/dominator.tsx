@@ -9,7 +9,7 @@ const Inspector = () => {
   onMount(() => {
     navigate("/achievements")
     onCleanup(() => {
-      setTimeout(() => unlockAchievement("INSPECTOR_GADGET"), 1000)
+      setTimeout(() => unlockAchievement("DOMINATION"), 1000)
     })
   })
 

@@ -2,10 +2,10 @@ import { createSignal, onCleanup, onMount } from "solid-js"
 import { create } from "~/lib/context"
 import { applyAccent, applyTheme } from "./apply"
 
-const themes = ["light", "dark", "system"] as const
+export const themes = ["light", "dark", "system"] as const
 export type Theme = (typeof themes)[number]
 
-const accents = ["blue", "orange", "teal", "pink"] as const
+export const accents = ["blue", "orange", "teal", "pink"] as const
 export type Accent = (typeof accents)[number]
 
 export const [ThemeProvider, useTheme] = create(() => {

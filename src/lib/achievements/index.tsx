@@ -1,12 +1,14 @@
 import { useLocation, useNavigate } from "@solidjs/router"
+import JSConfetti from "js-confetti"
 import { createSignal, onMount, ParentComponent } from "solid-js"
 import { toast, Toaster } from "~/components/ui/toast"
+import Helpers, {
+  AchievementsProgressProvider,
+  useAchievementsProgress,
+} from "~/lib/achievements/helpers"
 import achievements, { Achievement } from "~/lib/content/achievements"
 import { create } from "~/lib/context"
-import TablerTrophy from "~icons/tabler/trophy"
-import JSConfetti from "js-confetti"
 import { useThemeColors } from "~/lib/theme/colors"
-import Helpers from "~/lib/achievements/helpers"
 
 const LOCAL_STORAGE_ACHIEVEMENTS_KEY = "gtumedei-io-achievements"
 
@@ -39,9 +41,9 @@ const [_AchievementsProvider, useAchievements] = create(() => {
     if (currentAchievements.includes(slug)) return
 
     setCompletedAchievements([...currentAchievements, slug])
-    toast("Achievement unlocked", {
-      icon: <TablerTrophy />,
-      description: achievement.name,
+    toast(achievement.name, {
+      icon: achievement.icon(),
+      description: "Achievement unlocked",
       action:
         location.pathname != "/achievements"
           ? {
@@ -51,6 +53,7 @@ const [_AchievementsProvider, useAchievements] = create(() => {
               },
             }
           : undefined,
+      duration: 8000,
     })
     confetti?.addConfettiAtPosition({
       confettiColors: [
@@ -68,7 +71,13 @@ const [_AchievementsProvider, useAchievements] = create(() => {
     })
   }
 
-  const resetAchievements = () => setCompletedAchievements([])
+  const { resetProgress } = useAchievementsProgress()
+
+  const resetAchievements = () => {
+    setCompletedAchievements([])
+    resetProgress()
+    unlockAchievement("ACHIEVEMENTCEPTION")
+  }
 
   return {
     completedAchievements,
@@ -79,15 +88,18 @@ const [_AchievementsProvider, useAchievements] = create(() => {
 
 export const AchievementsProvider: ParentComponent = (props) => {
   return (
-    <_AchievementsProvider>
-      {props.children}
+    <AchievementsProgressProvider>
+      <_AchievementsProvider>
+        {props.children}
 
-      <Helpers.Visitor />
-      <Helpers.Cheater />
-      <Helpers.Inspector />
-
-      <Toaster />
-    </_AchievementsProvider>
+        <Helpers.Visitor />
+        <Helpers.ReturningVisitor />
+        <Helpers.CustomizationAddict />
+        <Helpers.InspectorGadget />
+        <Helpers.Cheater />
+        <Toaster />
+      </_AchievementsProvider>
+    </AchievementsProgressProvider>
   )
 }
 

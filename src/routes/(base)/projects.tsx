@@ -2,6 +2,8 @@ import { animate, stagger } from "motion"
 import { Component, For, onMount } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
+import { useAchievements } from "~/lib/achievements"
+import { useAchievementsProgress } from "~/lib/achievements/helpers"
 import { createBatchedInViewAnimation } from "~/lib/animation"
 import projectCategories, { Project } from "~/lib/content/projects"
 import TablerGrid3x3 from "~icons/tabler/grid-3x3"
@@ -68,12 +70,20 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
     }
   }
 
+  const { unlockAchievement } = useAchievements()
+  const { progress, setProgress } = useAchievementsProgress()
+
   return (
     <a
       href={props.project.url}
       target="_blank"
       class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group"
       data-motion="project-item"
+      onClick={() => {
+        if (progress.deepDiver.clickedLinks.includes(props.project.url)) return
+        setProgress("deepDiver", "clickedLinks", (v) => [...v, props.project.url])
+        if (progress.deepDiver.clickedLinks.length == 5) unlockAchievement("DEEP_DIVER")
+      }}
     >
       <div class="bg-base-200 dark:bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
         <div class="h-8 w-8 rounded-full bg-on-base" />

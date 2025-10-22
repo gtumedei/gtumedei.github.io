@@ -64,7 +64,7 @@ export const createColorGuesser = () => {
     wrongGuesses: 0,
   }
   const [stats, setStats] = makePersisted(createStore({ ...initialStats }), {
-    name: "gtumedei.color-guesser",
+    name: "gtumedei-io-color-guesser",
     storage: isServer ? undefined : localStorage,
   })
   const resetStats = () => setStats({ ...initialStats })
