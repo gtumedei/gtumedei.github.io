@@ -33,7 +33,7 @@ const TechPage = () => {
   onMount(() => {
     const handleScrollToBottom = () => {
       if (
-        document.documentElement.scrollTop ==
+        document.documentElement.scrollTop >=
         document.documentElement.scrollHeight - document.documentElement.clientHeight
       ) {
         unlockAchievement("SCROLLER")
