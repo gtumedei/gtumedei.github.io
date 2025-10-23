@@ -3,7 +3,7 @@ import { useCurrentMatches, useLocation } from "@solidjs/router"
 import { createEffect, createSignal, on, onCleanup, onMount, Show } from "solid-js"
 import { createStore, reconcile } from "solid-js/store"
 import { isServer } from "solid-js/web"
-import SplashCursor from "~/components/splash-cursor"
+// import SplashCursor from "~/components/splash-cursor"
 import { useAchievements } from "~/lib/achievements"
 import { create } from "~/lib/context"
 import env from "~/lib/env"
@@ -209,11 +209,12 @@ const Cheater = () => {
     onCleanup(() => document.removeEventListener("keydown", konamiHandler))
   })
 
-  return (
+  /* return (
     <Show when={cheatModeOn()}>
       <SplashCursor />
     </Show>
-  )
+  ) */
+  return <></>
 }
 
 const Helpers = {
