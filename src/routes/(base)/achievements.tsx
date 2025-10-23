@@ -47,9 +47,9 @@ const AchievementPage = () => {
           placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
           minima eaque fugiat quia, dignissimos perspiciatis harum?
         </p>
-        <div class="flex flex-wrap items-center gap-6" data-motion="heading">
-          <ResetAchievementsPopover />
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-3" data-motion="heading">
           <AchievementsProgress />
+          {completedAchievements().length > 0 && <ResetAchievementsPopover />}
         </div>
       </div>
       <div class="grid md:grid-cols-2 gap-6 px-6 py-20">
@@ -74,19 +74,14 @@ const AchievementPage = () => {
 }
 
 const ResetAchievementsPopover = () => {
-  const { completedAchievements, resetAchievements } = useAchievements()
+  const { resetAchievements } = useAchievements()
 
   return (
-    <Popover positioning={{ placement: "bottom-start" }} lazyMount unmountOnExit>
-      <Popover.Trigger
-        class={button({ variant: "subtle" })}
-        disabled={completedAchievements().length == 0}
-      >
-        Reset progress
-      </Popover.Trigger>
+    <Popover positioning={{ placement: "bottom" }} lazyMount unmountOnExit>
+      <Popover.Trigger class={button({ variant: "subtle" })}>Reset progress</Popover.Trigger>
       <Portal>
         <Popover.Positioner>
-          <Popover.Content class="max-w-72 p-5 origin-top-left">
+          <Popover.Content class="max-w-72 p-5 origin-top">
             <p class="text-sm text-on-base/70">
               Are you sure you want to delete your achievements?
             </p>
@@ -111,7 +106,7 @@ const AchievementsProgress = () => {
   return (
     <div class="flex gap-2 items-center">
       <Progress.Root
-        class="[--size:32px] [--thickness:6px]"
+        class="[--size:38px] [--thickness:6px]"
         value={completedAchievements().length}
         min={0}
         max={Object.keys(achievements).length}

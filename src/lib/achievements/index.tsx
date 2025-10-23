@@ -41,9 +41,10 @@ const [_AchievementsProvider, useAchievements] = create(() => {
     if (currentAchievements.includes(slug)) return
 
     setCompletedAchievements([...currentAchievements, slug])
-    toast(achievement.name, {
-      icon: achievement.icon(),
-      description: "Achievement unlocked",
+    toast({
+      icon: achievement.icon,
+      title: "Achievement unlocked",
+      description: achievement.name,
       action:
         location.pathname != "/achievements"
           ? {

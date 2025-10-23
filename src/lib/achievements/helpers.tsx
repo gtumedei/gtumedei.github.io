@@ -1,8 +1,9 @@
 import { makePersisted } from "@solid-primitives/storage"
 import { useCurrentMatches, useLocation } from "@solidjs/router"
-import { createEffect, on, onCleanup, onMount } from "solid-js"
-import { createStore } from "solid-js/store"
+import { createEffect, createSignal, on, onCleanup, onMount, Show } from "solid-js"
+import { createStore, reconcile } from "solid-js/store"
 import { isServer } from "solid-js/web"
+import SplashCursor from "~/components/splash-cursor"
 import { useAchievements } from "~/lib/achievements"
 import { create } from "~/lib/context"
 import env from "~/lib/env"
@@ -11,29 +12,28 @@ import { Accent, accents, Theme, themes, useTheme } from "~/lib/theme"
 // TODO: find a way to not break everything when a new property is added to progress
 // Right now if the user already has some progress the new property doesn't get set
 export const [AchievementsProgressProvider, useAchievementsProgress] = create(() => {
-  const [progress, setProgress] = makePersisted(
-    createStore({
-      visitor: {
-        pages: [] as string[],
-      },
-      returningVisitor: {
-        firstVisitTime: null as number | null,
-      },
-      deepDiver: {
-        clickedLinks: [] as string[],
-      },
-      customizationAddict: {
-        themes: [] as Theme[],
-        accents: [] as Accent[],
-      },
-    }),
-    {
-      name: "gtumedei-io-achievements-progress",
-      storage: isServer ? undefined : localStorage,
-    }
-  )
+  const defaultValues = () => ({
+    visitor: {
+      pages: [] as string[],
+    },
+    returningVisitor: {
+      firstVisitTime: null as number | null,
+    },
+    deepDiver: {
+      clickedLinks: [] as string[],
+    },
+    customizationAddict: {
+      themes: [] as Theme[],
+      accents: [] as Accent[],
+    },
+  })
 
-  const resetProgress = () => localStorage.removeItem("gtumedei-io-achievements-progress")
+  const [progress, setProgress] = makePersisted(createStore(defaultValues()), {
+    name: "gtumedei-io-achievements-progress",
+    storage: isServer ? undefined : localStorage,
+  })
+
+  const resetProgress = () => setProgress(reconcile(defaultValues()))
 
   return { progress, setProgress, resetProgress }
 })
@@ -173,6 +173,8 @@ const InspectorGadget = () => {
 }
 
 const Cheater = () => {
+  const [cheatModeOn, setCheatModeOn] = createSignal(false)
+
   const { unlockAchievement } = useAchievements()
 
   onMount(() => {
@@ -197,7 +199,7 @@ const Cheater = () => {
         if (konamiIndex === konamiCode.length) {
           unlockAchievement("CHEATER")
           konamiIndex = 0
-          // TODO: do something
+          setCheatModeOn(true)
         }
       } else {
         konamiIndex = 0
@@ -207,7 +209,11 @@ const Cheater = () => {
     onCleanup(() => document.removeEventListener("keydown", konamiHandler))
   })
 
-  return <></>
+  return (
+    <Show when={cheatModeOn()}>
+      <SplashCursor />
+    </Show>
+  )
 }
 
 const Helpers = {

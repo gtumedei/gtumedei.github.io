@@ -8,9 +8,9 @@ import TablerError404 from "~icons/tabler/error-404"
 import TablerError404Off from "~icons/tabler/error-404-off"
 import TablerMap from "~icons/tabler/map"
 import TablerMapHeart from "~icons/tabler/map-heart"
-import TablerMouse from "~icons/tabler/mouse"
 import TablerPalette from "~icons/tabler/palette"
 import TablerSpiral from "~icons/tabler/spiral"
+import TablerStar from "~icons/tabler/star"
 import TablerSunglasses from "~icons/tabler/sunglasses"
 import TablerTool from "~icons/tabler/tool"
 
@@ -43,17 +43,17 @@ const achievements = {
     description: "Open 5 links in the Projects page.",
     icon: () => <TablerBooks />,
   },
-  // TODO: not working on mobile
-  SCROLLER: {
-    name: "Scroller",
-    description: "Scroll to the bottom of the longest page.",
-    icon: () => <TablerMouse />,
-  },
   // TODO
   KEEN_EYE: {
     name: "Keen Eye",
     description: "Discover the homepage easter egg.",
     icon: () => <TablerSunglasses />,
+  },
+  // TODO
+  SUPER_STAR: {
+    name: "Super Star",
+    description: "Find the Super Star.",
+    icon: () => <TablerStar />,
   },
   LOST: {
     name: "Lost...",

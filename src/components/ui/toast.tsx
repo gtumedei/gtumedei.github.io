@@ -1,29 +1,54 @@
-import { Toaster as Sonner } from "solid-sonner"
-import { button } from "~/components/ui/button"
+import { Component, JSX } from "solid-js"
+import { ExternalToast, Toaster as Sonner, toast as sonner } from "solid-sonner"
+import { Button } from "~/components/ui/button"
 
-export { toast } from "solid-sonner"
+type ToastOptions = { title: string; icon?: () => JSX.Element } & Pick<
+  ExternalToast,
+  "description" | "action" | "duration"
+>
 
-export const Toaster = () => (
-  <Sonner
-    class="dark:theme-dark"
-    toastOptions={{
-      unstyled: true,
-      classes: {
-        toast:
-          "w-full [@media(min-width:600px)]:w-[var(--width)] bg-base-100 flex p-4 gap-4 rounded-xl border border-on-base/10 shadow-lg [&_[data-content]]:flex [&_[data-content]]:flex-col [&_[data-content]]:justify-center [&_[data-content]]:gap-0 [&_[data-icon]]:!h-8 [&_[data-icon]]:!w-5 [&_[data-icon]]:!ml-1 [&_[data-icon]]:!mr-0 [&_[data-icon]]:mt-0 [&_[data-icon]]:mb-auto",
-        title: "text-sm font-semibold my-1.5 cursor-default",
-        description: "text-xs text-on-base/70 text-sm text-on-base/70 mb-0.5 cursor-default",
-        actionButton: button({
-          variant: "subtle",
-          size: "xs",
-          class: "shrink-0 my-auto !transition-colors",
-        }),
-        default: "[&_[data-icon]]:text-accent",
-        info: "[&_[data-icon]]:text-info",
-        success: "[&_[data-icon]]:text-success",
-        warning: "[&_[data-icon]]:text-warning",
-        error: "[&_[data-icon]]:text-error",
-      },
-    }}
-  />
-)
+export const toast = (options: ToastOptions) => {
+  const { icon, ...rest } = options
+  sonner.custom((id) => <Toast id={id} {...options} />, rest)
+}
+
+const Toast: Component<{ id: string | number } & ToastOptions> = (props) => {
+  return (
+    <div class="w-full [@media(min-width:600px)]:w-[var(--width)] bg-base-300 rounded-xl shadow-lg">
+      <div class="bg-gradient-to-br from-accent/70 via-accent/30 to-accent/70 rounded-[12px] p-px">
+        <div class="bg-base-100/90 backdrop-blur-md flex p-4 gap-4 rounded-[11px]">
+          {props.icon && (
+            <div class="h-8 w-6 flex justify-center items-center text-accent mb-auto">
+              {props.icon()}
+            </div>
+          )}
+          <div class="grow">
+            <p class="text-xs leading-8 font-semibold text-on-base/70 cursor-default">
+              {props.title}
+            </p>
+            {props.description && (
+              <p class="text-sm font-semibold text-on-base mb-0.5 cursor-default">
+                {props.description}
+              </p>
+            )}
+          </div>
+          {props.action && (
+            <Button
+              variant="subtle"
+              size="xs"
+              class="my-auto"
+              onClick={(e) => {
+                props.action?.onClick(e)
+                sonner.dismiss(props.id)
+              }}
+            >
+              {props.action.label}
+            </Button>
+          )}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export const Toaster = () => <Sonner class="dark:theme-dark" toastOptions={{ unstyled: true }} />

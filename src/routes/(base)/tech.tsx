@@ -1,9 +1,8 @@
 import { A } from "@solidjs/router"
 import { animate, inView, stagger } from "motion"
-import { Component, onCleanup, onMount, ParentComponent } from "solid-js"
+import { Component, onMount, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
-import { useAchievements } from "~/lib/achievements"
 import tech, { Technology } from "~/lib/content/tech"
 import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLink from "~icons/tabler/link"
@@ -27,20 +26,6 @@ const TechPage = () => {
         { duration: 0.4, delay: stagger(0.05) }
       )
     })
-  })
-
-  const { unlockAchievement } = useAchievements()
-  onMount(() => {
-    const handleScrollToBottom = () => {
-      if (
-        document.documentElement.scrollTop >=
-        document.documentElement.scrollHeight - document.documentElement.clientHeight
-      ) {
-        unlockAchievement("SCROLLER")
-      }
-    }
-    window.addEventListener("scroll", handleScrollToBottom)
-    onCleanup(() => window.removeEventListener("scroll", handleScrollToBottom))
   })
 
   return (
