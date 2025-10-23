@@ -7,7 +7,7 @@ import { applyAccentFnString, applyThemeFnString } from "~/lib/theme/apply"
 export default createHandler(() => (
   <StartServer
     document={({ assets, children, scripts }) => (
-      <html lang="en" class="min-h-full flex bg-base-100 overflow-x-hidden overflow-y-auto">
+      <html lang="en" class="min-h-full flex bg-base-100">
         <head>
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -29,7 +29,7 @@ export default createHandler(() => (
           )}
           {assets}
         </head>
-        <body class="grow flex">
+        <body class="grow flex overflow-x-hidden overflow-y-auto">
           <div id="app" class="grow flex flex-col">
             {children}
           </div>
