@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vinxi dev --host",
     "build": "vinxi build",
-    "start": "vinxi start",
+    "build:preview": "node --env-file=.env ./node_modules/vinxi/bin/cli.mjs start",
+    "preview": "node --env-file=.env ./node_modules/vinxi/bin/cli.mjs start",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -46,7 +47,7 @@
     "typescript": "^5.8.2",
     "unplugin-icons": "^22.1.0",
     "vinxi": "^0.5.3",
-    "zod": "^3.24.2"
+    "zod": "^4.1.12"
   },
   "engines": {
     "node": ">=18"

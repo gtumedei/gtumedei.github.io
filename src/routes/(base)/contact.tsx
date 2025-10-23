@@ -1,5 +1,5 @@
 import { DialogRootProps } from "@ark-ui/solid"
-import { json, useAction } from "@solidjs/router"
+import { action, json, useAction } from "@solidjs/router"
 import { Bot, GrammyError, HttpError } from "grammy"
 import { animate, stagger } from "motion"
 import outdent from "outdent"
@@ -17,7 +17,7 @@ import { Textarea } from "~/components/ui/textarea"
 import tooltip from "~/lib/directives/tooltip"
 import env from "~/lib/env"
 import { createForm } from "~/lib/form"
-import { safeAction } from "~/lib/safe-data"
+import { validated } from "~/lib/validation"
 import TablerBrandTelegram from "~icons/tabler/brand-telegram"
 import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
 import TablerMail from "~icons/tabler/mail"
@@ -26,13 +26,15 @@ import TablerUser from "~icons/tabler/user"
 
 const SendMessageActionSchema = z.object({
   name: z.string().min(1),
-  email: z.string().email(),
+  email: z.email(),
   subject: z.string().min(1),
   message: z.string().min(1),
 })
 
-const sendMessageAction = safeAction(SendMessageActionSchema, async (payload) => {
+const sendMessageAction = action(async (rawPayload: z.infer<typeof SendMessageActionSchema>) => {
   "use server"
+
+  const payload = validated(rawPayload, SendMessageActionSchema)
 
   // Compose message
   const message = outdent`
@@ -70,12 +72,13 @@ const ContactPage = () => {
       message: "",
     },
     onSubmit: async (values) => {
-      const res = await sendMessage(values)
-      if (res.error) {
-        setDialogState("error")
-      } else {
+      try {
+        await sendMessage(values)
         setDialogState("success")
         reset()
+      } catch (e) {
+        console.error(e)
+        setDialogState("error")
       }
     },
   })

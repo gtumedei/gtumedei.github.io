@@ -19,7 +19,7 @@ importers:
         version: 1.2.14(solid-js@1.9.5)
       '@felte/validator-zod':
         specifier: ^1.0.18
-        version: 1.0.18(zod@3.24.2)
+        version: 1.0.18(zod@4.1.12)
       '@iconify-json/cib':
         specifier: ^1.2.2
         version: 1.2.2
@@ -123,8 +123,8 @@ importers:
         specifier: ^0.5.3
         version: 0.5.3(@types/node@22.7.4)(db0@0.3.1)(ioredis@5.6.0)(jiti@2.4.2)(lightningcss@1.29.2)(terser@5.34.1)(typescript@5.8.2)(yaml@2.5.1)
       zod:
-        specifier: ^3.24.2
-        version: 3.24.2
+        specifier: ^4.1.12
+        version: 4.1.12
 
 packages:
 
@@ -3909,6 +3909,9 @@ packages:
   zod@3.24.2:
     resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
 
+  zod@4.1.12:
+    resolution: {integrity: sha512-JInaHOamG8pt5+Ey8kGmdcAcg3OL9reK8ltczgHTAwNhMys/6ThXHityHxVV2p3fkw/c+MAvBHFVYHFZDmjMCQ==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -4459,10 +4462,10 @@ snapshots:
       '@felte/core': 1.4.4
       solid-js: 1.9.5
 
-  '@felte/validator-zod@1.0.18(zod@3.24.2)':
+  '@felte/validator-zod@1.0.18(zod@4.1.12)':
     dependencies:
       '@felte/common': 1.1.9
-      zod: 3.24.2
+      zod: 4.1.12
 
   '@floating-ui/core@1.6.8':
     dependencies:
@@ -8012,5 +8015,7 @@ snapshots:
       readable-stream: 4.5.2
 
   zod@3.24.2: {}
+
+  zod@4.1.12: {}
 
   zwitch@2.0.4: {}
