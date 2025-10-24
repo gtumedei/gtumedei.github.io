@@ -127,7 +127,7 @@ const MobileNavDialog: Component<{
     <Dialog.Root open={props.open} onOpenChange={props.onOpenChange} lazyMount unmountOnExit>
       <Portal>
         <Dialog.Backdrop class={dialog().backdrop()} />
-        <Dialog.Positioner class="h-screen w-screen flex fixed top-0 left-0 z-50">
+        <Dialog.Positioner class="h-screen w-[calc(100vw-var(--scrollbar-width))] flex fixed top-0 left-0 z-50">
           <div class="container xl:max-w-6xl flex flex-col gap-4 p-6 mx-auto group">
             <Dialog.CloseTrigger
               class={cn(

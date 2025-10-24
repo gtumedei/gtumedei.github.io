@@ -86,7 +86,7 @@ const HomePage = () => {
           {
             title: "Projects",
             description:
-              "I'm always creating stuff. You can find both my work and personal projects listed inside here.",
+              "I'm constantly building stuff. You can find my research, freelance, and personal projects listed inside here.",
             href: "/projects",
             icon: () => <TablerGrid3x3 />,
             action: "Check them out",
@@ -94,7 +94,7 @@ const HomePage = () => {
           {
             title: "Tech",
             description:
-              "It's the longest page on this website. Maybe you'll find something interesting in it.",
+              "It's the longest page on this website, I think. Maybe you'll find something interesting in it.",
             href: "/tech",
             icon: () => <TablerTools />,
             action: "Read more",
@@ -102,7 +102,7 @@ const HomePage = () => {
           {
             title: "Minigames",
             description:
-              "Just hanging around? You can play some minigames I built. Just do not expect too much, I'm not a game dev.",
+              "Just hanging around? You can play some minigames I built. Just don't expect too much, I'm not a game dev.",
             href: "/minigames",
             icon: () => <TablerDeviceGamepad />,
             action: "Play some",
