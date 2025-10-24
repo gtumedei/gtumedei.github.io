@@ -48,11 +48,15 @@ export const [ThemeProvider, useTheme] = create(() => {
     )
   })
 
+  const [superModeOn, setSuperModeOn] = createSignal(false)
+
   return {
     theme,
     setTheme,
     actualTheme,
     accent,
     setAccent,
+    superModeOn,
+    setSuperModeOn,
   }
 })

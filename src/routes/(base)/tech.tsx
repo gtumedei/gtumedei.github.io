@@ -1,11 +1,17 @@
 import { A } from "@solidjs/router"
 import { animate, inView, stagger } from "motion"
-import { Component, onMount, ParentComponent } from "solid-js"
+import { Component, createSignal, onMount, ParentComponent } from "solid-js"
+import { Portal } from "solid-js/web"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
+import { button } from "~/components/ui/button"
+import { Dialog } from "~/components/ui/dialog"
+import { useAchievements } from "~/lib/achievements"
+import cn from "~/lib/cn"
 import tech, { Technology } from "~/lib/content/tech"
 import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLink from "~icons/tabler/link"
+import TablerStarFilled from "~icons/tabler/star-filled"
 import TablerTools from "~icons/tabler/tools"
 
 const TechPage = () => {
@@ -27,6 +33,8 @@ const TechPage = () => {
       )
     })
   })
+
+  const techWithStar = (tech as (Technology | "star")[]).toSpliced(14, 0, "star")
 
   return (
     <>
@@ -82,25 +90,27 @@ const TechPage = () => {
           <h4>Visual Studio Code</h4>
           <p>
             Yeah, I know, Electron JavaScript memory hog blah blah. But name another editor that
-            offers a good dev experience with so many languages AND is open source.
+            offers a good dev experience with so many languages AND is open source AND cross
+            platform.
           </p>
           <TechAnchor href="https://code.visualstudio.com/">code.visualstudio.com</TechAnchor>
           <h4>Warp</h4>
           <p>
             Honestly, I dislike this terminal in many ways. Like I don't need the AI features and I
-            hate that it requires an account. I just use it for the autocompletion and nice UI.
+            hate that it used to require an account. I just use it for the autocompletion, nice UI,
+            and editor-like input.
           </p>
           <TechAnchor href="https://www.warp.dev/">warp.dev</TechAnchor>
           <h4>Notion</h4>
           <p>
             Note taking with Notion is incredible, on desktop. Mobile is a bit of a mixed bag, at
-            least on Android, but still miles ahead of anything else I tried.
+            least on Android, but still ahead of anything else I tried.
           </p>
           <TechAnchor href="https://www.notion.so/">notion.so</TechAnchor>
           <h4>Figma</h4>
           <p>
-            I use their website as a PWA because the desktop app requires a background process to
-            load custom fonts{" "}
+            It's awesome and I use it for all my design work. The desktop app requires a background
+            process to load custom fonts{" "}
             <a
               href="https://forum.figma.com/t/stop-automatically-adding-figmaagent-to-login-items/43826"
               target="_blank"
@@ -108,7 +118,7 @@ const TechPage = () => {
             >
               <TablerArrowUpRight class="inline-flex text-sm relative bottom-1" />
             </a>
-            . Seriously Figma? Besides that, it's an awesome tool for mockups and vector graphics.
+            . Seriously Figma? Besides that, it's a really awesome tool.
           </p>
           <TechAnchor href="https://www.figma.com/">figma.com</TechAnchor>
           <h4>Affinity Photo & Designer</h4>
@@ -137,14 +147,15 @@ const TechPage = () => {
           <h4>SolidStart</h4>
           <p>
             The best example of how to build a meta framework for the web. For more dynamic websites
-            and web apps, Solid Start is the way to go.
+            and web apps, Solid Start is the way to go. Oh, by the way, it also happens to be what
+            powers this website!
           </p>
           <TechAnchor href="https://docs.solidjs.com/solid-start">start.solidjs.com</TechAnchor>
           <h4>Wails</h4>
           <p>
-            I started looking into Wails because I wanted to learn Go, but I quickly realized I had
-            found my new favorite way to build cross-platform desktop apps. Write some Go to
-            interact with the OS, slap a Vite + SolidJS project on top and you've got an awesome and
+            I started looking into Wails because I wanted to write some Go, but I quickly realized I
+            had found my new favorite way to build cross-platform desktop apps. Use Go to interact
+            with the OS, slap a Vite + SolidJS project on top and you've got an awesome and
             performant app you also had fun building.
           </p>
           <TechAnchor href="https://wails.io/">wails.io</TechAnchor>
@@ -157,7 +168,7 @@ const TechPage = () => {
           <h4>Ark UI</h4>
           <p>
             This library is so underrated. It has everything needed to build complex, fully
-            accessible user interfaces with SolidJS.
+            accessible user interfaces with SolidJS (and React, Vue, Svelte).
           </p>
           <TechAnchor href="https://ark-ui.com/">ark-ui.com</TechAnchor>
           <h4>unplugin-icons</h4>
@@ -172,8 +183,8 @@ const TechPage = () => {
           <TechAnchor href="https://github.com/unplugin/unplugin-icons">github.com</TechAnchor>
           <h4>Payload</h4>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, tempora doloremque?
-            Earum illum consequuntur maxime, repellat sequi dolorem officia.
+            No CMS comes even close to what Payload has to offer. My only gripe is that it forces me
+            to use React for a tight integration.
           </p>
           <TechAnchor href="https://payloadcms.com/">payloadcms.com</TechAnchor>
           <h4>Drizzle</h4>
@@ -208,9 +219,9 @@ const TechPage = () => {
             templating languages, to frameworks, to databases.
           </p>
           <div class="not-prose flex gap-3 flex-wrap mt-12" data-motion="tech">
-            {tech.map((tech) => (
-              <TechItem tech={tech} />
-            ))}
+            {techWithStar.map((techOrStar) =>
+              techOrStar == "star" ? <SuperStarButton /> : <TechItem tech={techOrStar} />
+            )}
           </div>
         </TechSection>
       </div>
@@ -266,6 +277,91 @@ const TechItem: Component<{ tech: Technology }> = (props) => {
         {props.tech.name}
       </p>
     </A>
+  )
+}
+
+const SuperStarButton = () => {
+  const { completedAchievements, unlockAchievement } = useAchievements()
+  const isCompleted = () => completedAchievements().includes("SUPER_STAR")
+
+  const [open, _setOpen] = createSignal(false)
+  const setOpen = (open: boolean) => {
+    if ("startViewTransition" in document) {
+      document.startViewTransition(() => _setOpen(open))
+    } else {
+      _setOpen(open)
+    }
+  }
+
+  return (
+    <Dialog
+      open={open()}
+      onOpenChange={({ open }) => setOpen(open)}
+      closeOnEscape={false}
+      closeOnInteractOutside={false}
+    >
+      <Dialog.Trigger
+        class={cn(
+          "w-11 h-8 bg-base-300 hover:bg-amber-400/10 hover:dark:bg-amber-200/10 flex items-center gap-2 px-3 rounded-full cursor-pointer relative transition-colors group",
+          isCompleted() && "bg-amber-400/10 dark:bg-amber-200/10 pointer-events-none"
+        )}
+        data-motion="tech-item"
+      >
+        <TablerStarFilled
+          class={cn(
+            "group-hover:text-amber-400 group-hover:dark:text-amber-200 group-hover:scale-125 transition-all [view-transition-name:star] [animation-duration:1s]",
+            isCompleted() && "text-amber-400 dark:text-amber-200",
+            open() && "hidden"
+          )}
+        />
+      </Dialog.Trigger>
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>
+          <Dialog.Content class="w-full max-w-sm text-center">
+            <div class="w-32 h-32 bg-base-300 flex rounded-full mx-auto relative">
+              <div class="bg-gradient-to-b from-accent-orange/30 via-accent-pink/30 to-accent-blue/30 blur-md rounded-full absolute inset-0" />
+              <div class="bg-gradient-to-b from-accent-orange via-accent-pink to-accent-blue rounded-full absolute inset-0" />
+              <div class="bg-base-300/95 backdrop-blur-md rounded-full absolute inset-px" />
+              <div class="bg-amber-400/10 dark:bg-amber-200/5 rounded-full absolute inset-px" />
+              <TablerStarFilled
+                class={cn(
+                  "text-6xl text-amber-400 dark:text-amber-200 absolute-center [view-transition-name:star] [animation-duration:1s]",
+                  !open() && "hidden"
+                )}
+              />
+            </div>
+            <Dialog.Header class="gap-2.5 mt-1">
+              <Dialog.Title>You found the hidden Star!</Dialog.Title>
+              <Dialog.Description class="text-sm text-balance space-y-1">
+                <p>
+                  A new toggle has appeared in the theme switcher: use it to turn your Super Mode on
+                  and off.
+                </p>
+                <p>And then... wah-hoo! Move your cursor and feel the power sparkle!</p>
+              </Dialog.Description>
+            </Dialog.Header>
+            <Dialog.Actions class="grid grid-cols-1">
+              <Dialog.CloseTrigger
+                class={button()}
+                onClick={async () => {
+                  await new Promise((r) => setTimeout(r, 500))
+                  unlockAchievement("SUPER_STAR")
+                }}
+              >
+                Awesome!
+              </Dialog.CloseTrigger>
+            </Dialog.Actions>
+          </Dialog.Content>
+        </Dialog.Positioner>
+      </Portal>
+      <style>{`
+      ::view-transition-group(star) {
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+      }
+      `}</style>
+    </Dialog>
   )
 }
 

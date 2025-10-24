@@ -14,9 +14,10 @@ export const toast = (options: ToastOptions) => {
 
 const Toast: Component<{ id: string | number } & ToastOptions> = (props) => {
   return (
-    <div class="w-full [@media(min-width:600px)]:w-[var(--width)] bg-base-300 rounded-xl shadow-lg">
-      <div class="bg-gradient-to-br from-accent/70 via-accent/30 to-accent/70 rounded-[12px] p-px">
-        <div class="bg-base-100/90 backdrop-blur-md flex p-4 gap-4 rounded-[11px]">
+    <div class="w-full [@media(min-width:600px)]:w-[var(--width)] bg-base-300 rounded-xl relative">
+      <div class="bg-gradient-to-br from-accent-blue/30 via-accent-pink/30 to-accent-orange/30 blur-md absolute inset-0 z-[-1]" />
+      <div class="bg-gradient-to-br from-accent-blue via-accent-pink to-accent-orange rounded-[12px] p-px">
+        <div class="bg-base-100/95 backdrop-blur-md flex p-4 gap-4 rounded-[11px]">
           {props.icon && (
             <div class="h-8 w-6 flex justify-center items-center text-accent mb-auto">
               {props.icon()}

@@ -2,6 +2,7 @@ import { Progress } from "@ark-ui/solid"
 import { animate, stagger } from "motion"
 import { Component, For, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
+import KonamiJoypadPopover from "~/components/konami-joypad"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
 import { button } from "~/components/ui/button"
@@ -62,6 +63,7 @@ const AchievementPage = () => {
               />
             ) : (
               <AchievementItem
+                achievementId={achievement[0] as Achievement}
                 achievement={achievement[1]}
                 unlocked={completedAchievements().includes(achievement[0] as Achievement)}
               />
@@ -123,17 +125,22 @@ const AchievementsProgress = () => {
   )
 }
 
-const AchievementItem: Component<{ achievement: AchievementProperties; unlocked: boolean }> = (
-  props
-) => {
+const AchievementItem: Component<{
+  achievementId: Achievement
+  achievement: AchievementProperties
+  unlocked: boolean
+}> = (props) => {
   return (
     <div
       class="flex flex-col px-4.5 py-4 rounded-2xl border border-on-base/10 data-[unlocked]:border-accent/50 border-dashed data-[unlocked]:border-solid group"
       {...(props.unlocked ? { "data-unlocked": true } : {})}
       data-motion="achievement-item"
     >
-      <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-on-base/5 opacity-50 group-data-[unlocked]:bg-accent/10 group-data-[unlocked]:text-accent group-data-[unlocked]:opacity-100 mb-4 -translate-x-1">
-        {props.achievement.icon()}
+      <div class="flex justify-between mb-4">
+        <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-on-base/5 opacity-50 group-data-[unlocked]:bg-accent/10 group-data-[unlocked]:text-accent group-data-[unlocked]:opacity-100 -translate-x-1">
+          {props.achievement.icon()}
+        </div>
+        {props.achievementId == "CHEATER" && <KonamiJoypadPopover />}
       </div>
       <h2 class="text-lg font-medium text-on-base/50 group-data-[unlocked]:text-on-base mb-1">
         {props.achievement.name}

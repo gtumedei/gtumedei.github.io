@@ -95,9 +95,11 @@ export const AchievementsProvider: ParentComponent = (props) => {
 
         <Helpers.Visitor />
         <Helpers.ReturningVisitor />
+        <Helpers.SuperStar />
         <Helpers.CustomizationAddict />
         <Helpers.InspectorGadget />
         <Helpers.Cheater />
+
         <Toaster />
       </_AchievementsProvider>
     </AchievementsProgressProvider>

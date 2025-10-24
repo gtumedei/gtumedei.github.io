@@ -3,14 +3,14 @@ import { useCurrentMatches, useLocation } from "@solidjs/router"
 import { createEffect, createSignal, on, onCleanup, onMount, Show } from "solid-js"
 import { createStore, reconcile } from "solid-js/store"
 import { isServer } from "solid-js/web"
-// import SplashCursor from "~/components/splash-cursor"
+import SplashCursor from "~/components/splash-cursor"
 import { useAchievements } from "~/lib/achievements"
 import { create } from "~/lib/context"
 import env from "~/lib/env"
 import { Accent, accents, Theme, themes, useTheme } from "~/lib/theme"
 
 // TODO: find a way to not break everything when a new property is added to progress
-// Right now if the user already has some progress the new property doesn't get set
+// Right now if the user already has some progress the new property doesn't get set, leading to errors like "Cannot read property of undefined"
 export const [AchievementsProgressProvider, useAchievementsProgress] = create(() => {
   const defaultValues = () => ({
     visitor: {
@@ -75,6 +75,17 @@ const ReturningVisitor = () => {
   })
 
   return <></>
+}
+
+const SuperStar = () => {
+  const { completedAchievements } = useAchievements()
+  const { superModeOn } = useTheme()
+
+  return (
+    <Show when={completedAchievements().includes("SUPER_STAR") && superModeOn()}>
+      <SplashCursor />
+    </Show>
+  )
 }
 
 const CustomizationAddict = () => {
@@ -173,7 +184,7 @@ const InspectorGadget = () => {
 }
 
 const Cheater = () => {
-  const [cheatModeOn, setCheatModeOn] = createSignal(false)
+  const [_cheatModeOn, setCheatModeOn] = createSignal(false)
 
   const { unlockAchievement } = useAchievements()
 
@@ -209,17 +220,13 @@ const Cheater = () => {
     onCleanup(() => document.removeEventListener("keydown", konamiHandler))
   })
 
-  /* return (
-    <Show when={cheatModeOn()}>
-      <SplashCursor />
-    </Show>
-  ) */
   return <></>
 }
 
 const Helpers = {
   Visitor,
   ReturningVisitor,
+  SuperStar,
   CustomizationAddict,
   InspectorGadget,
   Cheater,

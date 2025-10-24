@@ -1,7 +1,9 @@
 import { RadioGroup } from "@ark-ui/solid"
-import { Index, JSX } from "solid-js"
+import { Index, JSX, Show } from "solid-js"
 import { button } from "~/components/ui/button"
 import { Popover } from "~/components/ui/popover"
+import { Toggle } from "~/components/ui/toggle"
+import { useAchievements } from "~/lib/achievements"
 import cn from "~/lib/cn"
 import tooltip from "~/lib/directives/tooltip"
 import { Accent, Theme, useTheme } from "~/lib/theme"
@@ -129,9 +131,29 @@ const ThemeSwitcher = () => {
               </Index>
             </div>
           </RadioGroup.Root>
+          <HiddenOptions />
         </Popover.Content>
       </Popover.Positioner>
     </Popover>
+  )
+}
+
+const HiddenOptions = () => {
+  const { completedAchievements } = useAchievements()
+  const { superModeOn, setSuperModeOn } = useTheme()
+
+  return (
+    <Show when={completedAchievements().includes("SUPER_STAR")}>
+      <div class="h-px w-calc(100%+2.5rem) bg-on-base/10 -mx-5 my-1" />
+      <Toggle
+        labelClass="order-1 grow"
+        controlClass="order-2"
+        checked={superModeOn()}
+        onCheckedChange={({ checked }) => setSuperModeOn(checked)}
+      >
+        Super Mode
+      </Toggle>
+    </Show>
   )
 }
 
