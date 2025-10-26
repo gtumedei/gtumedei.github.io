@@ -24,7 +24,7 @@ const KonamiJoypadPopover = () => {
       </Popover.Trigger>
       <Portal>
         <Popover.Positioner>
-          <Popover.Content class="bg-gradient-to-b from-base-200 to-base-300 p-0 border-2 border-on-base/20 origin-top">
+          <Popover.Content class="bg-gradient-to-b from-base-200 to-base-300 p-0 border-2 border-on-base/20">
             <div class="h-[120px] flex">
               <div class="w-[100px] relative">
                 <div class="h-16 w-16 absolute-center-x bottom-5.5">

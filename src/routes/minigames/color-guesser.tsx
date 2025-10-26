@@ -34,7 +34,7 @@ const MobileMenu = () => {
   tooltip
   return (
     <header class="w-full flex items-center gap-3 p-3">
-      <h1 class="font-serif text-xl font-bold tracking-wider mb-1 flex-grow ml-3">Color Guesser</h1>
+      <h1 class="font-heading text-xl mb-1 flex-grow ml-3">Color Guesser</h1>
       <div class="flex gap-4">
         <Button
           variant="subtle"
@@ -63,7 +63,7 @@ const LeftMenu = () => {
   return (
     <header class="w-48 p-6">
       <div class="h-10">
-        <h1 class="font-serif text-xl font-bold tracking-wider">Color Guesser</h1>
+        <h1 class="font-heading text-xl">Color Guesser</h1>
       </div>
     </header>
   )

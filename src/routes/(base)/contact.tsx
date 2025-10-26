@@ -113,10 +113,7 @@ const ContactPage = () => {
         <PageHeadingIcon data-motion="image">
           <TablerBrandTelegram />
         </PageHeadingIcon>
-        <h1
-          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6"
-          data-motion="heading"
-        >
+        <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Contact
         </h1>
         <p class="text-on-base/70 tall-lines" data-motion="heading">

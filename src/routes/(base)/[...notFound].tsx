@@ -26,9 +26,7 @@ const NotFoundPage = () => {
       <Title>Page not found • Gianni Tumedei</Title>
       <div class="text-center pb-28 my-auto">
         <PageNotFoundDoodle />
-        <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-4">
-          Page not found
-        </h1>
+        <h1 class="font-heading text-4xl sm:text-5xl mb-4">Page not found</h1>
         <p class="text-on-base/70 text-balance mb-6">
           Sorry, but I couldn't find the page you are looking for.
         </p>

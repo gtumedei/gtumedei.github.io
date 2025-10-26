@@ -32,10 +32,7 @@ const ProjectsPage = () => {
         <PageHeadingIcon data-motion="image">
           <TablerGrid3x3 />
         </PageHeadingIcon>
-        <h1
-          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6"
-          data-motion="heading"
-        >
+        <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Projects
         </h1>
         <p class="text-on-base/70 tall-lines" data-motion="heading">
@@ -72,6 +69,11 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
 
   const { unlockAchievement } = useAchievements()
   const { progress, setProgress } = useAchievementsProgress()
+  const onOpen = () => {
+    if (progress.deepDiver.clickedLinks.includes(props.project.url)) return
+    setProgress("deepDiver", "clickedLinks", (v) => [...v, props.project.url])
+    if (progress.deepDiver.clickedLinks.length == 5) unlockAchievement("DEEP_DIVER")
+  }
 
   return (
     <a
@@ -79,11 +81,10 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
       target="_blank"
       class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group"
       data-motion="project-item"
-      onClick={() => {
-        if (progress.deepDiver.clickedLinks.includes(props.project.url)) return
-        setProgress("deepDiver", "clickedLinks", (v) => [...v, props.project.url])
-        if (progress.deepDiver.clickedLinks.length == 5) unlockAchievement("DEEP_DIVER")
+      onAuxClick={(e) => {
+        if (e.button == 1) onOpen()
       }}
+      onClick={onOpen}
     >
       <div class="bg-base-200 dark:bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
         <div class="h-8 w-8 rounded-full bg-on-base" />

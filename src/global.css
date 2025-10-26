@@ -113,6 +113,28 @@
   }
 }
 
+/* Fonts */
+
+@theme {
+  --font-sans: "Outfit", sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  --font-dotted: "Bitcount Single", sysem-ui;
+}
+
+@utility font-heading {
+  @apply font-serif font-bold tracking-wider;
+}
+
+[data-heading-font="dotted"] {
+  .font-heading {
+    @apply font-dotted uppercase font-light tracking-wide;
+  }
+}
+
+@utility tall-lines {
+  @apply [line-height:1.8em];
+}
+
 /* Absolute positioning */
 
 @utility absolute-center {
@@ -148,12 +170,6 @@
     height: 0px;
     width: 0px;
   }
-}
-
-/* Taller line height */
-
-@utility tall-lines {
-  @apply [line-height:1.8em];
 }
 
 /* Hexagon clip path */
@@ -206,10 +222,6 @@
 }
 
 @theme {
-  --font-sans: "Outfit", sans-serif;
-  --font-serif: "DM Serif Display", serif;
-  --font-mono: "Fira Code", mono;
-
   --spacing-18: 4.5rem;
 
   --default-transition-duration: 400ms;

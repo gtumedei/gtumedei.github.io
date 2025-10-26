@@ -37,10 +37,7 @@ const AchievementPage = () => {
         <PageHeadingIcon data-motion="image">
           <TablerTrophy />
         </PageHeadingIcon>
-        <h1
-          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-6"
-          data-motion="heading"
-        >
+        <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Achievements
         </h1>
         <p class="text-on-base/70 tall-lines mb-6" data-motion="heading">

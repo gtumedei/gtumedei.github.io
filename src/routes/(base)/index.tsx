@@ -1,8 +1,9 @@
 import { A } from "@solidjs/router"
 import { animate, stagger } from "motion"
-import { onMount } from "solid-js"
+import { createSignal, onMount } from "solid-js"
 import Meta from "~/components/meta"
 import { button } from "~/components/ui/button"
+import cn from "~/lib/cn"
 import tooltip from "~/lib/directives/tooltip"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBrandGithub from "~icons/tabler/brand-github"
@@ -30,21 +31,29 @@ const HomePage = () => {
     ])
   })
 
+  const [flipped, setFlipped] = createSignal(false)
+
   tooltip
   return (
     <>
       <Meta description="My personal website." />
       <section class="w-full flex flex-col items-center px-6 mt-auto">
         <div
-          class="inline-flex bg-base-200 p-2 rounded-full border border-on-base/10 shadow shadow-black/5 mb-6"
+          class={cn("relative w-24 h-24 mb-6 perspective-midrange group", flipped() && "flipped")}
           data-motion="image"
+          onClick={() => setFlipped((v) => !v)}
         >
-          <img src="/profile.jpg" alt="Profile image" class="h-20 w-20 rounded-full" />
+          <div class="w-full h-full rounded-full transform-3d transition-transform duration-700 relative group-hover:rotate-y-[20deg] group-[.flipped]:rotate-y-180">
+            <div class="flex bg-base-200 p-2 rounded-full border border-on-base/10 shadow shadow-black/5 backface-hidden absolute inset-0">
+              <img src="/profile.jpg" alt="Profile image" class="rounded-full" />
+            </div>
+            <div class="flex items-center justify-center bg-red-500 text-white text-3xl font-bold rounded-full backface-hidden rotate-y-180 absolute inset-0">
+              B
+            </div>
+          </div>
         </div>
-        <h1
-          class="font-serif text-4xl sm:text-5xl font-bold tracking-wider mb-1.5"
-          data-motion="hero"
-        >
+
+        <h1 class="font-heading text-4xl sm:text-5xl mb-1.5" data-motion="hero">
           Gianni Tumedei
         </h1>
         <h2 class="text-xl text-on-base/60 tracking-wide" data-motion="hero">

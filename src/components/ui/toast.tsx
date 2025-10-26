@@ -19,12 +19,12 @@ const Toast: Component<{ id: string | number } & ToastOptions> = (props) => {
       <div class="bg-gradient-to-br from-accent-blue via-accent-pink to-accent-orange rounded-[12px] p-px">
         <div class="bg-base-100/95 backdrop-blur-md flex p-4 gap-4 rounded-[11px]">
           {props.icon && (
-            <div class="h-8 w-6 flex justify-center items-center text-accent mb-auto">
+            <div class="h-6 w-6 flex justify-center items-center text-accent mb-auto">
               {props.icon()}
             </div>
           )}
           <div class="grow">
-            <p class="text-xs leading-8 font-semibold text-on-base/70 cursor-default">
+            <p class="text-xs leading-6 font-semibold text-on-base/70 cursor-default">
               {props.title}
             </p>
             {props.description && (

@@ -48,6 +48,12 @@ export const [ThemeProvider, useTheme] = create(() => {
     )
   })
 
+  const [dottedHeadingsOn, _setDottedHeadingsOn] = createSignal(false)
+  const setDottedHeadingsOn = (value: boolean) => {
+    _setDottedHeadingsOn(value)
+    document.documentElement.setAttribute("data-heading-font", value ? "dotted" : "serif")
+  }
+
   const [superModeOn, setSuperModeOn] = createSignal(false)
 
   return {
@@ -56,6 +62,8 @@ export const [ThemeProvider, useTheme] = create(() => {
     actualTheme,
     accent,
     setAccent,
+    dottedHeadingsOn,
+    setDottedHeadingsOn,
     superModeOn,
     setSuperModeOn,
   }

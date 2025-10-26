@@ -42,7 +42,7 @@ const achievements = {
   },
   DEEP_DIVER: {
     name: "Deep Diver",
-    description: "Open 5 links in the Projects page.",
+    description: "Click on 5 links in the Projects page.",
     icon: () => <TablerBooks />,
   },
   // TODO

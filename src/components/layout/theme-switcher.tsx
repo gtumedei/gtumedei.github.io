@@ -5,6 +5,7 @@ import { Popover } from "~/components/ui/popover"
 import { Toggle } from "~/components/ui/toggle"
 import { useAchievements } from "~/lib/achievements"
 import cn from "~/lib/cn"
+import { Achievement } from "~/lib/content/achievements"
 import tooltip from "~/lib/directives/tooltip"
 import { Accent, Theme, useTheme } from "~/lib/theme"
 import TablerMoonStars from "~icons/tabler/moon-stars"
@@ -140,19 +141,35 @@ const ThemeSwitcher = () => {
 
 const HiddenOptions = () => {
   const { completedAchievements } = useAchievements()
-  const { superModeOn, setSuperModeOn } = useTheme()
+  const { dottedHeadingsOn, setDottedHeadingsOn, superModeOn, setSuperModeOn } = useTheme()
+
+  const requiredAchievements: Achievement[] = ["CHEATER", "SUPER_STAR"]
+  const hasHiddenOptionsUnlocked = () =>
+    completedAchievements().some((a) => requiredAchievements.includes(a))
 
   return (
-    <Show when={completedAchievements().includes("SUPER_STAR")}>
+    <Show when={hasHiddenOptionsUnlocked()}>
       <div class="h-px w-calc(100%+2.5rem) bg-on-base/10 -mx-5 my-1" />
-      <Toggle
-        labelClass="order-1 grow"
-        controlClass="order-2"
-        checked={superModeOn()}
-        onCheckedChange={({ checked }) => setSuperModeOn(checked)}
-      >
-        Super Mode
-      </Toggle>
+      {completedAchievements().includes("CHEATER") && (
+        <Toggle
+          labelClass="order-1 grow"
+          controlClass="order-2"
+          checked={dottedHeadingsOn()}
+          onCheckedChange={({ checked }) => setDottedHeadingsOn(checked)}
+        >
+          Dotted headings
+        </Toggle>
+      )}
+      {completedAchievements().includes("SUPER_STAR") && (
+        <Toggle
+          labelClass="order-1 grow"
+          controlClass="order-2"
+          checked={superModeOn()}
+          onCheckedChange={({ checked }) => setSuperModeOn(checked)}
+        >
+          Super Mode
+        </Toggle>
+      )}
     </Show>
   )
 }
