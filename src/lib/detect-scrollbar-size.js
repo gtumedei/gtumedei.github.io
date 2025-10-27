@@ -1,6 +1,6 @@
 // @ts-check
 
-export const detectScrollbarWidth = () => {
+export const detectScrollbarSize = () => {
   // Create a temporary div
   const div = document.createElement("div")
   div.style.visibility = "hidden"
@@ -13,10 +13,10 @@ export const detectScrollbarWidth = () => {
   innerDiv.style.width = "100%"
   div.appendChild(innerDiv)
   // Calculate scrollbar width
-  const scrollbarWidth = Math.max(div.offsetWidth - innerDiv.offsetWidth, 4)
+  const scrollbarSize = Math.max(div.offsetWidth - innerDiv.offsetWidth, 4)
   // Remove temporary div
   document.body.removeChild(div)
-  document.documentElement.style.setProperty("--scrollbar-width", `${scrollbarWidth}px`)
+  document.documentElement.style.setProperty("--scrollbar-size", `${scrollbarSize}px`)
 }
 
-export const detectScrollbarWidthFnString = `(${detectScrollbarWidth})()`
+export const detectScrollbarSizeFnString = `(${detectScrollbarSize})()`

@@ -2,7 +2,7 @@
 import { createHandler, StartServer } from "@solidjs/start/server"
 import { dominationArt } from "~/lib/achievements/helpers"
 import { ANALYTICS_URL, WEBSITE_ID } from "~/lib/analytics"
-import { detectScrollbarWidthFnString } from "~/lib/scrollbar-width"
+import { detectScrollbarSizeFnString } from "~/lib/detect-scrollbar-size"
 import { applyAccentFnString, applyThemeFnString } from "~/lib/theme/apply"
 
 export default createHandler(() => (
@@ -36,7 +36,7 @@ export default createHandler(() => (
           </div>
           {scripts}
           <div class="hidden" innerHTML={dominationArt} />
-          <script innerHTML={detectScrollbarWidthFnString} />
+          <script innerHTML={detectScrollbarSizeFnString} />
         </body>
       </html>
     )}
