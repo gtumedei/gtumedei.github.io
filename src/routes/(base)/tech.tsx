@@ -1,6 +1,6 @@
 import { A } from "@solidjs/router"
 import { animate, inView, stagger } from "motion"
-import { Component, createSignal, onMount, ParentComponent } from "solid-js"
+import { Component, createMemo, createSignal, onMount, ParentComponent } from "solid-js"
 import { Portal } from "solid-js/web"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
@@ -279,7 +279,7 @@ const TechItem: Component<{ tech: Technology }> = (props) => {
 
 const SuperStarButton = () => {
   const { completedAchievements, unlockAchievement } = useAchievements()
-  const isCompleted = () => completedAchievements().includes("SUPER_STAR")
+  const isCompleted = createMemo(() => completedAchievements().includes("SUPER_STAR"))
 
   const [open, _setOpen] = createSignal(false)
   const setOpen = (open: boolean) => {
@@ -294,19 +294,19 @@ const SuperStarButton = () => {
     <Dialog
       open={open()}
       onOpenChange={({ open }) => setOpen(open)}
-      closeOnEscape={false}
-      closeOnInteractOutside={false}
+      closeOnEscape={isCompleted()}
+      closeOnInteractOutside={isCompleted()}
     >
       <Dialog.Trigger
         class={cn(
           "w-11 h-8 bg-base-300 hover:bg-amber-400/10 hover:dark:bg-amber-200/10 flex items-center gap-2 px-3 rounded-full cursor-pointer relative transition-colors group",
-          isCompleted() && "bg-amber-400/10 dark:bg-amber-200/10 pointer-events-none"
+          isCompleted() && "bg-amber-400/10 dark:bg-amber-200/10"
         )}
         data-motion="tech-item"
       >
         <TablerStarFilled
           class={cn(
-            "group-hover:text-amber-400 group-hover:dark:text-amber-200 group-hover:scale-125 transition-all [view-transition-name:star] [animation-duration:1s]",
+            "group-hover:text-amber-400 group-hover:dark:text-amber-200 group-hover:scale-125 transition-all [view-transition-name:star]",
             isCompleted() && "text-amber-400 dark:text-amber-200",
             open() && "hidden"
           )}
@@ -323,13 +323,15 @@ const SuperStarButton = () => {
               <div class="bg-amber-400/10 dark:bg-amber-200/5 rounded-full absolute inset-px" />
               <TablerStarFilled
                 class={cn(
-                  "text-6xl text-amber-400 dark:text-amber-200 absolute-center [view-transition-name:star] [animation-duration:1s]",
+                  "text-6xl text-amber-400 dark:text-amber-200 absolute-center [view-transition-name:star]",
                   !open() && "hidden"
                 )}
               />
             </div>
             <Dialog.Header class="gap-2.5 mt-1">
-              <Dialog.Title>You found the hidden Star!</Dialog.Title>
+              <Dialog.Title>
+                {isCompleted() ? "This is your Super Star." : "You found the hidden Star!"}
+              </Dialog.Title>
               <Dialog.Description class="text-sm text-balance space-y-1">
                 <p>
                   A new toggle has appeared in the theme switcher: use it to turn your Super Mode on
@@ -346,7 +348,7 @@ const SuperStarButton = () => {
                   unlockAchievement("SUPER_STAR")
                 }}
               >
-                Awesome!
+                {isCompleted() ? "Close" : "Awesome!"}
               </Dialog.CloseTrigger>
             </Dialog.Actions>
           </Dialog.Content>

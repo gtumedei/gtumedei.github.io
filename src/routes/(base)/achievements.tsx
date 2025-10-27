@@ -10,6 +10,8 @@ import { Popover } from "~/components/ui/popover"
 import { useAchievements } from "~/lib/achievements"
 import { createBatchedInViewAnimation } from "~/lib/animation"
 import achievements, { Achievement, AchievementProperties } from "~/lib/content/achievements"
+import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
+import TablerLock from "~icons/tabler/lock"
 import TablerTrophy from "~icons/tabler/trophy"
 
 const AchievementPage = () => {
@@ -40,10 +42,22 @@ const AchievementPage = () => {
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Achievements
         </h1>
-        <p class="text-on-base/70 tall-lines mb-6" data-motion="heading">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus accusamus, tempora quod
-          placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
-          minima eaque fugiat quia, dignissimos perspiciatis harum?
+        <p class="text-on-base/70 tall-lines mb-3" data-motion="heading">
+          I'm always adding new Easter eggs to the site, so I made this page to keep track of them.
+          Think you can unlock them all? Heads up: you might need a PC for some of these.
+        </p>
+        <p class="text-on-base/70 tall-lines mb-8" data-motion="heading">
+          This feature is heavily inspired by Maximillian Laumeister's achievement page. Check out
+          his fantastic{" "}
+          <a
+            href="https://www.maxlaumeister.com/"
+            target="_blank"
+            class="inline-flex gap-0.5 font-medium text-on-base/50 hover:text-accent transition-colors"
+          >
+            website
+            <TablerArrowUpRight class="inline-flex text-sm relative" />
+          </a>
+          !
         </p>
         <div class="flex flex-wrap items-center gap-x-6 gap-y-3" data-motion="heading">
           <AchievementsProgress />
@@ -103,7 +117,7 @@ const AchievementsProgress = () => {
   const { completedAchievements } = useAchievements()
 
   return (
-    <div class="flex gap-2 items-center">
+    <div class="flex gap-3 items-center">
       <Progress.Root
         class="[--size:38px] [--thickness:6px]"
         value={completedAchievements().length}
@@ -135,7 +149,7 @@ const AchievementItem: Component<{
     >
       <div class="flex justify-between mb-4">
         <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-on-base/5 opacity-50 group-data-[unlocked]:bg-accent/10 group-data-[unlocked]:text-accent group-data-[unlocked]:opacity-100 -translate-x-1">
-          {props.achievement.icon()}
+          {props.unlocked ? props.achievement.icon() : <TablerLock />}
         </div>
         {props.achievementId == "CHEATER" && <KonamiJoypadPopover />}
       </div>
@@ -163,7 +177,7 @@ const PieceOfCakeAchievementItem: Component<{
       onClick={() => unlockAchievement("PIECE_OF_CAKE")}
     >
       <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-on-base/5 opacity-50 group-data-[unlocked]:bg-accent/10 group-data-[unlocked]:text-accent group-data-[unlocked]:opacity-100 mb-4 -translate-x-1">
-        {props.achievement.icon()}
+        {props.unlocked ? props.achievement.icon() : <TablerLock />}
       </div>
       <h2 class="text-lg font-medium text-on-base/50 group-data-[unlocked]:text-on-base mb-1">
         {props.achievement.name}
