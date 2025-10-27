@@ -6,8 +6,10 @@ import { Toggle } from "~/components/ui/toggle"
 import { useAchievements } from "~/lib/achievements"
 import cn from "~/lib/cn"
 import { Achievement } from "~/lib/content/achievements"
+import { createWebGLDetector } from "~/lib/detect-webgl"
 import tooltip from "~/lib/directives/tooltip"
 import { Accent, Theme, useTheme } from "~/lib/theme"
+import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
 import TablerMoonStars from "~icons/tabler/moon-stars"
 import TablerPalette from "~icons/tabler/palette"
 import TablerSun from "~icons/tabler/sun"
@@ -147,6 +149,8 @@ const HiddenOptions = () => {
   const hasHiddenOptionsUnlocked = () =>
     completedAchievements().some((a) => requiredAchievements.includes(a))
 
+  const hasWebGLSupport = createWebGLDetector()
+
   return (
     <Show when={hasHiddenOptionsUnlocked()}>
       <div class="h-px w-calc(100%+2.5rem) bg-on-base/10 -mx-5 my-1" />
@@ -162,12 +166,21 @@ const HiddenOptions = () => {
       )}
       {completedAchievements().includes("SUPER_STAR") && (
         <Toggle
-          labelClass="order-1 grow"
+          labelClass="order-1 grow inline-flex items-center"
           controlClass="order-2"
           checked={superModeOn()}
           onCheckedChange={({ checked }) => setSuperModeOn(checked)}
+          disabled={!hasWebGLSupport()}
         >
           Super Mode
+          {!hasWebGLSupport() && (
+            <div
+              class="text-error ml-auto"
+              use:tooltip={["WebGL is required for this feature to work", "top"]}
+            >
+              <TablerExclamationCircle />
+            </div>
+          )}
         </Toggle>
       )}
     </Show>
