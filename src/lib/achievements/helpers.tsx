@@ -1,44 +1,13 @@
-import { makePersisted } from "@solid-primitives/storage"
 import { useCurrentMatches, useLocation } from "@solidjs/router"
 import { createEffect, createMemo, createSignal, on, onCleanup, onMount, Show } from "solid-js"
-import { createStore, reconcile } from "solid-js/store"
-import { isServer, Portal } from "solid-js/web"
+import { Portal } from "solid-js/web"
 import SplashCursor from "~/components/splash-cursor"
 import { button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { useAchievements } from "~/lib/achievements"
-import { create } from "~/lib/context"
+import { useAchievementsProgress } from "~/lib/achievements/progress"
 import env from "~/lib/env"
-import { Accent, accents, Theme, themes, useTheme } from "~/lib/theme"
-
-// TODO: find a way to not break everything when a new property is added to progress
-// Right now if the user already has some progress the new property doesn't get set, leading to errors like "Cannot read property of undefined"
-export const [AchievementsProgressProvider, useAchievementsProgress] = create(() => {
-  const defaultValues = () => ({
-    visitor: {
-      pages: [] as string[],
-    },
-    returningVisitor: {
-      firstVisitTime: null as number | null,
-    },
-    deepDiver: {
-      clickedLinks: [] as string[],
-    },
-    customizationAddict: {
-      themes: [] as Theme[],
-      accents: [] as Accent[],
-    },
-  })
-
-  const [progress, setProgress] = makePersisted(createStore(defaultValues()), {
-    name: "gtumedei-io-achievements-progress",
-    storage: isServer ? undefined : localStorage,
-  })
-
-  const resetProgress = () => setProgress(reconcile(defaultValues()))
-
-  return { progress, setProgress, resetProgress }
-})
+import { accents, themes, useTheme } from "~/lib/theme"
 
 const Visitor = () => {
   const { unlockAchievement } = useAchievements()

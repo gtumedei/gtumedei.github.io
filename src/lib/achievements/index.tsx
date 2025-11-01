@@ -2,10 +2,8 @@ import { useLocation, useNavigate } from "@solidjs/router"
 import JSConfetti from "js-confetti"
 import { createSignal, onMount, ParentComponent } from "solid-js"
 import { toast, Toaster } from "~/components/ui/toast"
-import Helpers, {
-  AchievementsProgressProvider,
-  useAchievementsProgress,
-} from "~/lib/achievements/helpers"
+import Helpers from "~/lib/achievements/helpers"
+import { AchievementsProgressProvider, useAchievementsProgress } from "~/lib/achievements/progress"
 import achievements, { Achievement } from "~/lib/content/achievements"
 import { create } from "~/lib/context"
 import { useThemeColors } from "~/lib/theme/colors"
