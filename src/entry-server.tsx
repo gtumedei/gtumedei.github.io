@@ -3,7 +3,7 @@ import { createHandler, StartServer } from "@solidjs/start/server"
 import { dominationArt } from "~/lib/achievements/helpers"
 import { ANALYTICS_URL, WEBSITE_ID } from "~/lib/analytics"
 import { detectScrollbarSizeFnString } from "~/lib/detect-scrollbar-size"
-import { applyAccentFnString, applyThemeFnString } from "~/lib/theme/apply"
+import { fnStrings } from "~/lib/theme/apply"
 
 export default createHandler(() => (
   <StartServer
@@ -23,8 +23,9 @@ export default createHandler(() => (
           <noscript>
             <style>{`[data-motion] { opacity: 1 !important; }`}</style>
           </noscript>
-          <script innerHTML={applyThemeFnString} />
-          <script innerHTML={applyAccentFnString} />
+          <script innerHTML={fnStrings.applyTheme} />
+          <script innerHTML={fnStrings.applyAccent} />
+          <script innerHTML={fnStrings.applyHeadingFont} />
           {import.meta.env.PROD && (
             <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/script.js`} />
           )}

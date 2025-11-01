@@ -143,7 +143,7 @@ const ThemeSwitcher = () => {
 
 const HiddenOptions = () => {
   const { completedAchievements } = useAchievements()
-  const { dottedHeadingsOn, setDottedHeadingsOn, superModeOn, setSuperModeOn } = useTheme()
+  const { headingFont, setHeadingFont, superModeOn, setSuperModeOn } = useTheme()
 
   const requiredAchievements: Achievement[] = ["CHEATER", "SUPER_STAR"]
   const hasHiddenOptionsUnlocked = () =>
@@ -158,8 +158,8 @@ const HiddenOptions = () => {
         <Toggle
           labelClass="order-1 grow"
           controlClass="order-2"
-          checked={dottedHeadingsOn()}
-          onCheckedChange={({ checked }) => setDottedHeadingsOn(checked)}
+          checked={headingFont() == "dotted"}
+          onCheckedChange={({ checked }) => setHeadingFont(checked ? "dotted" : "serif")}
         >
           Dotted headings
         </Toggle>

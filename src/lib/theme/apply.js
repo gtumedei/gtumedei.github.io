@@ -45,22 +45,40 @@ export const applyTheme = (theme, disableTransition = false) => {
 
 export const LOCAL_STORAGE_THEME_KEY = "gtumedei-io-theme"
 
-// Can't use LOCAL_STORAGE_THEME_KEY in this function because it gets stringified and exported without that variable. This would lead to using a variable that's not defined.
-const getTheme = () => localStorage.getItem("gtumedei-io-theme") ?? "system"
-
-export const applyThemeFnString = `(${applyTheme})((${getTheme})(), true)`
+/** @returns {import(".").Theme} */
+// @ts-ignore
+export const readTheme = () => localStorage.getItem("gtumedei-io-theme") ?? "system"
 
 /**
  * Applies the given accent to the website by setting the `data-theme` attribute on the `<html>` tag.
- * @param {string} accent
+ * @param {"blue" | "orange" | "teal" | "pink"} accent
  */
 export const applyAccent = (accent) => {
-  document.documentElement.setAttribute("data-accent", accent ?? "blue")
+  document.documentElement.setAttribute("data-accent", accent)
 }
 
 export const LOCAL_STORAGE_ACCENT_KEY = "gtumedei-io-accent"
 
-// Can't use LOCAL_STORAGE_ACCENT_KEY in this function because it gets stringified and exported without that variable. This would lead to using a variable that's not defined.
-const getAccent = () => localStorage.getItem("gtumedei-io-accent") ?? "blue"
+/** @returns {import(".").Accent} */
+// @ts-ignore
+export const readAccent = () => localStorage.getItem("gtumedei-io-accent") ?? "blue"
 
-export const applyAccentFnString = `(${applyAccent})((${getAccent})())`
+/**
+ * Applies the given accent to the website by setting the `data-theme` attribute on the `<html>` tag.
+ * @param {"serif" | "dotted"} font
+ */
+export const applyHeadingFont = (font) => {
+  document.documentElement.setAttribute("data-heading", font)
+}
+
+export const LOCAL_STORAGE_HEADING_FONT_KEY = "gtumedei-io-heading-font"
+
+/** @returns {import(".").HeadingFont} */
+// @ts-ignore
+export const readHeadingFont = () => localStorage.getItem("gtumedei-io-heading-font") ?? "blue"
+
+export const fnStrings = {
+  applyTheme: `(${applyTheme})((${readTheme})(), true)`,
+  applyAccent: `(${applyAccent})((${readAccent})())`,
+  applyHeadingFont: `(${applyHeadingFont})((${readHeadingFont})())`,
+}

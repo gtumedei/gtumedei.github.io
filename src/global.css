@@ -125,9 +125,9 @@
   @apply font-serif font-bold tracking-wider;
 }
 
-[data-heading-font="dotted"] {
+[data-heading="dotted"] {
   .font-heading {
-    @apply font-dotted uppercase font-light tracking-wide;
+    @apply font-dotted uppercase font-light tracking-wide [word-spacing:-0.25em];
   }
 }
 
