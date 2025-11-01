@@ -13,7 +13,7 @@ export const detectScrollbarSize = () => {
   innerDiv.style.width = "100%"
   div.appendChild(innerDiv)
   // Calculate scrollbar width
-  const scrollbarSize = Math.max(div.offsetWidth - innerDiv.offsetWidth, 4)
+  const scrollbarSize = div.offsetWidth - innerDiv.offsetWidth
   // Remove temporary div
   document.body.removeChild(div)
   document.documentElement.style.setProperty("--scrollbar-size", `${scrollbarSize}px`)
