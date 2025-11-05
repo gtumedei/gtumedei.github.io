@@ -7,14 +7,14 @@ import TablerDeviceGamepad2 from "~icons/tabler/device-gamepad-2"
 import TablerDeviceGamepad3 from "~icons/tabler/device-gamepad-3"
 import TablerError404 from "~icons/tabler/error-404"
 import TablerError404Off from "~icons/tabler/error-404-off"
+import TablerKey from "~icons/tabler/key"
 import TablerMap from "~icons/tabler/map"
 import TablerMapHeart from "~icons/tabler/map-heart"
 import TablerPalette from "~icons/tabler/palette"
+import TablerPencilCode from "~icons/tabler/pencil-code"
 import TablerSpiral from "~icons/tabler/spiral"
 import TablerStar from "~icons/tabler/star"
-import TablerSunglasses from "~icons/tabler/sunglasses"
 import TablerTool from "~icons/tabler/tool"
-import TablerPencilCode from "~icons/tabler/pencil-code"
 
 export type Achievement = keyof typeof achievements
 
@@ -45,11 +45,10 @@ const achievements = {
     description: "Click on 5 links in the Projects page.",
     icon: () => <TablerBooks />,
   },
-  // TODO
-  KEEN_EYE: {
-    name: "Keen Eye",
-    description: "Discover the homepage easter egg.",
-    icon: () => <TablerSunglasses />,
+  KEYMASTER: {
+    name: "Keymaster",
+    description: "Discover the hidden key.",
+    icon: () => <TablerKey />,
   },
   SUPER_STAR: {
     name: "Super Star",
@@ -71,6 +70,7 @@ const achievements = {
     description: "Try out all the theme and accent color combinations.",
     icon: () => <TablerPalette />,
   },
+  // TODO
   MODDING_MANIAC: {
     name: "Modding Maniac",
     description: "Find and test all the secret customization options.",
@@ -81,6 +81,7 @@ const achievements = {
     description: "Get a 10 guess streak on Color Guesser.",
     icon: () => <TablerColorSwatch />,
   },
+  // TODO
   TODO: {
     name: "Lorem Ipsum",
     description: "Something related to the other minigame I'm going to have.",

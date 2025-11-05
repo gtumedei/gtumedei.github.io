@@ -1,17 +1,12 @@
 import { A } from "@solidjs/router"
 import { animate, inView, stagger } from "motion"
-import { Component, createMemo, createSignal, onMount, ParentComponent } from "solid-js"
-import { Portal } from "solid-js/web"
+import { Component, onMount, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
-import { button } from "~/components/ui/button"
-import { Dialog } from "~/components/ui/dialog"
-import { useAchievements } from "~/lib/achievements"
-import cn from "~/lib/cn"
+import { SuperStarButton } from "~/lib/achievements/helpers"
 import tech, { Technology } from "~/lib/content/tech"
 import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLink from "~icons/tabler/link"
-import TablerStarFilled from "~icons/tabler/star-filled"
 import TablerTools from "~icons/tabler/tools"
 
 const TechPage = () => {
@@ -274,93 +269,6 @@ const TechItem: Component<{ tech: Technology }> = (props) => {
         {props.tech.name}
       </p>
     </A>
-  )
-}
-
-const SuperStarButton = () => {
-  const { completedAchievements, unlockAchievement } = useAchievements()
-  const isCompleted = createMemo(() => completedAchievements().includes("SUPER_STAR"))
-
-  const [open, _setOpen] = createSignal(false)
-  const setOpen = (open: boolean) => {
-    if ("startViewTransition" in document) {
-      document.startViewTransition(() => _setOpen(open))
-    } else {
-      _setOpen(open)
-    }
-  }
-
-  return (
-    <Dialog
-      open={open()}
-      onOpenChange={({ open }) => setOpen(open)}
-      closeOnEscape={isCompleted()}
-      closeOnInteractOutside={isCompleted()}
-    >
-      <Dialog.Trigger
-        class={cn(
-          "w-11 h-8 bg-base-300 hover:bg-amber-400/10 hover:dark:bg-amber-200/10 flex items-center gap-2 px-3 rounded-full cursor-pointer relative transition-colors group",
-          isCompleted() && "bg-amber-400/10 dark:bg-amber-200/10"
-        )}
-        data-motion="tech-item"
-      >
-        <TablerStarFilled
-          class={cn(
-            "group-hover:text-amber-400 group-hover:dark:text-amber-200 group-hover:scale-125 transition-all [view-transition-name:star]",
-            isCompleted() && "text-amber-400 dark:text-amber-200",
-            open() && "hidden"
-          )}
-        />
-      </Dialog.Trigger>
-      <Portal>
-        <Dialog.Backdrop />
-        <Dialog.Positioner>
-          <Dialog.Content class="w-full max-w-sm text-center">
-            <div class="w-32 h-32 bg-base-300 flex rounded-full mx-auto relative">
-              <div class="bg-gradient-to-b from-accent-orange/30 via-accent-pink/30 to-accent-blue/30 blur-md rounded-full absolute inset-0" />
-              <div class="bg-gradient-to-b from-accent-orange via-accent-pink to-accent-blue rounded-full absolute inset-0" />
-              <div class="bg-base-300/95 backdrop-blur-md rounded-full absolute inset-px" />
-              <div class="bg-amber-400/10 dark:bg-amber-200/5 rounded-full absolute inset-px" />
-              <TablerStarFilled
-                class={cn(
-                  "text-6xl text-amber-400 dark:text-amber-200 absolute-center [view-transition-name:star]",
-                  !open() && "hidden"
-                )}
-              />
-            </div>
-            <Dialog.Header class="gap-2.5 mt-1">
-              <Dialog.Title>
-                {isCompleted() ? "This is your Super Star." : "You found the hidden Star!"}
-              </Dialog.Title>
-              <Dialog.Description class="text-sm text-balance space-y-1">
-                <p>
-                  A new toggle has appeared in the theme switcher: use it to turn your Super Mode on
-                  and off.
-                </p>
-                <p>And then... wah-hoo! Move your cursor and feel the power sparkle!</p>
-              </Dialog.Description>
-            </Dialog.Header>
-            <Dialog.Actions class="grid grid-cols-1">
-              <Dialog.CloseTrigger
-                class={button()}
-                onClick={async () => {
-                  await new Promise((r) => setTimeout(r, 500))
-                  unlockAchievement("SUPER_STAR")
-                }}
-              >
-                {isCompleted() ? "Close" : "Awesome!"}
-              </Dialog.CloseTrigger>
-            </Dialog.Actions>
-          </Dialog.Content>
-        </Dialog.Positioner>
-      </Portal>
-      <style>{`
-      ::view-transition-group(star) {
-        animation-duration: 0.5s;
-        animation-timing-function: ease-in-out;
-      }
-      `}</style>
-    </Dialog>
   )
 }
 

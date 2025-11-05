@@ -145,7 +145,7 @@ const HiddenOptions = () => {
   const { completedAchievements } = useAchievements()
   const { headingFont, setHeadingFont, superModeOn, setSuperModeOn } = useTheme()
 
-  const requiredAchievements: Achievement[] = ["CHEATER", "SUPER_STAR"]
+  const requiredAchievements: Achievement[] = ["CHEATER", "KEYMASTER", "SUPER_STAR"]
   const hasHiddenOptionsUnlocked = () =>
     completedAchievements().some((a) => requiredAchievements.includes(a))
 
@@ -162,6 +162,16 @@ const HiddenOptions = () => {
           onCheckedChange={({ checked }) => setHeadingFont(checked ? "dotted" : "serif")}
         >
           Dotted headings
+        </Toggle>
+      )}
+      {completedAchievements().includes("KEYMASTER") && (
+        <Toggle
+          labelClass="order-1 grow"
+          controlClass="order-2"
+          /* checked={headingFont() == "dotted"}
+          onCheckedChange={({ checked }) => setHeadingFont(checked ? "dotted" : "serif")} */
+        >
+          TODO
         </Toggle>
       )}
       {completedAchievements().includes("SUPER_STAR") && (
