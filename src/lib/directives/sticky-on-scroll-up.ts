@@ -10,7 +10,7 @@ const stickyOnScrollUp = (elem: HTMLElement) => {
     else if (window.scrollY > actualScroll) actualScroll = window.scrollY
 
     const isVisible = window.scrollY < actualScroll
-    const isSticking = window.scrollY > elem.clientHeight * 1.5
+    const isSticking = window.scrollY > 0
 
     elem.setAttribute(
       "style",
