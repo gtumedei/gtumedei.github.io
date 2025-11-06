@@ -1,9 +1,6 @@
-import { createSignal, Show } from "solid-js"
 import { Portal } from "solid-js/web"
 import { button } from "~/components/ui/button"
-import { Dialog } from "~/components/ui/dialog"
 import { Popover } from "~/components/ui/popover"
-import { createBreakpoints } from "~/lib/breakpoints"
 import TablerArrowBigDownFilled from "~icons/tabler/arrow-big-down-filled"
 import TablerArrowBigLeftFilled from "~icons/tabler/arrow-big-left-filled"
 import TablerArrowBigRightFilled from "~icons/tabler/arrow-big-right-filled"
@@ -11,49 +8,19 @@ import TablerArrowBigUpFilled from "~icons/tabler/arrow-big-up-filled"
 import TablerDeviceGamepad3Filled from "~icons/tabler/device-gamepad-3-filled"
 
 const KonamiJoypadPopover = () => {
-  const [open, setOpen] = createSignal(false)
-  const breakpoints = createBreakpoints()
-
   return (
-    <>
-      <Show
-        when={breakpoints.md}
-        fallback={
-          <Dialog open={open()} onOpenChange={({ open }) => setOpen(open)} lazyMount unmountOnExit>
-            <Dialog.Trigger class={button({ variant: "subtle", size: "xs", shape: "circle" })}>
-              <TablerDeviceGamepad3Filled class="text-lg" />
-            </Dialog.Trigger>
-            <Portal>
-              <Dialog.Backdrop />
-              <Dialog.Positioner>
-                <Dialog.Content class="p-0 rounded-2xl border-2 border-on-base/20 overflow-hidden">
-                  <KonamiJoypad />
-                </Dialog.Content>
-              </Dialog.Positioner>
-            </Portal>
-          </Dialog>
-        }
-      >
-        <Popover
-          open={open()}
-          onOpenChange={({ open }) => setOpen(open)}
-          positioning={{ placement: "top" }}
-          lazyMount
-          unmountOnExit
-        >
-          <Popover.Trigger class={button({ variant: "subtle", size: "xs", shape: "circle" })}>
-            <TablerDeviceGamepad3Filled class="text-lg" />
-          </Popover.Trigger>
-          <Portal>
-            <Popover.Positioner>
-              <Popover.Content class="p-0 rounded-2xl border-2 border-on-base/20 overflow-hidden">
-                <KonamiJoypad />
-              </Popover.Content>
-            </Popover.Positioner>
-          </Portal>
-        </Popover>
-      </Show>
-    </>
+    <Popover positioning={{ placement: "top" }} lazyMount unmountOnExit>
+      <Popover.Trigger class={button({ variant: "subtle", size: "xs", shape: "circle" })}>
+        <TablerDeviceGamepad3Filled class="text-lg" />
+      </Popover.Trigger>
+      <Portal>
+        <Popover.Positioner>
+          <Popover.Content class="p-0 rounded-2xl border-2 border-on-base/20 overflow-hidden">
+            <KonamiJoypad />
+          </Popover.Content>
+        </Popover.Positioner>
+      </Portal>
+    </Popover>
   )
 }
 
