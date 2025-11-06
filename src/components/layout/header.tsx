@@ -40,9 +40,14 @@ const Header = () => {
   return (
     <header
       use:stickyOnScrollUp
-      class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 relative pointer-events-none [&>*]:pointer-events-auto"
+      class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 relative pointer-events-none *:pointer-events-auto group"
     >
-      <ProgressiveBlur gradient class="inset-0 z-[-1]" />
+      <ProgressiveBlur
+        gradient
+        class="inset-0 z-[-1]"
+        gradientClass="opacity-0 group-data-sticky:opacity-100 transition-opacity"
+        blurWrapperClass="opacity-0 group-data-sticky:opacity-100 transition-opacity"
+      />
       {location.pathname == "/" ? (
         <A
           href="/cv"
@@ -105,7 +110,7 @@ const DesktopNav = () => {
               <li>
                 <A
                   href={item.href}
-                  class="inline-flex px-3.5 py-3 hover:text-accent transition-colors relative overflow-hidden after:[content:''] after:h-0.5 after:w-12 after:bg-gradient-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity"
+                  class="inline-flex px-3.5 py-3 hover:text-accent transition-colors relative overflow-hidden after:[content:''] after:h-0.5 after:w-12 after:bg-linear-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity"
                   activeClass="text-accent after:opacity-100"
                 >
                   {item.label}
@@ -128,7 +133,7 @@ const MobileNavDialog: Component<{
       <Portal>
         <Dialog.Backdrop class={dialog().backdrop()} />
         <Dialog.Positioner class="h-screen w-[calc(100vw-var(--scrollbar-size))] flex fixed top-0 left-0 z-50">
-          <div class="container xl:max-w-6xl flex flex-col gap-4 p-6 mx-auto group">
+          <div class="container gap-4 p-6 mx-auto group">
             <Dialog.CloseTrigger
               class={cn(
                 button({ variant: "raised", shape: "circle", size: "lg" }),
@@ -145,7 +150,7 @@ const MobileNavDialog: Component<{
                       <li>
                         <A
                           href={item.href}
-                          class="flex py-3 hover:text-accent transition-colors relative after:[content:''] after:h-8 after:w-0.5 after:bg-gradient-to-b after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-y after:-left-6 after:opacity-0 after:transition-opacity"
+                          class="flex py-3 hover:text-accent transition-colors relative after:[content:''] after:h-8 after:w-0.5 after:bg-linear-to-b after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-y after:-left-6 after:opacity-0 after:transition-opacity"
                           activeClass="text-accent after:opacity-100"
                           end={"end" in item}
                         >

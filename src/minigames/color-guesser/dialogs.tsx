@@ -63,7 +63,7 @@ const MenuDialog = () => {
             </Dialog.Header>
             <div class="flex flex-col divide-y divide-on-base/10 rounded-xl border border-on-base/10 mt-2 mb-2.5">
               <div class="flex items-center gap-2 p-2">
-                <h5 class="text-left text-sm text-on-base/70 font-medium flex-grow ml-2.5">
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow ml-2.5">
                   Difficulty
                 </h5>
                 <div class="flex gap-2 items-center">
@@ -87,7 +87,7 @@ const MenuDialog = () => {
                 </div>
               </div>
               <div class="flex items-center gap-2 p-2">
-                <h5 class="text-left text-sm text-on-base/70 font-medium flex-grow ml-2.5">Mode</h5>
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow ml-2.5">Mode</h5>
                 <div class="flex gap-2 items-center">
                   <Button variant="ghost" shape="square" onClick={prevMode} disabled={mode() == 0}>
                     <TablerChevronLeft />
@@ -144,20 +144,18 @@ const StatsDialog = () => {
               <Dialog.Title>Your Color Guesser stats</Dialog.Title>
             </Dialog.Header>
             <div class="flex flex-col divide-y divide-on-base/10 rounded-xl border border-on-base/10 mt-2 mb-2.5">
-              <div class="flex items-center gap-2 px-[1.125rem] py-3">
-                <h5 class="text-left text-sm text-on-base/70 font-medium flex-grow">Best streak</h5>
+              <div class="flex items-center gap-2 px-4.5 py-3">
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow">Best streak</h5>
                 <p>
                   {ctx.stats.streak ? `(${ctx.stats.streakDifficulty}) ${ctx.stats.streak}` : 0}
                 </p>
               </div>
-              <div class="flex items-center gap-2 px-[1.125rem] py-3">
-                <h5 class="text-left text-sm text-on-base/70 font-medium flex-grow">
-                  Total guesses
-                </h5>
+              <div class="flex items-center gap-2 px-4.5 py-3">
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow">Total guesses</h5>
                 <p>{(ctx.stats.rightGuesses ?? 0) + (ctx.stats.wrongGuesses ?? 0)}</p>
               </div>
-              <div class="flex items-center gap-2 px-[1.125rem] py-3">
-                <h5 class="text-left text-sm text-on-base/70 font-medium flex-grow">Accuracy</h5>
+              <div class="flex items-center gap-2 px-4.5 py-3">
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow">Accuracy</h5>
                 <p>
                   {
                     +(

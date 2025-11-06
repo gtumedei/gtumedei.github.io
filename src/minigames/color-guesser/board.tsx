@@ -36,13 +36,13 @@ const Tile: Component<{ color: string }> = (props) => {
       <div
         class={cn(
           "bg-base-300 rounded-[20px] border border-on-base/20 shadow-md shadow-black/5 absolute -inset-1.5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity -z-10",
-          (success() || error()) && "!opacity-100"
+          (success() || error()) && "opacity-100!"
         )}
       />
       <div
         class={cn(
           "bg-white/30 rounded-2xl absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity",
-          (success() || error()) && "!opacity-100"
+          (success() || error()) && "opacity-100!"
         )}
       >
         <TablerCheck

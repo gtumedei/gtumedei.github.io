@@ -83,7 +83,7 @@ const ThemeSwitcher = () => {
           <RadioGroup.Root value={theme()} onValueChange={({ value }) => setTheme(value as Theme)}>
             <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Theme</RadioGroup.Label>
             <div class="grid grid-cols-3 gap-2">
-              <RadioGroup.Indicator class="h-14 w-14 bg-base-300 rounded-lg left-[var(--left)] pointer-events-none" />
+              <RadioGroup.Indicator class="h-14 w-14 bg-base-300 rounded-lg left-(--left) pointer-events-none" />
               <Index each={themes}>
                 {(t) => (
                   <RadioGroup.Item
@@ -93,7 +93,7 @@ const ThemeSwitcher = () => {
                     <RadioGroup.ItemControl
                       class={cn(
                         button({ variant: "ghost", shape: "square" }),
-                        "h-14 border-on-base/10 cursor-pointer [&>*]:z-10",
+                        "h-14 border-on-base/10 cursor-pointer *:z-10",
                         t().value == theme() && "text-accent"
                       )}
                     >
@@ -111,7 +111,7 @@ const ThemeSwitcher = () => {
           >
             <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Accent</RadioGroup.Label>
             <div class="grid grid-cols-4 gap-2">
-              <RadioGroup.Indicator class="h-10 w-10 bg-base-300 rounded-lg left-[var(--left)] pointer-events-none" />
+              <RadioGroup.Indicator class="h-10 w-10 bg-base-300 rounded-lg left-(--left) pointer-events-none" />
               <Index each={accents}>
                 {(a) => (
                   <RadioGroup.Item
@@ -121,7 +121,7 @@ const ThemeSwitcher = () => {
                     <RadioGroup.ItemControl
                       class={cn(
                         button({ variant: "ghost", shape: "square" }),
-                        "border-on-base/10 cursor-pointer [&>*]:z-10"
+                        "border-on-base/10 cursor-pointer *:z-10"
                       )}
                     >
                       <div

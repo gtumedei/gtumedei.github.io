@@ -100,7 +100,7 @@ export const Keymaster: Component<ComponentProps<"div">> = (props) => {
         onClick={() => toggleDialog(true)}
         {...divProps}
       >
-        <div class="w-full h-full rounded-full transform-3d transition-transform duration-700 relative group-hover:rotate-y-[20deg] group-[.flipped]:rotate-y-180">
+        <div class="w-full h-full rounded-full transform-3d transition-transform duration-700 relative group-hover:rotate-y-20 group-[.flipped]:rotate-y-180">
           {localProps.children}
           <div class="flex bg-base-100 dark:bg-neutral rounded-full border border-on-base/10 shadow shadow-black/5 backface-hidden rotate-y-180 absolute inset-0">
             <div class="bg-yellow-700/10 rounded-full absolute inset-0" />
@@ -249,8 +249,8 @@ export const SuperStarButton = () => {
         <Dialog.Positioner>
           <Dialog.Content class="w-full max-w-sm text-center">
             <div class="w-32 h-32 bg-base-300 flex rounded-full mx-auto relative">
-              <div class="bg-gradient-to-b from-accent-orange/30 via-accent-pink/30 to-accent-blue/30 blur-md rounded-full absolute inset-0" />
-              <div class="bg-gradient-to-b from-accent-orange via-accent-pink to-accent-blue rounded-full absolute inset-0" />
+              <div class="bg-linear-to-b from-accent-orange/30 via-accent-pink/30 to-accent-blue/30 blur-md rounded-full absolute inset-0" />
+              <div class="bg-linear-to-b from-accent-orange via-accent-pink to-accent-blue rounded-full absolute inset-0" />
               <div class="bg-base-300/95 backdrop-blur-md rounded-full absolute inset-px" />
               <div class="bg-amber-400/10 dark:bg-amber-200/5 rounded-full absolute inset-px" />
               <svg
@@ -462,8 +462,8 @@ const Cheater = () => {
         <Dialog.Positioner>
           <Dialog.Content class="w-full max-w-sm text-center">
             <div class="w-32 h-32 bg-base-300 flex rounded-full mx-auto relative">
-              <div class="bg-gradient-to-b from-accent-orange/30 via-accent-pink/30 to-accent-blue/30 blur-md rounded-full absolute inset-0" />
-              <div class="bg-gradient-to-b from-accent-orange via-accent-pink to-accent-blue rounded-full absolute inset-0" />
+              <div class="bg-linear-to-b from-accent-orange/30 via-accent-pink/30 to-accent-blue/30 blur-md rounded-full absolute inset-0" />
+              <div class="bg-linear-to-b from-accent-orange via-accent-pink to-accent-blue rounded-full absolute inset-0" />
               <div class="bg-base-300/80 backdrop-blur-md rounded-full absolute inset-px" />
               <p class="text-6xl absolute-center">👾</p>
             </div>
