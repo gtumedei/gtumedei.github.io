@@ -2,14 +2,17 @@ import { createSignal, onCleanup, onMount } from "solid-js"
 import { create } from "~/lib/context"
 import {
   applyAccent,
-  applyHeadingFont,
+  applyStyle,
   applyTheme,
+  applyWallpaper,
   LOCAL_STORAGE_ACCENT_KEY,
-  LOCAL_STORAGE_HEADING_FONT_KEY,
+  LOCAL_STORAGE_STYLE_KEY,
   LOCAL_STORAGE_THEME_KEY,
+  LOCAL_STORAGE_WALLPAPER_KEY,
   readAccent,
-  readHeadingFont,
+  readStyle,
   readTheme,
+  readWallpaper,
 } from "./apply"
 
 export const themes = ["light", "dark", "system"] as const
@@ -18,8 +21,8 @@ export type Theme = (typeof themes)[number]
 export const accents = ["blue", "orange", "teal", "pink"] as const
 export type Accent = (typeof accents)[number]
 
-export const headingFonts = ["serif", "dotted"] as const
-export type HeadingFont = (typeof headingFonts)[number]
+export const styles = ["minimalist", "dotted", "pixelated"] as const
+export type Style = (typeof styles)[number]
 
 export const [ThemeProvider, useTheme] = create(() => {
   const [theme, _setTheme] = createSignal<Theme>("system")
@@ -42,17 +45,25 @@ export const [ThemeProvider, useTheme] = create(() => {
     applyAccent(value)
   }
 
-  const [headingFont, _setHeadingFont] = createSignal<HeadingFont>("serif")
-  const setHeadingFont = (value: HeadingFont) => {
-    _setHeadingFont(value)
-    localStorage.setItem(LOCAL_STORAGE_HEADING_FONT_KEY, value)
-    applyHeadingFont(value)
+  const [style, _setStyle] = createSignal<Style>("minimalist")
+  const setStyle = (value: Style) => {
+    _setStyle(value)
+    localStorage.setItem(LOCAL_STORAGE_STYLE_KEY, value)
+    applyStyle(value)
+  }
+
+  const [showWallpaper, _setShowWallpaper] = createSignal<"on" | "off">("off")
+  const setShowWallpaper = (value: "on" | "off") => {
+    _setShowWallpaper(value)
+    localStorage.setItem(LOCAL_STORAGE_WALLPAPER_KEY, value)
+    applyWallpaper(value)
   }
 
   onMount(() => {
     _setTheme(readTheme())
     _setAccent(readAccent())
-    _setHeadingFont(readHeadingFont())
+    _setStyle(readStyle())
+    _setShowWallpaper(readWallpaper())
 
     // Listen for the (prefers-color-scheme: dark) media query to change theme
     const onPrefersColorSchemeChange = (e: MediaQueryListEvent) => {
@@ -77,8 +88,10 @@ export const [ThemeProvider, useTheme] = create(() => {
     actualTheme,
     accent,
     setAccent,
-    headingFont,
-    setHeadingFont,
+    style,
+    setStyle,
+    showWallpaper,
+    setShowWallpaper,
     superModeOn,
     setSuperModeOn,
   }

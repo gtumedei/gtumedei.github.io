@@ -106,7 +106,7 @@ const TechPage = () => {
             <a
               href="https://forum.figma.com/t/stop-automatically-adding-figmaagent-to-login-items/43826"
               target="_blank"
-              class="!text-on-base"
+              class="text-on-base!"
             >
               <TablerArrowUpRight class="inline-flex text-sm relative bottom-1" />
             </a>
@@ -167,7 +167,7 @@ const TechPage = () => {
           <p>
             Need an icon on your web project? This is the library you are looking for. Works with
             pretty much any framework and has an awesome website where you can search all the icons{" "}
-            <a href="https://icones.js.org/" target="_blank" class="!text-on-base">
+            <a href="https://icones.js.org/" target="_blank" class="text-on-base!">
               <TablerArrowUpRight class="inline-flex text-sm relative bottom-1" />
             </a>
             .
@@ -262,10 +262,10 @@ const TechItem: Component<{ tech: Technology }> = (props) => {
       data-motion="tech-item"
     >
       <div class="bg-base-300 rounded-full absolute inset-0 -z-10" />
-      <div class="group-hover:text-[var(--color-light)] group-hover:dark:text-[var(--color-dark)] transition-colors">
+      <div class="group-hover:text-(--color-light) group-hover:dark:text-(--color-dark) transition-colors">
         {props.tech.icon()}
       </div>
-      <p class="font-medium text-sm whitespace-nowrap group-hover:text-[var(--color-light)] dark:group-hover:text-[var(--color-dark)] transition-colors">
+      <p class="font-medium text-sm whitespace-nowrap group-hover:text-(--color-light) dark:group-hover:text-(--color-dark) transition-colors">
         {props.tech.name}
       </p>
     </A>

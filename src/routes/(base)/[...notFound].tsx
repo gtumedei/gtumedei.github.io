@@ -68,7 +68,8 @@ const PageNotFoundDoodle = () => {
         height: h,
         wireframes: false,
         showAngleIndicator: false,
-        background: colors.base100,
+        background: "transparent",
+        wireframeBackground: "transparent",
       },
     })
     Render.run(render)

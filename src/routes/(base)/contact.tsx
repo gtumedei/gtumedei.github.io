@@ -124,7 +124,7 @@ const ContactPage = () => {
       </div>
       <form use:form class="flex flex-col px-6 py-20">
         <FormField class="md:grid md:grid-cols-5 gap-x-12" data-motion="form">
-          <FormField.Label class="lg:text-base md:![line-height:2.75rem]">Name</FormField.Label>
+          <FormField.Label class="lg:text-base md:leading-11!">Name</FormField.Label>
           <div class="md:col-span-3 sm:max-w-xs relative">
             <Input type="text" name="name" variant="outline" size="lg" class="w-full pl-12 peer" />
             <div class="h-8 w-8 flex bg-base-300 peer-hover:bg-accent/20 peer-hover:text-accent peer-focus-visible:bg-accent/20 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
@@ -134,7 +134,7 @@ const ContactPage = () => {
         </FormField>
         <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" data-motion="form" />
         <FormField class="md:grid md:grid-cols-5 gap-x-12" data-motion="form">
-          <FormField.Label class="lg:text-base md:![line-height:2.75rem]">Email</FormField.Label>
+          <FormField.Label class="lg:text-base md:leading-11!">Email</FormField.Label>
           <div class="md:col-span-3 sm:max-w-sm relative">
             <Input
               type="email"
@@ -158,14 +158,14 @@ const ContactPage = () => {
         </FormField>
         <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" data-motion="form" />
         <FormField class="md:grid md:grid-cols-5 gap-x-12" data-motion="form">
-          <FormField.Label class="lg:text-base md:![line-height:2.75rem]">Subject</FormField.Label>
+          <FormField.Label class="lg:text-base md:leading-11!">Subject</FormField.Label>
           <div class="md:col-span-3">
             <Input type="text" name="subject" variant="outline" size="lg" class="w-full" />
           </div>
         </FormField>
         <hr class="border-transparent md:border-on-base/10 my-2 md:my-6" data-motion="form" />
         <FormField class="md:grid md:grid-cols-5 gap-x-12" data-motion="form">
-          <FormField.Label class="lg:text-base md:![line-height:2.75rem]">Message</FormField.Label>
+          <FormField.Label class="lg:text-base md:leading-11!">Message</FormField.Label>
           <div class="md:col-span-3 flex">
             <Textarea name="message" variant="outline" size="lg" class="w-full h-52" />
           </div>

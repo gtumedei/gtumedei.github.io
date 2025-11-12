@@ -119,20 +119,31 @@
   --font-sans: "Outfit", sans-serif;
   --font-serif: "DM Serif Display", serif;
   --font-dotted: "Bitcount Single", sysem-ui;
+  --font-pixelated: "Bytesized", sans-serif;
 }
 
 @utility font-heading {
   @apply font-serif font-bold tracking-wider;
 }
 
-[data-heading="dotted"] {
+[data-style="dotted"] {
   .font-heading {
     @apply font-dotted uppercase font-light tracking-wide [word-spacing:-0.25em];
   }
 }
 
+[data-style="pixelated"] {
+  .font-heading {
+    @apply font-pixelated tracking-wide [word-spacing:-0.25em];
+  }
+}
+
 @utility tall-lines {
   @apply [line-height:1.8em];
+}
+
+@utility header-pill {
+  @apply bg-base-100/90 dark:bg-base-200/90 group-data-wallpaper/html:bg-base-300/40 group-data-sticky/header:bg-base-100/90! group-data-sticky/header:dark:bg-base-200/90! backdrop-blur-xs rounded-full border border-on-base/10 shadow-md shadow-black/3 transition-colors;
 }
 
 /* Absolute positioning */

@@ -40,19 +40,19 @@ const Header = () => {
   return (
     <header
       use:stickyOnScrollUp
-      class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 relative pointer-events-none *:pointer-events-auto group"
+      class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 relative pointer-events-none *:pointer-events-auto group/header"
     >
       <ProgressiveBlur
         gradient
         class="inset-0 z-[-1]"
-        gradientClass="opacity-0 group-data-sticky:opacity-100 transition-opacity"
-        blurWrapperClass="opacity-0 group-data-sticky:opacity-100 transition-opacity"
+        gradientClass="opacity-0 group-data-sticky/header:opacity-100 transition-opacity"
+        blurWrapperClass="opacity-0 group-data-sticky/header:opacity-100 transition-opacity"
       />
       {location.pathname == "/" ? (
         <A
           href="/cv"
           target="_self"
-          class={cn(button({ size: "lg" }), "rounded-full pl-5 pr-4 shadow-md")}
+          class={cn(button({ size: "lg" }), "backdrop-blur-xs rounded-full pl-5 pr-4 shadow-md")}
         >
           <span class="text-sm">
             <span class="max-sm:hidden">Download </span>CV
@@ -62,10 +62,7 @@ const Header = () => {
       ) : (
         <A
           href="/"
-          class={cn(
-            button({ variant: "raised", size: "lg" }),
-            "bg-base-100/90 dark:bg-base-200/90 rounded-full px-1.5 group"
-          )}
+          class={cn(button({ variant: "raised", size: "lg" }), "header-pill px-1.5 group")}
         >
           <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
           <img
@@ -80,11 +77,11 @@ const Header = () => {
           <Button
             variant="raised"
             size="lg"
-            class="md:hidden bg-base-100/90 dark:bg-base-200/90 px-4 rounded-full ml-auto group"
+            class="md:hidden header-pill px-4 ml-auto group"
             onClick={() => setMenuDialogOpen(true)}
           >
             <span class="text-sm">Menu</span>
-            <TablerMenu class="text-on-base/70 group-hover:text-on-base transition-colors" />
+            <TablerMenu class="text-on-base/70 group-hover/header:text-on-base transition-colors" />
           </Button>
           {!breakpoints.md && (
             <MobileNavDialog
@@ -102,7 +99,7 @@ const Header = () => {
 
 const DesktopNav = () => {
   return (
-    <div class="max-md:hidden bg-base-100/90 dark:bg-base-200/90 rounded-full border border-on-base/10 shadow-md shadow-black/3 mx-auto">
+    <div class="max-md:hidden header-pill mx-auto">
       <nav class="flex">
         <ul class="text-sm font-medium flex justify-center px-3">
           <For each={desktopMenuItems}>

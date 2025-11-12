@@ -483,7 +483,7 @@ const Cheater = () => {
                 ) : (
                   <>
                     <p>
-                      Nice moves! You cracked the Konami Code and uncovered the hidden Dotted Theme.
+                      Nice moves! You cracked the Konami Code and uncovered hidden theme options.
                       You should check out the theme switcher.
                     </p>
                     <p>Respect, player.</p>

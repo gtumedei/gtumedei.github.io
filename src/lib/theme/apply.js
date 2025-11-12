@@ -50,7 +50,7 @@ export const LOCAL_STORAGE_THEME_KEY = "gtumedei-io-theme"
 export const readTheme = () => localStorage.getItem("gtumedei-io-theme") ?? "system"
 
 /**
- * Applies the given accent to the website by setting the `data-theme` attribute on the `<html>` tag.
+ * Applies the given accent to the website by setting the `data-accent` attribute on the `<html>` tag.
  * @param {"blue" | "orange" | "teal" | "pink"} accent
  */
 export const applyAccent = (accent) => {
@@ -64,21 +64,37 @@ export const LOCAL_STORAGE_ACCENT_KEY = "gtumedei-io-accent"
 export const readAccent = () => localStorage.getItem("gtumedei-io-accent") ?? "blue"
 
 /**
- * Applies the given accent to the website by setting the `data-theme` attribute on the `<html>` tag.
- * @param {"serif" | "dotted"} font
+ * Applies the given style to the website by setting the `data-style` attribute on the `<html>` tag.
+ * @param {"minimalist" | "dotted" | "pixelated"} style
  */
-export const applyHeadingFont = (font) => {
-  document.documentElement.setAttribute("data-heading", font)
+export const applyStyle = (style) => {
+  document.documentElement.setAttribute("data-style", style)
 }
 
-export const LOCAL_STORAGE_HEADING_FONT_KEY = "gtumedei-io-heading-font"
+export const LOCAL_STORAGE_STYLE_KEY = "gtumedei-io-style"
 
-/** @returns {import(".").HeadingFont} */
+/** @returns {import(".").Style} */
 // @ts-ignore
-export const readHeadingFont = () => localStorage.getItem("gtumedei-io-heading-font") ?? "blue"
+export const readStyle = () => localStorage.getItem("gtumedei-io-style") ?? "minimalist"
+
+/**
+ * Shows or hides the website wallpaper by setting the `data-wallpaper` attribute on the `<html>` tag.
+ * @param {"on" | "off"} wallpaper
+ */
+export const applyWallpaper = (wallpaper) => {
+  if (wallpaper) document.documentElement.setAttribute("data-wallpaper", "")
+  else document.documentElement.removeAttribute("data-wallpaper")
+}
+
+export const LOCAL_STORAGE_WALLPAPER_KEY = "gtumedei-io-wallpaper"
+
+/** @returns {"on" | "off"} */
+// @ts-ignore
+export const readWallpaper = () => localStorage.getItem("gtumedei-io-wallpaper") ?? "off"
 
 export const fnStrings = {
   applyTheme: `(${applyTheme})((${readTheme})(), true)`,
   applyAccent: `(${applyAccent})((${readAccent})())`,
-  applyHeadingFont: `(${applyHeadingFont})((${readHeadingFont})())`,
+  applyStyle: `(${applyStyle})((${readStyle})())`,
+  applyWallpaper: `(${applyWallpaper})((${readWallpaper})())`,
 }

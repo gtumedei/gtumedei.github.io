@@ -8,7 +8,7 @@ import { fnStrings } from "~/lib/theme/apply"
 export default createHandler(() => (
   <StartServer
     document={({ assets, children, scripts }) => (
-      <html lang="en" class="min-h-full flex bg-base-100">
+      <html lang="en" class="min-h-full flex bg-base-100 group/html">
         <head>
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -16,7 +16,7 @@ export default createHandler(() => (
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Serif+Display&family=Bitcount+Single:wght@100..900&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Serif+Display&family=Bitcount+Single:wght@100..900&family=Bytesized&display=swap"
             rel="stylesheet"
           />
           <style>{`[data-motion] { opacity: 0; }`}</style>
@@ -25,7 +25,8 @@ export default createHandler(() => (
           </noscript>
           <script innerHTML={fnStrings.applyTheme} />
           <script innerHTML={fnStrings.applyAccent} />
-          <script innerHTML={fnStrings.applyHeadingFont} />
+          <script innerHTML={fnStrings.applyStyle} />
+          <script innerHTML={fnStrings.applyWallpaper} />
           {import.meta.env.PROD && (
             <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/script.js`} />
           )}

@@ -8,7 +8,7 @@ import cn from "~/lib/cn"
 import { Achievement } from "~/lib/content/achievements"
 import { createWebGLDetector } from "~/lib/detect-webgl"
 import tooltip from "~/lib/directives/tooltip"
-import { Accent, Theme, useTheme } from "~/lib/theme"
+import { Accent, Style, Theme, useTheme } from "~/lib/theme"
 import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
 import TablerMoonStars from "~icons/tabler/moon-stars"
 import TablerPalette from "~icons/tabler/palette"
@@ -71,10 +71,7 @@ const ThemeSwitcher = () => {
   return (
     <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
       <Popover.Trigger
-        class={cn(
-          button({ variant: "raised", shape: "circle", size: "lg" }),
-          "bg-base-100/90 dark:bg-base-200/90 group"
-        )}
+        class={cn(button({ variant: "raised", shape: "circle", size: "lg" }), "header-pill group")}
       >
         <TablerPalette class="text-on-base/70 group-hover:text-on-base transition-colors" />
       </Popover.Trigger>
@@ -143,7 +140,8 @@ const ThemeSwitcher = () => {
 
 const HiddenOptions = () => {
   const { completedAchievements } = useAchievements()
-  const { headingFont, setHeadingFont, superModeOn, setSuperModeOn } = useTheme()
+  const { style, setStyle, showWallpaper, setShowWallpaper, superModeOn, setSuperModeOn } =
+    useTheme()
 
   const requiredAchievements: Achievement[] = ["CHEATER", "KEYMASTER", "SUPER_STAR"]
   const hasHiddenOptionsUnlocked = () =>
@@ -151,27 +149,56 @@ const HiddenOptions = () => {
 
   const hasWebGLSupport = createWebGLDetector()
 
+  const styles: {
+    value: Style
+    label: string
+    class: string
+  }[] = [
+    { value: "minimalist", label: "Base", class: "font-serif text-3xl" },
+    {
+      value: "dotted",
+      label: "Dotted",
+      class: "font-dotted text-3xl font-light translate-y-0.5",
+    },
+    { value: "pixelated", label: "Pixelated", class: "font-pixelated text-4xl" },
+  ]
+
   return (
     <Show when={hasHiddenOptionsUnlocked()}>
-      <div class="h-px w-calc(100%+2.5rem) bg-on-base/10 -mx-5 my-1" />
       {completedAchievements().includes("CHEATER") && (
-        <Toggle
-          labelClass="order-1 grow"
-          controlClass="order-2"
-          checked={headingFont() == "dotted"}
-          onCheckedChange={({ checked }) => setHeadingFont(checked ? "dotted" : "serif")}
-        >
-          Dotted headings
-        </Toggle>
+        <RadioGroup.Root value={style()} onValueChange={({ value }) => setStyle(value as Style)}>
+          <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Style</RadioGroup.Label>
+          <div class="grid grid-cols-3 gap-2">
+            <RadioGroup.Indicator class="h-10 w-(--width) bg-base-300 rounded-lg left-(--left) pointer-events-none" />
+            <Index each={styles}>
+              {(a) => (
+                <RadioGroup.Item
+                  value={a().value}
+                  asChild={(props) => <label {...props()} use:tooltip={[a().label, "bottom"]} />}
+                >
+                  <RadioGroup.ItemControl
+                    class={cn(
+                      button({ variant: "ghost", shape: "square" }),
+                      " w-full border-on-base/10 cursor-pointer *:z-10"
+                    )}
+                  >
+                    <div class={`m-auto ${a().class}`}>{a().label[0]}</div>
+                  </RadioGroup.ItemControl>
+                  <RadioGroup.ItemHiddenInput />
+                </RadioGroup.Item>
+              )}
+            </Index>
+          </div>
+        </RadioGroup.Root>
       )}
       {completedAchievements().includes("KEYMASTER") && (
         <Toggle
           labelClass="order-1 grow"
           controlClass="order-2"
-          /* checked={headingFont() == "dotted"}
-          onCheckedChange={({ checked }) => setHeadingFont(checked ? "dotted" : "serif")} */
+          checked={showWallpaper() == "on"}
+          onCheckedChange={({ checked }) => setShowWallpaper(checked ? "on" : "off")}
         >
-          TODO
+          Wallpaper
         </Toggle>
       )}
       {completedAchievements().includes("SUPER_STAR") && (

@@ -8,7 +8,7 @@ const GameLayout: ParentComponent<{
   return (
     <div
       class="
-      grid gap-6 h-full w-full [&>*]:shrink-0
+      grid gap-6 h-full w-full *:shrink-0
       [grid-template-areas:'mobile-menu'_'main-area'] grid-rows-[min-content_1fr]
       lg:[grid-template-areas:'left-menu_main-area_right-menu'] lg:grid-rows-[revert] lg:grid-cols-[min-content_1fr_min-content]
     "

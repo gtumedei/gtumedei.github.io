@@ -4,6 +4,7 @@ import { onMount } from "solid-js"
 import Meta from "~/components/meta"
 import { button } from "~/components/ui/button"
 import { Keymaster } from "~/lib/achievements/helpers"
+import cn from "~/lib/cn"
 import tooltip from "~/lib/directives/tooltip"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBrandGithub from "~icons/tabler/brand-github"
@@ -37,11 +38,10 @@ const HomePage = () => {
       <Meta description="My personal website." />
       <section class="w-full flex flex-col items-center text-center px-6 mt-auto">
         <Keymaster data-motion="image">
-          <div class="flex bg-base-200 p-2 rounded-full border border-on-base/10 shadow shadow-black/5 backface-hidden absolute inset-0">
+          <div class="flex bg-base-200/70 dark:bg-base-300/70 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 backface-hidden absolute inset-0">
             <img src="/profile.jpg" alt="Profile image" class="rounded-full" />
           </div>
         </Keymaster>
-
         <h1 class="font-heading text-4xl sm:text-5xl mb-1.5" data-motion="hero">
           Gianni Tumedei
         </h1>
@@ -70,7 +70,10 @@ const HomePage = () => {
               <a
                 href={item.href}
                 target="_blank"
-                class={button({ variant: "subtle", shape: "square", size: "lg" })}
+                class={cn(
+                  button({ variant: "subtle", shape: "square", size: "lg" }),
+                  "backdrop-blur-xs"
+                )}
                 use:tooltip={[item.title, "bottom"]}
               >
                 {item.icon()}

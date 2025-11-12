@@ -5,6 +5,7 @@ export const PrivateEnvSchema = z.object({
   TELEGRAM_BOT_TOKEN: z.string().min(1),
   TELEGRAM_CHAT_ID: z.string().min(1),
   CV_URL: z.string().min(1),
+  S3_URL: z.string().min(1),
 })
 
 export const PublicEnvSchema = z.object({

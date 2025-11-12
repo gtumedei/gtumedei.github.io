@@ -49,7 +49,7 @@ const MinigamesPage = () => {
           class="flex flex-col gap-2 p-2 rounded-2xl border border-on-base/10 group hover:bg-on-base/5 hover:border-transparent transition-colors"
           data-motion="minigame-item"
         >
-          <div class="w-full aspect-[2/1] bg-on-base/5 rounded-xl" />
+          <div class="w-full aspect-2/1 bg-on-base/5 rounded-xl" />
           <div class="p-4">
             <h2 class="text-lg font-medium mb-2">Color guesser</h2>
             <p class="text-sm text-on-base/70 tall-lines mb-4">
@@ -67,7 +67,7 @@ const MinigamesPage = () => {
           class="flex flex-col gap-2 p-2 rounded-2xl border border-dashed border-on-base/10"
           data-motion="minigame-item"
         >
-          <div class="w-full aspect-[2/1] flex bg-base-300 rounded-xl">
+          <div class="w-full aspect-2/1 flex bg-base-300 rounded-xl">
             <div class="flex flex-col items-center m-auto">
               <TablerClock class="text-2xl text-on-base/50 mb-1" />
               <p class="text-xl font-medium text-on-base/50">
@@ -91,7 +91,7 @@ const MinigamesPage = () => {
         >
           <div class="w-full aspect-video flex bg-base-300 rounded-2xl mb-6 rotate-2 group-hover:rotate-0 transition-all relative overflow-hidden">
             <ColorGuesserBanner class="absolute inset-0 [&_rect]:transition-colors group-hover:[&_rect]:fill-accent" />
-            <div class="h-full aspect-square bg-base-300 [mask-image:radial-gradient(circle,red,transparent_80%)] flex m-auto z-10">
+            <div class="h-full aspect-square bg-base-300 mask-[radial-gradient(circle,red,transparent_80%)] flex m-auto z-10">
               <TablerColorSwatch class="text-3xl m-auto" />
             </div>
           </div>
