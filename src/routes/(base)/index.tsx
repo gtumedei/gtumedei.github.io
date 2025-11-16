@@ -38,7 +38,7 @@ const HomePage = () => {
       <Meta description="My personal website." />
       <section class="w-full flex flex-col items-center text-center px-6 mt-auto">
         <Keymaster data-motion="image">
-          <div class="flex bg-base-200/70 dark:bg-base-300/70 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 backface-hidden absolute inset-0">
+          <div class="flex bg-base-200/70 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 backface-hidden absolute inset-0">
             <img src="/profile.jpg" alt="Profile image" class="rounded-full" />
           </div>
         </Keymaster>

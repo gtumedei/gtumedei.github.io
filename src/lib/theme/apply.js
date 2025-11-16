@@ -82,7 +82,7 @@ export const readStyle = () => localStorage.getItem("gtumedei-io-style") ?? "min
  * @param {"on" | "off"} wallpaper
  */
 export const applyWallpaper = (wallpaper) => {
-  if (wallpaper) document.documentElement.setAttribute("data-wallpaper", "")
+  if (wallpaper == "on") document.documentElement.setAttribute("data-wallpaper", "")
   else document.documentElement.removeAttribute("data-wallpaper")
 }
 
