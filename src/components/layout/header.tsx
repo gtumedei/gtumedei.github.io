@@ -64,7 +64,7 @@ const Header = () => {
           href="/"
           class={cn(button({ variant: "raised", size: "lg" }), "header-pill px-1.5 group")}
         >
-          <TablerArrowBackUp class="text-on-base/70 group-hover:text-on-base transition-colors" />
+          <TablerArrowBackUp />
           <img
             src="/profile.jpg"
             alt=""
@@ -77,11 +77,11 @@ const Header = () => {
           <Button
             variant="raised"
             size="lg"
-            class="md:hidden header-pill px-4 ml-auto group"
+            class="md:hidden header-pill px-4 ml-auto"
             onClick={() => setMenuDialogOpen(true)}
           >
             <span class="text-sm">Menu</span>
-            <TablerMenu class="text-on-base/70 group-hover/header:text-on-base transition-colors" />
+            <TablerMenu />
           </Button>
           {!breakpoints.md && (
             <MobileNavDialog
@@ -107,8 +107,12 @@ const DesktopNav = () => {
               <li>
                 <A
                   href={item.href}
-                  class="inline-flex px-3.5 py-3 hover:text-accent transition-colors relative overflow-hidden after:[content:''] after:h-0.5 after:w-12 after:bg-linear-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity"
-                  activeClass="text-accent after:opacity-100"
+                  class={cn(
+                    "inline-flex px-3.5 py-3 relative",
+                    "before:[content:''] before:rounded-full hover:before:bg-on-base/5 [&.active]:before:bg-transparent before:transition-colors before:absolute before:-inset-x-2 before:inset-y-1",
+                    "after:[content:''] after:h-0.5 after:w-12 after:bg-linear-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity"
+                  )}
+                  activeClass="active text-accent after:opacity-100"
                 >
                   {item.label}
                 </A>
@@ -139,7 +143,7 @@ const MobileNavDialog: Component<{
             >
               <TablerX class="text-base text-on-base/70 group-hover:text-on-base transition-colors" />
             </Dialog.CloseTrigger>
-            <Dialog.Content class="w-full sm:max-w-md bg-base-100 dark:bg-base-200 flex flex-col gap-6 px-6 p-3 rounded-3xl border border-on-base/10 shadow-md shadow-black/5 ml-auto origin-top-right data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-90 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-90">
+            <Dialog.Content class="w-full sm:max-w-md bg-base-100 dark:bg-base-200 flex flex-col gap-6 px-6 py-3 rounded-3xl border border-on-base/10 shadow-md shadow-black/5 ml-auto origin-top-right data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-90 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-90">
               <nav class="flex">
                 <ul class="w-full flex flex-col divide-y divide-on-base/10 font-medium">
                   <For each={mobileMenuItems}>
@@ -147,8 +151,12 @@ const MobileNavDialog: Component<{
                       <li>
                         <A
                           href={item.href}
-                          class="flex py-3 hover:text-accent transition-colors relative after:[content:''] after:h-8 after:w-0.5 after:bg-linear-to-b after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-y after:-left-6 after:opacity-0 after:transition-opacity"
-                          activeClass="text-accent after:opacity-100"
+                          class={cn(
+                            "flex py-3 relative",
+                            "before:[content:''] before:rounded-full hover:before:bg-on-base/5 [&.active]:before:bg-transparent before:transition-colors before:absolute before:-inset-x-4 before:inset-y-1",
+                            "after:[content:''] after:h-8 after:w-0.5 after:bg-linear-to-b after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-y after:-left-6 after:opacity-0 after:transition-opacity"
+                          )}
+                          activeClass="active text-accent after:opacity-100"
                           end={"end" in item}
                         >
                           {item.label}

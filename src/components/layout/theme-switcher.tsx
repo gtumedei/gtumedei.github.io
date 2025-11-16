@@ -71,9 +71,9 @@ const ThemeSwitcher = () => {
   return (
     <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
       <Popover.Trigger
-        class={cn(button({ variant: "raised", shape: "circle", size: "lg" }), "header-pill group")}
+        class={cn(button({ variant: "raised", shape: "circle", size: "lg" }), "header-pill")}
       >
-        <TablerPalette class="text-on-base/70 group-hover:text-on-base transition-colors" />
+        <TablerPalette />
       </Popover.Trigger>
       <Popover.Positioner>
         <Popover.Content class="p-5 origin-top-right">
