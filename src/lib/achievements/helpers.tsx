@@ -19,7 +19,7 @@ import { useAchievements } from "~/lib/achievements"
 import { useAchievementsProgress } from "~/lib/achievements/progress"
 import cn from "~/lib/cn"
 import env from "~/lib/env"
-import { accents, themes, useTheme } from "~/lib/theme"
+import { accents, styles, themes, useTheme } from "~/lib/theme"
 import TablerStarFilled from "~icons/tabler/star-filled"
 
 const Visitor = () => {
@@ -350,6 +350,44 @@ const CustomizationAddict = () => {
   return <></>
 }
 
+const ModdingManiac = () => {
+  const { style, showWallpaper, superModeOn } = useTheme()
+  const { unlockAchievement } = useAchievements()
+  const { progress, setProgress } = useAchievementsProgress()
+
+  const checkCompletion = () => {
+    if (
+      progress.moddingManiac.styles.length == styles.length &&
+      progress.moddingManiac.wallpaper == true &&
+      progress.moddingManiac.superMode == true
+    ) {
+      unlockAchievement("MODDING_MANIAC")
+    }
+  }
+
+  createEffect(
+    on(style, (style) => {
+      if (!progress.moddingManiac.styles.includes(style))
+        setProgress("moddingManiac", "styles", (v) => [...v, style])
+      checkCompletion()
+    })
+  )
+  createEffect(
+    on(showWallpaper, (state) => {
+      if (state == "on") setProgress("moddingManiac", "wallpaper", true)
+      checkCompletion()
+    })
+  )
+  createEffect(
+    on(superModeOn, (state) => {
+      if (state) setProgress("moddingManiac", "superMode", true)
+      checkCompletion()
+    })
+  )
+
+  return <></>
+}
+
 // Credits to https://ascii.co.uk/
 const inspectorGadgetArt = `
                ___
@@ -514,6 +552,7 @@ const Helpers = {
   ReturningVisitor,
   SuperStar,
   CustomizationAddict,
+  ModdingManiac,
   InspectorGadget,
   Cheater,
 }

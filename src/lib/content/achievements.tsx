@@ -70,7 +70,6 @@ const achievements = {
     description: "Try out all the theme and accent color combinations.",
     icon: () => <TablerPalette />,
   },
-  // TODO
   MODDING_MANIAC: {
     name: "Modding Maniac",
     description: "Find and test all the secret customization options.",
@@ -84,7 +83,7 @@ const achievements = {
   // TODO
   TODO: {
     name: "Lorem Ipsum",
-    description: "Something related to the other minigame I'm going to have.",
+    description: "Coming soon.",
     icon: () => <TablerDeviceGamepad2 />,
   },
   INSPECTOR_GADGET: {

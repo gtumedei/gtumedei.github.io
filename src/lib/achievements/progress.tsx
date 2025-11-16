@@ -3,7 +3,7 @@ import { onMount } from "solid-js"
 import { createStore, reconcile } from "solid-js/store"
 import { isServer } from "solid-js/web"
 import { create } from "~/lib/context"
-import { Accent, Theme } from "~/lib/theme"
+import { Accent, Style, Theme } from "~/lib/theme"
 
 export const [AchievementsProgressProvider, useAchievementsProgress] = create(() => {
   const defaultValues = () => ({
@@ -19,6 +19,11 @@ export const [AchievementsProgressProvider, useAchievementsProgress] = create(()
     customizationAddict: {
       themes: [] as Theme[],
       accents: [] as Accent[],
+    },
+    moddingManiac: {
+      styles: [] as Style[],
+      wallpaper: false,
+      superMode: false,
     },
   })
 
