@@ -5,7 +5,6 @@ import { Dialog } from "~/components/ui/dialog"
 import TablerChartBar from "~icons/tabler/chart-bar"
 import TablerChevronLeft from "~icons/tabler/chevron-left"
 import TablerChevronRight from "~icons/tabler/chevron-right"
-import TablerColorSwatch from "~icons/tabler/color-swatch"
 import { useColorGuesserGame } from "."
 
 export const ColorGuesserDialogs = () => {
@@ -52,9 +51,11 @@ const MenuDialog = () => {
         <Dialog.Backdrop />
         <Dialog.Positioner>
           <Dialog.Content class="w-full max-w-lg text-center">
-            <div class="flex bg-base-300 text-accent rounded-full p-4 mx-auto">
-              <TablerColorSwatch class="text-2xl" />
-            </div>
+            <img
+              src="/img-remote/color-guesser.png"
+              alt=""
+              class="w-15 h-15 rounded-md shadow shadow-black/5 mx-auto"
+            />
             <Dialog.Header>
               <Dialog.Title>Color Guesser</Dialog.Title>
               <Dialog.Description class="text-balance">
