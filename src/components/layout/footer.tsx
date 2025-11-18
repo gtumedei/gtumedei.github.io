@@ -16,13 +16,16 @@ const Footer = () => {
   return (
     <footer class="text-sm flex max-sm:flex-col justify-between max-sm:items-center gap-6 px-6 md:px-12 lg:px-16 xl:px-20 py-12 border-t border-on-base/10">
       <nav class="flex">
-        <ul class="font-medium flex flex-wrap max-sm:justify-center gap-4">
+        <ul class="font-medium flex flex-wrap max-sm:justify-center -mx-2">
           <For
             each={location.pathname == "/" ? [achievementsPage] : [...mainPages, achievementsPage]}
           >
             {(item) => (
               <li>
-                <A href={item.href} class="hover:text-accent transition-colors">
+                <A
+                  href={item.href}
+                  class="inline-flex leading-7 hover:text-accent px-2 rounded-full focus-ring transition-all"
+                >
                   {item.label}
                 </A>
               </li>

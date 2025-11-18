@@ -26,7 +26,7 @@ const ProjectsPage = () => {
     <>
       <Meta
         title="Projects"
-        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
+        description="I'm always building stuff. You can find my research, freelance, and personal projects listed inside here."
       />
       <div class="lg:w-2/3 px-6 mb-20">
         <PageHeadingIcon data-motion="image">
@@ -36,9 +36,8 @@ const ProjectsPage = () => {
           Projects
         </h1>
         <p class="text-on-base/70 tall-lines" data-motion="heading">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus accusamus, tempora quod
-          placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
-          minima eaque fugiat quia, dignissimos perspiciatis harum?
+          This page collects the projects I've poured time into, from research and work to personal
+          experiments. Check out what I created, modified, broke, or rebuilt along the way.
         </p>
       </div>
       <For each={projectCategories}>
@@ -79,7 +78,7 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
     <a
       href={props.project.url}
       target="_blank"
-      class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group"
+      class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group focus-ring"
       data-motion="project-item"
       onAuxClick={(e) => {
         if (e.button == 1) onOpen()

@@ -108,8 +108,8 @@ const DesktopNav = () => {
                 <A
                   href={item.href}
                   class={cn(
-                    "inline-flex px-3.5 py-3 relative",
-                    "before:[content:''] before:rounded-full hover:before:bg-on-base/5 [&.active]:before:bg-transparent before:transition-colors before:absolute before:-inset-x-2 before:inset-y-1",
+                    "inline-flex px-3.5 py-3 relative outline-none",
+                    "before:[content:''] before:rounded-full before:border before:border-transparent focus-visible:before:border-neutral/20 hover:before:bg-on-base/5 [&.active]:before:bg-transparent before:transition-all before:absolute before:-inset-x-2 before:inset-y-1 focus-visible:before:ring focus-visible:before:ring-neutral/10",
                     "after:[content:''] after:h-0.5 after:w-12 after:bg-linear-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity"
                   )}
                   activeClass="active text-accent after:opacity-100"
@@ -152,8 +152,8 @@ const MobileNavDialog: Component<{
                         <A
                           href={item.href}
                           class={cn(
-                            "flex py-3 relative",
-                            "before:[content:''] before:rounded-full hover:before:bg-on-base/5 [&.active]:before:bg-transparent before:transition-colors before:absolute before:-inset-x-4 before:inset-y-1",
+                            "flex py-3 relative outline-none",
+                            "before:[content:''] before:rounded-full before:border before:border-transparent focus-visible:before:border-neutral/20 hover:before:bg-on-base/5 [&.active]:before:bg-transparent before:transition-all before:absolute before:-inset-x-2 before:inset-y-1 focus-visible:before:ring focus-visible:before:ring-neutral/10",
                             "after:[content:''] after:h-8 after:w-0.5 after:bg-linear-to-b after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-y after:-left-6 after:opacity-0 after:transition-opacity"
                           )}
                           activeClass="active text-accent after:opacity-100"

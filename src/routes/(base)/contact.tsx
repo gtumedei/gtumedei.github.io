@@ -107,7 +107,7 @@ const ContactPage = () => {
     <>
       <Meta
         title="Contact"
-        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
+        description="Want to work together or just talk? Reaching out is easy, and I usually reply pretty fast."
       />
       <div class="lg:w-2/3 px-6">
         <PageHeadingIcon data-motion="image">
@@ -117,9 +117,9 @@ const ContactPage = () => {
           Contact
         </h1>
         <p class="text-on-base/70 tall-lines" data-motion="heading">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus accusamus, tempora quod
-          placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
-          minima eaque fugiat quia, dignissimos perspiciatis harum?
+          If you'd like to collaborate, ask something, or simply say hi, this form makes it
+          straightforward. Send a message anytime, I'm generally quick to reply and always open to
+          good conversations.
         </p>
       </div>
       <form use:form class="flex flex-col px-6 py-20">

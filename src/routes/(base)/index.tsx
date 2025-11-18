@@ -87,7 +87,7 @@ const HomePage = () => {
           {
             title: "Projects",
             description:
-              "I'm constantly building stuff. You can find my research, freelance, and personal projects listed inside here.",
+              "I'm always building stuff. You can find my research, freelance, and personal projects listed inside here.",
             href: "/projects",
             icon: () => <TablerGrid3x3 />,
             action: "Check them out",
@@ -95,7 +95,7 @@ const HomePage = () => {
           {
             title: "Tech",
             description:
-              "It's the longest page on this website, I think. Maybe you'll find something interesting in it.",
+              "A long, wandering page of tools and tech I enjoy using. Check it out, you might discover something useful.",
             href: "/tech",
             icon: () => <TablerTools />,
             action: "Read more",
@@ -103,7 +103,7 @@ const HomePage = () => {
           {
             title: "Minigames",
             description:
-              "Just hanging around? You can play some minigames I built. Just don't expect too much, I'm not a game dev.",
+              "Killing time? Try some simple minigames I built. They're fun, just don't expect AAA production value.",
             href: "/minigames",
             icon: () => <TablerDeviceGamepad />,
             action: "Play some",
@@ -111,7 +111,7 @@ const HomePage = () => {
           {
             title: "Contact",
             description:
-              "Wanna work together or just chat? Reaching out to me is easy and I reply pretty quickly most of the time.",
+              "Want to work together or just talk? Reaching out is easy, and I usually reply pretty fast.",
             href: "/contact",
             icon: () => <TablerBrandTelegram />,
             action: "Get in touch",
@@ -119,7 +119,7 @@ const HomePage = () => {
         ].map((item) => (
           <A
             href={item.href}
-            class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group"
+            class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group focus-ring"
             data-motion="menu"
           >
             <div class="flex gap-4 items-center mb-3">

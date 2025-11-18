@@ -154,13 +154,17 @@ const HiddenOptions = () => {
     label: string
     class: string
   }[] = [
-    { value: "minimalist", label: "Base", class: "font-serif text-3xl" },
+    { value: "minimalist", label: "Base", class: "font-serif text-[30px] leading-[30px]" },
     {
       value: "dotted",
       label: "Dotted",
-      class: "font-dotted text-3xl font-light translate-y-0.5",
+      class: "font-dotted text-3xl font-light text-[35px] leading-[35px] translate-y-[2px]",
     },
-    { value: "pixelated", label: "Pixelated", class: "font-pixelated text-4xl" },
+    {
+      value: "pixelated",
+      label: "Pixelated",
+      class: "font-pixelated text-[39px] leading-[39px]",
+    },
   ]
 
   return (

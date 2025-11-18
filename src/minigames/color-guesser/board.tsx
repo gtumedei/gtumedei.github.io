@@ -29,7 +29,7 @@ const Tile: Component<{ color: string }> = (props) => {
 
   return (
     <button
-      class="group relative w-full h-full rounded-2xl"
+      class="group relative w-full h-full rounded-2xl cursor-pointer"
       style={`background-color: ${props.color};`}
       onClick={onClick}
     >

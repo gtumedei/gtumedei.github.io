@@ -18,7 +18,7 @@ const AspectRatio: ParentComponent<{ w: number; h: number }> = (props) => {
   createEffect(() => onBoundsChange(bounds.height ?? 0, bounds.width ?? 0))
 
   return (
-    <div ref={wrapper} class="relative flex-grow w-full h-full">
+    <div ref={wrapper} class="relative grow w-full h-full">
       <div class="absolute-center" style={`height: ${size().height}px; width: ${size().width}px`}>
         {props.children}
       </div>

@@ -35,7 +35,7 @@ const TechPage = () => {
     <>
       <Meta
         title="Tech"
-        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
+        description="A long, wandering page of tools and tech I enjoy using. Check it out, you might discover something useful."
       />
       <div class="lg:w-2/3 px-6">
         <PageHeadingIcon data-motion="image">
@@ -45,9 +45,8 @@ const TechPage = () => {
           Tech
         </h1>
         <p class="text-on-base/70 tall-lines" data-motion="heading">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus accusamus, tempora quod
-          placeat cumque in repellendus aut ea voluptas officia exercitationem voluptates impedit
-          minima eaque fugiat quia, dignissimos perspiciatis harum?
+          This page lists tech, software, and the stack I use in my daily work. It's part
+          documentation, part personal notes, and maybe a helpful reference to some.
         </p>
       </div>
       <div class="px-6 py-8 md:py-12 max-md:divide-y divide-on-base/10">
@@ -254,7 +253,7 @@ const TechItem: Component<{ tech: Technology }> = (props) => {
     <A
       href={props.tech.url}
       target="_blank"
-      class="h-8 flex items-center gap-2 px-3 rounded-full relative group"
+      class="h-8 flex items-center gap-2 px-3 rounded-full relative group focus-ring"
       style={{
         "--color-light": props.tech.color.light,
         "--color-dark": props.tech.color.dark,
