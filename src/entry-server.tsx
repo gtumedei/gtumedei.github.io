@@ -16,7 +16,7 @@ export default createHandler(() => (
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Serif+Display&family=Bitcount+Single:wght@100..900&family=Pixelify+Sans:wght@400..700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Serif+Display&family=Bitcount+Single:wght@100..900&family=Bytesized&display=swap"
             rel="stylesheet"
           />
           <style>{`[data-motion] { opacity: 0; }`}</style>

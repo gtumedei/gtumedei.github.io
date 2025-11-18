@@ -119,7 +119,7 @@
   --font-sans: "Outfit", sans-serif;
   --font-serif: "DM Serif Display", serif;
   --font-dotted: "Bitcount Single", sysem-ui;
-  --font-pixelated: "Pixelify Sans", sans-serif;
+  --font-pixelated: "Bytesized", sans-serif;
 }
 
 @utility font-heading {
@@ -134,8 +134,12 @@
 
 [data-style="pixelated"] {
   .font-heading {
-    @apply font-pixelated font-normal tracking-wide [word-spacing:-0.25em];
+    @apply font-pixelated uppercase font-normal tracking-wide [word-spacing:-0.2em];
   }
+}
+
+@utility focus-ring {
+  @apply border border-transparent focus-visible:border-neutral/20 focus-visible:ring focus-visible:ring-neutral/10 outline-none;
 }
 
 @utility tall-lines {
