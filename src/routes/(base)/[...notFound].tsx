@@ -24,21 +24,26 @@ const NotFoundPage = () => {
     <>
       <HttpStatusCode code={404} />
       <Title>Page not found • Gianni Tumedei</Title>
-      <div class="text-center pb-28 my-auto">
-        <PageNotFoundDoodle />
-        <h1 class="font-heading text-4xl sm:text-5xl mb-4">Page not found</h1>
-        <p class="text-on-base/70 text-balance mb-6">
-          Sorry, but I couldn't find the page you are looking for.
-        </p>
-        <A href="/" class={button({ variant: "subtle" })}>
-          Go back home
-        </A>
+      <div class="grow flex justify-center items-center relative">
+        <div class="w-full text-center pb-28 my-auto">
+          <PageNotFoundDoodle />
+          <div class="relative">
+            <h1 class="font-heading text-4xl sm:text-5xl mb-4">Page not found</h1>
+            <p class="text-on-base/70 text-balance mb-6">
+              Sorry, but I couldn't find the page you are looking for.
+            </p>
+            <A href="/" class={button({ variant: "subtle" })}>
+              Go back home
+            </A>
+          </div>
+        </div>
       </div>
     </>
   )
 }
 
 const PageNotFoundDoodle = () => {
+  let positioner!: HTMLDivElement
   let canvas!: HTMLCanvasElement
   let engine!: Matter.Engine
   let world!: Matter.World
@@ -52,10 +57,29 @@ const PageNotFoundDoodle = () => {
 
   const { unlockAchievement } = useAchievements()
 
+  const computeBodyPositions = () => {
+    const { clientWidth: w } = canvas
+    const offset = Math.max((w - 440) / 2, 0)
+    const gap = Math.min(440, w) / 4
+    const baseY = positioner.getBoundingClientRect().top + window.scrollY
+
+    const x1 = offset + gap
+    const x2 = offset + gap * 2
+    const x3 = offset + gap * 3
+    const bodyY = baseY + 80
+    const springY = baseY + 100
+
+    return {
+      x: [x1, x2, x3] as const,
+      bodyY,
+      springY,
+    }
+  }
+
   onMount(async () => {
     await new Promise((r) => setTimeout(r, 100))
 
-    const { clientHeight: h, clientWidth: w } = canvas
+    const { clientWidth: w, clientHeight: h } = canvas
 
     // Init Matter
     engine = Engine.create()
@@ -70,6 +94,7 @@ const PageNotFoundDoodle = () => {
         showAngleIndicator: false,
         background: "transparent",
         wireframeBackground: "transparent",
+        pixelRatio: window.devicePixelRatio,
       },
     })
     Render.run(render)
@@ -113,8 +138,6 @@ const PageNotFoundDoodle = () => {
 
     // Add objects
 
-    const t = actualTheme()
-
     const createHangingChar = (options: {
       body: { x: number; y: number; texture: string }
       spring: { x: number; y: number; stiffness: number }
@@ -135,29 +158,26 @@ const PageNotFoundDoodle = () => {
       return [body, constraint] as const
     }
 
-    const offset = Math.max((w - 440) / 2, 0)
-    const gap = Math.min(440, w) / 4
+    const t = actualTheme()
+    const p = computeBodyPositions()
 
-    const x1 = offset + gap
     const [body1, constraint1] = createHangingChar({
-      body: { x: x1, y: 80, texture: `/img/4-${t}.png` },
-      spring: { x: x1, y: 100, stiffness: 0.0015 },
+      body: { x: p.x[0], y: p.bodyY, texture: `/img/4-${t}.png` },
+      spring: { x: p.x[0], y: p.springY, stiffness: 0.0015 },
     })
     Composite.add(world, [body1, constraint1])
     elements.push({ char: "4", body: body1, spring: constraint1 })
 
-    const x2 = offset + gap * 2
     const [body2, constraint2] = createHangingChar({
-      body: { x: x2 + 20, y: 80, texture: `/img/0-${t}.png` },
-      spring: { x: x2, y: 100, stiffness: 0.001 },
+      body: { x: p.x[1] + 20, y: p.bodyY, texture: `/img/0-${t}.png` },
+      spring: { x: p.x[1], y: p.springY, stiffness: 0.001 },
     })
     Composite.add(world, [body2, constraint2])
     elements.push({ char: "0", body: body2, spring: constraint2 })
 
-    const x3 = offset + gap * 3
     const [body3, constraint3] = createHangingChar({
-      body: { x: x3 + 20, y: 80, texture: `/img/4-${t}.png` },
-      spring: { x: x3, y: 100, stiffness: 0.0015 },
+      body: { x: p.x[2] + 20, y: p.bodyY, texture: `/img/4-${t}.png` },
+      spring: { x: p.x[2], y: p.springY, stiffness: 0.0015 },
     })
     Composite.add(world, [body3, constraint3])
     elements.push({ char: "4", body: body3, spring: constraint3 })
@@ -175,7 +195,6 @@ const PageNotFoundDoodle = () => {
       if (!render) return
       await new Promise((r) => setTimeout(r, 100))
       const t = actualTheme()
-      render.options.background = colors.base100
       for (const { char, body, spring } of elements) {
         if (body.render.sprite?.texture) {
           body.render.sprite.texture = `/img/${char}-${t}.png`
@@ -189,21 +208,30 @@ const PageNotFoundDoodle = () => {
   onMount(() => {
     const handleResize = debounce(async () => {
       const { clientHeight: h, clientWidth: w } = canvas
+      Render.setPixelRatio(render, window.devicePixelRatio)
       Render.lookAt(render, {
         min: { x: 0, y: 0 },
         max: { x: w, y: h },
       })
-      const offset = Math.max((w - 440) / 2, 0)
-      const gap = Math.min(440, w) / 4
+      const position = computeBodyPositions()
       elements.forEach(({ spring }, i) => {
-        spring.pointA.x = offset + gap * (i + 1)
+        spring.pointA.x = position.x[i]!
+        spring.pointA.y = position.springY
       })
-    }, 200)
+    }, 1000)
     window.addEventListener("resize", handleResize)
     onCleanup(() => window.removeEventListener("resize", handleResize))
   })
 
-  return <canvas ref={canvas} class="h-[300px] w-full" aria-label="404" />
+  return (
+    <div ref={positioner} class="w-full h-[300px]">
+      <canvas
+        ref={canvas}
+        class="h-[calc(100%+150px)] w-full md:w-[calc(100%+3rem)] lg:w-[calc(100%+5rem)] xl:w-[calc(100%+7rem)] absolute-center-x top-[-150px]"
+        aria-label="404"
+      />
+    </div>
+  )
 }
 
 export default NotFoundPage
