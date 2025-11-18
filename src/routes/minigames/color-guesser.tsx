@@ -1,4 +1,5 @@
 import GameLayout from "~/components/game-layout"
+import Meta from "~/components/meta"
 import AspectRatio from "~/components/ui/aspect-ratio"
 import { Button } from "~/components/ui/button"
 import tooltip from "~/lib/directives/tooltip"
@@ -10,21 +11,27 @@ import TablerMenu from "~icons/tabler/menu"
 
 const ColorGuesserGame = () => {
   return (
-    <ColorGuesserGameProvider>
-      <GameLayout
-        mobileMenu={<MobileMenu />}
-        leftDesktopMenu={<LeftMenu />}
-        rightDesktopMenu={<RightMenu />}
-      >
-        <div class="relative h-full pt-6 pb-24 px-3">
-          <AspectRatio w={1} h={1}>
-            <ColorGuesserBoard />
-          </AspectRatio>
-          <ColorIndicator />
-        </div>
-        <ColorGuesserDialogs />
-      </GameLayout>
-    </ColorGuesserGameProvider>
+    <>
+      <Meta
+        title="Color Guesser"
+        description="Are you nerd enough to guess a color based on its RGB code? Let's find out! HSL is also available for the classy ones."
+      />
+      <ColorGuesserGameProvider>
+        <GameLayout
+          mobileMenu={<MobileMenu />}
+          leftDesktopMenu={<LeftMenu />}
+          rightDesktopMenu={<RightMenu />}
+        >
+          <div class="relative h-full pt-6 pb-24 px-3">
+            <AspectRatio w={1} h={1}>
+              <ColorGuesserBoard />
+            </AspectRatio>
+            <ColorIndicator />
+          </div>
+          <ColorGuesserDialogs />
+        </GameLayout>
+      </ColorGuesserGameProvider>
+    </>
   )
 }
 
@@ -34,7 +41,7 @@ const MobileMenu = () => {
   tooltip
   return (
     <header class="w-full flex items-center gap-3 p-3">
-      <h1 class="font-heading text-xl mb-1 flex-grow ml-3">Color Guesser</h1>
+      <h1 class="font-heading text-xl mb-1 grow ml-3">Color Guesser</h1>
       <div class="flex gap-4">
         <Button
           variant="subtle"
@@ -63,7 +70,7 @@ const LeftMenu = () => {
   return (
     <header class="w-48 p-6">
       <div class="h-10">
-        <h1 class="font-heading text-xl">Color Guesser</h1>
+        <h1 class="font-heading text-xl whitespace-nowrap">Color Guesser</h1>
       </div>
     </header>
   )
