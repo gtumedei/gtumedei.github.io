@@ -10,8 +10,8 @@ const BaseLayout = (props: RouteSectionProps) => {
         <div class="container h-full bg-base-100 sm:border-x border-on-base/10 dark:border-on-base/5 mx-auto" />
       </div>
       <div class="container grow sm:border-x border-transparent mx-auto">
-        <Header />
         <Wallpaper />
+        <Header />
         <main class="grow flex flex-col pt-14 md:px-6 lg:px-10 xl:px-14">{props.children}</main>
         <Footer />
       </div>

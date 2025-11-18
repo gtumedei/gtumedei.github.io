@@ -1,70 +1,80 @@
 import { Link } from "@solidjs/meta"
 import { useCurrentMatches } from "@solidjs/router"
-import { animate } from "motion"
-import { Component, Match, onMount, ParentComponent, Show, Switch } from "solid-js"
-// import { Transition } from "solid-transition-group"
+import { Match, ParentComponent, Show, Switch } from "solid-js"
+import { Transition } from "solid-transition-group"
 import cn from "~/lib/cn"
 import { useTheme } from "~/lib/theme"
 
 const wallpapers = {
   base: "/img-remote/braies.jpg",
-  dottedMobile: "/img-remote/braies dotted mobile.jpg",
-  dottedDesktop: "/img-remote/braies dotted.jpg",
-  pixelatedMobile: "/img-remote/braies pixelated mobile.jpg",
-  pixelatedDesktop: "/img-remote/braies pixelated.jpg",
+  dottedMobile: "/img-remote/braies dotted mobile.svg",
+  dottedDesktop: "/img-remote/braies dotted.svg",
+  pixelatedMobile: "/img-remote/braies pixelated mobile.png",
+  pixelatedDesktop: "/img-remote/braies pixelated.png",
 }
 
 const Wallpaper = () => {
   const { showWallpaper, style } = useTheme()
 
   return (
-    /* <Transition
-      appear
-      enterClass="opacity-0"
-      exitToClass="opacity-0"
-      enterActiveClass="transition-opacity"
-      exitActiveClass="transition-opacity"
-      mode="outin"
-    > */
     <>
       {/* Preload all wallpapers to have smoother animations */}
       {Object.values(wallpapers).map((src) => (
         <Link rel="prefetch" href={src} as="image" fetchpriority="high" />
       ))}
-      <Show when={showWallpaper() == "on"}>
-        <WallpaperContainer>
-          <Switch>
-            <Match when={style() == "minimalist"}>
-              <WallpaperImage
-                src={wallpapers.base}
-                class={cn("h-full w-full object-cover mask-b-from-10%")}
-              />
-            </Match>
-            <Match when={style() == "dotted"}>
-              <WallpaperImage
-                src={wallpapers.dottedMobile}
-                class="md:hidden h-full w-full object-cover mask-b-from-10%"
-              />
-              <WallpaperImage
-                src={wallpapers.dottedDesktop}
-                class="max-md:hidden h-full w-full object-cover mask-b-from-10%"
-              />
-            </Match>
-            <Match when={style() == "pixelated"}>
-              <WallpaperImage
-                src={wallpapers.pixelatedMobile}
-                class="md:hidden h-full w-full object-cover mask-b-from-10%"
-              />
-              <WallpaperImage
-                src={wallpapers.pixelatedDesktop}
-                class="max-md:hidden h-full w-full object-cover mask-b-from-10%"
-              />
-            </Match>
-          </Switch>
-        </WallpaperContainer>
-      </Show>
+      <WallpaperContainer>
+        <Transition
+          appear
+          enterClass="opacity-0"
+          exitToClass="opacity-0"
+          enterActiveClass="transition-opacity"
+          exitActiveClass="transition-opacity"
+          mode="outin"
+        >
+          <Show when={showWallpaper() == "on"}>
+            <Switch>
+              <Match when={style() == "minimalist"}>
+                <div class="w-full h-full">
+                  <img
+                    src={wallpapers.base}
+                    alt=""
+                    class={cn("h-full w-full object-cover opacity-50 mask-b-from-10%")}
+                  />
+                </div>
+              </Match>
+              <Match when={style() == "dotted"}>
+                <div class="w-full h-full">
+                  <img
+                    src={wallpapers.dottedMobile}
+                    alt=""
+                    class="md:hidden h-full w-full object-cover opacity-50 mask-b-from-10%"
+                  />
+                  <img
+                    src={wallpapers.dottedDesktop}
+                    alt=""
+                    class="max-md:hidden h-full w-full object-cover opacity-50 mask-b-from-10%"
+                  />
+                </div>
+              </Match>
+              <Match when={style() == "pixelated"}>
+                <div class="w-full h-full">
+                  <img
+                    src={wallpapers.pixelatedMobile}
+                    alt=""
+                    class="md:hidden h-full w-full object-cover opacity-50 mask-b-from-10% [image-rendering:pixelated]"
+                  />
+                  <img
+                    src={wallpapers.pixelatedDesktop}
+                    alt=""
+                    class="max-md:hidden h-full w-full object-cover opacity-50 mask-b-from-10% [image-rendering:pixelated]"
+                  />
+                </div>
+              </Match>
+            </Switch>
+          </Show>
+        </Transition>
+      </WallpaperContainer>
     </>
-    /* </Transition> */
   )
 }
 
@@ -84,24 +94,6 @@ const WallpaperContainer: ParentComponent = (props) => {
         {props.children}
       </div>
     </div>
-  )
-}
-
-const WallpaperImage: Component<{ src: string; class?: string }> = (props) => {
-  let img!: HTMLImageElement
-
-  onMount(() => {
-    animate([[img, { opacity: [0, 0.4] }, { duration: 0.4 }]])
-  })
-
-  return (
-    <img
-      ref={img}
-      src={props.src}
-      alt=""
-      class={cn("opacity-40", props.class)}
-      data-motion="wallpaper"
-    />
   )
 }
 
