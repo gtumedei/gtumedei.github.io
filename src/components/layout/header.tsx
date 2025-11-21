@@ -138,10 +138,10 @@ const MobileNavDialog: Component<{
             <Dialog.CloseTrigger
               class={cn(
                 button({ variant: "raised", shape: "circle", size: "lg" }),
-                "bg-base-100/90 dark:bg-base-200/90 ml-auto group-data-[state=open]:animate-in group"
+                "bg-base-100/90 dark:bg-base-200/90 ml-auto group-data-[state=open]:animate-in pointer-events-auto"
               )}
             >
-              <TablerX class="text-base text-on-base/70 group-hover:text-on-base transition-colors" />
+              <TablerX />
             </Dialog.CloseTrigger>
             <Dialog.Content class="w-full sm:max-w-md bg-base-100 dark:bg-base-200 flex flex-col gap-6 px-6 py-3 rounded-3xl border border-on-base/10 shadow-md shadow-black/5 ml-auto origin-top-right data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-90 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-90">
               <nav class="flex">
