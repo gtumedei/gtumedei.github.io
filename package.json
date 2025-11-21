@@ -46,7 +46,7 @@
     "tippy.js": "^6.3.7",
     "typescript": "^5.8.2",
     "unplugin-icons": "^22.1.0",
-    "vinxi": "^0.5.3",
+    "vinxi": "^0.5.8",
     "zod": "^4.1.12"
   },
   "engines": {
