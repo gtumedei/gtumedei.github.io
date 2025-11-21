@@ -1,6 +1,6 @@
 import { debounce } from "@solid-primitives/scheduled"
 import { Title } from "@solidjs/meta"
-import { A } from "@solidjs/router"
+import { A, useParams } from "@solidjs/router"
 import { HttpStatusCode } from "@solidjs/start"
 import Matter from "matter-js"
 import { createEffect, on, onCleanup, onMount } from "solid-js"
@@ -14,6 +14,8 @@ const { Engine, Render, Runner, Constraint, MouseConstraint, Mouse, Composite, B
   Matter
 
 const NotFoundPage = () => {
+  const params = useParams()
+
   const { unlockAchievement } = useAchievements()
   onMount(async () => {
     await new Promise((r) => setTimeout(r, 750))
@@ -25,12 +27,16 @@ const NotFoundPage = () => {
       <HttpStatusCode code={404} />
       <Title>Page not found • Gianni Tumedei</Title>
       <div class="grow flex justify-center items-center relative">
-        <div class="w-full text-center pb-28 my-auto">
+        <div class="w-full pb-28 my-auto">
           <PageNotFoundDoodle />
-          <div class="relative">
+          <div class="flex flex-col items-center text-center relative">
             <h1 class="font-heading text-4xl sm:text-5xl mb-4">Page not found</h1>
-            <p class="text-on-base/70 text-balance mb-6">
-              Sorry, but I couldn't find the page you are looking for.
+            <p class="max-w-sm text-on-base/70 text-balance mb-6">
+              The page{" "}
+              <code class="min-h-6 inline-block text-sm leading-6 bg-on-base/5 px-1 rounded-sm break-all">
+                /{params.notFound}
+              </code>{" "}
+              does not seem to exist, but maybe you'll like this one better.
             </p>
             <A href="/" class={button({ variant: "subtle" })}>
               Go back home
@@ -57,6 +63,16 @@ const PageNotFoundDoodle = () => {
 
   const { unlockAchievement } = useAchievements()
 
+  const fitRenderToCanvas = (render: Matter.Render) => {
+    const { clientHeight: h, clientWidth: w } = render.canvas
+    Render.setPixelRatio(render, window.devicePixelRatio)
+    render.mouse.pixelRatio = window.devicePixelRatio
+    Render.lookAt(render, {
+      min: { x: 0, y: 0 },
+      max: { x: w, y: h },
+    })
+  }
+
   const computeBodyPositions = () => {
     const { clientWidth: w } = canvas
     const offset = Math.max((w - 440) / 2, 0)
@@ -79,8 +95,6 @@ const PageNotFoundDoodle = () => {
   onMount(async () => {
     await new Promise((r) => setTimeout(r, 100))
 
-    const { clientWidth: w, clientHeight: h } = canvas
-
     // Init Matter
     engine = Engine.create()
     world = engine.world
@@ -88,13 +102,12 @@ const PageNotFoundDoodle = () => {
       canvas: canvas,
       engine: engine,
       options: {
-        width: w,
-        height: h,
+        width: canvas.clientWidth,
+        height: canvas.clientHeight,
         wireframes: false,
         showAngleIndicator: false,
         background: "transparent",
         wireframeBackground: "transparent",
-        pixelRatio: window.devicePixelRatio,
       },
     })
     Render.run(render)
@@ -111,10 +124,7 @@ const PageNotFoundDoodle = () => {
     Composite.add(world, mouseConstraint)
     render.mouse = mouse
 
-    Render.lookAt(render, {
-      min: { x: 0, y: 0 },
-      max: { x: w, y: h },
-    })
+    fitRenderToCanvas(render)
 
     // Setup achievement
     let interactionDetails: {
@@ -207,18 +217,13 @@ const PageNotFoundDoodle = () => {
   // Update sizes on viewport change
   onMount(() => {
     const handleResize = debounce(async () => {
-      const { clientHeight: h, clientWidth: w } = canvas
-      Render.setPixelRatio(render, window.devicePixelRatio)
-      Render.lookAt(render, {
-        min: { x: 0, y: 0 },
-        max: { x: w, y: h },
-      })
+      fitRenderToCanvas(render)
       const position = computeBodyPositions()
       elements.forEach(({ spring }, i) => {
         spring.pointA.x = position.x[i]!
         spring.pointA.y = position.springY
       })
-    }, 1000)
+    }, 500)
     window.addEventListener("resize", handleResize)
     onCleanup(() => window.removeEventListener("resize", handleResize))
   })
