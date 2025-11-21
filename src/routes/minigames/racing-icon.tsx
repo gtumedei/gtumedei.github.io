@@ -3,45 +3,46 @@ import Meta from "~/components/meta"
 import AspectRatio from "~/components/ui/aspect-ratio"
 import { Button } from "~/components/ui/button"
 import tooltip from "~/lib/directives/tooltip"
-import { ColorGuesserBoard } from "~/minigames/color-guesser/board"
-import { ColorGuesserGameProvider, useColorGuesserGame } from "~/minigames/color-guesser/core"
-import { ColorGuesserDialogs } from "~/minigames/color-guesser/dialogs"
+import RacingIconControls from "~/minigames/racing-icon/controls"
+import { RacingIconGameProvider, useRacingIconGame } from "~/minigames/racing-icon/core"
+import { RacingIconDialogs } from "~/minigames/racing-icon/dialogs"
+import RacingIconGameScreen from "~/minigames/racing-icon/screen"
 import TablerChartBar from "~icons/tabler/chart-bar"
 import TablerMenu from "~icons/tabler/menu"
 
-const ColorGuesserGame = () => {
+const RacingIconGame = () => {
   return (
     <>
       <Meta
-        title="Color Guesser"
-        description="Are you nerd enough to guess a color based on its RGB code? Let's find out! HSL is also available for the classy ones."
+        title="Racing Icon"
+        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, sunt ipsa! Perferendis minus temporibus est."
       />
-      <ColorGuesserGameProvider>
+      <RacingIconGameProvider>
         <GameLayout
           mobileMenu={<MobileMenu />}
           leftDesktopMenu={<LeftMenu />}
           rightDesktopMenu={<RightMenu />}
         >
-          <div class="relative h-full pt-6 pb-24 px-3">
+          <div class="relative h-full px-3 py-6 max-lg:pb-23">
             <AspectRatio w={1} h={1}>
-              <ColorGuesserBoard />
+              <RacingIconGameScreen />
             </AspectRatio>
-            <ColorIndicator />
           </div>
-          <ColorGuesserDialogs />
+          <RacingIconControls />
+          <RacingIconDialogs />
         </GameLayout>
-      </ColorGuesserGameProvider>
+      </RacingIconGameProvider>
     </>
   )
 }
 
 const MobileMenu = () => {
-  const ctx = useColorGuesserGame()
+  const ctx = useRacingIconGame()
 
   tooltip
   return (
     <header class="w-full flex items-center gap-3 p-3">
-      <h1 class="font-heading tracking-normal text-xl mb-1 grow ml-3">Color Guesser</h1>
+      <h1 class="font-heading tracking-normal text-xl mb-1 grow ml-3">Racing Icon</h1>
       <div class="flex gap-4">
         <Button
           variant="subtle"
@@ -70,14 +71,14 @@ const LeftMenu = () => {
   return (
     <header class="w-48 p-6">
       <div class="h-10">
-        <h1 class="font-heading tracking-normal text-xl whitespace-nowrap">Color Guesser</h1>
+        <h1 class="font-heading tracking-normal text-xl whitespace-nowrap">Racing Icon</h1>
       </div>
     </header>
   )
 }
 
 const RightMenu = () => {
-  const ctx = useColorGuesserGame()
+  const ctx = useRacingIconGame()
 
   tooltip
   return (
@@ -104,18 +105,4 @@ const RightMenu = () => {
   )
 }
 
-const ColorIndicator = () => {
-  const ctx = useColorGuesserGame()
-
-  return (
-    <div class="absolute bottom-6 left-0 w-full flex">
-      <div class="flex bg-base-100/90 dark:bg-base-200/90 px-6 py-2.5 rounded-full border border-on-base/10 shadow-md shadow-black/3 m-auto">
-        <p class="text-on-base/70">
-          Color code: <span class="text-on-base">{ctx.game.color}</span>
-        </p>
-      </div>
-    </div>
-  )
-}
-
-export default ColorGuesserGame
+export default RacingIconGame

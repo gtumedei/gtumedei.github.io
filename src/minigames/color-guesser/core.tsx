@@ -4,6 +4,7 @@ import { createStore } from "solid-js/store"
 import { isServer } from "solid-js/web"
 import { useAchievements } from "~/lib/achievements"
 import { hexToHsl, hexToRgb, pickRandom, scrambleHex } from "./utils"
+import { create } from "~/lib/context"
 
 export type Game = {
   state: "IDLE" | "PLAYING"
@@ -47,7 +48,7 @@ export const colors = [
   "#607D8B",
 ]
 
-export const createColorGuesser = () => {
+export const [ColorGuesserGameProvider, useColorGuesserGame] = create(() => {
   const [game, setGame] = createStore<Game>({
     state: "IDLE",
     difficulty: { ...difficulties[0]! },
@@ -128,4 +129,4 @@ export const createColorGuesser = () => {
       setDialogState,
     },
   }
-}
+})

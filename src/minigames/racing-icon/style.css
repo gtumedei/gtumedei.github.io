@@ -1,0 +1,45 @@
+@keyframes car-shake {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-1px);
+  }
+  40% {
+    transform: translateY(1px);
+  }
+  60% {
+    transform: translateY(-0.5px);
+  }
+  80% {
+    transform: translateY(0.5px);
+  }
+}
+
+@utility animate-car-shake {
+  animation: car-shake 0.35s linear infinite;
+}
+
+@keyframes car-shake-strong {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-2px);
+  }
+  40% {
+    transform: translateY(2px);
+  }
+  60% {
+    transform: translateY(-1px);
+  }
+  80% {
+    transform: translateY(1px);
+  }
+}
+
+@utility animate-car-shake-strong {
+  animation: car-shake-strong 0.2s linear infinite;
+}

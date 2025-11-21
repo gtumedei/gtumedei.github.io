@@ -4,6 +4,8 @@
 @plugin "@tailwindcss/typography";
 @plugin "tailwindcss-animate";
 
+@import "./minigames/racing-icon/style.css";
+
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {

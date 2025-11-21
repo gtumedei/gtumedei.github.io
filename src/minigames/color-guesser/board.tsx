@@ -3,7 +3,35 @@ import { Transition } from "solid-transition-group"
 import cn from "~/lib/cn"
 import TablerCheck from "~icons/tabler/check"
 import TablerX from "~icons/tabler/x"
-import { useColorGuesserGame } from "."
+import { useColorGuesserGame } from "./core"
+
+export const ColorGuesserBoard = () => {
+  const ctx = useColorGuesserGame()
+
+  return (
+    <Transition
+      enterClass="opacity-0"
+      exitToClass="opacity-0"
+      enterActiveClass="transition-opacity"
+      exitActiveClass="transition-opacity"
+      mode="outin"
+    >
+      <Show when={ctx.game.colorGrid} keyed>
+        {(colorGrid) => {
+          const grid = ctx.game.difficulty?.grid // Make the grid size non-reactive to avoid bad looking animations on difficulty change
+          return (
+            <div
+              class="h-full grid gap-3"
+              style={`grid-template-columns: repeat(${grid}, minmax(0, 1fr));`}
+            >
+              <For each={colorGrid ?? []}>{(color) => <Tile color={color} />}</For>
+            </div>
+          )
+        }}
+      </Show>
+    </Transition>
+  )
+}
 
 const Tile: Component<{ color: string }> = (props) => {
   const [success, setSuccess] = createSignal(false)
@@ -59,33 +87,5 @@ const Tile: Component<{ color: string }> = (props) => {
         />
       </div>
     </button>
-  )
-}
-
-export const ColorGuesserBoard = () => {
-  const ctx = useColorGuesserGame()
-
-  return (
-    <Transition
-      enterClass="opacity-0"
-      exitToClass="opacity-0"
-      enterActiveClass="transition-opacity"
-      exitActiveClass="transition-opacity"
-      mode="outin"
-    >
-      <Show when={ctx.game.colorGrid} keyed>
-        {(colorGrid) => {
-          const grid = ctx.game.difficulty?.grid // Make the grid size non-reactive to avoid bad looking animations on difficulty change
-          return (
-            <div
-              class="h-full grid gap-3"
-              style={`grid-template-columns: repeat(${grid}, minmax(0, 1fr));`}
-            >
-              <For each={colorGrid ?? []}>{(color) => <Tile color={color} />}</For>
-            </div>
-          )
-        }}
-      </Show>
-    </Transition>
   )
 }

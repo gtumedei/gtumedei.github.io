@@ -14,6 +14,7 @@ My personal website.
 - [ ] Mention the inspiration from https://tailwindcss.com/plus/templates/spotlight
 - Racing icon game
   - Use tabler icons as cars (and obstacles too?)
+  - Choose car trail
   - Top-down view
   - 4 lanes with cars you have to dodge, 2 lanes for each direction
   - Dynamic obstacles i.e. other vehicles to dodge
@@ -22,3 +23,6 @@ My personal website.
   - Pick up bonuses during the game
   - Progressively increase speed and add new spawnable elements
 - [ ] An achievement for the other minigame
+- 404 doodle:
+  - [ ] Fix resize sometimes not working properly
+  - [ ] Forward unused events to the window (pinch, drag, scroll, ...)

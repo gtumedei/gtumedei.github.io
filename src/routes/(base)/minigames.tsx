@@ -1,10 +1,10 @@
 import { A } from "@solidjs/router"
 import { animate, stagger } from "motion"
-import { onMount } from "solid-js"
+import { Component, For, onMount } from "solid-js"
 import Meta from "~/components/meta"
 import PageHeadingIcon from "~/components/page-heading-icon"
+import minigames, { Minigame } from "~/lib/content/minigames"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
-import TablerClock from "~icons/tabler/clock"
 import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
 
 const MinigamesPage = () => {
@@ -38,35 +38,14 @@ const MinigamesPage = () => {
           Minigames
         </h1>
         <p class="text-on-base/70 tall-lines" data-motion="heading">
-          here you can find a few lightweight minigames I created for fun. They're small experiments
-          rather than polished titles, meant for a quick break or a tiny challenge.
+          Here you can find a few lightweight minigames I created for fun. If you want a quick break
+          or a tiny challenge, you're in the right place. And who knows, a new one might have popped
+          out the next time you drop by.
         </p>
       </div>
       <div class="grid md:grid-cols-2 gap-6 px-6 py-20">
-        <A
-          href="/minigames/color-guesser"
-          class="flex flex-col gap-6 p-6 rounded-3xl border border-on-base/10 group hover:bg-on-base/5 hover:border-transparent focus-ring transition-colors"
-          data-motion="minigame-item"
-        >
-          <img
-            src="/img-remote/color-guesser.png"
-            alt=""
-            class="w-36 h-36 rounded-2xl shadow shadow-black/5"
-          />
-          <div class="px-0.5">
-            <h2 class="text-lg font-medium mb-2">Color guesser</h2>
-            <p class="text-sm text-on-base/70 tall-lines mb-4">
-              Are you nerd enough to guess a color based on its RGB code? Let's find out! HSL is
-              also available for the classy ones.
-            </p>
-            <p class="flex items-center gap-1.5 text-sm font-medium text-accent">
-              Try it out
-              <TablerArrowNarrowRight class="text-base group-hover:translate-x-1 transition-transform" />
-            </p>
-          </div>
-        </A>
-
-        <div
+        <For each={minigames}>{(minigame) => <MinigameCard minigame={minigame} />}</For>
+        {/* <div
           class="flex flex-col gap-6 p-6 rounded-3xl border border-dashed border-on-base/10"
           data-motion="minigame-item"
         >
@@ -79,9 +58,33 @@ const MinigamesPage = () => {
               find the time to build them.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
+  )
+}
+
+const MinigameCard: Component<{ minigame: Minigame }> = (props) => {
+  return (
+    <A
+      href={`/minigames/${props.minigame.slug}`}
+      class="flex flex-col gap-6 p-6 rounded-3xl border border-on-base/10 group hover:bg-on-base/5 hover:border-transparent focus-ring transition-colors"
+      data-motion="minigame-item"
+    >
+      <img
+        src={props.minigame.imageUrl}
+        alt=""
+        class="w-36 h-36 rounded-2xl shadow shadow-black/5"
+      />
+      <div class="px-0.5">
+        <h2 class="text-lg font-medium mb-2">{props.minigame.name}</h2>
+        <p class="text-sm text-on-base/70 tall-lines mb-4">{props.minigame.description}</p>
+        <p class="flex items-center gap-1.5 text-sm font-medium text-accent">
+          Try it out
+          <TablerArrowNarrowRight class="text-base group-hover:translate-x-1 transition-transform" />
+        </p>
+      </div>
+    </A>
   )
 }
 

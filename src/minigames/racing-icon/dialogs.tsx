@@ -1,13 +1,13 @@
-import { createSignal, onMount } from "solid-js"
+import { onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import { Button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
+import { useRacingIconGame } from "~/minigames/racing-icon/core"
 import TablerChartBar from "~icons/tabler/chart-bar"
 import TablerChevronLeft from "~icons/tabler/chevron-left"
 import TablerChevronRight from "~icons/tabler/chevron-right"
-import { useColorGuesserGame } from "./core"
 
-export const ColorGuesserDialogs = () => {
+export const RacingIconDialogs = () => {
   return (
     <>
       <MenuDialog />
@@ -17,9 +17,9 @@ export const ColorGuesserDialogs = () => {
 }
 
 const MenuDialog = () => {
-  const ctx = useColorGuesserGame()
+  const ctx = useRacingIconGame()
 
-  const [difficulty, setDifficulty] = createSignal(0)
+  /* const [difficulty, setDifficulty] = createSignal(0)
   const increaseDifficulty = () =>
     setDifficulty((v) => Math.min(v + 1, ctx.difficulties.length - 1))
   const decreaseDifficulty = () => setDifficulty((v) => Math.max(v - 1, 0))
@@ -31,7 +31,7 @@ const MenuDialog = () => {
   const onStartBtnClick = () => {
     ctx.ui.setDialogState(null)
     ctx.gameActions.startGame(ctx.difficulties[difficulty()]!, ctx.modes[mode()]!)
-  }
+  } */
 
   onMount(async () => {
     await new Promise((r) => setTimeout(r, 100))
@@ -52,53 +52,52 @@ const MenuDialog = () => {
         <Dialog.Positioner>
           <Dialog.Content class="w-full max-w-lg text-center">
             <Dialog.Header class="gap-1">
-              <img
-                src="/img-remote/color-guesser.png"
-                alt=""
-                class="w-15 h-15 rounded-md shadow shadow-black/5 mx-auto mb-3"
-              />
-              <Dialog.Title>Color Guesser</Dialog.Title>
+              <img src="#" alt="" class="w-15 h-15 rounded-md shadow shadow-black/5 mx-auto mb-3" />
+              <Dialog.Title>Racing Icon</Dialog.Title>
               <Dialog.Description class="text-balance">
-                Are you nerd enough to guess a color based on its RGB code? Let's find out!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, nisi. Eum, nisi.
               </Dialog.Description>
             </Dialog.Header>
             <div class="flex flex-col divide-y divide-on-base/10 rounded-xl border border-on-base/10 mt-2 mb-2.5">
               <div class="flex items-center gap-2 p-2">
-                <h5 class="text-left text-sm text-on-base/70 font-medium grow ml-2.5">
-                  Difficulty
-                </h5>
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow ml-2.5">Vehicle</h5>
                 <div class="flex gap-2 items-center">
                   <Button
                     variant="ghost"
                     shape="square"
-                    onClick={decreaseDifficulty}
-                    disabled={difficulty() == 0}
+                    /* onClick={decreaseDifficulty}
+                    disabled={difficulty() == 0} */
                   >
                     <TablerChevronLeft />
                   </Button>
-                  <span class="text-sm w-16">{ctx.difficulties[difficulty()]!.label}</span>
+                  <span class="text-sm w-16">asd</span>
                   <Button
                     variant="ghost"
                     shape="square"
-                    onClick={increaseDifficulty}
-                    disabled={difficulty() == ctx.difficulties.length - 1}
+                    /* onClick={increaseDifficulty}
+                    disabled={difficulty() == ctx.difficulties.length - 1} */
                   >
                     <TablerChevronRight />
                   </Button>
                 </div>
               </div>
               <div class="flex items-center gap-2 p-2">
-                <h5 class="text-left text-sm text-on-base/70 font-medium grow ml-2.5">Mode</h5>
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow ml-2.5">Trail</h5>
                 <div class="flex gap-2 items-center">
-                  <Button variant="ghost" shape="square" onClick={prevMode} disabled={mode() == 0}>
-                    <TablerChevronLeft />
-                  </Button>
-                  <span class="text-sm w-16">{ctx.modes[mode()]}</span>
                   <Button
                     variant="ghost"
                     shape="square"
-                    onClick={nextMode}
-                    disabled={mode() == ctx.difficulties.length - 1}
+                    /* onClick={decreaseDifficulty}
+                    disabled={difficulty() == 0} */
+                  >
+                    <TablerChevronLeft />
+                  </Button>
+                  <span class="text-sm w-16">asd</span>
+                  <Button
+                    variant="ghost"
+                    shape="square"
+                    /* onClick={increaseDifficulty}
+                    disabled={difficulty() == ctx.difficulties.length - 1} */
                   >
                     <TablerChevronRight />
                   </Button>
@@ -106,9 +105,13 @@ const MenuDialog = () => {
               </div>
             </div>
             <Dialog.Actions class="grid grid-cols-1 sm:grid-cols-2">
-              <Button class="sm:order-2" onClick={onStartBtnClick}>
+              <Dialog.CloseTrigger
+                asChild={(props) => (
+                  <Button {...props} class="sm:order-2" />
+                )} /* onClick={onStartBtnClick} */
+              >
                 {ctx.game.state == "IDLE" ? "Play" : "Apply"}
-              </Button>
+              </Dialog.CloseTrigger>
               <Button
                 variant="subtle"
                 class="sm:order-1"
@@ -125,7 +128,7 @@ const MenuDialog = () => {
 }
 
 const StatsDialog = () => {
-  const ctx = useColorGuesserGame()
+  const ctx = useRacingIconGame()
 
   return (
     <Dialog
@@ -142,33 +145,26 @@ const StatsDialog = () => {
               <div class="flex bg-base-300 text-accent rounded-full p-4 mx-auto mb-3">
                 <TablerChartBar class="text-2xl" />
               </div>
-              <Dialog.Title>Your Color Guesser stats</Dialog.Title>
+              <Dialog.Title>Your Racing Icon stats</Dialog.Title>
             </Dialog.Header>
             <div class="flex flex-col divide-y divide-on-base/10 rounded-xl border border-on-base/10 mt-2 mb-2.5">
               <div class="flex items-center gap-2 px-4.5 py-3">
-                <h5 class="text-left text-sm text-on-base/70 font-medium grow">Best streak</h5>
-                <p>
-                  {ctx.stats.streak ? `(${ctx.stats.streakDifficulty}) ${ctx.stats.streak}` : 0}
-                </p>
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow">Best score</h5>
+                <p>0</p>
               </div>
               <div class="flex items-center gap-2 px-4.5 py-3">
-                <h5 class="text-left text-sm text-on-base/70 font-medium grow">Total guesses</h5>
-                <p>{(ctx.stats.rightGuesses ?? 0) + (ctx.stats.wrongGuesses ?? 0)}</p>
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow">
+                  Obstacles avoided
+                </h5>
+                <p>0</p>
               </div>
               <div class="flex items-center gap-2 px-4.5 py-3">
-                <h5 class="text-left text-sm text-on-base/70 font-medium grow">Accuracy</h5>
-                <p>
-                  {
-                    +(
-                      (ctx.stats.rightGuesses ?? 0) /
-                      ((ctx.stats.rightGuesses ?? 0) + (ctx.stats.wrongGuesses ?? 0))
-                    ).toFixed(3)
-                  }
-                </p>
+                <h5 class="text-left text-sm text-on-base/70 font-medium grow">Obstacles hit</h5>
+                <p>0</p>
               </div>
             </div>
             <Dialog.Actions class="grid grid-cols-1">
-              <Button class="sm:w-1/2 sm:mx-auto" onClick={ctx.resetStats}>
+              <Button class="sm:w-1/2 sm:mx-auto" /* onClick={ctx.resetStats} */>
                 Reset stats
               </Button>
             </Dialog.Actions>
