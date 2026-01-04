@@ -1,5 +1,5 @@
 import { Component, createSignal, For, Show } from "solid-js"
-import { Transition } from "solid-transition-group"
+import OpacityTransition from "~/components/opacity-transition"
 import cn from "~/lib/cn"
 import TablerCheck from "~icons/tabler/check"
 import TablerX from "~icons/tabler/x"
@@ -9,13 +9,7 @@ export const ColorGuesserBoard = () => {
   const ctx = useColorGuesserGame()
 
   return (
-    <Transition
-      enterClass="opacity-0"
-      exitToClass="opacity-0"
-      enterActiveClass="transition-opacity"
-      exitActiveClass="transition-opacity"
-      mode="outin"
-    >
+    <OpacityTransition>
       <Show when={ctx.game.colorGrid} keyed>
         {(colorGrid) => {
           const grid = ctx.game.difficulty?.grid // Make the grid size non-reactive to avoid bad looking animations on difficulty change
@@ -29,7 +23,7 @@ export const ColorGuesserBoard = () => {
           )
         }}
       </Show>
-    </Transition>
+    </OpacityTransition>
   )
 }
 

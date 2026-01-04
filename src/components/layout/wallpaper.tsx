@@ -1,14 +1,14 @@
 import { Link } from "@solidjs/meta"
 import { useCurrentMatches } from "@solidjs/router"
 import { Match, ParentComponent, Show, Switch } from "solid-js"
-import { Transition } from "solid-transition-group"
+import OpacityTransition from "~/components/opacity-transition"
 import cn from "~/lib/cn"
 import { useTheme } from "~/lib/theme"
 
 const wallpapers = {
   base: "/img-remote/braies.jpg",
-  dottedMobile: "/img-remote/braies dotted mobile.svg",
-  dottedDesktop: "/img-remote/braies dotted.svg",
+  dottedMobile: "/img-remote/braies dotted nobg mobile.svg",
+  dottedDesktop: "/img-remote/braies dotted nobg.svg",
   pixelatedMobile: "/img-remote/braies pixelated mobile.png",
   pixelatedDesktop: "/img-remote/braies pixelated.png",
 }
@@ -23,14 +23,7 @@ const Wallpaper = () => {
         <Link rel="prefetch" href={src} as="image" fetchpriority="high" />
       ))}
       <WallpaperContainer>
-        <Transition
-          appear
-          enterClass="opacity-0"
-          exitToClass="opacity-0"
-          enterActiveClass="transition-opacity"
-          exitActiveClass="transition-opacity"
-          mode="outin"
-        >
+        <OpacityTransition>
           <Show when={showWallpaper() == "on"}>
             <Switch>
               <Match when={style() == "minimalist"}>
@@ -38,22 +31,26 @@ const Wallpaper = () => {
                   <img
                     src={wallpapers.base}
                     alt=""
-                    class={cn("h-full w-full object-cover opacity-50 mask-b-from-10%")}
+                    class="h-full w-full object-cover opacity-50 mask-b-from-10%"
                   />
                 </div>
               </Match>
               <Match when={style() == "dotted"}>
                 <div class="w-full h-full">
-                  <img
-                    src={wallpapers.dottedMobile}
-                    alt=""
-                    class="md:hidden h-full w-full object-cover opacity-50 mask-b-from-10%"
-                  />
-                  <img
-                    src={wallpapers.dottedDesktop}
-                    alt=""
-                    class="max-md:hidden h-full w-full object-cover opacity-50 mask-b-from-10%"
-                  />
+                  <div class="w-full h-full opacity-50 mask-b-from-10% relative">
+                    <img src={wallpapers.base} alt="" class="h-full w-full object-cover" />
+                    <div class="h-full w-full bg-neutral-600/20 absolute-center backdrop-blur-3xl" />
+                    <img
+                      src={wallpapers.dottedMobile}
+                      alt=""
+                      class="md:hidden h-full w-full object-cover absolute-center"
+                    />
+                    <img
+                      src={wallpapers.dottedDesktop}
+                      alt=""
+                      class="max-md:hidden h-full w-full object-cover absolute-center"
+                    />
+                  </div>
                 </div>
               </Match>
               <Match when={style() == "pixelated"}>
@@ -72,7 +69,7 @@ const Wallpaper = () => {
               </Match>
             </Switch>
           </Show>
-        </Transition>
+        </OpacityTransition>
       </WallpaperContainer>
     </>
   )

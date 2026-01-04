@@ -42,8 +42,8 @@ const MenuDialog = () => {
     <Dialog
       open={ctx.ui.dialogState() == "menu"}
       onOpenChange={({ open }) => ctx.ui.setDialogState(open ? "menu" : null)}
-      closeOnEscape={ctx.game.state != "IDLE"}
-      closeOnInteractOutside={ctx.game.state != "IDLE"}
+      closeOnEscape={ctx.state() != "IDLE"}
+      closeOnInteractOutside={ctx.state() != "IDLE"}
       lazyMount
       unmountOnExit
     >
@@ -105,13 +105,9 @@ const MenuDialog = () => {
               </div>
             </div>
             <Dialog.Actions class="grid grid-cols-1 sm:grid-cols-2">
-              <Dialog.CloseTrigger
-                asChild={(props) => (
-                  <Button {...props} class="sm:order-2" />
-                )} /* onClick={onStartBtnClick} */
-              >
-                {ctx.game.state == "IDLE" ? "Play" : "Apply"}
-              </Dialog.CloseTrigger>
+              <Button class="sm:order-2" onClick={() => ctx.ui.setDialogState(null)}>
+                {ctx.state() == "IDLE" ? "Play" : "Apply"}
+              </Button>
               <Button
                 variant="subtle"
                 class="sm:order-1"

@@ -1,3 +1,4 @@
+import { createSignal, onCleanup, onMount } from "solid-js"
 import { button } from "~/components/ui/button"
 import cn from "~/lib/cn"
 import TablerArrowBigDown from "~icons/tabler/arrow-big-down"
@@ -13,6 +14,28 @@ const RacingIconControls = () => {
     document.body.dispatchEvent(e)
   }
 
+  const [upActive, setUpActive] = createSignal(false)
+  let upTimeout: NodeJS.Timeout | undefined = undefined
+  const [downActive, setDownActive] = createSignal(false)
+  let downTimeout: NodeJS.Timeout | undefined = undefined
+  onMount(() => {
+    const onKeydown = async (e: KeyboardEvent) => {
+      const key = e.key.toLowerCase()
+      if (["w", "arrowup"].includes(key)) {
+        clearTimeout(upTimeout)
+        setUpActive(true)
+        upTimeout = setTimeout(() => setUpActive(false), 200)
+      }
+      if (["s", "arrowdown"].includes(key)) {
+        clearTimeout(downTimeout)
+        setDownActive(true)
+        downTimeout = setTimeout(() => setDownActive(false), 200)
+      }
+    }
+    document.addEventListener("keydown", onKeydown)
+    onCleanup(() => document.removeEventListener("keydown", onKeydown))
+  })
+
   return (
     <div class="header-pill w-30.5 flex flex-col rounded-full absolute-center-x bottom-12">
       <button
@@ -22,7 +45,8 @@ const RacingIconControls = () => {
         <div
           class={cn(
             button({ variant: "subtle", size: "xl", shape: "circle" }),
-            "text-xl group-hover:bg-accent/15 group-hover:text-accent group-active:bg-accent/15 group-active:text-accent mx-auto"
+            "text-xl group-hover:bg-accent/15 group-hover:text-accent mx-auto",
+            upActive() && "bg-accent/15 text-accent"
           )}
         >
           <TablerArrowBigUp />
@@ -35,7 +59,8 @@ const RacingIconControls = () => {
         <div
           class={cn(
             button({ variant: "subtle", size: "xl", shape: "circle" }),
-            "text-xl group-hover:bg-accent/15 group-hover:text-accent group-active:bg-accent/15 group-active:text-accent mx-auto"
+            "text-xl group-hover:bg-accent/15 group-hover:text-accent mx-auto",
+            downActive() && "bg-accent/15 text-accent"
           )}
         >
           <TablerArrowBigDown />

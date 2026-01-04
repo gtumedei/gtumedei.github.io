@@ -1,34 +1,50 @@
-import { createElementBounds } from "@solid-primitives/bounds"
-import { onCleanup, onMount } from "solid-js"
-import { createStore } from "solid-js/store"
+import { Component, For, onCleanup, onMount, Show } from "solid-js"
+import { Dynamic } from "solid-js/web"
+import OpacityTransition from "~/components/opacity-transition"
 import cn from "~/lib/cn"
+import { useRacingIconGame, Vehicle } from "~/minigames/racing-icon/core"
 import TablerCarSuvFilled from "~icons/tabler/car-suv-filled"
 
-// Obstacle icons: fence, christmas-tree, tree
-// Vehicles: car, suv, car-crane, camper, bus, truck, rv-truck, firetruck, ambulance, wrecking-ball, backhoe, bulldozer, tractor, tir, tank, bike
-
 const RacingIconGameScreen = () => {
-  const [state, setState] = createStore({
-    carLane: 4,
-  })
+  const game = useRacingIconGame()
 
-  let screen!: HTMLDivElement
-  let lane1!: HTMLDivElement
-  let lane2!: HTMLDivElement
-  let lane3!: HTMLDivElement
-  let lane4!: HTMLDivElement
-  let playerCar!: HTMLDivElement
+  return (
+    <OpacityTransition>
+      <Show when={game.state() != "IDLE"}>
+        <div
+          ref={game.elements.screen.setElem}
+          class="w-full h-full flex bg-base-200 rounded-2xl border border-on-base/10 relative overflow-hidden"
+        >
+          <Road />
+          <PlayerVehicle />
+          <For each={game.elements.vehicles}>{(vehicle) => <VehicleItem vehicle={vehicle} />}</For>
+        </div>
+      </Show>
+    </OpacityTransition>
+  )
+}
 
-  const screenBounds = createElementBounds(() => screen)
-  const lane1Bounds = createElementBounds(() => lane1)
-  const lane2Bounds = createElementBounds(() => lane2)
-  const lane3Bounds = createElementBounds(() => lane3)
-  const lane4Bounds = createElementBounds(() => lane4)
-  const laneSize = () => lane1Bounds.height
-  const playerCarBounds = createElementBounds(() => playerCar)
+const Road = () => {
+  const lanes = useRacingIconGame().elements.lanes
+
+  return (
+    <div class="w-full h-1/3 bg-base-300 border-t-2 border-on-base/30 my-auto">
+      <div ref={lanes.setLane1Elem} class="h-1/4 border-b-2 border-dashed border-on-base/30" />
+      <div class="h-1/4 border-b-2 border-on-base/30" />
+      <div class="h-1/4 border-b-2 border-dashed border-on-base/30" />
+      <div class="h-1/4 border-b-2 border-on-base/30" />
+    </div>
+  )
+}
+
+const PlayerVehicle = () => {
+  const {
+    state,
+    elements: { screen, lanes, playerVehicle },
+  } = useRacingIconGame()
 
   const changeLane = (direction: "up" | "down") => {
-    setState("carLane", (v) => (direction == "up" ? Math.max(v - 1, 0) : Math.min(v + 1, 5)))
+    playerVehicle.setLane((v) => (direction == "up" ? Math.max(v - 1, 0) : Math.min(v + 1, 5)))
   }
 
   onMount(() => {
@@ -42,34 +58,55 @@ const RacingIconGameScreen = () => {
   })
 
   return (
-    <div ref={screen} class="w-full h-full flex bg-base-200 rounded-2xl border border-on-base/10">
-      <div class="w-full h-1/3 bg-base-300 border-t-2 border-on-base/30 my-auto">
-        <div ref={lane1} class="h-1/4 border-b-2 border-dashed border-on-base/30" />
-        <div ref={lane2} class="h-1/4 border-b-2 border-on-base/30" />
-        <div ref={lane3} class="h-1/4 border-b-2 border-dashed border-on-base/30" />
-        <div ref={lane4} class="h-1/4 border-b-2 border-on-base/30" />
-      </div>
+    <div
+      ref={playerVehicle.setElem}
+      class="h-1/16 aspect-square flex absolute transition-all duration-200"
+      style={{
+        top: `${
+          lanes.lane1Bounds.top! -
+          screen.bounds.top! +
+          (playerVehicle.lane() - 1) * lanes.size()! +
+          (lanes.size()! - playerVehicle.bounds.height!) / 2
+        }px`,
+        left: "16px",
+      }}
+    >
+      <TablerCarSuvFilled
+        class={cn(
+          "w-9/10 h-9/10 m-auto",
+          [0, 5].includes(playerVehicle.lane()) ? "animate-car-shake-strong" : "animate-car-shake",
+          state() != "PLAYING" && "paused"
+        )}
+      />
+    </div>
+  )
+}
 
-      <div
-        ref={playerCar}
-        class="h-1/16 aspect-square flex absolute transition-all duration-100"
-        style={{
-          top: `${
-            lane1Bounds.top! -
-            screenBounds.top! +
-            (state.carLane - 1) * laneSize()! +
-            (laneSize()! - playerCarBounds.height!) / 2
-          }px`,
-          left: "16px",
-        }}
-      >
-        <TablerCarSuvFilled
-          class={cn(
-            "w-9/10 h-9/10 m-auto",
-            [0, 5].includes(state.carLane) ? "animate-car-shake-strong" : "animate-car-shake"
-          )}
-        />
-      </div>
+const VehicleItem: Component<{ vehicle: Vehicle }> = (props) => {
+  const {
+    state,
+    elements: { screen, lanes },
+  } = useRacingIconGame()
+
+  return (
+    <div
+      ref={props.vehicle.setElem}
+      class={cn(
+        "h-1/16 aspect-square flex absolute *:w-9/10 *:h-9/10 *:m-auto *:animate-car-shake",
+        props.vehicle.direction == "opposite" && "*:scale-x-[-1]",
+        state() != "PLAYING" && "*:paused"
+      )}
+      style={{
+        top: `${
+          lanes.lane1Bounds.top! -
+          screen.bounds.top! +
+          (props.vehicle.lane - 1) * lanes.size()! +
+          (lanes.size()! - props.vehicle.bounds.height!) / 2
+        }px`,
+        left: "0",
+      }}
+    >
+      <Dynamic component={props.vehicle.icon} />
     </div>
   )
 }
