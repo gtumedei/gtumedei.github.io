@@ -52,10 +52,10 @@ const AchievementPage = () => {
           <a
             href="https://www.maxlaumeister.com/"
             target="_blank"
-            class="inline-flex gap-0.5 font-medium text-on-base/50 hover:text-accent transition-colors"
+            class="text-on-base hover:text-accent transition-colors"
           >
             website
-            <TablerArrowUpRight class="inline-flex text-sm relative" />
+            <TablerArrowUpRight class="inline-flex text-xs -ml-0.5 relative bottom-1.5" />
           </a>
           !
         </p>

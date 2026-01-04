@@ -100,14 +100,14 @@ const TechPage = () => {
           <TechAnchor href="https://www.notion.so/">notion.so</TechAnchor>
           <h4>Figma</h4>
           <p>
-            It's awesome and I use it for all my design work. The desktop app requires a background
-            process to load custom fonts{" "}
+            It's awesome and I use it for all my design work. The desktop app{" "}
             <a
               href="https://forum.figma.com/t/stop-automatically-adding-figmaagent-to-login-items/43826"
               target="_blank"
-              class="text-on-base!"
+              class="not-prose text-on-base hover:text-accent transition-colors"
             >
-              <TablerArrowUpRight class="inline-flex text-sm relative bottom-1" />
+              requires a background process to load custom fonts
+              <TablerArrowUpRight class="inline-flex text-xs -ml-0.5 relative bottom-1.5" />
             </a>
             . Seriously Figma? Besides that, it's a really awesome tool.
           </p>
@@ -165,11 +165,16 @@ const TechPage = () => {
           <h4>unplugin-icons</h4>
           <p>
             Need an icon on your web project? This is the library you are looking for. Works with
-            pretty much any framework and has an awesome website where you can search all the icons{" "}
-            <a href="https://icones.js.org/" target="_blank" class="text-on-base!">
-              <TablerArrowUpRight class="inline-flex text-sm relative bottom-1" />
-            </a>
-            .
+            pretty much any framework and has an awesome{" "}
+            <a
+              href="https://icones.js.org/"
+              target="_blank"
+              class="not-prose text-on-base hover:text-accent transition-colors"
+            >
+              website
+              <TablerArrowUpRight class="inline-flex text-xs -ml-0.5 relative bottom-1.5" />
+            </a>{" "}
+            where you can search all the icons.
           </p>
           <TechAnchor href="https://github.com/unplugin/unplugin-icons">github.com</TechAnchor>
           <h4>Payload</h4>

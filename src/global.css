@@ -239,8 +239,6 @@
 }
 
 @theme {
-  --spacing-18: 4.5rem;
-
   --default-transition-duration: 400ms;
 
   --default-ring-width: 3px;

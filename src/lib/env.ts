@@ -16,8 +16,7 @@ const parsedPrivateEnv = PrivateEnvSchema.safeParse(isServer ? process.env : {})
 
 // Skip error checking on the client
 if (isServer && parsedPrivateEnv.success === false) {
-  console.error(`Invalid environment variables\n${z.prettifyError(parsedPrivateEnv.error)}`)
-  throw new Error("Invalid environment variables")
+  throw new Error(`Invalid environment variables\n${z.prettifyError(parsedPrivateEnv.error)}`)
 }
 
 const privateEnv = (parsedPrivateEnv as z.ZodSafeParseSuccess<z.infer<typeof PrivateEnvSchema>>)
@@ -26,8 +25,7 @@ const privateEnv = (parsedPrivateEnv as z.ZodSafeParseSuccess<z.infer<typeof Pri
 const parsedPublicEnv = PublicEnvSchema.safeParse(import.meta.env)
 
 if (parsedPublicEnv.success === false) {
-  console.error(`Invalid environment variables\n${z.prettifyError(parsedPublicEnv.error)}`)
-  throw new Error("Invalid environment variables")
+  throw new Error(`Invalid environment variables\n${z.prettifyError(parsedPublicEnv.error)}`)
 }
 
 const publicEnv = parsedPublicEnv.data

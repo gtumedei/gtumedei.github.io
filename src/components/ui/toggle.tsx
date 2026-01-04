@@ -7,7 +7,7 @@ type ToggleVariantProps = VariantProps<typeof toggle>
 
 export const toggle = tv({
   slots: {
-    root: "flex gap-3",
+    root: "flex gap-3 not-data-disabled:cursor-pointer",
     label: "text-sm font-medium text-on-base data-disabled:text-on-base/50",
     control:
       "shrink-0 h-5 w-8 flex justify-center items-center rounded-full border border-on-base/20 shadow-xs data-[state=checked]:bg-accent data-[state=indeterminate]:bg-accent data-[state=checked]:border-transparent data-[state=indeterminate]:border-transparent data-disabled:bg-on-base/20! data-disabled:border-transparent data-disabled:shadow-none data-focus:ring ring-on-base/10 data-[state=checked]:ring-accent/20 transition-all",

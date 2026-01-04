@@ -27,7 +27,7 @@ const NotFoundPage = () => {
       <HttpStatusCode code={404} />
       <Title>Page not found • Gianni Tumedei</Title>
       <div class="grow flex justify-center items-center relative">
-        <div class="w-full pb-28 my-auto">
+        <div class="w-full flex flex-col items-center pb-28 my-auto">
           <PageNotFoundDoodle />
           <div class="flex flex-col items-center text-center relative">
             <h1 class="font-heading text-4xl sm:text-5xl mb-4">Page not found</h1>
