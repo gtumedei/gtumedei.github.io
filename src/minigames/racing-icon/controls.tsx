@@ -1,6 +1,6 @@
 import { createSignal, onCleanup, onMount } from "solid-js"
 import { button } from "~/components/ui/button"
-import cn from "~/lib/cn"
+import { cn } from "tailwind-variants"
 import TablerArrowBigDown from "~icons/tabler/arrow-big-down"
 import TablerArrowBigUp from "~icons/tabler/arrow-big-up"
 

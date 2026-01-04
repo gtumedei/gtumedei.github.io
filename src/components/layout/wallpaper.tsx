@@ -2,7 +2,7 @@ import { Link } from "@solidjs/meta"
 import { useCurrentMatches } from "@solidjs/router"
 import { Match, ParentComponent, Show, Switch } from "solid-js"
 import OpacityTransition from "~/components/opacity-transition"
-import cn from "~/lib/cn"
+import { cn } from "tailwind-variants"
 import { useTheme } from "~/lib/theme"
 
 const wallpapers = {

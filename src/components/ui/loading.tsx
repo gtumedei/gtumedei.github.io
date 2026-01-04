@@ -1,5 +1,5 @@
 import { splitProps, type Component, type ComponentProps } from "solid-js"
-import cn from "~/lib/cn"
+import { cn } from "tailwind-variants"
 
 export const Loading: Component<ComponentProps<"svg">> = (props) => {
   const [localProps, tagProps] = splitProps(props, ["class"])

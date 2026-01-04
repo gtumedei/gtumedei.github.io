@@ -1,7 +1,7 @@
 import { Component, For, onCleanup, onMount, Show } from "solid-js"
 import { Dynamic } from "solid-js/web"
 import OpacityTransition from "~/components/opacity-transition"
-import cn from "~/lib/cn"
+import { cn } from "tailwind-variants"
 import { useRacingIconGame, Vehicle } from "~/minigames/racing-icon/core"
 import TablerCarSuvFilled from "~icons/tabler/car-suv-filled"
 

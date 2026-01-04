@@ -1,18 +1,15 @@
 import { ark } from "@ark-ui/solid"
-import { tv } from "tailwind-variants"
+import { tv } from "tailwind-variants/lite"
 import { createStyleContext } from "~/lib/style-context"
 
-export const formField = tv(
-  {
-    slots: {
-      root: "flex flex-col gap-1.5",
-      label: "text-sm font-medium ml-0.5",
-      hint: "text-sm text-on-base/70",
-    },
-    variants: {},
+export const formField = tv({
+  slots: {
+    root: "flex flex-col gap-1.5",
+    label: "text-sm font-medium ml-0.5",
+    hint: "text-sm text-on-base/70",
   },
-  { twMerge: false }
-)
+  variants: {},
+})
 
 const { withPlainRecipe } = createStyleContext(formField)
 

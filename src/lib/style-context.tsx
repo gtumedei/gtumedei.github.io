@@ -6,7 +6,7 @@ import {
   type ValidComponent,
 } from "solid-js"
 import { Dynamic } from "solid-js/web"
-import cn from "~/lib/cn"
+import { cn } from "tailwind-variants"
 
 type Recipe = {
   (props: Record<string, unknown>): Record<string, CallableFunction>

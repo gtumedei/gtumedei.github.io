@@ -1,6 +1,6 @@
 import type { HTMLArkProps } from "@ark-ui/solid"
 import { splitProps, type ParentComponent } from "solid-js"
-import cn from "~/lib/cn"
+import { cn } from "tailwind-variants"
 
 export const ProgressiveBlur: ParentComponent<
   HTMLArkProps<"div"> & {

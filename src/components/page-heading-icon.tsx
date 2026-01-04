@@ -1,5 +1,5 @@
 import { ComponentProps, ParentComponent, splitProps } from "solid-js"
-import cn from "~/lib/cn"
+import { cn } from "tailwind-variants"
 
 const PageHeadingIcon: ParentComponent<ComponentProps<"div">> = (props) => {
   const [localProps, divProps] = splitProps(props, ["children", "class"])

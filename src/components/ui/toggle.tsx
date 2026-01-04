@@ -1,7 +1,7 @@
 import { Switch as ArkToggle, type SwitchRootProps as ToggleRootProps } from "@ark-ui/solid"
 import { Show, children, splitProps, type ParentComponent } from "solid-js"
-import { tv, type VariantProps } from "tailwind-variants"
-import cn from "~/lib/cn"
+import { cn } from "tailwind-variants"
+import { tv, type VariantProps } from "tailwind-variants/lite"
 
 type ToggleVariantProps = VariantProps<typeof toggle>
 

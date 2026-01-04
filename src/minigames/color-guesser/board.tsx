@@ -1,6 +1,6 @@
 import { Component, createSignal, For, Show } from "solid-js"
 import OpacityTransition from "~/components/opacity-transition"
-import cn from "~/lib/cn"
+import { cn } from "tailwind-variants"
 import TablerCheck from "~icons/tabler/check"
 import TablerX from "~icons/tabler/x"
 import { useColorGuesserGame } from "./core"
