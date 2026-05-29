@@ -36,7 +36,7 @@
   --color-base-200: var(--color-gray-50);
   --color-base-300: var(--color-gray-100);
   --color-on-base: var(--color-gray-800);
-  --color-neutral: var(--color-gray-800);
+  --color-neutral: var(--color-zinc-800);
   --color-on-neutral: var(--color-white);
   --color-accent-blue: var(--color-blue-500);
   --color-accent-orange: #ff8a65;
@@ -324,6 +324,6 @@
   @apply pointer-events-none;
 
   .bar {
-    @apply fixed top-0 left-0 w-full h-[3px] z-3000 bg-accent;
+    @apply fixed top-0 left-0 w-full h-0.75 z-3000 bg-accent;
   }
 }

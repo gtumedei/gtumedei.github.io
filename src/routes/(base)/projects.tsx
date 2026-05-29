@@ -88,9 +88,9 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
       <div class="bg-base-200 dark:bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
         <div class="h-8 w-8 rounded-full bg-on-base" />
       </div>
-      <h3 class="font-medium mb-3">{props.project.name}</h3>
-      <p class="text-sm text-on-base/70 tall-lines mb-4">{props.project.description}</p>
-      <p class="flex items-center gap-3 text-sm font-medium text-on-base/50 group-hover:text-accent transition-colors">
+      <h3 class="text-lg font-medium mb-3">{props.project.name}</h3>
+      <p class="md:text-sm text-on-base/70 tall-lines mb-4">{props.project.description}</p>
+      <p class="flex items-center gap-3 md:text-sm font-medium text-on-base/50 group-hover:text-accent transition-colors">
         <TablerLink /> {hostname()}
       </p>
     </a>

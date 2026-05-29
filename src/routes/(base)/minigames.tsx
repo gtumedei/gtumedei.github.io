@@ -78,10 +78,10 @@ const MinigameCard: Component<{ minigame: Minigame }> = (props) => {
       />
       <div class="px-0.5">
         <h2 class="text-lg font-medium mb-2">{props.minigame.name}</h2>
-        <p class="text-sm text-on-base/70 tall-lines mb-4">{props.minigame.description}</p>
-        <p class="flex items-center gap-1.5 text-sm font-medium text-accent">
+        <p class="md:text-sm text-on-base/70 tall-lines mb-4">{props.minigame.description}</p>
+        <p class="flex items-center gap-1.5 md:text-sm font-medium text-accent">
           Try it out
-          <TablerArrowNarrowRight class="text-base group-hover:translate-x-1 transition-transform" />
+          <TablerArrowNarrowRight class="text-base max-md:text-lg group-hover:translate-x-1 transition-transform" />
         </p>
       </div>
     </A>

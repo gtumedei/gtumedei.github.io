@@ -72,7 +72,7 @@ const HomePage = () => {
                 target="_blank"
                 class={cn(
                   button({ variant: "subtle", shape: "square", size: "lg" }),
-                  "backdrop-blur-xs"
+                  "backdrop-blur-xs",
                 )}
                 use:tooltip={[item.title, "bottom"]}
               >
@@ -126,10 +126,10 @@ const HomePage = () => {
               {item.icon()}
               <h2 class="text-lg font-semibold">{item.title}</h2>
             </div>
-            <p class="text-sm text-on-base/70 tall-lines mb-4">{item.description}</p>
-            <p class="flex items-center gap-1.5 text-sm font-medium text-accent">
+            <p class="md:text-sm text-on-base/70 tall-lines mb-4">{item.description}</p>
+            <p class="flex items-center gap-1.5 md:text-sm font-medium text-accent">
               {item.action}
-              <TablerArrowNarrowRight class="text-base group-hover:translate-x-1 transition-transform" />
+              <TablerArrowNarrowRight class="text-base max-md:text-lg group-hover:translate-x-1 transition-transform" />
             </p>
           </A>
         ))}

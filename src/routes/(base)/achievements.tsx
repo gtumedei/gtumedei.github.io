@@ -156,7 +156,7 @@ const AchievementItem: Component<{
       <h2 class="text-lg font-medium text-on-base/50 group-data-unlocked:text-on-base mb-1">
         {props.achievement.name}
       </h2>
-      <p class="text-sm text-on-base/30 group-data-unlocked:text-on-base/70 tall-lines">
+      <p class="md:text-sm text-on-base/30 group-data-unlocked:text-on-base/70 tall-lines">
         {props.achievement.description}
       </p>
     </div>
@@ -182,7 +182,7 @@ const PieceOfCakeAchievementItem: Component<{
       <h2 class="text-lg font-medium text-on-base/50 group-data-unlocked:text-on-base mb-1">
         {props.achievement.name}
       </h2>
-      <p class="text-sm text-on-base/30 group-data-unlocked:text-on-base/70 tall-lines">
+      <p class="md:text-sm text-on-base/30 group-data-unlocked:text-on-base/70 tall-lines">
         {props.achievement.description}
       </p>
     </button>

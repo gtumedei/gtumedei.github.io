@@ -39,7 +39,7 @@ const projectCategories: {
       {
         name: "Navile",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "#",
+        url: "https://doi.org/10.1016/j.infsof.2026.108044",
         imageUrl: "#",
       },
       {
