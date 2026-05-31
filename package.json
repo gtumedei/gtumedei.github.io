@@ -34,6 +34,7 @@
     "matter-js": "^0.20.0",
     "motion": "^12.5.0",
     "nprogress": "^0.2.0",
+    "ogl": "^1.0.11",
     "outdent": "^0.8.0",
     "sitemap": "^8.0.0",
     "solid-js": "^1.9.10",

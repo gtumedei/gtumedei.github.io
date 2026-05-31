@@ -1,3 +1,4 @@
+import { Mesh, Program, Renderer, Triangle } from "ogl"
 import {
   type Component,
   createEffect,
@@ -6,10 +7,10 @@ import {
   onCleanup,
   onMount,
 } from "solid-js"
-import { Renderer, Program, Mesh, Triangle } from "ogl"
+import { cn } from "tailwind-variants"
 import { createBreakpoints } from "~/lib/breakpoints"
 
-interface GrainientProps {
+type GrainientProps = {
   overlayMode?: "none" | "pixelated" | "dotted"
   timeSpeed?: number
   colorBalance?: number
@@ -34,122 +35,6 @@ interface GrainientProps {
   color2?: string
   color3?: string
   class?: string
-  className?: string
-}
-
-const hexToRgb = (hex: string): [number, number, number] => {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-  const r = result?.[1]
-  const g = result?.[2]
-  const b = result?.[3]
-  if (!r || !g || !b) return [1, 1, 1]
-  return [parseInt(r, 16) / 255, parseInt(g, 16) / 255, parseInt(b, 16) / 255]
-}
-
-const vertex = `#version 300 es
-in vec2 position;
-void main() {
-  gl_Position = vec4(position, 0.0, 1.0);
-}
-`
-
-const fragment = `#version 300 es
-precision highp float;
-uniform vec2 iResolution;
-uniform float iTime;
-uniform float uTimeSpeed;
-uniform float uColorBalance;
-uniform float uWarpStrength;
-uniform float uWarpFrequency;
-uniform float uWarpSpeed;
-uniform float uWarpAmplitude;
-uniform float uBlendAngle;
-uniform float uBlendSoftness;
-uniform float uRotationAmount;
-uniform float uNoiseScale;
-uniform float uGrainAmount;
-uniform float uGrainScale;
-uniform float uGrainAnimated;
-uniform float uGrainShape;
-uniform float uContrast;
-uniform float uGamma;
-uniform float uSaturation;
-uniform vec2 uCenterOffset;
-uniform float uZoom;
-uniform vec3 uColor1;
-uniform vec3 uColor2;
-uniform vec3 uColor3;
-out vec4 fragColor;
-#define S(a,b,t) smoothstep(a,b,t)
-mat2 Rot(float a){float s=sin(a),c=cos(a);return mat2(c,-s,s,c);}
-vec2 hash(vec2 p){p=vec2(dot(p,vec2(2127.1,81.17)),dot(p,vec2(1269.5,283.37)));return fract(sin(p)*43758.5453);}
-float noise(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.0-2.0*f);float n=mix(mix(dot(-1.0+2.0*hash(i+vec2(0.0,0.0)),f-vec2(0.0,0.0)),dot(-1.0+2.0*hash(i+vec2(1.0,0.0)),f-vec2(1.0,0.0)),u.x),mix(dot(-1.0+2.0*hash(i+vec2(0.0,1.0)),f-vec2(0.0,1.0)),dot(-1.0+2.0*hash(i+vec2(1.0,1.0)),f-vec2(1.0,1.0)),u.x),u.y);return 0.5+0.5*n;}
-void mainImage(out vec4 o, vec2 C){
-  float t=iTime*uTimeSpeed;
-  vec2 uv=C/iResolution.xy;
-  float ratio=iResolution.x/iResolution.y;
-  vec2 tuv=uv-0.5+uCenterOffset;
-  tuv/=max(uZoom,0.001);
-
-  float degree=noise(vec2(t*0.1,tuv.x*tuv.y)*uNoiseScale);
-  tuv.y*=1.0/ratio;
-  tuv*=Rot(radians((degree-0.5)*uRotationAmount+180.0));
-  tuv.y*=ratio;
-
-  float frequency=uWarpFrequency;
-  float ws=max(uWarpStrength,0.001);
-  float amplitude=uWarpAmplitude/ws;
-  float warpTime=t*uWarpSpeed;
-  tuv.x+=sin(tuv.y*frequency+warpTime)/amplitude;
-  tuv.y+=sin(tuv.x*(frequency*1.5)+warpTime)/(amplitude*0.5);
-
-  vec3 colLav=uColor1;
-  vec3 colOrg=uColor2;
-  vec3 colDark=uColor3;
-  float b=uColorBalance;
-  float s=max(uBlendSoftness,0.0);
-  mat2 blendRot=Rot(radians(uBlendAngle));
-  float blendX=(tuv*blendRot).x;
-  float edge0=-0.3-b-s;
-  float edge1=0.2-b+s;
-  float v0=0.5-b+s;
-  float v1=-0.3-b-s;
-  vec3 layer1=mix(colDark,colOrg,S(edge0,edge1,blendX));
-  vec3 layer2=mix(colOrg,colLav,S(edge0,edge1,blendX));
-  vec3 col=mix(layer1,layer2,S(v0,v1,tuv.y));
-
-  float grainPx=max(uGrainScale,1.0);
-  vec2 grainUv=C/grainPx;
-  if(uGrainAnimated>0.5){grainUv+=vec2(iTime*12.0);}
-  vec2 grainCell=floor(grainUv);
-  float grain=fract(sin(dot(grainCell,vec2(12.9898,78.233)))*43758.5453);
-  vec2 grainLocal=fract(grainUv)-0.5;
-  float grainDist=length(grainLocal);
-  float dotMask=1.0-smoothstep(0.45,0.5,grainDist);
-  float grainMask=mix(1.0,dotMask,clamp(uGrainShape,0.0,1.0));
-  col+=(grain-0.5)*uGrainAmount*grainMask;
-
-  col=(col-0.5)*uContrast+0.5;
-  float luma=dot(col,vec3(0.2126,0.7152,0.0722));
-  col=mix(vec3(luma),col,uSaturation);
-  col=pow(max(col,0.0),vec3(1.0/max(uGamma,0.001)));
-  col=clamp(col,0.0,1.0);
-
-  o=vec4(col,1.0);
-}
-void main(){
-  vec4 o=vec4(0.0);
-  mainImage(o,gl_FragCoord.xy);
-  fragColor=o;
-}
-`
-
-// Keep renderer/program alive across reactive updates so Effect 2 can update
-// uniforms without ever rebuilding the WebGL context.
-type GrainientCtx = {
-  renderer: InstanceType<typeof Renderer>
-  program: InstanceType<typeof Program>
-  mesh: InstanceType<typeof Mesh>
 }
 
 type GrainientUniforms = {
@@ -177,8 +62,8 @@ type GrainientUniforms = {
   uColor3: { value: Float32Array }
 }
 
-const Grainient: Component<GrainientProps> = (props) => {
-  const merged = mergeProps(
+const Grainient: Component<GrainientProps> = (baseProps) => {
+  const props = mergeProps(
     {
       overlayMode: "pixelated",
       timeSpeed: 0.25,
@@ -204,38 +89,31 @@ const Grainient: Component<GrainientProps> = (props) => {
       color2: "#5227FF",
       color3: "#B497CF",
       class: "",
-      className: "",
-    },
-    props,
+    } satisfies Required<GrainientProps>,
+    baseProps,
   )
+
+  let container!: HTMLDivElement
+  let canvas!: HTMLCanvasElement
+
+  const [ctx, setCtx] = createSignal<{
+    renderer: InstanceType<typeof Renderer>
+    program: InstanceType<typeof Program>
+    mesh: InstanceType<typeof Mesh>
+  } | null>(null)
 
   const breakpoints = createBreakpoints()
 
-  let containerRef!: HTMLDivElement
-  const [ctx, setCtx] = createSignal<GrainientCtx | null>(null)
-
-  // Effect 1: build WebGL context once, pause when offscreen / tab hidden
+  // Build WebGL context on mount
   onMount(() => {
-    const container = containerRef
-
     const renderer = new Renderer({
       webgl: 2,
       alpha: true,
       antialias: false,
       dpr: Math.min(window.devicePixelRatio || 1, 2),
+      canvas,
     })
-
     const gl = renderer.gl
-    const canvas = gl.canvas as HTMLCanvasElement
-    canvas.style.width = "100%"
-    canvas.style.height = "100%"
-    canvas.style.display = "block"
-    canvas.style.position = "absolute"
-    canvas.style.top = "0"
-    canvas.style.right = "0"
-    canvas.style.bottom = "0"
-    canvas.style.left = "0"
-    container.appendChild(canvas)
 
     const geometry = new Triangle(gl)
     const program = new Program(gl, {
@@ -350,73 +228,164 @@ const Grainient: Component<GrainientProps> = (props) => {
       setCtx(null)
       try {
         container.removeChild(canvas)
-      } catch {
-        /* ignore */
-      }
+      } catch {}
     })
-  }) // renderer created once
+  })
 
-  // Effect 2: sync props to uniforms — zero GPU cost, no teardown
+  // Sync props to uniforms
   createEffect(() => {
     const current = ctx()
     if (!current) return
     const { program } = current
     const u = program.uniforms as GrainientUniforms
-    const grainActive = merged.overlayMode !== "none"
-    const isXlUp = breakpoints.xl
-    const isMdUp = breakpoints.md
-    const grainMultiplier = grainActive
-      ? merged.overlayMode === "pixelated"
-        ? isXlUp
-          ? 4.0
-          : isMdUp
-            ? 6.0
-            : 8.0
-        : merged.overlayMode === "dotted"
-          ? isXlUp
-            ? 6.0
-            : isMdUp
-              ? 9.0
-              : 12.0
-          : 1.0
-      : 1.0
-    const grainScale = merged.grainScale * grainMultiplier
-    const grainShape = merged.overlayMode === "dotted" ? 1.0 : 0.0
 
-    u.uTimeSpeed.value = merged.timeSpeed
-    u.uColorBalance.value = merged.colorBalance
-    u.uWarpStrength.value = merged.warpStrength
-    u.uWarpFrequency.value = merged.warpFrequency
-    u.uWarpSpeed.value = merged.warpSpeed
-    u.uWarpAmplitude.value = merged.warpAmplitude
-    u.uBlendAngle.value = merged.blendAngle
-    u.uBlendSoftness.value = merged.blendSoftness
-    u.uRotationAmount.value = merged.rotationAmount
-    u.uNoiseScale.value = merged.noiseScale
-    u.uGrainAmount.value = grainActive ? merged.grainAmount : 0.0
+    const grainActive = props.overlayMode !== "none"
+    const breakpoint = breakpoints.xl ? "xl" : breakpoints.md ? "md" : "base"
+    const grainMultipliers = {
+      none: { base: 1.0, md: 1.0, xl: 1.0 },
+      pixelated: { base: 8.0, md: 6.0, xl: 4.0 },
+      dotted: { base: 12.0, md: 9.0, xl: 6.0 },
+    }
+    const grainMultiplier = grainMultipliers[props.overlayMode][breakpoint]
+    const grainScale = props.grainScale * grainMultiplier
+    const grainShape = props.overlayMode === "dotted" ? 1.0 : 0.0
+
+    u.uTimeSpeed.value = props.timeSpeed
+    u.uColorBalance.value = props.colorBalance
+    u.uWarpStrength.value = props.warpStrength
+    u.uWarpFrequency.value = props.warpFrequency
+    u.uWarpSpeed.value = props.warpSpeed
+    u.uWarpAmplitude.value = props.warpAmplitude
+    u.uBlendAngle.value = props.blendAngle
+    u.uBlendSoftness.value = props.blendSoftness
+    u.uRotationAmount.value = props.rotationAmount
+    u.uNoiseScale.value = props.noiseScale
+    u.uGrainAmount.value = grainActive ? props.grainAmount : 0.0
     u.uGrainScale.value = grainScale
-    u.uGrainAnimated.value = grainActive && merged.grainAnimated ? 1.0 : 0.0
+    u.uGrainAnimated.value = grainActive && props.grainAnimated ? 1.0 : 0.0
     u.uGrainShape.value = grainShape
-    u.uContrast.value = merged.contrast
-    u.uGamma.value = merged.gamma
-    u.uSaturation.value = merged.saturation
-    u.uCenterOffset.value = new Float32Array([merged.centerX, merged.centerY])
-    u.uZoom.value = merged.zoom
-    u.uColor1.value = new Float32Array(hexToRgb(merged.color1))
-    u.uColor2.value = new Float32Array(hexToRgb(merged.color2))
-    u.uColor3.value = new Float32Array(hexToRgb(merged.color3))
+    u.uContrast.value = props.contrast
+    u.uGamma.value = props.gamma
+    u.uSaturation.value = props.saturation
+    u.uCenterOffset.value = new Float32Array([props.centerX, props.centerY])
+    u.uZoom.value = props.zoom
+    u.uColor1.value = new Float32Array(hexToRgb(props.color1))
+    u.uColor2.value = new Float32Array(hexToRgb(props.color2))
+    u.uColor3.value = new Float32Array(hexToRgb(props.color3))
   })
 
   return (
-    <div
-      ref={containerRef}
-      class={`relative h-full w-full overflow-hidden ${(
-        merged.class ||
-        merged.className ||
-        ""
-      ).trim()}`.trim()}
-    />
+    <div ref={container} class={cn("relative h-full w-full overflow-hidden", props.class)}>
+      <canvas ref={canvas} class="absolute inset-0" />
+    </div>
   )
 }
 
 export default Grainient
+
+const hexToRgb = (hex: string): [number, number, number] => {
+  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  const r = result?.[1]
+  const g = result?.[2]
+  const b = result?.[3]
+  if (!r || !g || !b) return [1, 1, 1]
+  return [parseInt(r, 16) / 255, parseInt(g, 16) / 255, parseInt(b, 16) / 255]
+}
+
+const vertex = `#version 300 es
+in vec2 position;
+void main() {
+  gl_Position = vec4(position, 0.0, 1.0);
+}
+`
+
+const fragment = `#version 300 es
+precision highp float;
+uniform vec2 iResolution;
+uniform float iTime;
+uniform float uTimeSpeed;
+uniform float uColorBalance;
+uniform float uWarpStrength;
+uniform float uWarpFrequency;
+uniform float uWarpSpeed;
+uniform float uWarpAmplitude;
+uniform float uBlendAngle;
+uniform float uBlendSoftness;
+uniform float uRotationAmount;
+uniform float uNoiseScale;
+uniform float uGrainAmount;
+uniform float uGrainScale;
+uniform float uGrainAnimated;
+uniform float uGrainShape;
+uniform float uContrast;
+uniform float uGamma;
+uniform float uSaturation;
+uniform vec2 uCenterOffset;
+uniform float uZoom;
+uniform vec3 uColor1;
+uniform vec3 uColor2;
+uniform vec3 uColor3;
+out vec4 fragColor;
+#define S(a,b,t) smoothstep(a,b,t)
+mat2 Rot(float a){float s=sin(a),c=cos(a);return mat2(c,-s,s,c);}
+vec2 hash(vec2 p){p=vec2(dot(p,vec2(2127.1,81.17)),dot(p,vec2(1269.5,283.37)));return fract(sin(p)*43758.5453);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.0-2.0*f);float n=mix(mix(dot(-1.0+2.0*hash(i+vec2(0.0,0.0)),f-vec2(0.0,0.0)),dot(-1.0+2.0*hash(i+vec2(1.0,0.0)),f-vec2(1.0,0.0)),u.x),mix(dot(-1.0+2.0*hash(i+vec2(0.0,1.0)),f-vec2(0.0,1.0)),dot(-1.0+2.0*hash(i+vec2(1.0,1.0)),f-vec2(1.0,1.0)),u.x),u.y);return 0.5+0.5*n;}
+void mainImage(out vec4 o, vec2 C){
+  float t=iTime*uTimeSpeed;
+  vec2 uv=C/iResolution.xy;
+  float ratio=iResolution.x/iResolution.y;
+  vec2 tuv=uv-0.5+uCenterOffset;
+  tuv/=max(uZoom,0.001);
+
+  float degree=noise(vec2(t*0.1,tuv.x*tuv.y)*uNoiseScale);
+  tuv.y*=1.0/ratio;
+  tuv*=Rot(radians((degree-0.5)*uRotationAmount+180.0));
+  tuv.y*=ratio;
+
+  float frequency=uWarpFrequency;
+  float ws=max(uWarpStrength,0.001);
+  float amplitude=uWarpAmplitude/ws;
+  float warpTime=t*uWarpSpeed;
+  tuv.x+=sin(tuv.y*frequency+warpTime)/amplitude;
+  tuv.y+=sin(tuv.x*(frequency*1.5)+warpTime)/(amplitude*0.5);
+
+  vec3 colLav=uColor1;
+  vec3 colOrg=uColor2;
+  vec3 colDark=uColor3;
+  float b=uColorBalance;
+  float s=max(uBlendSoftness,0.0);
+  mat2 blendRot=Rot(radians(uBlendAngle));
+  float blendX=(tuv*blendRot).x;
+  float edge0=-0.3-b-s;
+  float edge1=0.2-b+s;
+  float v0=0.5-b+s;
+  float v1=-0.3-b-s;
+  vec3 layer1=mix(colDark,colOrg,S(edge0,edge1,blendX));
+  vec3 layer2=mix(colOrg,colLav,S(edge0,edge1,blendX));
+  vec3 col=mix(layer1,layer2,S(v0,v1,tuv.y));
+
+  float grainPx=max(uGrainScale,1.0);
+  vec2 grainUv=C/grainPx;
+  if(uGrainAnimated>0.5){grainUv+=vec2(iTime*12.0);}
+  vec2 grainCell=floor(grainUv);
+  float grain=fract(sin(dot(grainCell,vec2(12.9898,78.233)))*43758.5453);
+  vec2 grainLocal=fract(grainUv)-0.5;
+  float grainDist=length(grainLocal);
+  float dotMask=1.0-smoothstep(0.45,0.5,grainDist);
+  float grainMask=mix(1.0,dotMask,clamp(uGrainShape,0.0,1.0));
+  col+=(grain-0.5)*uGrainAmount*grainMask;
+
+  col=(col-0.5)*uContrast+0.5;
+  float luma=dot(col,vec3(0.2126,0.7152,0.0722));
+  col=mix(vec3(luma),col,uSaturation);
+  col=pow(max(col,0.0),vec3(1.0/max(uGamma,0.001)));
+  col=clamp(col,0.0,1.0);
+
+  o=vec4(col,1.0);
+}
+void main(){
+  vec4 o=vec4(0.0);
+  mainImage(o,gl_FragCoord.xy);
+  fragColor=o;
+}
+`

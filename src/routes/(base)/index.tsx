@@ -1,10 +1,10 @@
 import { A } from "@solidjs/router"
 import { animate, stagger } from "motion"
 import { onMount } from "solid-js"
+import { cn } from "tailwind-variants"
 import Meta from "~/components/meta"
 import { button } from "~/components/ui/button"
 import { Keymaster } from "~/lib/achievements/helpers"
-import { cn } from "tailwind-variants"
 import tooltip from "~/lib/directives/tooltip"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBrandGithub from "~icons/tabler/brand-github"
@@ -38,7 +38,7 @@ const HomePage = () => {
       <Meta description="My personal website." />
       <section class="w-full flex flex-col items-center text-center px-6 mt-auto">
         <Keymaster data-motion="image">
-          <div class="flex bg-base-200/70 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 backface-hidden absolute inset-0">
+          <div class="flex bg-base-200/90 group-data-wallpaper/html:bg-base-300/60 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 backface-hidden absolute inset-0 transition-colors">
             <img src="/profile.jpg" alt="Profile image" class="rounded-full" />
           </div>
         </Keymaster>

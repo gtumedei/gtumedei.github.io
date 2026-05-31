@@ -8,7 +8,6 @@ import { isServer } from "solid-js/web"
 import { button } from "~/components/ui/button"
 import { useAchievements } from "~/lib/achievements"
 import { useTheme } from "~/lib/theme"
-import { useThemeColors } from "~/lib/theme/colors"
 
 const { Engine, Render, Runner, Constraint, MouseConstraint, Mouse, Composite, Bodies, Events } =
   Matter
@@ -59,7 +58,7 @@ const PageNotFoundDoodle = () => {
   const elements: { char: "4" | "0"; body: Matter.Body; spring: Matter.Constraint }[] = []
 
   const { actualTheme } = useTheme()
-  const colors = useThemeColors()
+  const springColor = () => (actualTheme() == "light" ? "#6d6d6f" : "#bbbcbe")
 
   const { unlockAchievement } = useAchievements()
 
@@ -163,7 +162,7 @@ const PageNotFoundDoodle = () => {
         pointB: { x: -20, y: -20 },
         stiffness: options.spring.stiffness,
         damping: 0.01,
-        render: { strokeStyle: colors.onBase },
+        render: { strokeStyle: springColor() },
       })
       return [body, constraint] as const
     }
@@ -209,9 +208,9 @@ const PageNotFoundDoodle = () => {
         if (body.render.sprite?.texture) {
           body.render.sprite.texture = `/img/${char}-${t}.png`
         }
-        spring.render.strokeStyle = colors.onBase
+        spring.render.strokeStyle = springColor()
       }
-    })
+    }),
   )
 
   // Update sizes on viewport change
@@ -229,10 +228,10 @@ const PageNotFoundDoodle = () => {
   })
 
   return (
-    <div ref={positioner} class="w-full h-[300px]">
+    <div ref={positioner} class="w-full h-75">
       <canvas
         ref={canvas}
-        class="h-[calc(100%+150px)] w-full md:w-[calc(100%+3rem)] lg:w-[calc(100%+5rem)] xl:w-[calc(100%+7rem)] absolute-center-x top-[-150px]"
+        class="h-[calc(100%+150px)] w-full md:w-[calc(100%+3rem)] lg:w-[calc(100%+5rem)] xl:w-[calc(100%+7rem)] absolute-center-x -top-37.5"
         aria-label="404"
       />
     </div>

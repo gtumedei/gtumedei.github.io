@@ -38,8 +38,8 @@ const Visitor = () => {
         if (is404() || progress.visitor.pages.includes(location.pathname)) return
         setProgress("visitor", "pages", (v) => [...v, location.pathname])
         if (progress.visitor.pages.length == 5) unlockAchievement("VISITOR")
-      }
-    )
+      },
+    ),
   )
 
   return <></>
@@ -95,7 +95,7 @@ export const Keymaster: Component<ComponentProps<"div">> = (props) => {
         class={cn(
           "relative w-24 h-24 mb-6 perspective-midrange group",
           flipped() && "flipped",
-          localProps.class
+          localProps.class,
         )}
         onClick={() => toggleDialog(true)}
         {...divProps}
@@ -244,7 +244,7 @@ export const SuperStarButton = () => {
       <Dialog.Trigger
         class={cn(
           "w-11 h-8 bg-base-300 hover:bg-amber-400/10 hover:dark:bg-amber-200/10 flex items-center gap-2 px-3 rounded-full cursor-pointer relative transition-colors group",
-          isCompleted() && "bg-amber-400/10 dark:bg-amber-200/10"
+          isCompleted() && "bg-amber-400/10 dark:bg-amber-200/10",
         )}
         data-motion="tech-item"
       >
@@ -252,7 +252,7 @@ export const SuperStarButton = () => {
           class={cn(
             "group-hover:text-amber-400 group-hover:dark:text-amber-200 group-hover:scale-125 transition-all [view-transition-name:star]",
             isCompleted() && "text-amber-400 dark:text-amber-200",
-            open() && "hidden"
+            open() && "hidden",
           )}
         />
       </Dialog.Trigger>
@@ -269,7 +269,7 @@ export const SuperStarButton = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 class={cn(
                   "w-16 h-16 absolute-center [view-transition-name:star]",
-                  !open() && "hidden"
+                  !open() && "hidden",
                 )}
                 viewBox="0 0 16 16"
               >
@@ -349,14 +349,14 @@ const CustomizationAddict = () => {
       if (!progress.customizationAddict.themes.includes(theme))
         setProgress("customizationAddict", "themes", (v) => [...v, theme])
       checkCompletion()
-    })
+    }),
   )
   createEffect(
     on(accent, (accent) => {
       if (!progress.customizationAddict.accents.includes(accent))
         setProgress("customizationAddict", "accents", (v) => [...v, accent])
       checkCompletion()
-    })
+    }),
   )
 
   return <></>
@@ -382,19 +382,19 @@ const ModdingManiac = () => {
       if (!progress.moddingManiac.styles.includes(style))
         setProgress("moddingManiac", "styles", (v) => [...v, style])
       checkCompletion()
-    })
+    }),
   )
   createEffect(
     on(showWallpaper, (state) => {
       if (state == "on") setProgress("moddingManiac", "wallpaper", true)
       checkCompletion()
-    })
+    }),
   )
   createEffect(
     on(superModeOn, (state) => {
       if (state) setProgress("moddingManiac", "superMode", true)
       checkCompletion()
-    })
+    }),
   )
 
   return <></>
@@ -458,7 +458,7 @@ ${env.public.PUBLIC_BASE_URL}/dominator
 
 const InspectorGadget = () => {
   onMount(() => {
-    console.log(inspectorGadgetArt)
+    if (import.meta.env.PROD) console.log(inspectorGadgetArt)
   })
   return <></>
 }
