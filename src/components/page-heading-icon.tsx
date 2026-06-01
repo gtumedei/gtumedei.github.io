@@ -8,11 +8,11 @@ const PageHeadingIcon: ParentComponent<ComponentProps<"div">> = (props) => {
     <div
       {...divProps}
       class={cn(
-        "w-20 h-20 inline-flex bg-base-200/90 group-data-wallpaper/html:bg-base-300/60 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 mb-8 transition-colors",
+        "w-20 h-20 inline-flex bg-base-200/90 group-data-wallpaper/html:bg-base-200/50 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 mb-8 transition-colors",
         localProps.class,
       )}
     >
-      <div class="w-full h-full flex justify-center items-center bg-base-300 group-data-wallpaper/html:bg-base-100 dark:group-data-wallpaper/html:bg-base-200 text-accent text-lg rounded-full transition-colors">
+      <div class="w-full h-full flex justify-center items-center bg-base-300 text-accent text-lg rounded-full transition-colors">
         {localProps.children}
       </div>
     </div>

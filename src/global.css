@@ -56,7 +56,7 @@
 @utility theme-dark {
   --color-base-100: #171717;
   --color-base-200: #262626;
-  --color-base-300: #404040;
+  --color-base-300: #303030;
   --color-on-base: #ffffff;
   --color-neutral: #f3f4f6;
   --color-on-neutral: #1f2937;
@@ -130,7 +130,7 @@
 
 [data-style="dotted"] {
   .font-heading {
-    @apply font-dotted uppercase font-light tracking-wide [word-spacing:-0.25em];
+    @apply font-dotted uppercase font-light tracking-wide [word-spacing:-0.25em] translate-y-0.75;
   }
 }
 
@@ -149,7 +149,7 @@
 }
 
 @utility header-pill {
-  @apply bg-base-200/90 group-data-wallpaper/html:bg-base-300/60 group-data-sticky/header:bg-base-200/90! backdrop-blur-xs rounded-full border border-on-base/10 shadow-md shadow-black/3 transition-colors;
+  @apply bg-base-200/90 group-data-wallpaper/html:bg-base-200/50 group-data-sticky/header:bg-base-200/90! backdrop-blur-xs rounded-full border border-on-base/10 shadow-md shadow-black/3 transition-colors;
 }
 
 /* Absolute positioning */
