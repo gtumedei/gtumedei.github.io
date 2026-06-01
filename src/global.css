@@ -149,7 +149,7 @@
 }
 
 @utility header-pill {
-  @apply bg-base-100/90 dark:bg-base-200/90 group-data-wallpaper/html:bg-base-300/60 group-data-sticky/header:bg-base-100/90! group-data-sticky/header:dark:bg-base-200/90! backdrop-blur-xs rounded-full border border-on-base/10 shadow-md shadow-black/3 transition-colors;
+  @apply bg-base-200/90 group-data-wallpaper/html:bg-base-300/60 group-data-sticky/header:bg-base-200/90! backdrop-blur-xs rounded-full border border-on-base/10 shadow-md shadow-black/3 transition-colors;
 }
 
 /* Absolute positioning */
