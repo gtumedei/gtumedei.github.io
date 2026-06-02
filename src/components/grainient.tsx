@@ -243,8 +243,8 @@ const Grainient: Component<GrainientProps> = (baseProps) => {
     const breakpoint = breakpoints.xl ? "xl" : breakpoints.md ? "md" : "base"
     const grainMultipliers = {
       none: { base: 1.0, md: 1.0, xl: 1.0 },
-      pixelated: { base: 8.0, md: 6.0, xl: 4.0 },
-      dotted: { base: 12.0, md: 9.0, xl: 6.0 },
+      pixelated: { base: 12.0, md: 12.0, xl: 12.0 },
+      dotted: { base: 16.0, md: 16.0, xl: 16.0 },
     }
     const grainMultiplier = grainMultipliers[props.overlayMode][breakpoint]
     const grainScale = props.grainScale * grainMultiplier
