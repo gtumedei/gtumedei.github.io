@@ -13,13 +13,13 @@ const minigames: Minigame[] = [
       "Are you nerd enough to guess a color based on its RGB code? Let's find out! HSL is also available for the classy ones.",
     imageUrl: "/img-remote/color-guesser.png",
   },
-  {
+  /* {
     slug: "racing-icon",
     name: "Racing Icon",
     description:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iure repellendus similique distinctio modi, quo obcaecati!",
     imageUrl: "#",
-  },
+  }, */
 ]
 
 export default minigames

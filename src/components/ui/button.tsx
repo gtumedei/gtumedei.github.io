@@ -11,12 +11,11 @@ export const button = tv({
       solid:
         "shadow-xs shadow-black/3 [&:where(:disabled,[data-disabled])]:bg-neutral/30! [&:where(:disabled,[data-disabled])]:text-on-base/50! [&:where(:disabled,[data-disabled])]:border-transparent!",
       subtle:
-        "border-transparent bg-neutral/5 text-neutral/70 hover:bg-accent/15 hover:text-accent focus-visible:border-neutral/15 focus-visible:ring-neutral/10 [&:where(:disabled,[data-disabled])]:text-neutral/40! [&:where(:disabled,[data-disabled])]:bg-neutral/3!",
+        "border-transparent bg-neutral/5 text-neutral hover:bg-accent/15 hover:text-accent active:bg-accent/10 active:text-accent focus-visible:border-neutral/15 focus-visible:ring-neutral/10 [&:where(:disabled,[data-disabled])]:text-neutral/40! [&:where(:disabled,[data-disabled])]:bg-neutral/3!",
       ghost:
-        "border-transparent bg-transparent text-on-base hover:bg-on-base/5 focus-visible:border-on-base/20 focus-visible:ring-on-base/10 [&:where(:disabled,[data-disabled])]:bg-transparent! [&:where(:disabled,[data-disabled])]:text-on-base/50!",
-      link: "border-transparent h-min! px-0!",
+        "border-transparent bg-transparent text-on-base hover:bg-on-base/5 active:bg-on-base/3 focus-visible:border-on-base/20 focus-visible:ring-on-base/10 [&:where(:disabled,[data-disabled])]:bg-transparent! [&:where(:disabled,[data-disabled])]:text-on-base/50!",
       raised:
-        "bg-base-200 hover:bg-base-200! rounded-full! border border-on-base/10 hover:border-on-base/20 shadow-md shadow-black/3 focus-visible:ring-on-base/10",
+        "bg-base-200 hover:bg-base-200! active:bg-base-200! rounded-full! border border-on-base/10 hover:border-on-base/20 shadow-md shadow-black/3 focus-visible:ring-on-base/10",
     },
     theme: {
       neutral: "",
@@ -44,43 +43,31 @@ export const button = tv({
       variant: "solid",
       theme: "neutral",
       class:
-        "bg-neutral text-on-neutral border-on-neutral/10 hover:bg-neutral/80 focus-visible:ring-neutral/20",
+        "bg-neutral text-on-neutral border-on-neutral/10 hover:bg-neutral/90 active:bg-neutral/80 focus-visible:ring-neutral/20",
     },
     {
       variant: "solid",
       theme: "accent",
       class:
-        "bg-accent text-on-accent border-on-accent/10 hover:bg-accent/80 focus-visible:ring-accent/20",
+        "bg-accent text-on-accent border-on-accent/10 hover:bg-accent/90 active:bg-accent/80 focus-visible:ring-accent/20",
     },
     {
       variant: "solid",
       theme: "success",
       class:
-        "bg-success text-on-success border-on-success/10 hover:bg-success/80 focus-visible:ring-success/20",
+        "bg-success text-on-success border-on-success/10 hover:bg-success/90 active:bg-success/80 focus-visible:ring-success/20",
     },
     {
       variant: "solid",
       theme: "warning",
       class:
-        "bg-warning text-on-warning border-on-warning/10 hover:bg-warning/80 focus-visible:ring-warning/20",
+        "bg-warning text-on-warning border-on-warning/10 hover:bg-warning/90 active:bg-warning/80 focus-visible:ring-warning/20",
     },
     {
       variant: "solid",
       theme: "error",
       class:
-        "bg-error text-on-error border-on-error/10 hover:bg-error/80 focus-visible:ring-error/20",
-    },
-    {
-      variant: "link",
-      theme: "neutral",
-      class:
-        "text-neutral hover:text-neutral/80 focus-visible:border-neutral/20 focus-visible:ring-neutral/10 [&:where(:disabled,[data-disabled])]:bg-transparent! [&:where(:disabled,[data-disabled])]:text-neutral/50!",
-    },
-    {
-      variant: "link",
-      theme: "accent",
-      class:
-        "text-accent hover:text-accent/80 focus-visible:border-accent/20 focus-visible:ring-accent/10 [&:where(:disabled,[data-disabled])]:bg-transparent! [&:where(:disabled,[data-disabled])]:text-accent/50!",
+        "bg-error text-on-error border-on-error/10 hover:bg-error/90 active:bg-error/80 focus-visible:ring-error/20",
     },
   ],
 })

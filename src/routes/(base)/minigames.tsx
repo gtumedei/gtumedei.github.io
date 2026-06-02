@@ -45,20 +45,6 @@ const MinigamesPage = () => {
       </div>
       <div class="grid md:grid-cols-2 gap-6 px-6 py-20">
         <For each={minigames}>{(minigame) => <MinigameCard minigame={minigame} />}</For>
-        {/* <div
-          class="flex flex-col gap-6 p-6 rounded-3xl border border-dashed border-on-base/10"
-          data-motion="minigame-item"
-        >
-          <div class="w-36 h-36 flex bg-on-base/5 rounded-2xl">
-            <TablerClock class="text-4xl text-on-base/30 m-auto" />
-          </div>
-          <div class="px-0.5">
-            <p class="text-sm text-on-base/70 tall-lines">
-              More minigames might be coming soon! Or not, it really depends if I get inspired AND
-              find the time to build them.
-            </p>
-          </div>
-        </div> */}
       </div>
     </>
   )
@@ -68,7 +54,7 @@ const MinigameCard: Component<{ minigame: Minigame }> = (props) => {
   return (
     <A
       href={`/minigames/${props.minigame.slug}`}
-      class="flex flex-col gap-6 p-6 rounded-3xl border border-on-base/10 group hover:bg-on-base/5 hover:border-transparent focus-ring transition-colors"
+      class="flex flex-col gap-6 p-6 rounded-3xl border border-on-base/10 group hover:bg-on-base/5 hover:border-transparent active:bg-on-base/5 active:border-transparent focus-ring transition-colors"
       data-motion="minigame-item"
     >
       <img
@@ -81,7 +67,7 @@ const MinigameCard: Component<{ minigame: Minigame }> = (props) => {
         <p class="md:text-sm text-on-base/70 tall-lines mb-4">{props.minigame.description}</p>
         <p class="flex items-center gap-1.5 md:text-sm font-medium text-accent">
           Try it out
-          <TablerArrowNarrowRight class="text-base max-md:text-lg group-hover:translate-x-1 transition-transform" />
+          <TablerArrowNarrowRight class="text-base max-md:text-lg group-hover:translate-x-1 group-active:translate-x-1 transition-transform" />
         </p>
       </div>
     </A>

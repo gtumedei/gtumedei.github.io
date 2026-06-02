@@ -119,7 +119,7 @@ const HomePage = () => {
         ].map((item) => (
           <A
             href={item.href}
-            class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group focus-ring"
+            class="flex flex-col hover:bg-on-base/5 active:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group focus-ring"
             data-motion="menu"
           >
             <div class="flex gap-4 items-center mb-3">
@@ -129,7 +129,7 @@ const HomePage = () => {
             <p class="md:text-sm text-on-base/70 tall-lines mb-4">{item.description}</p>
             <p class="flex items-center gap-1.5 md:text-sm font-medium text-accent">
               {item.action}
-              <TablerArrowNarrowRight class="text-base max-md:text-lg group-hover:translate-x-1 transition-transform" />
+              <TablerArrowNarrowRight class="text-base max-md:text-lg group-hover:translate-x-1 group-active:translate-x-1 transition-transform" />
             </p>
           </A>
         ))}

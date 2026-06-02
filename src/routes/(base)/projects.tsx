@@ -42,11 +42,11 @@ const ProjectsPage = () => {
       </div>
       <For each={projectCategories}>
         {(category) => (
-          <div class="mb-20">
-            <h2 class="inline-block font-semibold text-xl px-6 mb-6" data-motion="section-heading">
+          <div class="mx-6 max-md:not-last:border-b border-on-base/10 pb-8 mb-12">
+            <h2 class="inline-block font-semibold text-xl mb-6" data-motion="section-heading">
               {category.name}
             </h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-6">
               <For each={category.projects}>{(project) => <ProjectItem project={project} />}</For>
             </div>
           </div>
@@ -78,7 +78,7 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
     <a
       href={props.project.url}
       target="_blank"
-      class="flex flex-col hover:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group focus-ring"
+      class="flex flex-col hover:bg-on-base/5 active:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 group focus-ring"
       data-motion="project-item"
       onAuxClick={(e) => {
         if (e.button == 1) onOpen()
@@ -90,7 +90,7 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
       </div>
       <h3 class="text-lg font-medium mb-3">{props.project.name}</h3>
       <p class="md:text-sm text-on-base/70 tall-lines mb-4">{props.project.description}</p>
-      <p class="flex items-center gap-3 md:text-sm font-medium text-on-base/50 group-hover:text-accent transition-colors">
+      <p class="flex items-center gap-3 md:text-sm font-medium text-on-base/50 group-hover:text-accent group-active:text-accent transition-colors">
         <TablerLink /> {hostname()}
       </p>
     </a>
