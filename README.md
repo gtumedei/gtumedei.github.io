@@ -11,7 +11,6 @@ My personal website.
 
 ## TODO
 
-- [ ] Mention the inspiration from https://tailwindcss.com/plus/templates/spotlight
 - Racing icon game
   - Use tabler icons as cars (and obstacles too?)
   - Choose car trail
@@ -22,7 +21,7 @@ My personal website.
   - Possibility to customize your car: choose icon, color, particle effect
   - Pick up bonuses during the game
   - Progressively increase speed and add new spawnable elements
-- [ ] An achievement for the other minigame
+  - Add an achievement
 - 404 doodle:
   - [ ] Fix resize sometimes not working properly
   - [ ] Forward unused events to the window (pinch, drag, scroll, ...)

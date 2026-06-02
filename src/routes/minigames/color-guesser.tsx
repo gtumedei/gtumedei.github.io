@@ -1,3 +1,5 @@
+import { createEffect, createSignal, onCleanup } from "solid-js"
+import { Transition } from "solid-transition-group"
 import GameLayout from "~/components/game-layout"
 import Meta from "~/components/meta"
 import AspectRatio from "~/components/ui/aspect-ratio"
@@ -7,6 +9,7 @@ import { ColorGuesserBoard } from "~/minigames/color-guesser/board"
 import { ColorGuesserGameProvider, useColorGuesserGame } from "~/minigames/color-guesser/core"
 import { ColorGuesserDialogs } from "~/minigames/color-guesser/dialogs"
 import TablerChartBar from "~icons/tabler/chart-bar"
+import TablerFlameFilled from "~icons/tabler/flame-filled"
 import TablerMenu from "~icons/tabler/menu"
 
 const ColorGuesserGame = () => {
@@ -109,12 +112,66 @@ const ColorIndicator = () => {
 
   return (
     <div class="absolute bottom-6 left-0 w-full flex">
-      <div class="flex bg-base-100/90 dark:bg-base-200/90 px-6 py-2.5 rounded-full border border-on-base/10 shadow-md shadow-black/3 m-auto">
+      <div class="flex bg-base-200/90 px-6 py-2.5 rounded-full border border-on-base/10 shadow-md shadow-black/3 m-auto relative">
         <p class="text-on-base/70">
-          Color code: <span class="text-on-base">{ctx.game.color}</span>
+          Color code: <span class="text-on-base font-mono">{ctx.game.color}</span>
         </p>
+        <StreakCounter />
       </div>
     </div>
+  )
+}
+
+const StreakCounter = () => {
+  const ctx = useColorGuesserGame()
+
+  const [bump, setBump] = createSignal(false)
+  let previousStreak = ctx.game.streak
+
+  createEffect(() => {
+    const currentStreak = ctx.game.streak
+    if (currentStreak > previousStreak) {
+      setBump(true)
+      const timeout = setTimeout(() => setBump(false), 150)
+      onCleanup(() => clearTimeout(timeout))
+    }
+    previousStreak = currentStreak
+  })
+
+  const animateScale = (el: Element, done: () => void) => {
+    const animation = el.animate(
+      [{ transform: "scale(1)" }, { transform: "scale(1.25)" }, { transform: "scale(1)" }],
+      { duration: 150, easing: "ease-out" },
+    )
+    animation.finished.then(done)
+  }
+
+  const animateFade = (el: Element, done: () => void) => {
+    const animation = el.animate([{ opacity: 1 }, { opacity: 0 }], {
+      duration: 200,
+      easing: "ease-out",
+    })
+    animation.finished.then(done)
+  }
+
+  return (
+    <Transition onEnter={animateScale} onExit={animateFade}>
+      {ctx.game.streak > 1 && (
+        <div class="absolute top-3.5 right-0 translate-x-[calc(100%+1rem)]">
+          <div class="w-10 h-10 flex relative">
+            <TablerFlameFilled class="text-3xl text-red-400 darK:text-red-300/50 absolute-center-x -top-2.5 -z-1" />
+            <div class="h-5 w-5 flex bg-base-100 rounded-full m-auto">
+              <span
+                class="text-sm font-semibold m-auto transition-transform duration-150"
+                classList={{ "scale-125": bump(), "scale-100": !bump() }}
+              >
+                {ctx.game.streak}
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+    </Transition>
   )
 }
 
