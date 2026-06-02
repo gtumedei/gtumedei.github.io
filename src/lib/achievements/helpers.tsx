@@ -267,7 +267,12 @@ export const SuperStarButton = () => {
                 <StarBackgroundDecoration class="absolute inset-0 fill-indigo-950/10" />
                 <StarBackgroundDecoration class="absolute inset-0 translate-y-full fill-indigo-950/10" />
               </div>
-              <StarIcon class="w-24 h-24 absolute-center [view-transition-name:star]" />
+              <StarIcon
+                class={cn(
+                  "w-24 h-24 absolute-center [view-transition-name:star]",
+                  !open() && "hidden",
+                )}
+              />
             </div>
             <Dialog.Header class="gap-2.5 mt-1">
               <Dialog.Title>
