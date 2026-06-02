@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "@solidjs/router"
 import JSConfetti from "js-confetti"
 import { createSignal, onMount, ParentComponent } from "solid-js"
 import { toast, Toaster } from "~/components/ui/toast"
-import Helpers from "~/lib/achievements/helpers"
+import AchievementHelpers from "~/lib/achievements/helpers"
 import { AchievementsProgressProvider, useAchievementsProgress } from "~/lib/achievements/progress"
 import achievements, { Achievement } from "~/lib/content/achievements"
 import { create } from "~/lib/context"
@@ -21,7 +21,7 @@ const [_AchievementsProvider, useAchievements] = create(() => {
 
   onMount(() => {
     _setCompletedAchievements(
-      JSON.parse(localStorage.getItem(LOCAL_STORAGE_ACHIEVEMENTS_KEY) ?? "[]")
+      JSON.parse(localStorage.getItem(LOCAL_STORAGE_ACHIEVEMENTS_KEY) ?? "[]"),
     )
 
     confetti = new JSConfetti()
@@ -91,13 +91,13 @@ export const AchievementsProvider: ParentComponent = (props) => {
       <_AchievementsProvider>
         {props.children}
 
-        <Helpers.Visitor />
-        <Helpers.ReturningVisitor />
-        <Helpers.SuperStar />
-        <Helpers.CustomizationAddict />
-        <Helpers.ModdingManiac />
-        <Helpers.InspectorGadget />
-        <Helpers.Cheater />
+        <AchievementHelpers.Visitor />
+        <AchievementHelpers.ReturningVisitor />
+        <AchievementHelpers.SuperStar />
+        <AchievementHelpers.CustomizationAddict />
+        <AchievementHelpers.ModdingManiac />
+        <AchievementHelpers.InspectorGadget />
+        <AchievementHelpers.Cheater />
 
         <Toaster />
       </_AchievementsProvider>

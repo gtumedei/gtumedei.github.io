@@ -12,12 +12,12 @@ import {
   splitProps,
 } from "solid-js"
 import { Portal } from "solid-js/web"
+import { cn } from "tailwind-variants"
 import SplashCursor from "~/components/splash-cursor"
 import { button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { useAchievements } from "~/lib/achievements"
 import { useAchievementsProgress } from "~/lib/achievements/progress"
-import { cn } from "tailwind-variants"
 import env from "~/lib/env"
 import { accents, styles, themes, useTheme } from "~/lib/theme"
 import TablerStarFilled from "~icons/tabler/star-filled"
@@ -102,10 +102,10 @@ export const Keymaster: Component<ComponentProps<"div">> = (props) => {
       >
         <div class="w-full h-full rounded-full transform-3d transition-transform duration-700 relative group-hover:rotate-y-20 group-[.flipped]:rotate-y-180">
           {localProps.children}
-          <div class="flex bg-base-100 dark:bg-neutral rounded-full border border-on-base/10 shadow shadow-black/5 backface-hidden rotate-y-180 absolute inset-0">
-            <div class="bg-amber-700/20 rounded-full absolute inset-0" />
+          <div class="flex bg-base-100 dark:bg-neutral rounded-full shadow shadow-black/5 backface-hidden rotate-y-180 absolute inset-0">
+            <div class="bg-amber-700/20 rounded-full border border-on-base/10 absolute inset-0" />
             <div class="flex bg-amber-700/20 rounded-full absolute inset-2 shadow-inner shadow-black/10 overflow-hidden">
-              <BackgroundOrnaments class="absolute top-0 left-0 h-full w-full fill-amber-950/10" />
+              <KeyBackgroundDecoration class="absolute top-0 left-0 h-full w-full fill-amber-950/10" />
               <KeyIcon
                 class={cn("w-10 h-10 m-auto [view-transition-name:key]", open() && "hidden")}
               />
@@ -123,10 +123,10 @@ export const Keymaster: Component<ComponentProps<"div">> = (props) => {
           <Dialog.Backdrop />
           <Dialog.Positioner>
             <Dialog.Content class="w-full max-w-sm text-center">
-              <div class="w-32 h-32 flex bg-base-100 dark:bg-neutral rounded-full border border-on-base/10 shadow shadow-black/5 mx-auto relative">
-                <div class="bg-amber-700/20 rounded-full absolute inset-0" />
+              <div class="w-32 h-32 flex bg-base-100 dark:bg-neutral rounded-full shadow shadow-black/5 mx-auto relative">
+                <div class="bg-amber-700/20 rounded-full border border-on-base/10 absolute inset-0" />
                 <div class="flex bg-amber-700/20 rounded-full absolute inset-2 shadow-inner shadow-black/10 overflow-hidden">
-                  <BackgroundOrnaments class="absolute top-0 left-0 h-full w-full fill-amber-950/10" />
+                  <KeyBackgroundDecoration class="absolute top-0 left-0 h-full w-full fill-amber-950/10" />
                   <KeyIcon
                     class={cn("w-14 h-14 m-auto [view-transition-name:key]", !open() && "hidden")}
                   />
@@ -138,8 +138,9 @@ export const Keymaster: Component<ComponentProps<"div">> = (props) => {
                 </Dialog.Title>
                 <Dialog.Description class="text-sm text-balance space-y-1">
                   <p>
-                    You saw what others missed. As a reward, a new option has been unlocked in the
-                    theme switcher.
+                    {isCompleted()
+                      ? "Stop poking around or others are going to find out about it!"
+                      : "You saw what others missed. As a reward, a new option has been unlocked in the theme switcher."}
                   </p>
                 </Dialog.Description>
               </Dialog.Header>
@@ -200,7 +201,7 @@ const KeyIcon: Component<ComponentProps<"svg">> = (props) => {
   )
 }
 
-const BackgroundOrnaments: Component<ComponentProps<"svg">> = (props) => {
+const KeyBackgroundDecoration: Component<ComponentProps<"svg">> = (props) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" {...props}>
       <g fill-rule="evenodd">
@@ -260,39 +261,13 @@ export const SuperStarButton = () => {
         <Dialog.Backdrop />
         <Dialog.Positioner>
           <Dialog.Content class="w-full max-w-sm text-center">
-            <div class="w-32 h-32 bg-base-300 flex rounded-full mx-auto relative">
-              <div class="bg-linear-to-b from-accent-orange/30 via-accent-pink/30 to-accent-blue/30 blur-md rounded-full absolute inset-0" />
-              <div class="bg-linear-to-b from-accent-orange via-accent-pink to-accent-blue rounded-full absolute inset-0" />
-              <div class="bg-base-300/95 backdrop-blur-md rounded-full absolute inset-px" />
-              <div class="bg-amber-400/10 dark:bg-amber-200/5 rounded-full absolute inset-px" />
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class={cn(
-                  "w-16 h-16 absolute-center [view-transition-name:star]",
-                  !open() && "hidden",
-                )}
-                viewBox="0 0 16 16"
-              >
-                <g fill="none">
-                  <path
-                    fill="url(#SVGKG1LDe8x)"
-                    d="M7.194 2.102a.9.9 0 0 1 1.614 0l1.521 3.082l3.401.494a.9.9 0 0 1 .5 1.535l-2.462 2.4l.581 3.387a.9.9 0 0 1-1.306.948L8.001 12.35l-3.042 1.6A.9.9 0 0 1 3.653 13l.58-3.387l-2.46-2.399a.9.9 0 0 1 .499-1.535l3.4-.494z"
-                  />
-                  <defs>
-                    <linearGradient
-                      id="SVGKG1LDe8x"
-                      x1="14.5"
-                      x2="1.125"
-                      y1="14.332"
-                      y2="1.72"
-                      gradientUnits="userSpaceOnUse"
-                    >
-                      <stop stop-color="#FF6F47" />
-                      <stop offset="1" stop-color="#FFCD0F" />
-                    </linearGradient>
-                  </defs>
-                </g>
-              </svg>
+            <div class="w-32 h-32 flex bg-base-100 dark:bg-neutral rounded-full shadow shadow-black/5 mx-auto relative">
+              <div class="bg-indigo-800/40 rounded-full border border-on-base/10 absolute inset-0" />
+              <div class="flex bg-indigo-800/40 rounded-full absolute inset-2 shadow-inner shadow-black/10 overflow-hidden">
+                <StarBackgroundDecoration class="absolute inset-0 fill-indigo-950/10" />
+                <StarBackgroundDecoration class="absolute inset-0 translate-y-full fill-indigo-950/10" />
+              </div>
+              <StarIcon class="w-24 h-24 absolute-center [view-transition-name:star]" />
             </div>
             <Dialog.Header class="gap-2.5 mt-1">
               <Dialog.Title>
@@ -327,6 +302,50 @@ export const SuperStarButton = () => {
       }
       `}</style>
     </Dialog>
+  )
+}
+
+const StarIcon: Component<ComponentProps<"svg">> = (props) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-4 -4 24 24" {...props}>
+      <defs>
+        <linearGradient
+          id="StarGradient"
+          x1="14.5"
+          x2="1.125"
+          y1="14.332"
+          y2="1.72"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#FF6F47" />
+          <stop offset="1" stop-color="#FFCD0F" />
+        </linearGradient>
+        <filter id="ConfigurableGlow" x="-50%" y="-50%" width="800%" height="800%">
+          <feGaussianBlur stdDeviation="1.5" result="blur" in="SourceGraphic" />
+          <feFlood flood-color="#fdba74" flood-opacity="0.7" result="glowColor" />
+          <feComposite in="glowColor" in2="blur" operator="in" result="coloredGlow" />
+          <feMerge>
+            <feMergeNode in="coloredGlow" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <g fill="none">
+        <path
+          fill="url(#StarGradient)"
+          filter="url(#ConfigurableGlow)"
+          d="M7.194 2.102a.9.9 0 0 1 1.614 0l1.521 3.082l3.401.494a.9.9 0 0 1 .5 1.535l-2.462 2.4l.581 3.387a.9.9 0 0 1-1.306.948L8.001 12.35l-3.042 1.6A.9.9 0 0 1 3.653 13l.58-3.387l-2.46-2.399a.9.9 0 0 1 .499-1.535l3.4-.494z"
+        />
+      </g>
+    </svg>
+  )
+}
+
+const StarBackgroundDecoration: Component<ComponentProps<"svg">> = (props) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 28" {...props}>
+      <path d="M56 26v2h-7.75c2.3-1.27 4.94-2 7.75-2zm-26 2a2 2 0 1 0-4 0h-4.09A25.98 25.98 0 0 0 0 16v-2c.67 0 1.34.02 2 .07V14a2 2 0 0 0-2-2v-2a4 4 0 0 1 3.98 3.6 28.09 28.09 0 0 1 2.8-3.86A8 8 0 0 0 0 6V4a9.99 9.99 0 0 1 8.17 4.23c.94-.95 1.96-1.83 3.03-2.63A13.98 13.98 0 0 0 0 0h7.75c2 1.1 3.73 2.63 5.1 4.45 1.12-.72 2.3-1.37 3.53-1.93A20.1 20.1 0 0 0 14.28 0h2.7c.45.56.88 1.14 1.29 1.74 1.3-.48 2.63-.87 4-1.15-.11-.2-.23-.4-.36-.59H26v.07a28.4 28.4 0 0 1 4 0V0h4.09l-.37.59c1.38.28 2.72.67 4.01 1.15.4-.6.84-1.18 1.3-1.74h2.69a20.1 20.1 0 0 0-2.1 2.52c1.23.56 2.41 1.2 3.54 1.93A16.08 16.08 0 0 1 48.25 0H56c-4.58 0-8.65 2.2-11.2 5.6 1.07.8 2.09 1.68 3.03 2.63A9.99 9.99 0 0 1 56 4v2a8 8 0 0 0-6.77 3.74c1.03 1.2 1.97 2.5 2.79 3.86A4 4 0 0 1 56 10v2a2 2 0 0 0-2 2.07 28.4 28.4 0 0 1 2-.07v2c-9.2 0-17.3 4.78-21.91 12H30zM7.75 28H0v-2c2.81 0 5.46.73 7.75 2zM56 20v2c-5.6 0-10.65 2.3-14.28 6h-2.7c4.04-4.89 10.15-8 16.98-8zm-39.03 8h-2.69C10.65 24.3 5.6 22 0 22v-2c6.83 0 12.94 3.11 16.97 8zm15.01-.4a28.09 28.09 0 0 1 2.8-3.86 8 8 0 0 0-13.55 0c1.03 1.2 1.97 2.5 2.79 3.86a4 4 0 0 1 7.96 0zm14.29-11.86c1.3-.48 2.63-.87 4-1.15a25.99 25.99 0 0 0-44.55 0c1.38.28 2.72.67 4.01 1.15a21.98 21.98 0 0 1 36.54 0zm-5.43 2.71c1.13-.72 2.3-1.37 3.54-1.93a19.98 19.98 0 0 0-32.76 0c1.23.56 2.41 1.2 3.54 1.93a15.98 15.98 0 0 1 25.68 0zm-4.67 3.78c.94-.95 1.96-1.83 3.03-2.63a13.98 13.98 0 0 0-22.4 0c1.07.8 2.09 1.68 3.03 2.63a9.99 9.99 0 0 1 16.34 0z" />
+    </svg>
   )
 }
 
@@ -511,11 +530,12 @@ const Cheater = () => {
         <Dialog.Backdrop />
         <Dialog.Positioner>
           <Dialog.Content class="w-full max-w-sm text-center">
-            <div class="w-32 h-32 bg-base-300 flex rounded-full mx-auto relative">
-              <div class="bg-linear-to-b from-accent-orange/30 via-accent-pink/30 to-accent-blue/30 blur-md rounded-full absolute inset-0" />
-              <div class="bg-linear-to-b from-accent-orange via-accent-pink to-accent-blue rounded-full absolute inset-0" />
-              <div class="bg-base-300/80 backdrop-blur-md rounded-full absolute inset-px" />
-              <p class="text-6xl absolute-center">👾</p>
+            <div class="w-32 h-32 flex bg-base-100 dark:bg-neutral rounded-full shadow shadow-black/5 mx-auto relative">
+              <div class="bg-fuchsia-800/20 rounded-full border border-on-base/10 absolute inset-0" />
+              <div class="flex bg-fuchsia-800/20 rounded-full absolute inset-2 shadow-inner shadow-black/10 overflow-hidden">
+                <CheaterBackgroundDecoration class="fill-fuchsia-950/10 absolute inset-0" />
+                <p class="text-6xl absolute-center">👾</p>
+              </div>
             </div>
             <Dialog.Header class="gap-2.5 mt-1">
               <Dialog.Title>
@@ -525,8 +545,8 @@ const Cheater = () => {
                 {isCompleted() ? (
                   <>
                     <p>
-                      I get it, that combo feels too good to resist. But hey, the dotted theme is
-                      already yours.
+                      I get it, that combo feels too good to resist. But hey, the additional themes
+                      are already yours.
                     </p>
                     <p>No extra lives this time!</p>
                   </>
@@ -559,7 +579,17 @@ const Cheater = () => {
   )
 }
 
-const Helpers = {
+const CheaterBackgroundDecoration: Component<ComponentProps<"svg">> = (props) => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" {...props}>
+      <g stroke="none" stroke-width="1" fill-rule="evenodd">
+        <path d="M54.627417,1.33226763e-15 L55.4558441,0.828427125 L54.0416306,2.24264069 L51.7989899,-1.44328993e-15 L54.627417,7.10542736e-15 L54.627417,1.33226763e-15 Z M5.372583,-5.55111512e-16 L4.54415588,0.828427125 L5.95836944,2.24264069 L8.20101013,-1.44328993e-15 L5.372583,-7.77156117e-16 L5.372583,-5.55111512e-16 Z M48.9705627,6.32827124e-15 L52.627417,3.65685425 L51.2132034,5.07106781 L46.1421356,-1.44328993e-15 L48.9705627,5.21804822e-15 L48.9705627,6.32827124e-15 Z M11.0294373,-1.44328993e-15 L7.372583,3.65685425 L8.78679656,5.07106781 L13.8578644,1.22124533e-15 L11.0294373,-3.33066907e-16 L11.0294373,-1.44328993e-15 Z M43.3137085,2.10942375e-15 L49.7989899,6.48528137 L48.3847763,7.89949494 L40.4852814,2.10942375e-15 L43.3137085,-1.44328993e-15 L43.3137085,2.10942375e-15 Z M16.6862915,3.33066907e-16 L10.2010101,6.48528137 L11.6152237,7.89949494 L19.5147186,-3.33066907e-16 L16.6862915,-1.44328993e-15 L16.6862915,3.33066907e-16 Z M37.6568542,2.55351296e-15 L46.9705627,9.3137085 L45.5563492,10.7279221 L34.8284271,-5.55111512e-16 L37.6568542,-1.44328993e-15 L37.6568542,2.55351296e-15 Z M22.3431458,5.55111512e-16 L13.0294373,9.3137085 L14.4436508,10.7279221 L25.1715729,-1.11022302e-16 L22.3431458,-1.44328993e-15 L22.3431458,5.55111512e-16 Z M32,-3.33066907e-16 L44.1421356,12.1421356 L42.7279221,13.5563492 L30,0.828427125 L17.2720779,13.5563492 L15.8578644,12.1421356 L28,-3.33066907e-16 L32,-1.44328993e-15 L32,-3.33066907e-16 Z M0.284271247,-1.44328993e-15 L28.2842712,28 L26.8700577,29.4142136 L-2.15508222e-16,2.54415588 L-2.15508222e-16,4.71844785e-16 L0.284271247,4.71844785e-16 L0.284271247,-1.44328993e-15 Z M1.80408836e-15,5.372583 L25.4558441,30.8284271 L24.0416306,32.2426407 L3.33720546e-15,8.20101013 L-2.15508222e-16,5.372583 L1.80408836e-15,5.372583 Z M-2.15508222e-16,11.0294373 L22.627417,33.6568542 L21.2132034,35.0710678 L4.80878765e-15,13.8578644 L1.25607397e-15,11.0294373 L-2.15508222e-16,11.0294373 Z M-2.15508222e-16,16.6862915 L19.7989899,36.4852814 L18.3847763,37.8994949 L7.73346434e-15,19.5147186 L6.28036983e-16,16.6862915 L-2.15508222e-16,16.6862915 Z M1.66860273e-15,22.3431458 L16.9705627,39.3137085 L15.5563492,40.7279221 L-2.15508222e-16,25.1715729 L-2.15508222e-16,22.3431458 L1.66860273e-15,22.3431458 Z M-2.15508222e-16,28 L14.1421356,42.1421356 L12.7279221,43.5563492 L-2.15508222e-16,30.8284271 L-2.15508222e-16,28 L-2.15508222e-16,28 Z M-2.15508222e-16,33.6568542 L11.3137085,44.9705627 L9.89949494,46.3847763 L5.20282872e-16,36.4852814 L5.20282872e-16,33.6568542 L-2.15508222e-16,33.6568542 Z M-2.15508222e-16,39.3137085 L8.48528137,47.7989899 L7.07106781,49.2132034 L3.55271368e-15,42.1421356 L3.55271368e-15,39.3137085 L-2.15508222e-16,39.3137085 Z M-2.15508222e-16,44.9705627 L5.65685425,50.627417 L4.24264069,52.0416306 L3.55271368e-15,47.7989899 L2.66453526e-15,44.9705627 L-2.15508222e-16,44.9705627 Z M-2.15508222e-16,50.627417 L2.82842712,53.4558441 L1.41421356,54.8700577 L2.48058749e-15,53.4558441 L2.48058749e-15,50.627417 L-2.15508222e-16,50.627417 Z M54.627417,60 L30,35.372583 L5.372583,60 L8.20101013,60 L30,38.2010101 L51.7989899,60 L54.627417,60 L54.627417,60 Z M48.9705627,60 L30,41.0294373 L11.0294373,60 L13.8578644,60 L30,43.8578644 L46.1421356,60 L48.9705627,60 L48.9705627,60 Z M43.3137085,60 L30,46.6862915 L16.6862915,60 L19.5147186,60 L30,49.5147186 L40.4852814,60 L43.3137085,60 L43.3137085,60 Z M37.6568542,60 L30,52.3431458 L22.3431458,60 L25.1715729,60 L30,55.1715729 L34.8284271,60 L37.6568542,60 L37.6568542,60 Z M32,60 L30,58 L28,60 L32,60 L32,60 Z M59.7157288,3.33066907e-16 L31.7157288,28 L33.1299423,29.4142136 L60,2.54415588 L60,-1.44328993e-15 L59.7157288,-1.44328993e-15 L59.7157288,3.33066907e-16 Z M60,5.372583 L34.5441559,30.8284271 L35.9583694,32.2426407 L60,8.20101013 L60,5.372583 L60,5.372583 Z M60,11.0294373 L37.372583,33.6568542 L38.7867966,35.0710678 L60,13.8578644 L60,11.0294373 L60,11.0294373 Z M60,16.6862915 L40.2010101,36.4852814 L41.6152237,37.8994949 L60,19.5147186 L60,16.6862915 L60,16.6862915 Z M60,22.3431458 L43.0294373,39.3137085 L44.4436508,40.7279221 L60,25.1715729 L60,22.3431458 L60,22.3431458 Z M60,28 L45.8578644,42.1421356 L47.2720779,43.5563492 L60,30.8284271 L60,28 L60,28 Z M60,33.6568542 L48.6862915,44.9705627 L50.1005051,46.3847763 L60,36.4852814 L60,33.6568542 L60,33.6568542 Z M60,39.3137085 L51.5147186,47.7989899 L52.9289322,49.2132034 L60,42.1421356 L60,39.3137085 L60,39.3137085 Z M60,44.9705627 L54.3431458,50.627417 L55.7573593,52.0416306 L60,47.7989899 L60,44.9705627 L60,44.9705627 Z M60,50.627417 L57.1715729,53.4558441 L58.5857864,54.8700577 L60,53.4558441 L60,50.627417 L60,50.627417 Z M39.8994949,16.3847763 L41.3137085,14.9705627 L30,3.65685425 L18.6862915,14.9705627 L20.1005051,16.3847763 L30,6.48528137 L39.8994949,16.3847763 L39.8994949,16.3847763 Z M37.0710678,19.2132034 L38.4852814,17.7989899 L30,9.3137085 L21.5147186,17.7989899 L22.9289322,19.2132034 L30,12.1421356 L37.0710678,19.2132034 L37.0710678,19.2132034 Z M34.2426407,22.0416306 L35.6568542,20.627417 L30,14.9705627 L24.3431458,20.627417 L25.7573593,22.0416306 L30,17.7989899 L34.2426407,22.0416306 L34.2426407,22.0416306 Z M31.4142136,24.8700577 L32.8284271,23.4558441 L30,20.627417 L27.1715729,23.4558441 L28.5857864,24.8700577 L30,23.4558441 L31.4142136,24.8700577 L31.4142136,24.8700577 Z M56.8700577,59.4142136 L58.2842712,58 L30,29.7157288 L1.71572875,58 L3.12994231,59.4142136 L30,32.5441559 L56.8700577,59.4142136 L56.8700577,59.4142136 Z" />
+      </g>
+    </svg>
+  )
+}
+
+const AchievementHelpers = {
   Visitor,
   ReturningVisitor,
   SuperStar,
@@ -569,4 +599,4 @@ const Helpers = {
   Cheater,
 }
 
-export default Helpers
+export default AchievementHelpers
