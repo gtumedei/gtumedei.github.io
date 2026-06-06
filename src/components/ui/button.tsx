@@ -26,7 +26,7 @@ export const button = tv({
       error: "",
     },
     size: {
-      xs: "h-8 text-xs px-3 rounded-md",
+      xs: "h-8 text-sm px-3 rounded-md",
       sm: "h-9 text-sm px-4",
       md: "h-10 text-sm px-5",
       lg: "h-11 text-base px-6",
