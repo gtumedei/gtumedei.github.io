@@ -1,8 +1,13 @@
 export type Project = {
   name: string
   description: string
-  url: string
-  imageUrl: string
+  iconUrl: string
+  showcaseImageUrl?: string
+  isHighlighted?: true
+  links?: {
+    type: "website" | "code" | "article"
+    url: string
+  }[]
 }
 
 const projectCategories: {
@@ -15,38 +20,43 @@ const projectCategories: {
       {
         name: "Relish",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://relisheu.org",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://relisheu.org" }],
+        iconUrl: "#",
       },
       {
         name: "DISCOV.ER",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://discover-project.it",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://discover-project.it" }],
+        iconUrl: "#",
       },
       {
         name: "SMARTLAGOON",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://smartlagoon.eu",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://smartlagoon.eu" }],
+        iconUrl: "#",
       },
       {
         name: "Air Quality Sonification",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://sonification-demo.vercel.app",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://sonification-demo.vercel.app" }],
+        iconUrl: "#",
       },
       {
         name: "Navile",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://doi.org/10.1016/j.infsof.2026.108044",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://doi.org/10.1016/j.infsof.2026.108044" }],
+        iconUrl: "#",
       },
       {
         name: "Maré",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://tecnico.ulisboa.pt/pt/coronavirus/projectos-covid-19/mare-plataforma-para-ajudar-no-regresso-a-normalidade/",
-        imageUrl: "#",
+        links: [
+          {
+            type: "website",
+            url: "https://tecnico.ulisboa.pt/pt/coronavirus/projectos-covid-19/mare-plataforma-para-ajudar-no-regresso-a-normalidade/",
+          },
+        ],
+        iconUrl: "#",
       },
     ],
   },
@@ -56,32 +66,32 @@ const projectCategories: {
       {
         name: "Nexthardware",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://nexthardware.com",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://nexthardware.com" }],
+        iconUrl: "#",
       },
       {
         name: "MoreThanTech Build",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://build.morethantech.it",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://build.morethantech.it" }],
+        iconUrl: "#",
       },
       {
         name: "MoreThanTech",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://morethantech.it",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://morethantech.it" }],
+        iconUrl: "#",
       },
       {
         name: "Radio Centrale",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://radiocentraleweb.it",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://radiocentraleweb.it" }],
+        iconUrl: "#",
       },
       {
         name: "TBG Studio",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://tbgstudio.it",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://tbgstudio.it" }],
+        iconUrl: "#",
       },
     ],
   },
@@ -91,63 +101,62 @@ const projectCategories: {
       {
         name: "Sailing Ark",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://sailing-ark.vercel.app",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://sailing-ark.vercel.app" }],
+        iconUrl: "#",
       },
       {
         name: "AlmaMedia",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "github.com",
-        imageUrl:
-          "https://chromewebstore.google.com/detail/almamedia/odldhmdkdpgdgihhjjmhmnnoopefcbid",
+        links: [{ type: "website", url: "github.com" }],
+        iconUrl: "#",
       },
       {
         name: "Open Movies",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://open-movies-seven.vercel.app",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://open-movies-seven.vercel.app" }],
+        iconUrl: "#",
       },
       {
         name: "goui",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://github.com/gtumedei/goui",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://github.com/gtumedei/goui" }],
+        iconUrl: "#",
       },
       {
         name: "metaviewer",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://github.com/gtumedei/metaviewer",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://github.com/gtumedei/metaviewer" }],
+        iconUrl: "#",
       },
       {
         name: "taggui",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://github.com/gtumedei/taggui",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://github.com/gtumedei/taggui" }],
+        iconUrl: "#",
       },
       {
         name: "go-droid",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://github.com/gtumedei/go-droid",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://github.com/gtumedei/go-droid" }],
+        iconUrl: "#",
       },
       {
         name: "yt-dlapp",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://github.com/gtumedei/yt-dlapp",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://github.com/gtumedei/yt-dlapp" }],
+        iconUrl: "#",
       },
       {
         name: "goaway",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "https://github.com/gtumedei/goaway",
-        imageUrl: "#",
+        links: [{ type: "website", url: "https://github.com/gtumedei/goaway" }],
+        iconUrl: "#",
       },
       {
         name: "vscode-adw-material-theme",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!",
-        url: "github.com",
-        imageUrl: "#",
+        links: [{ type: "website", url: "github.com" }],
+        iconUrl: "#",
       },
     ],
   },
