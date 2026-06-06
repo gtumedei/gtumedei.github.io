@@ -102,6 +102,8 @@ const Grainient: Component<GrainientProps> = (baseProps) => {
     mesh: InstanceType<typeof Mesh>
   } | null>(null)
 
+  const [deviceScale, setDeviceScale] = createSignal(1)
+
   const breakpoints = createBreakpoints()
 
   // Build WebGL context on mount
@@ -165,6 +167,7 @@ const Grainient: Component<GrainientProps> = (baseProps) => {
       const res = (program.uniforms.iResolution as { value: Float32Array }).value
       res[0] = gl.drawingBufferWidth
       res[1] = gl.drawingBufferHeight
+      setDeviceScale(gl.drawingBufferWidth / w)
       renderer.render({ scene: mesh })
     }
 
@@ -243,11 +246,11 @@ const Grainient: Component<GrainientProps> = (baseProps) => {
     const breakpoint = breakpoints.xl ? "xl" : breakpoints.md ? "md" : "base"
     const grainMultipliers = {
       none: { base: 1.0, md: 1.0, xl: 1.0 },
-      pixelated: { base: 12.0, md: 12.0, xl: 12.0 },
-      dotted: { base: 16.0, md: 16.0, xl: 16.0 },
+      pixelated: { base: 6.0, md: 5.0, xl: 4.0 },
+      dotted: { base: 8.0, md: 7.0, xl: 6.0 },
     }
     const grainMultiplier = grainMultipliers[props.overlayMode][breakpoint]
-    const grainScale = props.grainScale * grainMultiplier
+    const grainScale = props.grainScale * grainMultiplier * Math.max(deviceScale(), 1)
     const grainShape = props.overlayMode === "dotted" ? 1.0 : 0.0
 
     u.uTimeSpeed.value = props.timeSpeed

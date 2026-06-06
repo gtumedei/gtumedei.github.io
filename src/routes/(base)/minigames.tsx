@@ -60,7 +60,7 @@ const MinigameCard: Component<{ minigame: Minigame }> = (props) => {
       <img
         src={props.minigame.imageUrl}
         alt=""
-        class="w-36 h-36 rounded-2xl shadow shadow-black/5"
+        class="w-36 h-36 rounded-xl shadow shadow-black/5"
       />
       <div class="px-0.5">
         <h2 class="text-lg font-medium mb-2">{props.minigame.name}</h2>
