@@ -35,7 +35,7 @@ const KonamiJoypad = () => {
   }
 
   return (
-    <div class="bg-base-200 [--ks:calc((100vw-2rem-var(--scrollbar-size))/10)] sm:[--ks:48px]">
+    <div class="bg-base-200 [--ks:calc((100vw-2rem)/10)] sm:[--ks:48px]">
       <div class="h-[calc(var(--ks)*3.5)] flex">
         <div class="w-[calc(var(--ks)*3)] relative">
           <div class="h-[calc(var(--ks)*2)] w-[calc(var(--ks)*2)] absolute-center-x bottom-[calc(var(--ks)*0.5)]">

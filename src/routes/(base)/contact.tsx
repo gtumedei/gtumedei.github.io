@@ -127,8 +127,8 @@ const ContactPage = () => {
           <FormField.Label class="lg:text-base md:leading-11!">Name</FormField.Label>
           <div class="md:col-span-3 sm:max-w-xs relative">
             <Input type="text" name="name" variant="outline" size="lg" class="w-full pl-12 peer" />
-            <div class="h-8 w-8 flex bg-base-300 peer-hover:bg-accent/20 peer-hover:text-accent peer-focus-visible:bg-accent/20 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
-              <TablerUser class="m-auto" />
+            <div class="h-8 w-8 flex peer-focus-visible:text-accent *:opacity-70 peer-hover:*:opacity-100 peer-focus-visible:*:opacity-100 transition-colors absolute-center-y left-2.5 pointer-events-none">
+              <TablerUser class="m-auto transition-opacity" />
             </div>
           </div>
         </FormField>
@@ -141,10 +141,10 @@ const ContactPage = () => {
               name="email"
               variant="outline"
               size="lg"
-              class="w-full pl-12 peer"
+              class="w-full pl-12 pr-10 peer"
             />
-            <div class="h-8 w-8 flex bg-base-300 peer-hover:bg-accent/20 peer-hover:text-accent peer-focus-visible:bg-accent/20 peer-focus-visible:text-accent transition-colors rounded-md absolute bottom-1.5 left-1.5 pointer-events-none">
-              <TablerMail class="m-auto" />
+            <div class="h-8 w-8 flex peer-focus-visible:text-accent *:opacity-70 peer-hover:*:opacity-100 peer-focus-visible:*:opacity-100 transition-colors absolute-center-y left-2.5 pointer-events-none">
+              <TablerMail class="m-auto transition-opacity" />
             </div>
             {errors("email") && (
               <div
@@ -175,7 +175,7 @@ const ContactPage = () => {
           <Button
             type="submit"
             size="lg"
-            class="text-sm md:col-span-3 md:col-start-2 sm:w-1/2 md:w-full lg:w-1/2 sm:mx-auto md:mx-0 lg:mx-auto"
+            class="text-sm md:col-span-3 md:col-start-2 sm:w-1/2 md:w-full lg:w-1/2 max-md:mt-3 sm:mx-auto md:mx-0 lg:mx-auto"
             disabled={!isValid() || isSubmitting()}
           >
             {isSubmitting() ? <Loading /> : "Send"}

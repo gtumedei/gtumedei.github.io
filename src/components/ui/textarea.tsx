@@ -3,12 +3,12 @@ import { splitProps } from "solid-js"
 import { tv, type VariantProps } from "tailwind-variants/lite"
 
 export const textarea = tv({
-  base: "rounded-lg border outline-none placeholder:text-on-base/40 disabled:bg-transparent disabled:text-on-base/30 transition-all",
+  base: "rounded-[22px] border outline-none placeholder:text-on-base/40 disabled:bg-transparent disabled:text-on-base/30 transition-all",
   defaultVariants: { variant: "outline", theme: "accent", size: "md" },
   variants: {
     variant: {
       outline:
-        "bg-transparent text-on-base focus-visible:ring disabled:bg-on-base/5 disabled:border-on-base/10",
+        "bg-base-200 text-on-base border-on-base/15 focus-visible:ring disabled:bg-on-base/5 disabled:border-on-base/10",
       ghost:
         "border-transparent bg-transparent text-on-base focus-visible:border-accent focus-visible:ring focus-visible:ring-accent/20 disabled:bg-on-base/10",
       unstyled: "border-transparent bg-transparent focus:border-transparent focus:ring-transparent",
@@ -19,19 +19,17 @@ export const textarea = tv({
       error: "",
     },
     size: {
-      xs: "min-h-16 text-xs px-2 rounded-md",
-      sm: "min-h-24 text-sm px-2.5",
-      md: "min-h-24 text-sm px-3",
-      lg: "min-h-28 text-base px-3.5",
-      xl: "min-h-32 text-lg px-4",
+      xs: "min-h-16 text-sm px-2.5",
+      sm: "min-h-24 text-sm px-3",
+      md: "min-h-24 text-sm px-3.5",
+      lg: "min-h-28 text-base px-4",
     },
   },
   compoundVariants: [
     {
       variant: "outline",
       theme: "accent",
-      class:
-        "border-on-base/20 hover:border-accent/50 focus-visible:border-accent/70 focus-visible:ring-accent/20",
+      class: "hover:border-on-base/30 focus-visible:border-accent/70 focus-visible:ring-accent/20",
     },
     {
       variant: "outline",

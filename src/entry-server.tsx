@@ -2,13 +2,12 @@
 import { createHandler, StartServer } from "@solidjs/start/server"
 import { dominationArt } from "~/lib/achievements/helpers"
 import { ANALYTICS_URL, WEBSITE_ID } from "~/lib/analytics"
-import { detectScrollbarSizeFnString } from "~/lib/detect-scrollbar-size"
 import { fnStrings } from "~/lib/theme/apply"
 
 export default createHandler(() => (
   <StartServer
     document={({ assets, children, scripts }) => (
-      <html lang="en" class="min-h-full flex bg-base-100 group/html">
+      <html lang="en" class="min-h-full flex bg-base-200 dark:bg-black/40 group/html">
         <head>
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -32,13 +31,12 @@ export default createHandler(() => (
           )}
           {assets}
         </head>
-        <body class="grow flex overflow-x-hidden overflow-y-auto">
+        <body class="grow flex group/body">
           <div id="app" class="grow flex flex-col">
             {children}
           </div>
           {scripts}
           <div class="hidden" innerHTML={dominationArt} />
-          <script innerHTML={detectScrollbarSizeFnString} />
         </body>
       </html>
     )}

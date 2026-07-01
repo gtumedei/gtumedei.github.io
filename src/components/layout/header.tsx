@@ -52,7 +52,7 @@ const Header = () => {
         <A
           href="/cv"
           target="_self"
-          class={cn(button({ size: "lg" }), "backdrop-blur-xs rounded-full pl-4 pr-5 shadow-md")}
+          class={cn(button({ size: "lg" }), "backdrop-blur-xs rounded-full pl-4 shadow-md")}
         >
           <TablerDownload />
           <span class="text-sm">
@@ -133,7 +133,7 @@ const MobileNavDialog: Component<{
     <Dialog.Root open={props.open} onOpenChange={props.onOpenChange} lazyMount unmountOnExit>
       <Portal>
         <Dialog.Backdrop class={dialog().backdrop()} />
-        <Dialog.Positioner class="h-screen w-[calc(100vw-var(--scrollbar-size))] flex fixed top-0 left-0 z-50">
+        <Dialog.Positioner class="fixed top-0 left-0 w-screen h-screen flex z-50">
           <div class="container gap-4 p-6 mx-auto group">
             <Dialog.CloseTrigger
               class={cn(

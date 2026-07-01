@@ -206,16 +206,19 @@ const ProjectLinksMenu: Component<{ links: Project["links"] }> = (props) => {
       <Portal>
         <Menu.Positioner>
           <Menu.Content class="min-w-40 origin-top-right z-15">
-            <For each={props.links}>
-              {(link) => (
-                <Menu.Item value={link.url} class="max-md:text-base">
-                  {link.type == "website" && <TablerWorld />}
-                  {link.type == "article" && <TablerFileText />}
-                  {link.type == "code" && <TablerBracketsAngle />}
-                  {getHostname(link.url)}
-                </Menu.Item>
-              )}
-            </For>
+            <Menu.ItemGroup>
+              <Menu.ItemGroupLabel>Project Links</Menu.ItemGroupLabel>
+              <For each={props.links}>
+                {(link) => (
+                  <Menu.Item value={link.url} class="max-md:text-base">
+                    {link.type == "website" && <TablerWorld />}
+                    {link.type == "article" && <TablerFileText />}
+                    {link.type == "code" && <TablerBracketsAngle />}
+                    {getHostname(link.url)}
+                  </Menu.Item>
+                )}
+              </For>
+            </Menu.ItemGroup>
           </Menu.Content>
         </Menu.Positioner>
       </Portal>

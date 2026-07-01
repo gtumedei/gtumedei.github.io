@@ -8,11 +8,11 @@ export const menu = tv({
     trigger: "",
     contextTrigger: "",
     triggerItem:
-      "w-full flex items-center rounded-lg text-sm text-on-base data-highlighted:bg-on-base/5 data-disabled:text-on-base/30 not-data-disabled:cursor-pointer transition-colors",
+      "w-full flex items-center rounded-2xl text-sm text-on-base data-highlighted:bg-on-base/5 data-disabled:text-on-base/30 not-data-disabled:cursor-pointer transition-colors",
     positioner: "",
     content:
-      "bg-base-100 dark:bg-base-200 rounded-2xl p-1.5 border border-on-base/10 shadow-lg shadow-black/5 outline-none cursor-default data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
-    item: "w-full flex items-center rounded-lg text-sm text-on-base data-highlighted:bg-on-base/5 data-disabled:text-on-base/30 not-data-disabled:cursor-pointer transition-colors",
+      "bg-base-100 dark:bg-base-200 rounded-3xl p-1.5 border border-on-base/10 shadow-lg shadow-black/5 outline-none cursor-default data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
+    item: "w-full flex items-center rounded-2xl text-sm text-on-base data-highlighted:bg-on-base/5 data-disabled:text-on-base/30 not-data-disabled:cursor-pointer transition-colors",
     separator: "border-on-base/10 -mx-1 my-1",
     itemGroup: "",
     itemGroupLabel: "text-xs text-on-base/50 font-medium",

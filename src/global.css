@@ -16,7 +16,7 @@
   --color-neutral: #27272a;
   --color-on-neutral: #ffffff;
   --color-accent-blue: #3b82f6;
-  --color-accent-orange: "#FF8A65";
+  --color-accent-orange: #ff8a65;
   --color-accent-teal: #14b8a6;
   --color-accent-pink: #ec4899;
   --color-accent: #3b82f6;
@@ -112,6 +112,9 @@
 
   * {
     @apply outline-offset-1 outline-accent/20;
+
+    /* Style scrollbars */
+    scrollbar-color: color-mix(in oklab, var(--color-on-base) 30%, transparent) transparent;
   }
 }
 

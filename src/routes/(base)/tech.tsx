@@ -24,7 +24,7 @@ const TechPage = () => {
       animate(
         `[data-motion="tech-item"]`,
         { opacity: 1, x: [-10, 0] },
-        { duration: 0.4, delay: stagger(0.05) }
+        { duration: 0.4, delay: stagger(0.05) },
       )
     })
   })
@@ -216,7 +216,7 @@ const TechPage = () => {
           </p>
           <div class="not-prose flex gap-3 flex-wrap mt-12" data-motion="tech">
             {techWithStar.map((techOrStar) =>
-              techOrStar == "star" ? <SuperStarButton /> : <TechItem tech={techOrStar} />
+              techOrStar == "star" ? <SuperStarButton /> : <TechItem tech={techOrStar} />,
             )}
           </div>
         </TechSection>
@@ -232,7 +232,7 @@ const TechSection: ParentComponent<{ heading: string }> = (props) => {
       data-motion="section"
     >
       <div class="md:pl-6 md:border-l md:border-on-base/10">
-        <h2 class="font-semibold max-md:text-xl">{props.heading}</h2>
+        <h2 class="font-semibold max-md:text-xl sticky top-24">{props.heading}</h2>
       </div>
       <div class="col-span-3 max-w-xl prose">{props.children}</div>
     </section>

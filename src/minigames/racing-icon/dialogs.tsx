@@ -52,7 +52,7 @@ const MenuDialog = () => {
         <Dialog.Positioner>
           <Dialog.Content class="w-full max-w-lg text-center">
             <Dialog.Header class="gap-1">
-              <img src="#" alt="" class="w-15 h-15 rounded-md shadow shadow-black/5 mx-auto mb-3" />
+              <img src="#" alt="" class="w-15 h-15 rounded-lg shadow shadow-black/5 mx-auto mb-3" />
               <Dialog.Title>Racing Icon</Dialog.Title>
               <Dialog.Description class="text-balance">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, nisi. Eum, nisi.

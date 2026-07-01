@@ -4,12 +4,12 @@ import { cn } from "tailwind-variants"
 import { tv, type VariantProps } from "tailwind-variants/lite"
 
 export const input = tv({
-  base: "py-0 rounded-lg border outline-none placeholder:text-on-base/40 disabled:bg-transparent disabled:text-on-base/30 transition-all",
+  base: "py-0 rounded-full border outline-none placeholder:text-on-base/40 disabled:bg-transparent disabled:text-on-base/30 transition-all",
   defaultVariants: { variant: "outline", theme: "accent", size: "md" },
   variants: {
     variant: {
       outline:
-        "border-on-base/20 bg-transparent text-on-base disabled:bg-on-base/5 disabled:border-on-base/10",
+        "bg-base-200 border-on-base/15 text-on-base disabled:bg-on-base/5 disabled:border-on-base/5",
       ghost:
         "border-transparent bg-transparent text-on-base focus-visible:border-accent focus-visible:ring focus-visible:ring-accent/20 disabled:bg-on-base/10",
       unstyled: "border-transparent bg-transparent focus:border-transparent focus:ring-transparent",
@@ -20,11 +20,10 @@ export const input = tv({
       error: "",
     },
     size: {
-      xs: "h-8 text-xs px-2 rounded-md",
-      sm: "h-9 text-sm px-2.5 ",
-      md: "h-10 text-sm px-3",
-      lg: "h-11 text-base px-3.5",
-      xl: "h-12 text-lg px-4",
+      xs: "h-8 text-sm px-2.5",
+      sm: "h-9 text-sm px-3 ",
+      md: "h-10 text-sm px-3.5",
+      lg: "h-11 text-base px-4",
     },
   },
   compoundVariants: [
@@ -32,7 +31,7 @@ export const input = tv({
       variant: "outline",
       theme: "accent",
       class:
-        "hover:border-accent/50 focus-visible:border-accent/70 focus-visible:ring focus-visible:ring-accent/20",
+        "hover:border-on-base/30 focus-visible:border-accent/70 focus-visible:ring focus-visible:ring-accent/20",
     },
     {
       variant: "outline",
@@ -55,7 +54,7 @@ export const Input = (props: InputProps) => {
   const [variantProps, classProp, inputProps] = splitProps(
     props,
     ["variant", "theme", "size"],
-    ["class"]
+    ["class"],
   )
   return <ark.input class={cn(input(variantProps), classProp.class)} {...inputProps} />
 }
