@@ -2,12 +2,12 @@ import { Dialog, DialogOpenChangeDetails } from "@ark-ui/solid"
 import { A, useLocation } from "@solidjs/router"
 import { Component, createEffect, createSignal, For } from "solid-js"
 import { Portal } from "solid-js/web"
+import { cn } from "tailwind-variants"
 import ThemeSwitcher from "~/components/layout/theme-switcher"
 import { Button, button } from "~/components/ui/button"
 import { dialog } from "~/components/ui/dialog"
 import { ProgressiveBlur } from "~/components/ui/progressive-blur"
 import { createBreakpoints } from "~/lib/breakpoints"
-import { cn } from "tailwind-variants"
 import stickyOnScrollUp from "~/lib/directives/sticky-on-scroll-up"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerDownload from "~icons/tabler/download"
@@ -52,7 +52,10 @@ const Header = () => {
         <A
           href="/cv"
           target="_self"
-          class={cn(button({ size: "lg" }), "backdrop-blur-xs rounded-full pl-4 shadow-md")}
+          class={cn(
+            button({ variant: "neutral", size: "lg", raised: true }),
+            "backdrop-blur-xs pl-4",
+          )}
         >
           <TablerDownload />
           <span class="text-sm">
@@ -60,10 +63,7 @@ const Header = () => {
           </span>
         </A>
       ) : (
-        <A
-          href="/"
-          class={cn(button({ variant: "raised", size: "lg" }), "header-pill px-1.5 group")}
-        >
+        <A href="/" class={cn(button({ size: "lg", raised: true }), "header-pill px-1.5 group")}>
           <TablerArrowBackUp />
           <img
             src="/profile.jpg"
@@ -75,7 +75,6 @@ const Header = () => {
       {location.pathname != "/" && (
         <>
           <Button
-            variant="raised"
             size="lg"
             class="md:hidden header-pill px-4 ml-auto"
             onClick={() => setMenuDialogOpen(true)}
@@ -109,10 +108,10 @@ const DesktopNav = () => {
                   href={item.href}
                   class={cn(
                     "inline-flex px-3.5 py-3 relative outline-none",
-                    "before:[content:''] before:rounded-full before:border before:border-transparent focus-visible:before:border-neutral/20 hover:before:bg-on-base/5 [&.active]:before:bg-transparent before:transition-all before:absolute before:-inset-x-2 before:inset-y-1 focus-visible:before:ring focus-visible:before:ring-neutral/10",
+                    "before:[content:''] before:rounded-full before:border before:border-transparent focus-visible:before:border-neutral/20 hover:before:bg-on-base/5 before:transition-all before:absolute before:-inset-x-2 before:inset-y-1 focus-visible:before:ring focus-visible:before:ring-neutral/10",
                     "after:[content:''] after:h-0.5 after:w-12 after:bg-linear-to-r after:from-transparent after:via-accent/50 after:to-transparent after:absolute-center-x after:bottom-0 after:opacity-0 after:transition-opacity",
                   )}
-                  activeClass="active text-accent after:opacity-100"
+                  activeClass="text-accent after:opacity-100 before:bg-transparent!"
                 >
                   {item.label}
                 </A>
@@ -137,7 +136,7 @@ const MobileNavDialog: Component<{
           <div class="container gap-4 p-6 mx-auto group">
             <Dialog.CloseTrigger
               class={cn(
-                button({ variant: "raised", shape: "circle", size: "lg" }),
+                button({ variant: "base", shape: "circle", size: "lg" }),
                 "bg-base-100/90 dark:bg-base-200/90 ml-auto group-data-[state=open]:animate-in pointer-events-auto",
               )}
             >

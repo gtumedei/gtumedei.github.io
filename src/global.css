@@ -21,10 +21,6 @@
   --color-accent-pink: #ec4899;
   --color-accent: #3b82f6;
   --color-on-accent: #ffffff;
-  --color-info: #0ea5e9;
-  --color-on-info: #ffffff;
-  --color-success: #10b981;
-  --color-on-success: #ffffff;
   --color-warning: #f59e0b;
   --color-on-warning: #ffffff;
   --color-error: #f43f5e;
@@ -43,10 +39,6 @@
   --color-accent-teal: #14b8a6;
   --color-accent-pink: #ec4899;
   --color-on-accent: #ffffff;
-  --color-info: #0ea5e9;
-  --color-on-info: #ffffff;
-  --color-success: #10b981;
-  --color-on-success: #ffffff;
   --color-warning: #f59e0b;
   --color-on-warning: #ffffff;
   --color-error: #f43f5e;
@@ -64,15 +56,11 @@
   --color-accent-orange: #ef9a9a;
   --color-accent-teal: #6ee7b7;
   --color-accent-pink: #f9a8d4;
-  --color-on-accent: #000000;
-  --color-info: #7dd3fc;
-  --color-on-info: #075985;
-  --color-success: #6ee7b7;
-  --color-on-success: #065f46;
+  --color-on-accent: #172554;
   --color-warning: #fcd34d;
   --color-on-warning: #92400e;
   --color-error: #fda4af;
-  --color-on-error: #9f1239;
+  --color-on-error: #4c0519;
 }
 
 @layer base {

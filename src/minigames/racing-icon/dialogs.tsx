@@ -160,7 +160,10 @@ const StatsDialog = () => {
               </div>
             </div>
             <Dialog.Actions class="grid grid-cols-1">
-              <Button class="sm:w-1/2 sm:mx-auto" /* onClick={ctx.resetStats} */>
+              <Button
+                variant="destructive"
+                class="sm:w-1/2 sm:mx-auto" /* onClick={ctx.resetStats} */
+              >
                 Reset stats
               </Button>
             </Dialog.Actions>

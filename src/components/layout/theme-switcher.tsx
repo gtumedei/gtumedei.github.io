@@ -71,7 +71,7 @@ const ThemeSwitcher = () => {
   return (
     <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
       <Popover.Trigger
-        class={cn(button({ variant: "raised", shape: "circle", size: "lg" }), "header-pill")}
+        class={cn(button({ variant: "base", shape: "circle", size: "lg" }), "header-pill")}
       >
         <TablerPalette />
       </Popover.Trigger>
@@ -91,7 +91,7 @@ const ThemeSwitcher = () => {
                       class={cn(
                         button({ variant: "ghost", shape: "square" }),
                         "h-14 border-on-base/10 cursor-pointer *:z-10",
-                        t().value == theme() && "text-accent"
+                        t().value == theme() && "text-accent",
                       )}
                     >
                       {t().icon()}
@@ -118,7 +118,7 @@ const ThemeSwitcher = () => {
                     <RadioGroup.ItemControl
                       class={cn(
                         button({ variant: "ghost", shape: "square" }),
-                        "border-on-base/10 cursor-pointer *:z-10"
+                        "border-on-base/10 cursor-pointer *:z-10",
                       )}
                     >
                       <div
@@ -183,7 +183,7 @@ const HiddenOptions = () => {
                   <RadioGroup.ItemControl
                     class={cn(
                       button({ variant: "ghost", shape: "square" }),
-                      " w-full border-on-base/10 cursor-pointer *:z-10"
+                      " w-full border-on-base/10 cursor-pointer *:z-10",
                     )}
                   >
                     <div class={`m-auto ${a().class}`}>{a().label[0]}</div>

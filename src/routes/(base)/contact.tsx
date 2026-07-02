@@ -7,7 +7,7 @@ import { Component, createSignal, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import { z } from "zod"
 import Meta from "~/components/meta"
-import PageHeadingIcon from "~/components/page-heading-icon"
+import PageAvatar from "~/components/page-avatar-icon"
 import { Button, button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { FormField } from "~/components/ui/form-field"
@@ -110,9 +110,11 @@ const ContactPage = () => {
         description="Want to work together or just talk? Reaching out is easy, and I usually reply pretty fast."
       />
       <div class="lg:w-2/3 px-6">
-        <PageHeadingIcon data-motion="image">
-          <TablerBrandTelegram />
-        </PageHeadingIcon>
+        <PageAvatar class="mb-8" data-motion="image">
+          <PageAvatar.Icon>
+            <TablerBrandTelegram />
+          </PageAvatar.Icon>
+        </PageAvatar>
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Contact
         </h1>
@@ -174,6 +176,7 @@ const ContactPage = () => {
         <div class="grid md:grid-cols-5 gap-x-12" data-motion="form">
           <Button
             type="submit"
+            variant="neutral"
             size="lg"
             class="text-sm md:col-span-3 md:col-start-2 sm:w-1/2 md:w-full lg:w-1/2 max-md:mt-3 sm:mx-auto md:mx-0 lg:mx-auto"
             disabled={!isValid() || isSubmitting()}
@@ -212,7 +215,7 @@ const SuccessDialog: Component<Pick<DialogRootProps, "open" | "onOpenChange">> =
               </Dialog.Description>
             </Dialog.Header>
             <Dialog.Actions class="grid grid-cols-1">
-              <Dialog.CloseTrigger class={button()}>Ok</Dialog.CloseTrigger>
+              <Dialog.CloseTrigger class={button({ variant: "neutral" })}>Ok</Dialog.CloseTrigger>
             </Dialog.Actions>
           </Dialog.Content>
         </Dialog.Positioner>
@@ -243,7 +246,7 @@ const ErrorDialog: Component<Pick<DialogRootProps, "open" | "onOpenChange">> = (
               </Dialog.Description>
             </Dialog.Header>
             <Dialog.Actions class="grid grid-cols-1">
-              <Dialog.CloseTrigger class={button({ theme: "error" })}>Ok</Dialog.CloseTrigger>
+              <Dialog.CloseTrigger class={button({ variant: "neutral" })}>Ok</Dialog.CloseTrigger>
             </Dialog.Actions>
           </Dialog.Content>
         </Dialog.Positioner>

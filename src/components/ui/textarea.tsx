@@ -1,5 +1,6 @@
 import { ark, type HTMLArkProps } from "@ark-ui/solid"
 import { splitProps } from "solid-js"
+import { cn } from "tailwind-variants"
 import { tv, type VariantProps } from "tailwind-variants/lite"
 
 export const textarea = tv({
@@ -8,7 +9,7 @@ export const textarea = tv({
   variants: {
     variant: {
       outline:
-        "bg-base-200 text-on-base border-on-base/15 focus-visible:ring disabled:bg-on-base/5 disabled:border-on-base/10",
+        "bg-base-200 text-on-base border-on-base/15 focus-visible:ring disabled:bg-neutral/3 disabled:border-neutral/3",
       ghost:
         "border-transparent bg-transparent text-on-base focus-visible:border-accent focus-visible:ring focus-visible:ring-accent/20 disabled:bg-on-base/10",
       unstyled: "border-transparent bg-transparent focus:border-transparent focus:ring-transparent",
@@ -48,5 +49,5 @@ type TextareaProps = VariantProps<typeof textarea> & HTMLArkProps<"textarea">
 
 export const Textarea = (props: TextareaProps) => {
   const [variantProps, textareaProps] = splitProps(props, ["class", "variant", "theme", "size"])
-  return <ark.textarea class={textarea(variantProps)} {...textareaProps} />
+  return <ark.textarea class={cn(textarea(variantProps), variantProps.class)} {...textareaProps} />
 }

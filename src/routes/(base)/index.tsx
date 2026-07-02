@@ -3,6 +3,7 @@ import { animate, stagger } from "motion"
 import { onMount } from "solid-js"
 import { cn } from "tailwind-variants"
 import Meta from "~/components/meta"
+import PageAvatar from "~/components/page-avatar-icon"
 import { button } from "~/components/ui/button"
 import { Keymaster } from "~/lib/achievements/helpers"
 import tooltip from "~/lib/directives/tooltip"
@@ -38,9 +39,9 @@ const HomePage = () => {
       <Meta description="My personal website." />
       <section class="w-full flex flex-col items-center text-center px-6 mt-auto">
         <Keymaster data-motion="image">
-          <div class="flex bg-base-200/90 group-data-wallpaper/html:bg-base-200/60 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 backface-hidden absolute inset-0 transition-colors">
+          <PageAvatar class="h-full w-full backface-hidden absolute inset-0">
             <img src="/profile.jpg" alt="Profile image" class="rounded-full" />
-          </div>
+          </PageAvatar>
         </Keymaster>
         <h1 class="font-heading text-4xl sm:text-5xl mb-1.5" data-motion="hero">
           Gianni Tumedei

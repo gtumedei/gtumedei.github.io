@@ -9,7 +9,7 @@ export const input = tv({
   variants: {
     variant: {
       outline:
-        "bg-base-200 border-on-base/15 text-on-base disabled:bg-on-base/5 disabled:border-on-base/5",
+        "bg-base-200/90 border-on-base/10 text-on-base focus-visible:ring disabled:bg-neutral/3 disabled:border-neutral/3",
       ghost:
         "border-transparent bg-transparent text-on-base focus-visible:border-accent focus-visible:ring focus-visible:ring-accent/20 disabled:bg-on-base/10",
       unstyled: "border-transparent bg-transparent focus:border-transparent focus:ring-transparent",
@@ -30,20 +30,17 @@ export const input = tv({
     {
       variant: "outline",
       theme: "accent",
-      class:
-        "hover:border-on-base/30 focus-visible:border-accent/70 focus-visible:ring focus-visible:ring-accent/20",
+      class: "hover:border-on-base/30 focus-visible:border-accent/70 focus-visible:ring-accent/20",
     },
     {
       variant: "outline",
       theme: "warning",
-      class:
-        "border-warning focus-visible:border-warning focus-visible:ring focus-visible:ring-warning/20",
+      class: "border-warning focus-visible:border-warning focus-visible:ring-warning/20",
     },
     {
       variant: "outline",
       theme: "error",
-      class:
-        "border-error focus-visible:border-error focus-visible:ring focus-visible:ring-error/20",
+      class: "border-error focus-visible:border-error focus-visible:ring-error/20",
     },
   ],
 })

@@ -37,7 +37,7 @@ const NotFoundPage = () => {
               </code>{" "}
               does not seem to exist, but maybe you'll like this one better.
             </p>
-            <A href="/" class={button({ variant: "subtle" })}>
+            <A href="/" class={button()}>
               Go back home
             </A>
           </div>

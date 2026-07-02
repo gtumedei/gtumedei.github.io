@@ -2,7 +2,7 @@ import { A } from "@solidjs/router"
 import { animate, stagger } from "motion"
 import { Component, For, onMount } from "solid-js"
 import Meta from "~/components/meta"
-import PageHeadingIcon from "~/components/page-heading-icon"
+import PageAvatar from "~/components/page-avatar-icon"
 import minigames, { Minigame } from "~/lib/content/minigames"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
@@ -31,9 +31,11 @@ const MinigamesPage = () => {
         description="Killing time? Try some simple minigames I built. They're fun, just don't expect AAA production value."
       />
       <div class="lg:w-2/3 px-6">
-        <PageHeadingIcon data-motion="image">
-          <TablerDeviceGamepad />
-        </PageHeadingIcon>
+        <PageAvatar class="mb-8" data-motion="image">
+          <PageAvatar.Icon>
+            <TablerDeviceGamepad />
+          </PageAvatar.Icon>
+        </PageAvatar>
         <h1 class="font-heading text-4xl sm:text-5xl tracking-wider mb-6" data-motion="heading">
           Minigames
         </h1>

@@ -4,7 +4,7 @@ import { Component, For, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import KonamiJoypadPopover from "~/components/konami-joypad"
 import Meta from "~/components/meta"
-import PageHeadingIcon from "~/components/page-heading-icon"
+import PageAvatar from "~/components/page-avatar-icon"
 import { button } from "~/components/ui/button"
 import { Popover } from "~/components/ui/popover"
 import { useAchievements } from "~/lib/achievements"
@@ -36,9 +36,11 @@ const AchievementPage = () => {
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
       <div class="lg:w-2/3 px-6">
-        <PageHeadingIcon data-motion="image">
-          <TablerTrophy />
-        </PageHeadingIcon>
+        <PageAvatar class="mb-8" data-motion="image">
+          <PageAvatar.Icon>
+            <TablerTrophy />
+          </PageAvatar.Icon>
+        </PageAvatar>
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Achievements
         </h1>
@@ -91,7 +93,7 @@ const ResetAchievementsPopover = () => {
 
   return (
     <Popover positioning={{ placement: "bottom" }} lazyMount unmountOnExit>
-      <Popover.Trigger class={button({ variant: "subtle" })}>Reset progress</Popover.Trigger>
+      <Popover.Trigger class={button()}>Reset progress</Popover.Trigger>
       <Portal>
         <Popover.Positioner>
           <Popover.Content class="max-w-64 p-5 origin-top">
@@ -99,12 +101,13 @@ const ResetAchievementsPopover = () => {
               Are you sure you want to delete your achievements?
             </p>
             <div class="grid grid-cols-1 gap-2">
-              <Popover.CloseTrigger class={button({ theme: "error" })} onClick={resetAchievements}>
+              <Popover.CloseTrigger
+                class={button({ variant: "destructive" })}
+                onClick={resetAchievements}
+              >
                 Yes, let's start all over
               </Popover.CloseTrigger>
-              <Popover.CloseTrigger class={button({ variant: "subtle" })}>
-                Actually, nevermind
-              </Popover.CloseTrigger>
+              <Popover.CloseTrigger class={button()}>Actually, nevermind</Popover.CloseTrigger>
             </div>
           </Popover.Content>
         </Popover.Positioner>

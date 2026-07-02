@@ -2,7 +2,7 @@ import { A } from "@solidjs/router"
 import { animate, inView, stagger } from "motion"
 import { Component, onMount, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
-import PageHeadingIcon from "~/components/page-heading-icon"
+import PageAvatar from "~/components/page-avatar-icon"
 import { SuperStarButton } from "~/lib/achievements/helpers"
 import tech, { Technology } from "~/lib/content/tech"
 import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
@@ -38,9 +38,11 @@ const TechPage = () => {
         description="A long, wandering page of tools and tech I enjoy using. Check it out, you might discover something useful."
       />
       <div class="lg:w-2/3 px-6">
-        <PageHeadingIcon data-motion="image">
-          <TablerTools />
-        </PageHeadingIcon>
+        <PageAvatar class="mb-8" data-motion="image">
+          <PageAvatar.Icon>
+            <TablerTools />
+          </PageAvatar.Icon>
+        </PageAvatar>
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Tech
         </h1>

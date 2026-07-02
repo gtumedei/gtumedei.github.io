@@ -3,7 +3,7 @@ import { animate, stagger } from "motion"
 import { Component, For, Index, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import Meta from "~/components/meta"
-import PageHeadingIcon from "~/components/page-heading-icon"
+import PageAvatar from "~/components/page-avatar-icon"
 import { Button } from "~/components/ui/button"
 import { Menu } from "~/components/ui/menu"
 import { useAchievements } from "~/lib/achievements"
@@ -46,9 +46,11 @@ const ProjectsPage = () => {
         description="I'm always building stuff. You can find my research, freelance, and personal projects listed inside here."
       />
       <div class="lg:w-2/3 px-6 mb-20">
-        <PageHeadingIcon data-motion="image">
-          <TablerGrid3x3 />
-        </PageHeadingIcon>
+        <PageAvatar class="mb-8" data-motion="image">
+          <PageAvatar.Icon>
+            <TablerGrid3x3 />
+          </PageAvatar.Icon>
+        </PageAvatar>
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Projects
         </h1>

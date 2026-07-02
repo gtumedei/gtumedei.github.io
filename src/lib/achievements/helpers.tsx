@@ -146,7 +146,7 @@ export const Keymaster: Component<ComponentProps<"div">> = (props) => {
               </Dialog.Header>
               <Dialog.Actions class="grid grid-cols-1">
                 <Dialog.CloseTrigger
-                  class={button()}
+                  class={button({ variant: "neutral" })}
                   onClick={async () => {
                     await new Promise((r) => setTimeout(r, 1000))
                     unlockAchievement("KEYMASTER")
@@ -288,7 +288,7 @@ export const SuperStarButton = () => {
             </Dialog.Header>
             <Dialog.Actions class="grid grid-cols-1">
               <Dialog.CloseTrigger
-                class={button()}
+                class={button({ variant: "neutral" })}
                 onClick={async () => {
                   await new Promise((r) => setTimeout(r, 500))
                   unlockAchievement("SUPER_STAR")
@@ -586,7 +586,7 @@ const Cheater = () => {
             </Dialog.Header>
             <Dialog.Actions class="grid grid-cols-1">
               <Dialog.CloseTrigger
-                class={button()}
+                class={button({ variant: "neutral" })}
                 onClick={async () => {
                   await new Promise((r) => setTimeout(r, 500))
                   unlockAchievement("CHEATER")
