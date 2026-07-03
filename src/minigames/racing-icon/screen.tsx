@@ -13,7 +13,7 @@ const RacingIconGameScreen = () => {
       <Show when={game.state() != "IDLE"}>
         <div
           ref={game.elements.screen.setElem}
-          class="w-full h-full flex bg-base-200 rounded-2xl border border-on-base/10 relative overflow-hidden"
+          class="w-full h-full flex bg-base-200 rounded-4 border border-on-base/10 relative overflow-hidden"
         >
           <Road />
           <PlayerVehicle />
@@ -75,7 +75,7 @@ const PlayerVehicle = () => {
         class={cn(
           "w-9/10 h-9/10 m-auto",
           [0, 5].includes(playerVehicle.lane()) ? "animate-car-shake-strong" : "animate-car-shake",
-          state() != "PLAYING" && "paused"
+          state() != "PLAYING" && "paused",
         )}
       />
     </div>
@@ -94,7 +94,7 @@ const VehicleItem: Component<{ vehicle: Vehicle }> = (props) => {
       class={cn(
         "h-1/16 aspect-square flex absolute *:w-9/10 *:h-9/10 *:m-auto *:animate-car-shake",
         props.vehicle.direction == "opposite" && "*:scale-x-[-1]",
-        state() != "PLAYING" && "*:paused"
+        state() != "PLAYING" && "*:paused",
       )}
       style={{
         top: `${

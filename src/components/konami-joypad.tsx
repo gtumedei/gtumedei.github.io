@@ -15,7 +15,7 @@ const KonamiJoypadPopover = () => {
       </Popover.Trigger>
       <Portal>
         <Popover.Positioner>
-          <Popover.Content class="p-0 rounded-2xl border border-on-base/20 overflow-hidden">
+          <Popover.Content class="p-0 rounded-4 border border-on-base/20 overflow-hidden">
             <KonamiJoypad />
           </Popover.Content>
         </Popover.Positioner>
@@ -39,8 +39,8 @@ const KonamiJoypad = () => {
       <div class="h-[calc(var(--ks)*3.5)] flex">
         <div class="w-[calc(var(--ks)*3)] relative">
           <div class="h-[calc(var(--ks)*2)] w-[calc(var(--ks)*2)] absolute-center-x bottom-[calc(var(--ks)*0.5)]">
-            <div class="h-[calc(var(--ks)*2)] w-[calc(var(--ks)*0.75)] bg-neutral rounded-sm absolute-center" />
-            <div class="h-[calc(var(--ks)*0.75)] w-[calc(var(--ks)*2)] bg-neutral rounded-sm absolute-center" />
+            <div class="h-[calc(var(--ks)*2)] w-[calc(var(--ks)*0.75)] bg-neutral rounded-1 absolute-center" />
+            <div class="h-[calc(var(--ks)*0.75)] w-[calc(var(--ks)*2)] bg-neutral rounded-1 absolute-center" />
             <div class="flex flex-col items-center absolute inset-0">
               <button
                 class="h-[calc(var(--ks)*0.75)] w-[calc(var(--ks)*0.75)] flex cursor-pointer group"
@@ -73,22 +73,22 @@ const KonamiJoypad = () => {
         </div>
         <div class="w-[calc(var(--ks)*3)] flex flex-col gap-[calc(var(--ks)*0.1875)]">
           <div class="h-[calc(var(--ks)*0.45)] w-full bg-accent-orange rounded-b-sm" />
-          <div class="h-[calc(var(--ks)*0.45)] w-full bg-accent-pink rounded-sm" />
-          <div class="h-[calc(var(--ks)*0.45)] w-full bg-accent-blue rounded-sm relative">
+          <div class="h-[calc(var(--ks)*0.45)] w-full bg-accent-pink rounded-1" />
+          <div class="h-[calc(var(--ks)*0.45)] w-full bg-accent-blue rounded-1 relative">
             <div class="w-full grid grid-cols-2 text-center text-xs sm:text-sm font-bold text-on-accent/70 absolute-center">
               <span class="cursor-default">SELECT</span>
               <span class="cursor-default">START</span>
             </div>
           </div>
-          <div class="grow w-full flex justify-evenly items-center bg-neutral rounded-sm">
-            <button class="h-[calc(var(--ks)*0.375)] w-(--ks) bg-on-neutral/70 hover:bg-on-neutral/50 transition-colors rounded-sm border border-neutral/20 cursor-pointer" />
-            <button class="h-[calc(var(--ks)*0.375)] w-(--ks) bg-on-neutral/70 hover:bg-on-neutral/50 transition-colors rounded-sm border border-neutral/20 cursor-pointer" />
+          <div class="grow w-full flex justify-evenly items-center bg-neutral rounded-1">
+            <button class="h-[calc(var(--ks)*0.375)] w-(--ks) bg-on-neutral/70 hover:bg-on-neutral/50 transition-colors rounded-1 border border-neutral/20 cursor-pointer" />
+            <button class="h-[calc(var(--ks)*0.375)] w-(--ks) bg-on-neutral/70 hover:bg-on-neutral/50 transition-colors rounded-1 border border-neutral/20 cursor-pointer" />
           </div>
           <div class="h-[calc(var(--ks)*0.45)] w-full bg-accent-teal rounded-t-sm" />
         </div>
         <div class="w-[calc(var(--ks)*4)] relative">
           <div class="flex gap-2 absolute-center-x bottom-[calc(var(--ks)*0.5)]">
-            <div class="flex bg-neutral rounded-sm p-[calc(var(--ks)*0.1)] relative">
+            <div class="flex bg-neutral rounded-1 p-[calc(var(--ks)*0.1)] relative">
               <button
                 class="h-(--ks) w-(--ks) bg-on-neutral/70 hover:bg-on-neutral/50 transition-colors rounded-full border border-on-neutral/20 shadow-sm cursor-pointer"
                 onClick={() => dispatchKeyboardEvent("b")}
@@ -97,7 +97,7 @@ const KonamiJoypad = () => {
                 B
               </span>
             </div>
-            <div class="flex bg-neutral rounded-sm p-[calc(var(--ks)*0.1)] relative">
+            <div class="flex bg-neutral rounded-1 p-[calc(var(--ks)*0.1)] relative">
               <button
                 class="h-(--ks) w-(--ks) bg-on-neutral/70 hover:bg-on-neutral/50 transition-colors rounded-full border border-on-neutral/20 shadow-sm cursor-pointer"
                 onClick={() => dispatchKeyboardEvent("a")}

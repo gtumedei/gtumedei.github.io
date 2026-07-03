@@ -142,7 +142,7 @@ const MobileNavDialog: Component<{
             >
               <TablerX />
             </Dialog.CloseTrigger>
-            <Dialog.Content class="w-full sm:max-w-md bg-base-100 dark:bg-base-200 flex flex-col gap-6 px-6 py-3 rounded-3xl border border-on-base/10 shadow-md shadow-black/5 ml-auto origin-top-right data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-90 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-90">
+            <Dialog.Content class="w-full sm:max-w-md bg-base-100 dark:bg-base-200 flex flex-col gap-6 px-6 py-3 rounded-5 border border-on-base/10 shadow-md shadow-black/5 ml-auto origin-top-right data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-90 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-90">
               <nav class="flex">
                 <ul class="w-full flex flex-col divide-y divide-on-base/10 font-medium">
                   <For each={mobileMenuItems}>

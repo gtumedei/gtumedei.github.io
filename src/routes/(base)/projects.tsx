@@ -94,14 +94,14 @@ const ProjectsPage = () => {
                 {(_, index) => (
                   <Carousel.Item index={index} class="snap-always">
                     <div
-                      class="w-[calc(100vw-4.5rem)] max-sm:max-w-96 sm:w-80 flex flex-col justify-end p-2 rounded-3xl border border-on-base/10 relative"
+                      class="w-[calc(100vw-4.5rem)] max-sm:max-w-96 sm:w-80 flex flex-col justify-end p-2 rounded-5 border border-on-base/10 relative"
                       data-motion="project-highlight"
                     >
-                      <div class="aspect-4/3 bg-base-300 rounded-2xl mb-2" />
+                      <div class="aspect-4/3 bg-base-300 rounded-4 mb-2" />
                       {/* <img
                         src="/go-droid-transparent.png"
                         alt=""
-                        class="aspect-4/3 rounded-2xl mb-2"
+                        class="aspect-4/3 rounded-4 mb-2"
                       /> */}
                       <div class="p-4">
                         <h3 class="text-lg font-medium mb-3">Project name</h3>
@@ -157,11 +157,11 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
   }
 
   return (
-    <div class="md:rounded-3xl group relative" data-motion="project-item">
+    <div class="md:rounded-5 group relative" data-motion="project-item">
       <a
         href={mainUrl()}
         target="_blank"
-        class="flex flex-col group-hover:bg-on-base/5 group-active:bg-on-base/5 transition-colors duration-500 md:rounded-3xl p-6 focus-ring"
+        class="flex flex-col group-hover:bg-on-base/5 group-active:bg-on-base/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring"
         onAuxClick={(e) => {
           if (e.button == 1) onOpen()
         }}

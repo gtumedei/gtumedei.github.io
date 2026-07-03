@@ -4,12 +4,12 @@ import { cn } from "tailwind-variants"
 import { tv, type VariantProps } from "tailwind-variants/lite"
 
 export const textarea = tv({
-  base: "rounded-[22px] border outline-none placeholder:text-on-base/40 disabled:bg-transparent disabled:text-on-base/30 transition-all",
+  base: "rounded-5 border outline-none placeholder:text-on-base/40 disabled:bg-transparent disabled:text-on-base/30 transition-all",
   defaultVariants: { variant: "outline", theme: "accent", size: "md" },
   variants: {
     variant: {
       outline:
-        "bg-base-200 text-on-base border-on-base/15 focus-visible:ring disabled:bg-neutral/3 disabled:border-neutral/3",
+        "bg-base-200 text-on-base border-on-base/10 focus-visible:ring disabled:bg-neutral/3 disabled:border-neutral/3",
       ghost:
         "border-transparent bg-transparent text-on-base focus-visible:border-accent focus-visible:ring focus-visible:ring-accent/20 disabled:bg-on-base/10",
       unstyled: "border-transparent bg-transparent focus:border-transparent focus:ring-transparent",

@@ -24,11 +24,11 @@ export const button = tv({
         "border-transparent bg-transparent text-on-base hover:bg-neutral/5 active:bg-neutral/3 focus-visible:border-on-base/20 focus-visible:ring-on-base/10 [&:where(:disabled,[data-disabled])]:bg-transparent! [&:where(:disabled,[data-disabled])]:text-on-base/50!",
     },
     size: {
-      xs: "h-8 text-sm [&_svg]:text-base px-2 rounded-lg",
-      sm: "h-9 text-sm [&_svg]:text-base px-3 rounded-lg",
-      md: "h-10 text-sm [&_svg]:text-base px-4 rounded-[10px]",
-      lg: "h-11 text-base [&_svg]:text-lg px-5 rounded-[10px]",
-      xl: "h-12 text-base [&_svg]:text-lg px-6 rounded-[10px]",
+      xs: "h-8 text-sm px-2 rounded-2",
+      sm: "h-9 text-sm px-3 rounded-2",
+      md: "h-10 text-sm px-4 rounded-2.5",
+      lg: "h-11 text-base px-5 rounded-2.5",
+      xl: "h-12 text-base px-6 rounded-2.5",
     },
     shape: {
       rectangle: "",

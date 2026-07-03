@@ -146,7 +146,7 @@ const AchievementItem: Component<{
 }> = (props) => {
   return (
     <div
-      class="flex flex-col px-4.5 py-4 rounded-3xl data-unlocked:bg-accent/5 border border-on-base/10 data-unlocked:border-accent/50 border-dashed data-unlocked:border-solid group"
+      class="flex flex-col px-4.5 py-4 rounded-5 data-unlocked:bg-accent/5 border border-on-base/10 data-unlocked:border-accent/50 border-dashed data-unlocked:border-solid group"
       {...(props.unlocked ? { "data-unlocked": true } : {})}
       data-motion="achievement-item"
     >
@@ -174,7 +174,7 @@ const PieceOfCakeAchievementItem: Component<{
 
   return (
     <button
-      class="text-left flex flex-col px-4.5 py-4 rounded-3xl data-unlocked:bg-accent/5 border border-on-base/10 hover:border-on-base/20 data-unlocked:border-accent/50 border-dashed data-unlocked:border-solid group transition-colors cursor-pointer data-unlocked:cursor-default"
+      class="text-left flex flex-col px-4.5 py-4 rounded-5 data-unlocked:bg-accent/5 border border-on-base/10 hover:border-on-base/20 data-unlocked:border-accent/50 border-dashed data-unlocked:border-solid group transition-colors cursor-pointer data-unlocked:cursor-default"
       {...(props.unlocked ? { "data-unlocked": true } : {})}
       data-motion="achievement-item"
       onClick={() => unlockAchievement("PIECE_OF_CAKE")}

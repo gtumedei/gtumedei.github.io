@@ -25,3 +25,4 @@ My personal website.
 - 404 doodle:
   - [ ] Fix resize sometimes not working properly
   - [ ] Forward unused events to the window (pinch, drag, scroll, ...)
+- [ ] Consider using the `content-collections` library to manage content

@@ -52,13 +52,13 @@ const MenuDialog = () => {
         <Dialog.Positioner>
           <Dialog.Content class="w-full max-w-lg text-center">
             <Dialog.Header class="gap-1">
-              <img src="#" alt="" class="w-15 h-15 rounded-lg shadow shadow-black/5 mx-auto mb-3" />
+              <img src="#" alt="" class="w-15 h-15 rounded-2 shadow shadow-black/5 mx-auto mb-3" />
               <Dialog.Title>Racing Icon</Dialog.Title>
               <Dialog.Description class="text-balance">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, nisi. Eum, nisi.
               </Dialog.Description>
             </Dialog.Header>
-            <div class="flex flex-col divide-y divide-on-base/10 rounded-xl border border-on-base/10 mt-2 mb-2.5">
+            <div class="flex flex-col divide-y divide-on-base/10 rounded-4 border border-on-base/10 mt-2 mb-2.5">
               <div class="flex items-center gap-2 p-2">
                 <h5 class="text-left text-sm text-on-base/70 font-medium grow ml-2.5">Vehicle</h5>
                 <div class="flex gap-2 items-center">
@@ -143,7 +143,7 @@ const StatsDialog = () => {
               </div>
               <Dialog.Title>Your Racing Icon stats</Dialog.Title>
             </Dialog.Header>
-            <div class="flex flex-col divide-y divide-on-base/10 rounded-xl border border-on-base/10 mt-2 mb-2.5">
+            <div class="flex flex-col divide-y divide-on-base/10 rounded-4 border border-on-base/10 mt-2 mb-2.5">
               <div class="flex items-center gap-2 px-4.5 py-3">
                 <h5 class="text-left text-sm text-on-base/70 font-medium grow">Best score</h5>
                 <p>0</p>

@@ -56,14 +56,10 @@ const MinigameCard: Component<{ minigame: Minigame }> = (props) => {
   return (
     <A
       href={`/minigames/${props.minigame.slug}`}
-      class="flex flex-col gap-6 p-6 rounded-3xl border border-on-base/10 group hover:bg-on-base/5 hover:border-transparent active:bg-on-base/5 active:border-transparent focus-ring transition-colors"
+      class="flex flex-col gap-6 p-6 rounded-5 border border-on-base/10 group hover:bg-on-base/5 hover:border-transparent active:bg-on-base/5 active:border-transparent focus-ring transition-colors"
       data-motion="minigame-item"
     >
-      <img
-        src={props.minigame.imageUrl}
-        alt=""
-        class="w-36 h-36 rounded-xl shadow shadow-black/5"
-      />
+      <img src={props.minigame.imageUrl} alt="" class="w-36 h-36 rounded-3 shadow shadow-black/5" />
       <div class="px-0.5">
         <h2 class="text-lg font-medium mb-2">{props.minigame.name}</h2>
         <p class="md:text-sm text-on-base/70 tall-lines mb-4">{props.minigame.description}</p>

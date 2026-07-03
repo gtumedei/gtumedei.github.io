@@ -79,8 +79,7 @@ const ThemeSwitcher = () => {
         <Popover.Content class="p-5 origin-top-right">
           <RadioGroup.Root value={theme()} onValueChange={({ value }) => setTheme(value as Theme)}>
             <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Theme</RadioGroup.Label>
-            <div class="grid grid-cols-3 gap-2">
-              <RadioGroup.Indicator class="h-14 w-14 bg-base-300 rounded-lg left-(--left) pointer-events-none" />
+            <div class="grid grid-cols-3 gap-1 p-1 rounded-4 border border-on-base/10">
               <Index each={themes}>
                 {(t) => (
                   <RadioGroup.Item
@@ -89,9 +88,9 @@ const ThemeSwitcher = () => {
                   >
                     <RadioGroup.ItemControl
                       class={cn(
-                        button({ variant: "ghost", shape: "square" }),
-                        "h-14 border-on-base/10 cursor-pointer *:z-10",
-                        t().value == theme() && "text-accent",
+                        button({ variant: "ghost", shape: "rectangle", size: "sm" }),
+                        "w-full rounded-3 *:z-10",
+                        t().value == theme() && "bg-base-300 text-accent",
                       )}
                     >
                       {t().icon()}
@@ -107,8 +106,7 @@ const ThemeSwitcher = () => {
             onValueChange={({ value }) => setAccent(value as Accent)}
           >
             <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Accent</RadioGroup.Label>
-            <div class="grid grid-cols-4 gap-2">
-              <RadioGroup.Indicator class="h-10 w-10 bg-base-300 rounded-lg left-(--left) pointer-events-none" />
+            <div class="grid grid-cols-4 gap-1 p-1 rounded-4 border border-on-base/10">
               <Index each={accents}>
                 {(a) => (
                   <RadioGroup.Item
@@ -117,8 +115,9 @@ const ThemeSwitcher = () => {
                   >
                     <RadioGroup.ItemControl
                       class={cn(
-                        button({ variant: "ghost", shape: "square" }),
-                        "border-on-base/10 cursor-pointer *:z-10",
+                        button({ variant: "ghost", shape: "rectangle", size: "sm" }),
+                        "w-full rounded-3 *:z-10",
+                        a().value == accent() && "bg-base-300",
                       )}
                     >
                       <div
@@ -158,12 +157,13 @@ const HiddenOptions = () => {
     {
       value: "dotted",
       label: "Dotted",
-      class: "font-dotted text-3xl font-light text-[35px] leading-[35px] translate-y-[2px]",
+      class:
+        "font-dotted text-3xl font-light text-[35px] leading-[35px] translate-x-[2px] translate-y-[2px]",
     },
     {
       value: "pixelated",
       label: "Pixelated",
-      class: "font-pixelated text-[39px] leading-[39px]",
+      class: "font-pixelated text-[39px] leading-[39px] translate-x-[2px]",
     },
   ]
 
@@ -172,21 +172,21 @@ const HiddenOptions = () => {
       {completedAchievements().includes("CHEATER") && (
         <RadioGroup.Root value={style()} onValueChange={({ value }) => setStyle(value as Style)}>
           <RadioGroup.Label class="inline-flex text-sm font-medium mb-2">Style</RadioGroup.Label>
-          <div class="grid grid-cols-3 gap-2">
-            <RadioGroup.Indicator class="h-10 w-(--width) bg-base-300 rounded-lg left-(--left) pointer-events-none" />
+          <div class="grid grid-cols-3 gap-1 p-1 rounded-4 border border-on-base/10">
             <Index each={styles}>
-              {(a) => (
+              {(s) => (
                 <RadioGroup.Item
-                  value={a().value}
-                  asChild={(props) => <label {...props()} use:tooltip={[a().label, "bottom"]} />}
+                  value={s().value}
+                  asChild={(props) => <label {...props()} use:tooltip={[s().label, "bottom"]} />}
                 >
                   <RadioGroup.ItemControl
                     class={cn(
-                      button({ variant: "ghost", shape: "square" }),
-                      " w-full border-on-base/10 cursor-pointer *:z-10",
+                      button({ variant: "ghost", shape: "rectangle", size: "sm" }),
+                      "w-full rounded-3 *:z-10",
+                      s().value == style() && "bg-base-300",
                     )}
                   >
-                    <div class={`m-auto ${a().class}`}>{a().label[0]}</div>
+                    <div class={`m-auto ${s().class}`}>{s().label[0]}</div>
                   </RadioGroup.ItemControl>
                   <RadioGroup.ItemHiddenInput />
                 </RadioGroup.Item>
@@ -197,6 +197,7 @@ const HiddenOptions = () => {
       )}
       {completedAchievements().includes("KEYMASTER") && (
         <Toggle
+          class="mt-1"
           labelClass="order-1 grow"
           controlClass="order-2"
           checked={showWallpaper() == "on"}
@@ -207,6 +208,7 @@ const HiddenOptions = () => {
       )}
       {completedAchievements().includes("SUPER_STAR") && (
         <Toggle
+          class="mt-1"
           labelClass="order-1 grow inline-flex items-center"
           controlClass="order-2"
           checked={superModeOn()}

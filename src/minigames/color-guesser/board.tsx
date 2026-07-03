@@ -51,32 +51,32 @@ const Tile: Component<{ color: string }> = (props) => {
 
   return (
     <button
-      class="group relative w-full h-full rounded-2xl cursor-pointer"
+      class="group relative w-full h-full rounded-4 cursor-pointer"
       style={`background-color: ${props.color};`}
       onClick={onClick}
     >
       <div
         class={cn(
-          "bg-base-300 rounded-[20px] border border-on-base/20 shadow-md shadow-black/5 absolute -inset-1.5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity -z-10",
-          (success() || error()) && "opacity-100!"
+          "bg-base-300 rounded-5 border border-on-base/20 shadow-md shadow-black/5 absolute -inset-1.5 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity -z-10",
+          (success() || error()) && "opacity-100!",
         )}
       />
       <div
         class={cn(
-          "bg-white/30 rounded-2xl absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity",
-          (success() || error()) && "opacity-100!"
+          "bg-white/30 rounded-4 absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity",
+          (success() || error()) && "opacity-100!",
         )}
       >
         <TablerCheck
           class={cn(
             "absolute-center h-1/2 w-1/2 text-black/50 transition-opacity",
-            success() ? "opacity-100" : "opacity-0"
+            success() ? "opacity-100" : "opacity-0",
           )}
         />
         <TablerX
           class={cn(
             "absolute-center h-1/2 w-1/2 text-black/50 transition-opacity",
-            error() ? "opacity-100" : "opacity-0"
+            error() ? "opacity-100" : "opacity-0",
           )}
         />
       </div>
