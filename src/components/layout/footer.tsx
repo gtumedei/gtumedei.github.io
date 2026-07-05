@@ -11,15 +11,16 @@ const Footer = () => {
     { href: "/minigames", label: "Minigames" },
     { href: "/contact", label: "Contact" },
   ]
-  const achievementsPage = { href: "/achievements", label: "Achievements" }
+  const otherPages = [
+    { href: "/components", label: "Components" },
+    { href: "/achievements", label: "Achievements" },
+  ]
 
   return (
     <footer class="text-sm flex max-sm:flex-col justify-between max-sm:items-center gap-6 px-6 md:px-12 lg:px-16 xl:px-20 py-12 border-t border-on-base/10">
       <nav class="flex">
         <ul class="font-medium flex flex-wrap max-sm:justify-center -mx-2">
-          <For
-            each={location.pathname == "/" ? [achievementsPage] : [...mainPages, achievementsPage]}
-          >
+          <For each={location.pathname == "/" ? otherPages : [...mainPages, ...otherPages]}>
             {(item) => (
               <li>
                 <A

@@ -54,11 +54,16 @@ items:
     description: Get a 10 guess streak on Color Guesser.
     icon: ~icons/tabler/color-swatch
 
-  # TODO
-  - code: TODO
-    name: Lorem Ipsum
-    description: Coming soon.
-    icon: ~icons/tabler/device-gamepad-2
+  - code: DESIGN_SYSTEM_INSIDER
+    name: Design System Insider
+    description: Find the achievement in the Components page.
+    icon: ~icons/tabler/puzzle
+
+  # TODO add racing icon achievement
+  # - code: TODO
+  #   name: Lorem Ipsum
+  #   description: Coming soon.
+  #   icon: ~icons/tabler/device-gamepad-2
 
   - code: INSPECTOR_GADGET
     name: Inspector Gadget

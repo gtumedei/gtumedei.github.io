@@ -14,6 +14,7 @@ import { Popover } from "~/components/ui/popover"
 import { Textarea } from "~/components/ui/textarea"
 import { toast } from "~/components/ui/toast"
 import { Toggle } from "~/components/ui/toggle"
+import { useAchievements } from "~/lib/achievements"
 import TablerBracketsAngle from "~icons/tabler/brackets-angle"
 import TablerDots from "~icons/tabler/dots"
 import TablerDownload from "~icons/tabler/download"
@@ -35,6 +36,8 @@ const ComponentsPage = () => {
   })
 
   const [disabled, setDisabled] = createSignal(false)
+
+  const { completedAchievements, unlockAchievement } = useAchievements()
 
   return (
     <>
@@ -223,7 +226,7 @@ const ComponentsPage = () => {
           <h3 class="text-base mt-8 mb-4">In Button</h3>
           <ComponentShowcase class="flex justify-center">
             <Button class="w-44" disabled>
-              <Loading class="text-on-base" />
+              <Loading class="size-5 text-on-base" />
             </Button>
           </ComponentShowcase>
         </ComponentSection>
@@ -284,15 +287,16 @@ const ComponentsPage = () => {
           <ComponentShowcase class="flex justify-center">
             <Button
               onClick={() =>
-                toast({
-                  title: "Congratulations!",
-                  description: "You unlocked... something?",
-                  icon: () => <TablerRocket />,
-                  action: { label: "Cool", onClick: () => {} },
-                })
+                completedAchievements().includes("DESIGN_SYSTEM_INSIDER")
+                  ? toast({
+                      title: "Congratulations!",
+                      description: "You already unlocked the achievement.",
+                      icon: () => <TablerRocket />,
+                    })
+                  : unlockAchievement("DESIGN_SYSTEM_INSIDER")
               }
             >
-              Unlock an Achievement
+              Show toast
             </Button>
           </ComponentShowcase>
         </ComponentSection>
