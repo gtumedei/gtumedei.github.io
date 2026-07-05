@@ -120,7 +120,7 @@ const HomePage = () => {
         ].map((item) => (
           <A
             href={item.href}
-            class="flex flex-col hover:bg-on-base/5 active:bg-on-base/5 transition-colors duration-500 md:rounded-5 p-6 group focus-ring"
+            class="flex flex-col hover:bg-neutral/5 active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 group focus-ring"
             data-motion="menu"
           >
             <div class="flex gap-4 items-center mb-3">

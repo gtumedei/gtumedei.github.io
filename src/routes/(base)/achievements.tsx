@@ -150,7 +150,7 @@ const AchievementItem: Component<{
       data-motion="achievement-item"
     >
       <div class="flex justify-between mb-4">
-        <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-on-base/5 opacity-50 group-data-unlocked:bg-accent/10 group-data-unlocked:text-accent group-data-unlocked:opacity-100 -translate-x-1">
+        <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-neutral/5 opacity-50 group-data-unlocked:bg-accent/10 group-data-unlocked:text-accent group-data-unlocked:opacity-100 -translate-x-1">
           {props.unlocked ? <ContentIcon icon={props.achievement.icon} /> : <TablerLock />}
         </div>
         {props.achievement.code == "CHEATER" && <KonamiJoypadPopover />}
@@ -178,7 +178,7 @@ const PieceOfCakeAchievementItem: Component<{
       data-motion="achievement-item"
       onClick={() => unlockAchievement("PIECE_OF_CAKE")}
     >
-      <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-on-base/5 opacity-50 group-data-unlocked:bg-accent/10 group-data-unlocked:text-accent group-data-unlocked:opacity-100 mb-4 -translate-x-1">
+      <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-neutral/5 opacity-50 group-data-unlocked:bg-accent/10 group-data-unlocked:text-accent group-data-unlocked:opacity-100 mb-4 -translate-x-1">
         {props.unlocked ? <ContentIcon icon={props.achievement.icon} /> : <TablerLock />}
       </div>
       <h2 class="text-lg font-medium text-on-base/50 group-data-unlocked:text-on-base mb-1">

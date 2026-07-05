@@ -32,7 +32,7 @@ const NotFoundPage = () => {
             <h1 class="font-heading text-4xl sm:text-5xl mb-4">Page not found</h1>
             <p class="max-w-sm text-on-base/70 text-balance mb-6">
               The page{" "}
-              <code class="min-h-6 inline-block text-sm leading-6 bg-on-base/5 px-1 rounded-1 break-all">
+              <code class="min-h-6 inline-block text-sm leading-6 bg-neutral/5 px-1 rounded-1 break-all">
                 /{params.notFound}
               </code>{" "}
               does not seem to exist, but maybe you'll like this one better.

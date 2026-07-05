@@ -163,7 +163,7 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
       <a
         href={mainUrl()}
         target="_blank"
-        class="flex flex-col group-hover:bg-on-base/5 group-active:bg-on-base/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring"
+        class="flex flex-col group-hover:bg-neutral/5 group-active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring"
         onAuxClick={(e) => {
           if (e.button == 1) onOpen()
         }}
