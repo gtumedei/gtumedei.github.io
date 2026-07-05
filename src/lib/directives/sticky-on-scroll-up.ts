@@ -14,7 +14,7 @@ const stickyOnScrollUp = (elem: HTMLElement) => {
 
     elem.setAttribute(
       "style",
-      `position: sticky; --top:${top}px; ${isVisible ? `top: var(--top);` : ""}`
+      `position: sticky; --top:${top}px; ${isVisible ? `top:0; transform: translateY(var(--top));` : ""}`,
     )
     elem.toggleAttribute("data-visible", isVisible)
     elem.toggleAttribute("data-sticky", isSticking)
