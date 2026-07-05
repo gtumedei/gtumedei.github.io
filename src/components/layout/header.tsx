@@ -200,6 +200,11 @@ const MobileNavDialog: Component<{
     await new Promise((r) => setTimeout(r, 300))
     animate([
       [
+        `[data-motion="close-trigger"]`,
+        { opacity: 1, scale: [0.95, 1] },
+        { duration: 0.3, ease: "easeOut" },
+      ],
+      [
         `[data-motion="menu-item"]`,
         { opacity: 1, x: [-6, 0] },
         { duration: 0.3, delay: stagger(0.1), at: "<" },
@@ -213,10 +218,18 @@ const MobileNavDialog: Component<{
         <Dialog.Backdrop class="backdrop-blur-xs fixed top-0 left-0 z-50 h-screen w-screen data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0" />
         <Dialog.Backdrop class="bg-linear-to-b from-base-100/90 via-base-100/80 to-base-100/10 fixed top-0 left-0 z-50 h-screen w-screen data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:slide-in-from-top data-[state=closed]:animate-out data-[state=closed]:slide-out-to-top" />
         <Dialog.Positioner class="fixed top-0 left-0 w-screen h-screen flex z-50">
-          <Dialog.Content class="w-full h-min pb-20 relative data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=closed]:fade-out-0">
+          <Dialog.Content class="w-full h-min pb-20 relative data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:duration-400 data-[state=closed]:fade-out-0">
             <div class="flex justify-end px-6.5 py-6">
               <Dialog.CloseTrigger
-                asChild={(p) => <Button {...p()} variant="subtle" size="lg" shape="circle" />}
+                asChild={(p) => (
+                  <Button
+                    {...p()}
+                    variant="subtle"
+                    size="lg"
+                    shape="circle"
+                    data-motion="close-trigger"
+                  />
+                )}
               >
                 <TablerX />
               </Dialog.CloseTrigger>
