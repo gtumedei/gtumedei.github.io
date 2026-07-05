@@ -1,11 +1,13 @@
 import { A } from "@solidjs/router"
+import { minigames, Minigames } from "content-collections"
 import { animate, stagger } from "motion"
 import { Component, For, onMount } from "solid-js"
 import Meta from "~/components/meta"
 import PageAvatar from "~/components/page-avatar-icon"
-import minigames, { Minigame } from "~/lib/content/minigames"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
+
+type Minigame = Minigames["items"][number]
 
 const MinigamesPage = () => {
   onMount(() => {
@@ -46,7 +48,7 @@ const MinigamesPage = () => {
         </p>
       </div>
       <div class="grid md:grid-cols-2 gap-6 px-6 py-20">
-        <For each={minigames}>{(minigame) => <MinigameCard minigame={minigame} />}</For>
+        <For each={minigames.items}>{(minigame) => <MinigameCard minigame={minigame} />}</For>
       </div>
     </>
   )

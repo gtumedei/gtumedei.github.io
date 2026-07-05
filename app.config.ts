@@ -1,6 +1,8 @@
+import ContentCollections from "@content-collections/vinxi"
 import { defineConfig } from "@solidjs/start/config"
-import Icons from "unplugin-icons/vite"
 import Tailwind from "@tailwindcss/vite"
+import Icons from "unplugin-icons/vite"
+import ContentIcons from "./src/lib/content-icons/plugin"
 
 export default defineConfig({
   server: {
@@ -10,6 +12,6 @@ export default defineConfig({
   },
   vite: {
     envPrefix: "PUBLIC_",
-    plugins: [Icons({ compiler: "solid" }), Tailwind()],
+    plugins: [ContentIcons(), Icons({ compiler: "solid" }), Tailwind(), ContentCollections()],
   },
 })

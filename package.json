@@ -9,7 +9,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@ark-ui/solid": "^5.30.0",
+    "@ark-ui/solid": "^5.37.1",
+    "@content-collections/core": "^0.15.2",
+    "@content-collections/vinxi": "^0.2.0",
     "@felte/core": "^1.4.4",
     "@felte/solid": "^1.2.14",
     "@felte/validator-zod": "^1.0.18",

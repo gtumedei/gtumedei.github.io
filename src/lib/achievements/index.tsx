@@ -1,18 +1,21 @@
 import { useLocation, useNavigate } from "@solidjs/router"
+import { achievements, Achievements } from "content-collections"
 import JSConfetti from "js-confetti"
 import { createSignal, onMount, ParentComponent } from "solid-js"
 import { toast, Toaster } from "~/components/ui/toast"
 import AchievementHelpers from "~/lib/achievements/helpers"
 import { AchievementsProgressProvider, useAchievementsProgress } from "~/lib/achievements/progress"
-import achievements, { Achievement } from "~/lib/content/achievements"
+import ContentIcon from "~/lib/content-icons"
 import { create } from "~/lib/context"
 import { useThemeColors } from "~/lib/theme/colors"
 
 const LOCAL_STORAGE_ACHIEVEMENTS_KEY = "gtumedei-io-achievements"
 
+export type Achievement = Achievements["items"][number]
+
 const [_AchievementsProvider, useAchievements] = create(() => {
-  const [completedAchievements, _setCompletedAchievements] = createSignal<Achievement[]>([])
-  const setCompletedAchievements = (value: Achievement[]) => {
+  const [completedAchievements, _setCompletedAchievements] = createSignal<string[]>([])
+  const setCompletedAchievements = (value: string[]) => {
     _setCompletedAchievements(value)
     localStorage.setItem(LOCAL_STORAGE_ACHIEVEMENTS_KEY, JSON.stringify(value))
   }
@@ -31,16 +34,16 @@ const [_AchievementsProvider, useAchievements] = create(() => {
   const navigate = useNavigate()
   const themeColors = useThemeColors()
 
-  const unlockAchievement = (slug: Achievement) => {
-    const achievement = Object.entries(achievements).find(([s]) => s == slug)?.[1]
+  const unlockAchievement = (code: string) => {
+    const achievement = achievements.items.find((a) => a.code == code)
     if (!achievement) return
 
     const currentAchievements = completedAchievements()
-    if (currentAchievements.includes(slug)) return
+    if (currentAchievements.includes(code)) return
 
-    setCompletedAchievements([...currentAchievements, slug])
+    setCompletedAchievements([...currentAchievements, code])
     toast({
-      icon: achievement.icon,
+      icon: () => <ContentIcon icon={achievement.icon} />,
       title: "Achievement unlocked",
       description: achievement.name,
       action:

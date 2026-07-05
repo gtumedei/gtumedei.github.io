@@ -1,11 +1,10 @@
 import { RadioGroup } from "@ark-ui/solid"
 import { Index, JSX, Show } from "solid-js"
+import { cn } from "tailwind-variants"
 import { button } from "~/components/ui/button"
 import { Popover } from "~/components/ui/popover"
 import { Toggle } from "~/components/ui/toggle"
 import { useAchievements } from "~/lib/achievements"
-import { cn } from "tailwind-variants"
-import { Achievement } from "~/lib/content/achievements"
 import { createWebGLDetector } from "~/lib/detect-webgl"
 import tooltip from "~/lib/directives/tooltip"
 import { Accent, Style, Theme, useTheme } from "~/lib/theme"
@@ -142,7 +141,7 @@ const HiddenOptions = () => {
   const { style, setStyle, showWallpaper, setShowWallpaper, superModeOn, setSuperModeOn } =
     useTheme()
 
-  const requiredAchievements: Achievement[] = ["CHEATER", "KEYMASTER", "SUPER_STAR"]
+  const requiredAchievements = ["CHEATER", "KEYMASTER", "SUPER_STAR"]
   const hasHiddenOptionsUnlocked = () =>
     completedAchievements().some((a) => requiredAchievements.includes(a))
 

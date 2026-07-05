@@ -124,7 +124,7 @@ const ComponentsPage = () => {
           </ComponentShowcase>
           <h3 class="text-base mt-8 mb-4">Raised</h3>
           <ComponentShowcase class="flex justify-center">
-            <Button variant="neutral" raised>
+            <Button variant="base" raised>
               With shadow
             </Button>
           </ComponentShowcase>

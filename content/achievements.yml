@@ -1,0 +1,81 @@
+items:
+  - code: PIECE_OF_CAKE
+    name: Piece of Cake
+    description: Click on this achievement to unlock it.
+    icon: ~icons/tabler/cake
+
+  - code: VISITOR
+    name: Visitor
+    description: Visit 5 unique pages on the website.
+    icon: ~icons/tabler/map
+
+  - code: RETURNING_VISITOR
+    name: Returning Visitor
+    description: Come back to the website after at least 24 hours.
+    icon: ~icons/tabler/map-heart
+
+  - code: DEEP_DIVER
+    name: Deep Diver
+    description: Click on 5 links in the Projects page.
+    icon: ~icons/tabler/books
+
+  - code: KEYMASTER
+    name: Keymaster
+    description: Discover the hidden key.
+    icon: ~icons/tabler/key
+
+  - code: SUPER_STAR
+    name: Super Star
+    description: Find the Super Star.
+    icon: ~icons/tabler/star
+
+  - code: LOST
+    name: Lost...
+    description: Visit the 404 page.
+    icon: ~icons/tabler/error-404
+
+  - code: AND_FOUND
+    name: ...And Found
+    description: Play with the doodle on the 404 page.
+    icon: ~icons/tabler/error-404-off
+
+  - code: CUSTOMIZATION_ADDICT
+    name: Customization Addict
+    description: Try out all the theme and accent color combinations.
+    icon: ~icons/tabler/palette
+
+  - code: MODDING_MANIAC
+    name: Modding Maniac
+    description: Find and test all the secret customization options.
+    icon: ~icons/tabler/pencil-code
+
+  - code: COLOR_GURU
+    name: Color Guru
+    description: Get a 10 guess streak on Color Guesser.
+    icon: ~icons/tabler/color-swatch
+
+  # TODO
+  - code: TODO
+    name: Lorem Ipsum
+    description: Coming soon.
+    icon: ~icons/tabler/device-gamepad-2
+
+  - code: INSPECTOR_GADGET
+    name: Inspector Gadget
+    description: Open the browser devtools and check out the console.
+    icon: ~icons/tabler/tool
+
+  - code: DOMINATION
+    name: DOMination
+    description: Find the secret in the HTML code.
+    icon: ~icons/tabler/code
+
+  - code: CHEATER
+    name: Cheater
+    description: Attempt the Konami Code.
+    icon: ~icons/tabler/device-gamepad-3
+
+  - code: ACHIEVEMENTCEPTION
+    name: Achievementception
+    description: Reset your achievements.
+    icon: ~icons/tabler/spiral

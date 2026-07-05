@@ -1,0 +1,167 @@
+items:
+  - name: TypeScript
+    url: https://www.typescriptlang.org/
+    icon: ~icons/cib/typescript
+    color:
+      light: "#0284c7"
+      dark: "#7dd3fc"
+
+  - name: JavaScript
+    url: https://www.javascript.com/
+    icon: ~icons/cib/javascript
+    color:
+      light: "#ca8a04"
+      dark: "#fde047"
+
+  - name: Vue.js
+    url: https://vuejs.org/
+    icon: ~icons/tabler/brand-vue
+    color:
+      light: "#059669"
+      dark: "#6ee7b7"
+
+  - name: React
+    url: https://reactjs.org/
+    icon: ~icons/tabler/brand-react
+    color:
+      light: "#0891b2"
+      dark: "#67e8f9"
+
+  - name: Svelte
+    url: https://svelte.dev/
+    icon: ~icons/tabler/brand-svelte
+    color:
+      light: "#dc2626"
+      dark: "#fca5a5"
+
+  - name: Solid.js
+    url: https://www.solidjs.com/
+    icon: ~icons/tabler/brand-solidjs
+    color:
+      light: "#0284c7"
+      dark: "#7dd3fc"
+
+  - name: Electron
+    url: https://www.electronjs.org/
+    icon: ~icons/cib/electron
+    color:
+      light: "#0891b2"
+      dark: "#67e8f9"
+
+  - name: HTML
+    url: https://developer.mozilla.org/en-US/docs/Web/HTML
+    icon: ~icons/tabler/brand-html5
+    color:
+      light: "#ea580c"
+      dark: "#fdba74"
+
+  - name: CSS
+    url: https://developer.mozilla.org/en-US/docs/Web/CSS
+    icon: ~icons/tabler/brand-css3
+    color:
+      light: "#2563eb"
+      dark: "#93c5fd"
+
+  - name: PHP
+    url: https://www.php.net/
+    icon: ~icons/cib/php
+    color:
+      light: "#7c3aed"
+      dark: "#c4b5fd"
+
+  - name: Go
+    url: https://go.dev/
+    icon: ~icons/tabler/brand-golang
+    color:
+      light: "#0891b2"
+      dark: "#67e8f9"
+
+  - name: Kotlin
+    url: https://kotlinlang.org/
+    icon: ~icons/tabler/brand-kotlin
+    color:
+      light: "#c026d3"
+      dark: "#f0abfc"
+
+  - name: Swift
+    url: https://www.swift.org/
+    icon: ~icons/tabler/brand-swift
+    color:
+      light: "#ea580c"
+      dark: "#fdba74"
+
+  - name: Dart
+    url: https://dart.dev/
+    icon: |
+      <svg viewBox="0 0 24 24" class="h-5 w-5">
+        <path
+          fill="currentColor"
+          d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643c-.302-.267-.567-.468-1.07-.462c-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z"
+        />
+      </svg>
+    color:
+      light: "#0284c7"
+      dark: "#7dd3fc"
+
+  - name: Flutter
+    url: https://flutter.dev/
+    icon: ~icons/tabler/brand-flutter
+    color:
+      light: "#0284c7"
+      dark: "#7dd3fc"
+
+  - name: C C++
+    url: https://www.cplusplus.com/
+    icon: ~icons/tabler/brand-cpp
+    color:
+      light: "#4f46e5"
+      dark: "#a5b4fc"
+
+  - name: Java
+    url: https://www.java.com/
+    icon: ~icons/cib/java
+    color:
+      light: "#e11d48"
+      dark: "#fda4af"
+
+  - name: Scala
+    url: https://www.scala-lang.org/
+    icon: ~icons/cib/scala
+    color:
+      light: "#e11d48"
+      dark: "#fda4af"
+
+  - name: Python
+    url: https://www.python.org/
+    icon: ~icons/tabler/brand-python
+    color:
+      light: "#ca8a04"
+      dark: "#fde047"
+
+  - name: Docker
+    url: https://www.docker.com/
+    icon: ~icons/tabler/brand-docker
+    color:
+      light: "#2563eb"
+      dark: "#93c5fd"
+
+  - name: GraphQL
+    url: https://graphql.org/
+    icon: ~icons/tabler/brand-graphql
+    color:
+      light: "#db2777"
+      dark: "#f9a8d4"
+
+  - name: SQL
+    url: https://en.wikipedia.org/wiki/SQL
+    icon: ~icons/tabler/database
+    color:
+      light: "#ea580c"
+      dark: "#fdba74"
+
+  - name: MongoDB
+    url: https://www.mongodb.com/
+    icon: ~icons/tabler/brand-mongodb
+    color:
+      light: "#16a34a"
+      dark: "#86efac"

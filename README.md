@@ -22,7 +22,5 @@ My personal website.
   - Pick up bonuses during the game
   - Progressively increase speed and add new spawnable elements
   - Add an achievement
-- 404 doodle:
-  - [ ] Fix resize sometimes not working properly
-  - [ ] Forward unused events to the window (pinch, drag, scroll, ...)
-- [ ] Consider using the `content-collections` library to manage content
+- [ ] Reset style, wallpaper and super mode upon clearing achievements
+- [ ] Fill missing content

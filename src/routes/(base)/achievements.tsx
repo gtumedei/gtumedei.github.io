@@ -1,4 +1,5 @@
 import { Progress } from "@ark-ui/solid"
+import { achievements } from "content-collections"
 import { animate, stagger } from "motion"
 import { Component, For, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
@@ -7,9 +8,9 @@ import Meta from "~/components/meta"
 import PageAvatar from "~/components/page-avatar-icon"
 import { button } from "~/components/ui/button"
 import { Popover } from "~/components/ui/popover"
-import { useAchievements } from "~/lib/achievements"
+import { Achievement, useAchievements } from "~/lib/achievements"
 import { createBatchedInViewAnimation } from "~/lib/animation"
-import achievements, { Achievement, AchievementProperties } from "~/lib/content/achievements"
+import ContentIcon from "~/lib/content-icons"
 import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLock from "~icons/tabler/lock"
 import TablerTrophy from "~icons/tabler/trophy"
@@ -67,18 +68,17 @@ const AchievementPage = () => {
         </div>
       </div>
       <div class="grid md:grid-cols-2 gap-6 px-6 py-20">
-        <For each={Object.entries(achievements)}>
+        <For each={achievements.items}>
           {(achievement) =>
-            achievement[0] == "PIECE_OF_CAKE" ? (
+            achievement.code == "PIECE_OF_CAKE" ? (
               <PieceOfCakeAchievementItem
-                achievement={achievement[1]}
-                unlocked={completedAchievements().includes(achievement[0])}
+                achievement={achievement}
+                unlocked={completedAchievements().includes(achievement.code)}
               />
             ) : (
               <AchievementItem
-                achievementId={achievement[0] as Achievement}
-                achievement={achievement[1]}
-                unlocked={completedAchievements().includes(achievement[0] as Achievement)}
+                achievement={achievement}
+                unlocked={completedAchievements().includes(achievement.code)}
               />
             )
           }
@@ -125,7 +125,7 @@ const AchievementsProgress = () => {
         class="[--size:38px] [--thickness:6px]"
         value={completedAchievements().length}
         min={0}
-        max={Object.keys(achievements).length}
+        max={achievements.items.length}
       >
         <Progress.Circle>
           <Progress.CircleTrack class="stroke-neutral/10" />
@@ -133,15 +133,14 @@ const AchievementsProgress = () => {
         </Progress.Circle>
       </Progress.Root>
       <p class="text-sm text-on-base/70 font-semibold">
-        {completedAchievements().length} / {Object.keys(achievements).length} unlocked
+        {completedAchievements().length} / {achievements.items.length} unlocked
       </p>
     </div>
   )
 }
 
 const AchievementItem: Component<{
-  achievementId: Achievement
-  achievement: AchievementProperties
+  achievement: Achievement
   unlocked: boolean
 }> = (props) => {
   return (
@@ -152,9 +151,9 @@ const AchievementItem: Component<{
     >
       <div class="flex justify-between mb-4">
         <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-on-base/5 opacity-50 group-data-unlocked:bg-accent/10 group-data-unlocked:text-accent group-data-unlocked:opacity-100 -translate-x-1">
-          {props.unlocked ? props.achievement.icon() : <TablerLock />}
+          {props.unlocked ? <ContentIcon icon={props.achievement.icon} /> : <TablerLock />}
         </div>
-        {props.achievementId == "CHEATER" && <KonamiJoypadPopover />}
+        {props.achievement.code == "CHEATER" && <KonamiJoypadPopover />}
       </div>
       <h2 class="text-lg font-medium text-on-base/50 group-data-unlocked:text-on-base mb-1">
         {props.achievement.name}
@@ -167,7 +166,7 @@ const AchievementItem: Component<{
 }
 
 const PieceOfCakeAchievementItem: Component<{
-  achievement: AchievementProperties
+  achievement: Achievement
   unlocked: boolean
 }> = (props) => {
   const { unlockAchievement } = useAchievements()
@@ -180,7 +179,7 @@ const PieceOfCakeAchievementItem: Component<{
       onClick={() => unlockAchievement("PIECE_OF_CAKE")}
     >
       <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-on-base/5 opacity-50 group-data-unlocked:bg-accent/10 group-data-unlocked:text-accent group-data-unlocked:opacity-100 mb-4 -translate-x-1">
-        {props.unlocked ? props.achievement.icon() : <TablerLock />}
+        {props.unlocked ? <ContentIcon icon={props.achievement.icon} /> : <TablerLock />}
       </div>
       <h2 class="text-lg font-medium text-on-base/50 group-data-unlocked:text-on-base mb-1">
         {props.achievement.name}

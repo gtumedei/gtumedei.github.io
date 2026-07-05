@@ -1,4 +1,5 @@
 import { Carousel } from "@ark-ui/solid"
+import { projects, Projects } from "content-collections"
 import { animate, stagger } from "motion"
 import { Component, For, Index, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
@@ -9,7 +10,6 @@ import { Menu } from "~/components/ui/menu"
 import { useAchievements } from "~/lib/achievements"
 import { useAchievementsProgress } from "~/lib/achievements/progress"
 import { createBatchedInViewAnimation } from "~/lib/animation"
-import projectCategories, { Project } from "~/lib/content/projects"
 import TablerArrowNarrowLeft from "~icons/tabler/arrow-narrow-left"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBracketsAngle from "~icons/tabler/brackets-angle"
@@ -18,6 +18,8 @@ import TablerFileText from "~icons/tabler/file-text"
 import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 import TablerLink from "~icons/tabler/link"
 import TablerWorld from "~icons/tabler/world"
+
+type Project = Projects["categories"][number]["items"][number]
 
 const ProjectsPage = () => {
   onMount(() => {
@@ -127,14 +129,14 @@ const ProjectsPage = () => {
           </Carousel.Control>
         </div>
       </Carousel.Root>
-      <For each={projectCategories}>
+      <For each={projects.categories}>
         {(category) => (
           <div class="mx-6 max-md:not-last:border-b border-on-base/10 pb-8 mb-20">
             <h2 class="inline-block font-semibold text-xl mb-6" data-motion="section-heading">
               {category.name}
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-6">
-              <For each={category.projects}>{(project) => <ProjectItem project={project} />}</For>
+              <For each={category.items}>{(project) => <ProjectItem project={project} />}</For>
             </div>
           </div>
         )}

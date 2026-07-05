@@ -18,7 +18,8 @@
     "types": ["@solidjs/start/env", "vinxi/types/client", "unplugin-icons/types/solid"],
     "isolatedModules": true,
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "content-collections": ["./.content-collections/generated"]
     }
   }
 }

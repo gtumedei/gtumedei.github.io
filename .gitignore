@@ -7,11 +7,15 @@ dist
 .vinxi
 app.config.timestamp_*.js
 
+# Generated
+src/lib/content-icons/generated.ts
+.content-collections
+
 # Environment
 .env
 .env*.local
 
-# dependencies
+# Dependencies
 /node_modules
 
 # IDEs and editors

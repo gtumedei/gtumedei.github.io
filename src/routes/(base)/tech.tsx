@@ -1,13 +1,16 @@
 import { A } from "@solidjs/router"
+import { tech, Tech } from "content-collections"
 import { animate, inView, stagger } from "motion"
 import { Component, onMount, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
 import PageAvatar from "~/components/page-avatar-icon"
 import { SuperStarButton } from "~/lib/achievements/helpers"
-import tech, { Technology } from "~/lib/content/tech"
+import ContentIcon from "~/lib/content-icons"
 import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLink from "~icons/tabler/link"
 import TablerTools from "~icons/tabler/tools"
+
+type TechEntry = Tech["items"][number]
 
 const TechPage = () => {
   onMount(() => {
@@ -29,7 +32,7 @@ const TechPage = () => {
     })
   })
 
-  const techWithStar = (tech as (Technology | "star")[]).toSpliced(14, 0, "star")
+  const techWithStar = (tech.items as (TechEntry | "star")[]).toSpliced(14, 0, "star")
 
   return (
     <>
@@ -255,7 +258,7 @@ const TechAnchor: ParentComponent<{ href: string }> = (props) => {
   )
 }
 
-const TechItem: Component<{ tech: Technology }> = (props) => {
+const TechItem: Component<{ tech: TechEntry }> = (props) => {
   return (
     <A
       href={props.tech.url}
@@ -269,7 +272,7 @@ const TechItem: Component<{ tech: Technology }> = (props) => {
     >
       <div class="bg-base-300 rounded-full absolute inset-0 -z-10" />
       <div class="group-hover:text-(--color-light) group-hover:dark:text-(--color-dark) transition-colors">
-        {props.tech.icon()}
+        <ContentIcon icon={props.tech.icon} />
       </div>
       <p class="font-medium text-sm whitespace-nowrap group-hover:text-(--color-light) dark:group-hover:text-(--color-dark) transition-colors">
         {props.tech.name}
