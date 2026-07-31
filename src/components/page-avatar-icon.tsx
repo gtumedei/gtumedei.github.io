@@ -20,7 +20,7 @@ const PageAvatarIcon: Component<ComponentProps<"div">> = (props) => {
     <div
       {...props}
       class={cn(
-        "w-full h-full flex justify-center items-center bg-base-300 text-accent text-lg rounded-full transition-colors",
+        "w-full h-full flex justify-center items-center bg-neutral/5 text-accent text-lg rounded-full transition-colors",
         props.class,
       )}
     />

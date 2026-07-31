@@ -153,7 +153,7 @@ const Header = () => {
           <TablerPalette />
         </Popover.Trigger>
         <Popover.Positioner>
-          <Popover.Content class="p-5 origin-top-right">
+          <Popover.Content class="p-5">
             <ThemeSwitcher labelClass="mb-2" />
             <AccentSwitcher labelClass="mb-2" />
             <StyleSwitcher labelClass="mb-2" />

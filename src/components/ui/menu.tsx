@@ -8,8 +8,14 @@ export const menu = tv({
     trigger: "",
     contextTrigger: "",
     positioner: "",
-    content:
-      "bg-base-100 dark:bg-base-200 rounded-5 p-1 border border-on-base/10 shadow-lg shadow-black/5 outline-none cursor-default data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
+    content: [
+      "bg-base-100 dark:bg-base-200 rounded-5 p-1 border border-on-base/10 shadow-lg shadow-black/5 outline-none cursor-default",
+      "data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
+      "data-[placement=top]:origin-bottom data-[placement=top-start]:origin-bottom-left data-[placement=top-end]:origin-bottom-right",
+      "data-[placement=bottom]:origin-top data-[placement=bottom-start]:origin-top-left data-[placement=bottom-end]:origin-top-right",
+      "data-[placement=left]:origin-right data-[placement=left-start]:origin-top-right data-[placement=left-end]:origin-bottom-right",
+      "data-[placement=right]:origin-left data-[placement=right-start]:origin-top-left data-[placement=right-end]:origin-bottom-left",
+    ],
     item: "w-full flex items-center rounded-4 text-sm text-on-base data-highlighted:bg-neutral/5 data-disabled:text-on-base/30 not-data-disabled:cursor-pointer transition-colors",
     triggerItem:
       "w-full flex items-center rounded-4 text-sm text-on-base data-highlighted:bg-neutral/5 data-disabled:text-on-base/30 not-data-disabled:cursor-pointer transition-colors",

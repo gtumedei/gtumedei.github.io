@@ -209,7 +209,7 @@ const ProjectLinksMenu: Component<{ links: Project["links"] }> = (props) => {
       </Menu.Trigger>
       <Portal>
         <Menu.Positioner>
-          <Menu.Content class="min-w-40 origin-top-right z-15">
+          <Menu.Content class="min-w-40 z-15">
             <Menu.ItemGroup>
               <Menu.ItemGroupLabel>Project Links</Menu.ItemGroupLabel>
               <For each={props.links}>

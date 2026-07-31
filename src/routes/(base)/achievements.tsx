@@ -96,7 +96,7 @@ const ResetAchievementsPopover = () => {
       <Popover.Trigger class={button()}>Reset progress</Popover.Trigger>
       <Portal>
         <Popover.Positioner>
-          <Popover.Content class="max-w-64 p-5 origin-top">
+          <Popover.Content class="max-w-64 p-5">
             <p class="text-sm text-on-base/70">
               Are you sure you want to delete your achievements?
             </p>
