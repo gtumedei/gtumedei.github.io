@@ -11,7 +11,7 @@ import { cn } from "tailwind-variants"
 import { createBreakpoints } from "~/lib/breakpoints"
 
 type GrainientProps = {
-  overlayMode?: "none" | "pixelated" | "dotted"
+  overlayMode?: "none" | "pixelated" | "dotted" | "grain"
   timeSpeed?: number
   colorBalance?: number
   warpStrength?: number
@@ -248,10 +248,12 @@ const Grainient: Component<GrainientProps> = (baseProps) => {
       none: { base: 1.0, md: 1.0, xl: 1.0 },
       pixelated: { base: 6.0, md: 5.0, xl: 4.0 },
       dotted: { base: 8.0, md: 7.0, xl: 6.0 },
+      grain: { base: 1.0, md: 1.0, xl: 1.0 },
     }
     const grainMultiplier = grainMultipliers[props.overlayMode][breakpoint]
     const grainScale = props.grainScale * grainMultiplier * Math.max(deviceScale(), 1)
-    const grainShape = props.overlayMode === "dotted" ? 1.0 : 0.0
+    const grainShape =
+      props.overlayMode === "dotted" ? 1.0 : props.overlayMode === "grain" ? 2.0 : 0.0
 
     u.uTimeSpeed.value = props.timeSpeed
     u.uColorBalance.value = props.colorBalance
@@ -375,7 +377,12 @@ void mainImage(out vec4 o, vec2 C){
   vec2 grainLocal=fract(grainUv)-0.5;
   float grainDist=length(grainLocal);
   float dotMask=1.0-smoothstep(0.45,0.5,grainDist);
-  float grainMask=mix(1.0,dotMask,clamp(uGrainShape,0.0,1.0));
+  if(uGrainShape>1.5){
+    float n1=fract(sin(dot(grainCell,vec2(1.9898,78.233)))*43758.5453);
+    float n2=fract(sin(dot(grainCell,vec2(45.164,93.412)))*23421.631);
+    grain=grain*0.5+n1*0.25+n2*0.25;
+  }
+  float grainMask=uGrainShape>1.5?1.0:mix(1.0,dotMask,uGrainShape);
   col+=(grain-0.5)*uGrainAmount*grainMask;
 
   col=(col-0.5)*uContrast+0.5;

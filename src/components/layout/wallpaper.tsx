@@ -17,7 +17,7 @@ const Wallpaper = () => {
   const overlayMode = () =>
     (
       ({
-        minimalist: "none",
+        minimalist: "grain",
         dotted: "dotted",
         pixelated: "pixelated",
       }) as const
