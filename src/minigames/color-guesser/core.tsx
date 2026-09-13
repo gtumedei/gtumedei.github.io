@@ -1,6 +1,7 @@
 import { makePersisted } from "@solid-primitives/storage"
 import { createSignal } from "solid-js"
 import { createStore } from "solid-js/store"
+import type { SetStoreFunction, Store } from "solid-js/store"
 import { isServer } from "solid-js/web"
 import { useAchievements } from "~/lib/achievements"
 import { hexToHsl, hexToRgb, pickRandom, scrambleHex } from "./utils"
@@ -64,10 +65,16 @@ export const [ColorGuesserGameProvider, useColorGuesserGame] = create(() => {
     rightGuesses: 0,
     wrongGuesses: 0,
   }
-  const [stats, setStats] = makePersisted(createStore({ ...initialStats }), {
-    name: "gtumedei-io-color-guesser",
-    storage: isServer ? undefined : localStorage,
-  })
+  type Stats = typeof initialStats
+
+  // Must provide type arguments because makePersisted cannot infer its types under TypeScript 7 (https://github.com/solidjs-community/solid-primitives/issues/1000)
+  const [stats, setStats] = makePersisted<Stats, [Store<Stats>, SetStoreFunction<Stats>]>(
+    createStore({ ...initialStats }),
+    {
+      name: "gtumedei-io-color-guesser",
+      storage: isServer ? undefined : localStorage,
+    },
+  )
   const resetStats = () => setStats({ ...initialStats })
 
   const createColorGrid = (size: number, mode: ColorMode) => {

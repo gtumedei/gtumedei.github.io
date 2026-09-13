@@ -1,6 +1,7 @@
 import { makePersisted } from "@solid-primitives/storage"
 import { onMount } from "solid-js"
 import { createStore, reconcile } from "solid-js/store"
+import type { SetStoreFunction, Store } from "solid-js/store"
 import { isServer } from "solid-js/web"
 import { create } from "~/lib/context"
 import { Accent, Style, Theme } from "~/lib/theme"
@@ -27,7 +28,13 @@ export const [AchievementsProgressProvider, useAchievementsProgress] = create(()
     },
   })
 
-  const [progress, setProgress] = makePersisted(createStore(defaultValues()), {
+  type Progress = ReturnType<typeof defaultValues>
+
+  // Must provide type arguments because makePersisted cannot infer its types under TypeScript 7 (https://github.com/solidjs-community/solid-primitives/issues/1000)
+  const [progress, setProgress] = makePersisted<
+    Progress,
+    [Store<Progress>, SetStoreFunction<Progress>]
+  >(createStore(defaultValues()), {
     name: "gtumedei-io-achievements-progress",
     storage: isServer ? undefined : localStorage,
   })
