@@ -15,7 +15,7 @@
     "noUnusedParameters": true,
     "noEmit": true,
     "skipLibCheck": true,
-    "types": ["@solidjs/start/env", "vinxi/types/client", "unplugin-icons/types/solid"],
+    "types": ["@solidjs/start/env", "unplugin-icons/types/solid"],
     "isolatedModules": true,
     "paths": {
       "~/*": ["./src/*"],
