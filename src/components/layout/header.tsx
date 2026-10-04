@@ -146,7 +146,7 @@ const Header = () => {
         </>
       )}
       {location.pathname != "/" ? <DesktopNav /> : <div class="mx-auto" />}
-      <Popover positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
+      <Popover modal positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
         <Popover.Trigger
           class={cn(button({ variant: "base", shape: "circle", size: "lg" }), "header-pill")}
         >

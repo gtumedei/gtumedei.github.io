@@ -23,4 +23,5 @@ My personal website.
   - Progressively increase speed and add new spawnable elements
   - Add an achievement
 - [ ] Reset style, wallpaper and super mode upon clearing achievements
+- [ ] Show the wallpaper by default, add an alternative one when the related achievement is unlocked (e.g. https://reactbits.dev/c/backgrounds/plasma-wave?color1=3b82f6&color2=bfdbfe)
 - [ ] Fill missing content

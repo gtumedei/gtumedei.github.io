@@ -19,7 +19,11 @@ import TablerTools from "~icons/tabler/tools"
 const HomePage = () => {
   onMount(() => {
     animate([
-      [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
+      [
+        `[data-motion="image"]`,
+        { opacity: 1, scale: [0.9, 1], filter: ["blur(3px)", "blur(0)"] },
+        { duration: 0.4 },
+      ],
       [
         `[data-motion="hero"]`,
         { opacity: 1, y: [10, 0] },

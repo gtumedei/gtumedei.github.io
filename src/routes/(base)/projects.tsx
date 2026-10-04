@@ -24,7 +24,11 @@ type Project = Projects["categories"][number]["items"][number]
 const ProjectsPage = () => {
   onMount(() => {
     animate([
-      [`[data-motion="image"]`, { opacity: 1, scale: [0.9, 1] }, { duration: 0.4 }],
+      [
+        `[data-motion="image"]`,
+        { opacity: 1, scale: [0.9, 1], filter: ["blur(3px)", "blur(0)"] },
+        { duration: 0.4 },
+      ],
       [
         `[data-motion="heading"]`,
         { opacity: 1, x: [-10, 0] },
