@@ -116,7 +116,7 @@
 }
 
 @utility font-heading {
-  @apply font-serif font-bold tracking-wider;
+  @apply font-serif;
 }
 
 [data-style="dotted"] {

@@ -3,10 +3,12 @@ import { Title } from "@solidjs/meta"
 import { A, useParams } from "@solidjs/router"
 import { HttpStatusCode } from "@solidjs/start"
 import Matter from "matter-js"
+import { animate } from "motion"
 import { createEffect, on, onCleanup, onMount } from "solid-js"
 import { isServer } from "solid-js/web"
 import { button } from "~/components/ui/button"
 import { useAchievements } from "~/lib/achievements"
+import { verticalHeadingAnimation } from "~/lib/animation"
 import { useTheme } from "~/lib/theme"
 
 const { Engine, Render, Runner, Constraint, MouseConstraint, Mouse, Composite, Bodies, Events } =
@@ -14,6 +16,10 @@ const { Engine, Render, Runner, Constraint, MouseConstraint, Mouse, Composite, B
 
 const NotFoundPage = () => {
   const params = useParams()
+
+  onMount(() => {
+    animate([verticalHeadingAnimation()])
+  })
 
   const { unlockAchievement } = useAchievements()
   onMount(async () => {
@@ -29,17 +35,21 @@ const NotFoundPage = () => {
         <div class="w-full flex flex-col items-center pb-28 my-auto">
           <PageNotFoundDoodle />
           <div class="flex flex-col items-center text-center relative">
-            <h1 class="font-heading text-4xl sm:text-5xl mb-4">Page not found</h1>
-            <p class="max-w-sm text-on-base/70 text-balance mb-6">
+            <h1 class="font-heading text-4xl sm:text-5xl mb-4" data-motion="heading">
+              Page not found
+            </h1>
+            <p class="max-w-sm text-on-base/70 text-balance mb-6" data-motion="heading">
               The page{" "}
               <code class="min-h-6 inline-block text-sm leading-6 bg-neutral/5 px-1 rounded-1 break-all">
                 /{params.notFound}
               </code>{" "}
               does not seem to exist, but maybe you'll like this one better.
             </p>
-            <A href="/" class={button()}>
-              Go back home
-            </A>
+            <div data-motion="heading">
+              <A href="/" class={button()}>
+                Go back home
+              </A>
+            </div>
           </div>
         </div>
       </div>

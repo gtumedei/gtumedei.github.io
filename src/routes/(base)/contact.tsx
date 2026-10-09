@@ -14,6 +14,7 @@ import { FormField } from "~/components/ui/form-field"
 import { Input } from "~/components/ui/input"
 import { Loading } from "~/components/ui/loading"
 import { Textarea } from "~/components/ui/textarea"
+import { horizontalHeadingAnimation, headingImageAnimation } from "~/lib/animation"
 import tooltip from "~/lib/directives/tooltip"
 import env from "~/lib/env"
 import { createForm } from "~/lib/form"
@@ -87,19 +88,11 @@ const ContactPage = () => {
 
   onMount(() => {
     animate([
-      [
-        `[data-motion="image"]`,
-        { opacity: 1, scale: [0.9, 1], filter: ["blur(3px)", "blur(0)"] },
-        { duration: 0.4 },
-      ],
-      [
-        `[data-motion="heading"]`,
-        { opacity: 1, x: [-10, 0] },
-        { duration: 0.4, delay: stagger(0.15), at: "<" },
-      ],
+      headingImageAnimation(),
+      horizontalHeadingAnimation(),
       [
         `[data-motion="form"]`,
-        { opacity: 1, x: [-10, 0] },
+        { opacity: 1, x: [-10, 0], filter: ["blur(3px)", "blur(0)"] },
         { duration: 0.4, delay: stagger(0.075, { startDelay: 0.2 }), at: "<" },
       ],
     ])

@@ -23,9 +23,7 @@ const Toast: Component<{ id: string | number } & ToastOptions> = (props) => {
           </div>
         )}
         <div class="grow">
-          <p class="text-xs leading-6 font-semibold text-on-base/70 cursor-default">
-            {props.title}
-          </p>
+          <p class="text-xs leading-6 font-medium text-on-base/70 cursor-default">{props.title}</p>
           {props.description && (
             <p class="text-sm text-on-base mb-0.5 cursor-default">{props.description}</p>
           )}

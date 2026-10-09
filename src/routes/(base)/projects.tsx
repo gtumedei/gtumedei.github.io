@@ -9,7 +9,11 @@ import { Button } from "~/components/ui/button"
 import { Menu } from "~/components/ui/menu"
 import { useAchievements } from "~/lib/achievements"
 import { useAchievementsProgress } from "~/lib/achievements/progress"
-import { createBatchedInViewAnimation } from "~/lib/animation"
+import {
+  createBatchedInViewAnimation,
+  horizontalHeadingAnimation,
+  headingImageAnimation,
+} from "~/lib/animation"
 import TablerArrowNarrowLeft from "~icons/tabler/arrow-narrow-left"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBracketsAngle from "~icons/tabler/brackets-angle"
@@ -24,19 +28,11 @@ type Project = Projects["categories"][number]["items"][number]
 const ProjectsPage = () => {
   onMount(() => {
     animate([
-      [
-        `[data-motion="image"]`,
-        { opacity: 1, scale: [0.9, 1], filter: ["blur(3px)", "blur(0)"] },
-        { duration: 0.4 },
-      ],
-      [
-        `[data-motion="heading"]`,
-        { opacity: 1, x: [-10, 0] },
-        { duration: 0.4, delay: stagger(0.15), at: "<" },
-      ],
+      headingImageAnimation(),
+      horizontalHeadingAnimation(),
       [
         `[data-motion="project-highlight"]`,
-        { opacity: 1, y: [10, 0] },
+        { opacity: 1, y: [10, 0], filter: ["blur(3px)", "blur(0)"] },
         { duration: 0.4, delay: stagger(0.15) },
       ],
     ])
@@ -72,8 +68,8 @@ const ProjectsPage = () => {
         autoSize
         class="flex flex-col pb-8 mb-12"
       >
-        <div class="flex justify-between mx-6 mb-11 -mt-0.5">
-          <h2 class="inline-block font-semibold text-xl" data-motion="heading">
+        <div class="flex justify-between items-end mx-6 mb-11 -mt-0.5">
+          <h2 class="inline-block font-heading text-3xl" data-motion="heading">
             Highlights
           </h2>
           <div class="flex gap-1" data-motion="heading">
@@ -135,8 +131,8 @@ const ProjectsPage = () => {
       </Carousel.Root>
       <For each={projects.categories}>
         {(category) => (
-          <div class="mx-6 max-md:not-last:border-b border-on-base/10 pb-8 mb-20">
-            <h2 class="inline-block font-semibold text-xl mb-6" data-motion="section-heading">
+          <div class="mx-6 max-md:not-last:border-b border-on-base/10 max-md:pb-10 mb-16 md:mb-14">
+            <h2 class="inline-block font-heading text-3xl mb-6" data-motion="section-heading">
               {category.name}
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-6">

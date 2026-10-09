@@ -42,7 +42,7 @@ const MobileMenu = () => {
   tooltip
   return (
     <header class="w-full flex items-center gap-3 p-3">
-      <h1 class="font-heading tracking-normal text-xl mb-1 grow ml-3">Racing Icon</h1>
+      <h1 class="font-heading text-2xl mb-1 grow ml-3">Racing Icon</h1>
       <div class="flex gap-4">
         <Button
           variant="subtle"
@@ -71,7 +71,7 @@ const LeftMenu = () => {
   return (
     <header class="w-48 p-6">
       <div class="h-10">
-        <h1 class="font-heading tracking-normal text-xl whitespace-nowrap">Racing Icon</h1>
+        <h1 class="font-heading text-2xl whitespace-nowrap">Racing Icon</h1>
       </div>
     </header>
   )

@@ -15,7 +15,7 @@ export const popover = tv({
       "data-[placement=left]:origin-right data-[placement=left-start]:origin-top-right data-[placement=left-end]:origin-bottom-right",
       "data-[placement=right]:origin-left data-[placement=right-start]:origin-top-left data-[placement=right-end]:origin-bottom-left",
     ],
-    title: "font-semibold",
+    title: "font-medium",
     description: "text-sm text-on-base/70",
     closeTrigger: "",
   },

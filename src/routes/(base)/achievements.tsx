@@ -1,6 +1,6 @@
 import { Progress } from "@ark-ui/solid"
 import { achievements } from "content-collections"
-import { animate, stagger } from "motion"
+import { animate } from "motion"
 import { Component, For, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import KonamiJoypadPopover from "~/components/konami-joypad"
@@ -9,9 +9,12 @@ import PageAvatar from "~/components/page-avatar-icon"
 import { button } from "~/components/ui/button"
 import { Popover } from "~/components/ui/popover"
 import { Achievement, useAchievements } from "~/lib/achievements"
-import { createBatchedInViewAnimation } from "~/lib/animation"
+import {
+  createBatchedInViewAnimation,
+  horizontalHeadingAnimation,
+  headingImageAnimation,
+} from "~/lib/animation"
 import ContentIcon from "~/lib/content-icons"
-import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLock from "~icons/tabler/lock"
 import TablerTrophy from "~icons/tabler/trophy"
 
@@ -19,18 +22,7 @@ const AchievementPage = () => {
   const { completedAchievements } = useAchievements()
 
   onMount(() => {
-    animate([
-      [
-        `[data-motion="image"]`,
-        { opacity: 1, scale: [0.9, 1], filter: ["blur(3px)", "blur(0)"] },
-        { duration: 0.4 },
-      ],
-      [
-        `[data-motion="heading"]`,
-        { opacity: 1, x: [-10, 0] },
-        { duration: 0.4, delay: stagger(0.15), at: "<" },
-      ],
-    ])
+    animate([headingImageAnimation(), horizontalHeadingAnimation()])
   })
   createBatchedInViewAnimation(`[data-motion="achievement-item"]`)
 
@@ -59,10 +51,9 @@ const AchievementPage = () => {
           <a
             href="https://www.maxlaumeister.com/"
             target="_blank"
-            class="text-on-base hover:text-accent transition-colors"
+            class="text-on-base hover:text-accent transition-colors underline underline-offset-3 decoration-on-base/20 hover:decoration-accent decoration-dotted"
           >
             website
-            <TablerArrowUpRight class="inline-flex text-xs -ml-0.5 relative bottom-1.5" />
           </a>
           !
         </p>
@@ -136,7 +127,7 @@ const AchievementsProgress = () => {
           <Progress.CircleRange class="stroke-accent [stroke-linecap:round] transition-all" />
         </Progress.Circle>
       </Progress.Root>
-      <p class="text-sm text-on-base/70 font-semibold">
+      <p class="text-sm text-on-base/70 font-medium">
         {completedAchievements().length} / {achievements.items.length} unlocked
       </p>
     </div>

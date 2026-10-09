@@ -1,4 +1,4 @@
-import { animate, stagger } from "motion"
+import { animate } from "motion"
 import { Component, ComponentProps, createSignal, onMount, ParentComponent } from "solid-js"
 import { Portal } from "solid-js/web"
 import { cn } from "tailwind-variants"
@@ -15,6 +15,7 @@ import { Textarea } from "~/components/ui/textarea"
 import { toast } from "~/components/ui/toast"
 import { Toggle } from "~/components/ui/toggle"
 import { useAchievements } from "~/lib/achievements"
+import { horizontalHeadingAnimation, headingImageAnimation } from "~/lib/animation"
 import TablerBracketsAngle from "~icons/tabler/brackets-angle"
 import TablerDots from "~icons/tabler/dots"
 import TablerDownload from "~icons/tabler/download"
@@ -26,16 +27,8 @@ import TablerWorld from "~icons/tabler/world"
 const ComponentsPage = () => {
   onMount(() => {
     animate([
-      [
-        `[data-motion="image"]`,
-        { opacity: 1, scale: [0.9, 1], filter: ["blur(3px)", "blur(0)"] },
-        { duration: 0.4 },
-      ],
-      [
-        `[data-motion="heading"], [data-motion="section"]`,
-        { opacity: 1, x: [-10, 0] },
-        { duration: 0.4, delay: stagger(0.15), at: "<" },
-      ],
+      headingImageAnimation(),
+      horizontalHeadingAnimation(`[data-motion="heading"], [data-motion="section"]`),
     ])
   })
 
@@ -321,7 +314,7 @@ const ComponentSection: ParentComponent<{ heading: string }> = (props) => {
       data-motion="section"
     >
       <div>
-        <h2 class="font-semibold max-md:text-xl">{props.heading}</h2>
+        <h2 class="font-heading text-2xl">{props.heading}</h2>
       </div>
       <div class="col-span-3 max-w-xl prose">{props.children}</div>
     </section>

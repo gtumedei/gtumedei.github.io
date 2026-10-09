@@ -12,7 +12,7 @@ export const dialog = tv({
     content:
       "bg-base-100 dark:bg-base-200 flex flex-col max-h-full overflow-y-auto gap-6 p-6 rounded-5 border border-on-base/10 shadow-lg shadow-black/5 m-auto relative outline-none data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
     header: "flex flex-col gap-2",
-    title: "text-lg font-semibold",
+    title: "font-heading text-2xl",
     description: "text-on-base/70",
     actions: "flex gap-2 justify-end",
     closeTrigger: "",

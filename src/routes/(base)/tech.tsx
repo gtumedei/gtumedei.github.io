@@ -5,8 +5,8 @@ import { Component, onMount, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
 import PageAvatar from "~/components/page-avatar-icon"
 import { SuperStarButton } from "~/lib/achievements/helpers"
+import { horizontalHeadingAnimation, headingImageAnimation } from "~/lib/animation"
 import ContentIcon from "~/lib/content-icons"
-import TablerArrowUpRight from "~icons/tabler/arrow-up-right"
 import TablerLink from "~icons/tabler/link"
 import TablerTools from "~icons/tabler/tools"
 
@@ -15,16 +15,8 @@ type TechEntry = Tech["items"][number]
 const TechPage = () => {
   onMount(() => {
     animate([
-      [
-        `[data-motion="image"]`,
-        { opacity: 1, scale: [0.9, 1], filter: ["blur(3px)", "blur(0)"] },
-        { duration: 0.4 },
-      ],
-      [
-        `[data-motion="heading"], [data-motion="section"]`,
-        { opacity: 1, x: [-10, 0] },
-        { duration: 0.4, delay: stagger(0.15), at: "<" },
-      ],
+      headingImageAnimation(),
+      horizontalHeadingAnimation(`[data-motion="heading"], [data-motion="section"]`),
     ])
     inView(`[data-motion="tech"]`, (elem) => {
       animate(elem, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
@@ -113,10 +105,9 @@ const TechPage = () => {
             <a
               href="https://forum.figma.com/t/stop-automatically-adding-figmaagent-to-login-items/43826"
               target="_blank"
-              class="not-prose text-on-base hover:text-accent transition-colors"
+              class="not-prose text-on-base hover:text-accent transition-colors underline underline-offset-3 decoration-on-base/20 hover:decoration-accent decoration-dotted"
             >
               requires a background process to load custom fonts
-              <TablerArrowUpRight class="inline-flex text-xs -ml-0.5 relative bottom-1.5" />
             </a>
             . Seriously Figma? Besides that, it's a really awesome tool.
           </p>
@@ -178,10 +169,9 @@ const TechPage = () => {
             <a
               href="https://icones.js.org/"
               target="_blank"
-              class="not-prose text-on-base hover:text-accent transition-colors"
+              class="not-prose text-on-base hover:text-accent transition-colors underline underline-offset-3 decoration-on-base/20 hover:decoration-accent decoration-dotted"
             >
               website
-              <TablerArrowUpRight class="inline-flex text-xs -ml-0.5 relative bottom-1.5" />
             </a>{" "}
             where you can search all the icons.
           </p>
@@ -241,9 +231,9 @@ const TechSection: ParentComponent<{ heading: string }> = (props) => {
       data-motion="section"
     >
       <div class="md:pl-6 md:border-l md:border-on-base/10">
-        <h2 class="font-semibold max-md:text-xl sticky top-24">{props.heading}</h2>
+        <h2 class="font-heading text-2xl sticky top-24">{props.heading}</h2>
       </div>
-      <div class="col-span-3 max-w-xl prose">{props.children}</div>
+      <div class="col-span-3 max-w-xl prose md:mt-1.5">{props.children}</div>
     </section>
   )
 }

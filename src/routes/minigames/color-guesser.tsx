@@ -44,7 +44,7 @@ const MobileMenu = () => {
   tooltip
   return (
     <header class="w-full flex items-center gap-3 p-3">
-      <h1 class="font-heading tracking-normal text-xl mb-1 grow ml-3">Color Guesser</h1>
+      <h1 class="font-heading text-2xl mb-1 grow ml-3">Color Guesser</h1>
       <div class="flex gap-4">
         <Button
           variant="subtle"
@@ -73,7 +73,7 @@ const LeftMenu = () => {
   return (
     <header class="w-48 p-6">
       <div class="h-10">
-        <h1 class="font-heading tracking-normal text-xl whitespace-nowrap">Color Guesser</h1>
+        <h1 class="font-heading text-2xl whitespace-nowrap">Color Guesser</h1>
       </div>
     </header>
   )
@@ -159,7 +159,7 @@ const StreakCounter = () => {
       {ctx.game.streak > 1 && (
         <div class="absolute top-3.5 right-0 translate-x-[calc(100%+1rem)]">
           <div class="w-10 h-10 flex relative">
-            <TablerFlameFilled class="text-3xl text-red-400 darK:text-red-300/50 absolute-center-x -top-2.5 -z-1" />
+            <TablerFlameFilled class="text-3xl text-accent absolute-center-x -top-2.5 -z-1" />
             <div class="h-5 w-5 flex bg-base-100 rounded-full m-auto">
               <span
                 class="text-sm font-semibold m-auto transition-transform duration-150"

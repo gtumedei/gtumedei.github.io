@@ -1,11 +1,16 @@
 import { A } from "@solidjs/router"
-import { animate, stagger } from "motion"
+import { animate } from "motion"
 import { onMount } from "solid-js"
 import { cn } from "tailwind-variants"
 import Meta from "~/components/meta"
 import PageAvatar from "~/components/page-avatar-icon"
 import { button } from "~/components/ui/button"
 import { Keymaster } from "~/lib/achievements/helpers"
+import {
+  verticalHeadingAnimation,
+  homepageNavAnimation,
+  headingImageAnimation,
+} from "~/lib/animation"
 import tooltip from "~/lib/directives/tooltip"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBrandGithub from "~icons/tabler/brand-github"
@@ -18,23 +23,7 @@ import TablerTools from "~icons/tabler/tools"
 
 const HomePage = () => {
   onMount(() => {
-    animate([
-      [
-        `[data-motion="image"]`,
-        { opacity: 1, scale: [0.9, 1], filter: ["blur(3px)", "blur(0)"] },
-        { duration: 0.4 },
-      ],
-      [
-        `[data-motion="hero"]`,
-        { opacity: 1, y: [10, 0] },
-        { duration: 0.4, delay: stagger(0.15), at: "<" },
-      ],
-      [
-        `[data-motion="menu"]`,
-        { opacity: 1, scale: [0.95, 1], y: [10, 0] },
-        { duration: 0.4, delay: stagger(0.15, { startDelay: 0.2 }), at: "<" },
-      ],
-    ])
+    animate([headingImageAnimation(), verticalHeadingAnimation(), homepageNavAnimation()])
   })
 
   tooltip
@@ -47,10 +36,10 @@ const HomePage = () => {
             <img src="/profile.jpg" alt="Profile image" class="rounded-full" />
           </PageAvatar>
         </Keymaster>
-        <h1 class="font-heading text-4xl sm:text-5xl mb-1.5" data-motion="hero">
+        <h1 class="font-heading text-4xl sm:text-5xl mb-1.5" data-motion="heading">
           Gianni Tumedei
         </h1>
-        <h2 class="text-xl text-on-base/60 tracking-wide" data-motion="hero">
+        <h2 class="text-xl text-on-base/70" data-motion="heading">
           @gtumedei
         </h2>
         <div class="flex gap-3 mt-6">
@@ -71,7 +60,7 @@ const HomePage = () => {
               title: "Based in Cesena (IT)",
             },
           ].map((item) => (
-            <div data-motion="hero">
+            <div data-motion="heading">
               <a
                 href={item.href}
                 target="_blank"
@@ -125,14 +114,14 @@ const HomePage = () => {
           <A
             href={item.href}
             class="flex flex-col hover:bg-neutral/5 active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 group focus-ring"
-            data-motion="menu"
+            data-motion="nav"
           >
-            <div class="flex gap-4 items-center mb-3">
+            <div class="size-11 flex justify-center items-center bg-base-200/90 text-accent p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mb-6">
               {item.icon()}
-              <h2 class="text-lg font-semibold">{item.title}</h2>
             </div>
+            <h2 class="font-heading text-2xl mb-3">{item.title}</h2>
             <p class="md:text-sm text-on-base/70 tall-lines mb-4">{item.description}</p>
-            <p class="flex items-center gap-1.5 md:text-sm font-medium text-accent">
+            <p class="flex items-center gap-1.5 md:text-sm font-medium text-on-base/50 group-hover:text-accent group-active:text-accent transition-colors">
               {item.action}
               <TablerArrowNarrowRight class="text-base max-md:text-lg group-hover:translate-x-1 group-active:translate-x-1 transition-transform" />
             </p>
