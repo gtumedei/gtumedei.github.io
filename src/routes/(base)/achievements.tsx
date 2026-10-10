@@ -115,7 +115,7 @@ const AchievementsProgress = () => {
   const { completedAchievements } = useAchievements()
 
   return (
-    <div class="flex gap-3 items-center">
+    <div class="flex gap-3 items-center my-px">
       <Progress.Root
         class="[--size:38px] [--thickness:6px]"
         value={completedAchievements().length}

@@ -116,7 +116,7 @@ const HomePage = () => {
             class="flex flex-col hover:bg-neutral/5 active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 group focus-ring"
             data-motion="nav"
           >
-            <div class="size-11 flex justify-center items-center bg-base-200/90 text-accent p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mb-6">
+            <div class="size-11 flex justify-center items-center bg-base-200/90 text-accent p-1.5 rounded-full border border-on-base/10 shadow shadow-black/3 mb-6">
               {item.icon()}
             </div>
             <h2 class="font-heading text-2xl mb-3">{item.title}</h2>
