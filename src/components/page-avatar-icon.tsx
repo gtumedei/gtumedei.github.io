@@ -6,7 +6,7 @@ const PageAvatarRoot: Component<ComponentProps<"div">> = (props) => {
     <div
       {...props}
       class={cn(
-        "w-20 h-20 inline-flex bg-base-200/90 group-data-wallpaper/html:bg-base-200/50 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 transition-colors",
+        "w-20 h-20 inline-flex bg-base-200/90 group-data-background/html:bg-base-200/50 backdrop-blur-xs p-2 rounded-full border border-on-base/10 shadow shadow-black/3 transition-colors",
         props.class,
       )}
     >

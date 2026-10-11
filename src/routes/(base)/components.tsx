@@ -299,7 +299,7 @@ const ComponentsPage = () => {
         </ComponentSection>
         <ComponentSection heading="Toggle">
           <ComponentShowcase>
-            <Toggle disabled={disabled()}>Show Wallpaper</Toggle>
+            <Toggle disabled={disabled()}>Show Background</Toggle>
           </ComponentShowcase>
         </ComponentSection>
       </div>

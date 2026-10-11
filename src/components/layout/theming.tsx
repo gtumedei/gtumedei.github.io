@@ -6,7 +6,7 @@ import { Toggle } from "~/components/ui/toggle"
 import { useAchievements } from "~/lib/achievements"
 import { createWebGLDetector } from "~/lib/detect-webgl"
 import tooltip from "~/lib/directives/tooltip"
-import { Accent, Style, Theme, useTheme } from "~/lib/theme"
+import { Accent, Background, Style, Theme, useTheme } from "~/lib/theme"
 import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
 import TablerMoonStars from "~icons/tabler/moon-stars"
 import TablerSun from "~icons/tabler/sun"
@@ -232,22 +232,83 @@ export const StyleSwitcher: Component<RadioProps> = (props) => {
   )
 }
 
-export const WallpaperSwitcher: Component<Props> = (props) => {
+export const BackgroundSwitcher: Component<RadioProps> = (props) => {
   const { completedAchievements } = useAchievements()
 
-  const { showWallpaper, setShowWallpaper } = useTheme()
+  const { background, setBackground } = useTheme()
+
+  const backgrounds: {
+    value: Background
+    label: string
+    component: () => JSX.Element
+  }[] = [
+    {
+      value: "aurora",
+      label: "Aurora",
+      component: () => (
+        <div class="size-full blur-xs opacity-50 relative">
+          <div class="w-4 h-6 rounded-full bg-on-base/70 group-data-[state=checked]:bg-accent transition-colors absolute -top-2 left-0" />
+          <div class="w-6 h-8 rounded-full bg-on-base/70 group-data-[state=checked]:bg-accent transition-colors absolute -top-2 left-4" />
+          <div class="w-3 h-5 rounded-full bg-on-base/70 group-data-[state=checked]:bg-accent transition-colors absolute -top-2 right-0" />
+        </div>
+      ),
+    },
+    {
+      value: "gradient",
+      label: "Soft Blobs",
+      component: () => (
+        <div class="size-full blur-xs opacity-50 relative">
+          <div class="size-6 rounded-full bg-on-base/70 group-data-[state=checked]:bg-accent transition-colors absolute top-0 left-0" />
+          <div class="size-4 rounded-full bg-on-base/70 group-data-[state=checked]:bg-accent transition-colors absolute bottom-1 right-0.5" />
+        </div>
+      ),
+    },
+    { value: "none", label: "None", component: () => <></> },
+  ]
 
   return (
     <Show when={completedAchievements().includes("KEYMASTER")}>
-      <Toggle
+      <RadioGroup.Root
         class={props.class}
-        labelClass={cn("order-1 grow", props.labelClass)}
-        controlClass="order-2"
-        checked={showWallpaper() == "on"}
-        onCheckedChange={({ checked }) => setShowWallpaper(checked ? "on" : "off")}
+        value={background()}
+        onValueChange={({ value }) => setBackground(value as Background)}
       >
-        Wallpaper
-      </Toggle>
+        <RadioGroup.Label class={cn("inline-flex text-sm font-medium", props.labelClass)}>
+          Background
+        </RadioGroup.Label>
+        <div
+          class={cn(
+            "grid grid-cols-3 gap-1 p-1 rounded-4 border border-on-base/10",
+            props.switcherClass,
+          )}
+        >
+          <Index each={backgrounds}>
+            {(b) => (
+              <RadioGroup.Item
+                value={b().value}
+                asChild={(props) => (
+                  <label {...props()} class="flex group" use:tooltip={[b().label, "bottom"]} />
+                )}
+              >
+                <RadioGroup.ItemControl
+                  class={cn(
+                    button({
+                      variant: "ghost",
+                      shape: "rectangle",
+                      size: props.switcherSize ?? "sm",
+                    }),
+                    "w-full rounded-3 p-0 overflow-hidden *:z-10",
+                    b().value == background() && "bg-neutral/5",
+                  )}
+                >
+                  {b().component()}
+                </RadioGroup.ItemControl>
+                <RadioGroup.ItemHiddenInput />
+              </RadioGroup.Item>
+            )}
+          </Index>
+        </div>
+      </RadioGroup.Root>
     </Show>
   )
 }

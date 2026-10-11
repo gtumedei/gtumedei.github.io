@@ -1,10 +1,10 @@
 import { makePersisted } from "@solid-primitives/storage"
 import { onMount } from "solid-js"
-import { createStore, reconcile } from "solid-js/store"
 import type { SetStoreFunction, Store } from "solid-js/store"
+import { createStore, reconcile } from "solid-js/store"
 import { isServer } from "solid-js/web"
 import { create } from "~/lib/context"
-import { Accent, Style, Theme } from "~/lib/theme"
+import { Accent, Background, Style, Theme } from "~/lib/theme"
 
 export const [AchievementsProgressProvider, useAchievementsProgress] = create(() => {
   const defaultValues = () => ({
@@ -23,7 +23,7 @@ export const [AchievementsProgressProvider, useAchievementsProgress] = create(()
     },
     moddingManiac: {
       styles: [] as Style[],
-      wallpaper: false,
+      backgrounds: [] as Background[],
       superMode: false,
     },
   })

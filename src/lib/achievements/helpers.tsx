@@ -19,7 +19,7 @@ import { Dialog } from "~/components/ui/dialog"
 import { useAchievements } from "~/lib/achievements"
 import { useAchievementsProgress } from "~/lib/achievements/progress"
 import env from "~/lib/env"
-import { accents, styles, themes, useTheme } from "~/lib/theme"
+import { accents, backgrounds, styles, themes, useTheme } from "~/lib/theme"
 import TablerStarFilled from "~icons/tabler/star-filled"
 
 const Visitor = () => {
@@ -387,14 +387,14 @@ const CustomizationAddict = () => {
 }
 
 const ModdingManiac = () => {
-  const { style, showWallpaper, superModeOn } = useTheme()
+  const { style, background, superModeOn } = useTheme()
   const { unlockAchievement } = useAchievements()
   const { progress, setProgress } = useAchievementsProgress()
 
   const checkCompletion = () => {
     if (
       progress.moddingManiac.styles.length == styles.length &&
-      progress.moddingManiac.wallpaper == true &&
+      progress.moddingManiac.backgrounds.length == backgrounds.length &&
       progress.moddingManiac.superMode == true
     ) {
       unlockAchievement("MODDING_MANIAC")
@@ -409,8 +409,9 @@ const ModdingManiac = () => {
     }),
   )
   createEffect(
-    on(showWallpaper, (state) => {
-      if (state == "on") setProgress("moddingManiac", "wallpaper", true)
+    on(background, (background) => {
+      if (!progress.moddingManiac.backgrounds.includes(background))
+        setProgress("moddingManiac", "backgrounds", (v) => [...v, background])
       checkCompletion()
     }),
   )

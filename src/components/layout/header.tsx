@@ -9,7 +9,7 @@ import {
   StyleSwitcher,
   SuperModeSwitcher,
   ThemeSwitcher,
-  WallpaperSwitcher,
+  BackgroundSwitcher,
 } from "~/components/layout/theming"
 import { Button, button } from "~/components/ui/button"
 import { Popover } from "~/components/ui/popover"
@@ -157,7 +157,7 @@ const Header = () => {
             <ThemeSwitcher labelClass="mb-2" />
             <AccentSwitcher labelClass="mb-2" />
             <StyleSwitcher labelClass="mb-2" />
-            <WallpaperSwitcher class="mt-1" />
+            <BackgroundSwitcher class="mt-1" />
             <SuperModeSwitcher class="mt-1" />
           </Popover.Content>
         </Popover.Positioner>

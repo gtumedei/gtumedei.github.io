@@ -140,7 +140,7 @@
 }
 
 @utility header-pill {
-  @apply bg-base-200/90 group-data-wallpaper/html:bg-base-200/50 group-data-sticky/header:bg-base-200/90! backdrop-blur-xs rounded-full border border-on-base/10 shadow-md shadow-black/3 transition-colors;
+  @apply bg-base-200/90 group-data-background/html:bg-base-200/50 group-data-sticky/header:bg-base-200/90! backdrop-blur-xs rounded-full border border-on-base/10 shadow-md shadow-black/3 transition-colors;
 }
 
 /* Use rounded- with any Tailwind size */

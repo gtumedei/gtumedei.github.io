@@ -2,17 +2,17 @@ import { createSignal, onCleanup, onMount } from "solid-js"
 import { create } from "~/lib/context"
 import {
   applyAccent,
+  applyBackground,
   applyStyle,
   applyTheme,
-  applyWallpaper,
   LOCAL_STORAGE_ACCENT_KEY,
+  LOCAL_STORAGE_BACKGROUND_KEY,
   LOCAL_STORAGE_STYLE_KEY,
   LOCAL_STORAGE_THEME_KEY,
-  LOCAL_STORAGE_WALLPAPER_KEY,
   readAccent,
+  readBackground,
   readStyle,
   readTheme,
-  readWallpaper,
 } from "./apply"
 
 export const themes = ["light", "dark", "system"] as const
@@ -23,6 +23,9 @@ export type Accent = (typeof accents)[number]
 
 export const styles = ["minimalist", "dotted", "pixelated"] as const
 export type Style = (typeof styles)[number]
+
+export const backgrounds = ["aurora", "gradient", "none"] as const
+export type Background = (typeof backgrounds)[number]
 
 export const [ThemeProvider, useTheme] = create(() => {
   const [theme, _setTheme] = createSignal<Theme>("system")
@@ -52,18 +55,18 @@ export const [ThemeProvider, useTheme] = create(() => {
     applyStyle(value)
   }
 
-  const [showWallpaper, _setShowWallpaper] = createSignal<"on" | "off">("off")
-  const setShowWallpaper = (value: "on" | "off") => {
-    _setShowWallpaper(value)
-    localStorage.setItem(LOCAL_STORAGE_WALLPAPER_KEY, value)
-    applyWallpaper(value)
+  const [background, _setBackground] = createSignal<Background>("aurora")
+  const setBackground = (value: Background) => {
+    _setBackground(value)
+    localStorage.setItem(LOCAL_STORAGE_BACKGROUND_KEY, value)
+    applyBackground(value)
   }
 
   onMount(() => {
     _setTheme(readTheme())
     _setAccent(readAccent())
     _setStyle(readStyle())
-    _setShowWallpaper(readWallpaper())
+    _setBackground(readBackground())
 
     // Listen for the (prefers-color-scheme: dark) media query to change theme
     const onPrefersColorSchemeChange = (e: MediaQueryListEvent) => {
@@ -76,7 +79,7 @@ export const [ThemeProvider, useTheme] = create(() => {
     onCleanup(() =>
       window
         .matchMedia("(prefers-color-scheme: dark)")
-        .removeEventListener("change", onPrefersColorSchemeChange)
+        .removeEventListener("change", onPrefersColorSchemeChange),
     )
   })
 
@@ -90,8 +93,8 @@ export const [ThemeProvider, useTheme] = create(() => {
     setAccent,
     style,
     setStyle,
-    showWallpaper,
-    setShowWallpaper,
+    background,
+    setBackground,
     superModeOn,
     setSuperModeOn,
   }

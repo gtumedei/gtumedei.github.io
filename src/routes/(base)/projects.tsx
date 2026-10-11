@@ -69,7 +69,7 @@ const ProjectsPage = () => {
         class="flex flex-col pb-8 mb-12"
       >
         <div class="flex justify-between items-end mx-6 mb-11 -mt-0.5">
-          <h2 class="inline-block font-heading text-3xl" data-motion="heading">
+          <h2 class="inline-block font-heading text-2xl" data-motion="heading">
             Highlights
           </h2>
           <div class="flex gap-1" data-motion="heading">
@@ -132,7 +132,7 @@ const ProjectsPage = () => {
       <For each={projects.categories}>
         {(category) => (
           <div class="mx-6 max-md:not-last:border-b border-on-base/10 max-md:pb-10 mb-16 md:mb-14">
-            <h2 class="inline-block font-heading text-3xl mb-6" data-motion="section-heading">
+            <h2 class="inline-block font-heading text-2xl mb-6" data-motion="section-heading">
               {category.name}
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-6">

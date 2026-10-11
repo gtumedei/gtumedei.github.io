@@ -25,7 +25,7 @@ export default createHandler(() => (
           <script innerHTML={fnStrings.applyTheme} />
           <script innerHTML={fnStrings.applyAccent} />
           <script innerHTML={fnStrings.applyStyle} />
-          <script innerHTML={fnStrings.applyWallpaper} />
+          <script innerHTML={fnStrings.applyBackground} />
           {import.meta.env.PROD && (
             <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/script.js`} />
           )}

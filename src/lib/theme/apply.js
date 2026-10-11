@@ -15,7 +15,7 @@ export const applyTheme = (theme, disableTransition = false) => {
   // Add/update data-theme attribute
   if ("startViewTransition" in document && !disableTransition) {
     document.startViewTransition(() =>
-      document.documentElement.setAttribute("data-theme", actualTheme)
+      document.documentElement.setAttribute("data-theme", actualTheme),
     )
   } else {
     // @ts-ignore
@@ -78,23 +78,22 @@ export const LOCAL_STORAGE_STYLE_KEY = "gtumedei-io-style"
 export const readStyle = () => localStorage.getItem("gtumedei-io-style") ?? "minimalist"
 
 /**
- * Shows or hides the website wallpaper by setting the `data-wallpaper` attribute on the `<html>` tag.
- * @param {"on" | "off"} wallpaper
+ * Applies the given background to the website by setting the `data-background` attribute on the `<html>` tag.
+ * @param {"gradient" | "aurora" | "none"} background
  */
-export const applyWallpaper = (wallpaper) => {
-  if (wallpaper == "on") document.documentElement.setAttribute("data-wallpaper", "")
-  else document.documentElement.removeAttribute("data-wallpaper")
+export const applyBackground = (background) => {
+  document.documentElement.setAttribute("data-background", background)
 }
 
-export const LOCAL_STORAGE_WALLPAPER_KEY = "gtumedei-io-wallpaper"
+export const LOCAL_STORAGE_BACKGROUND_KEY = "gtumedei-io-background"
 
-/** @returns {"on" | "off"} */
+/** @returns {"gradient" | "aurora" | "none"} */
 // @ts-ignore
-export const readWallpaper = () => localStorage.getItem("gtumedei-io-wallpaper") ?? "off"
+export const readBackground = () => localStorage.getItem("gtumedei-io-background") ?? "aurora"
 
 export const fnStrings = {
   applyTheme: `(${applyTheme})((${readTheme})(), true)`,
   applyAccent: `(${applyAccent})((${readAccent})())`,
   applyStyle: `(${applyStyle})((${readStyle})())`,
-  applyWallpaper: `(${applyWallpaper})((${readWallpaper})())`,
+  applyBackground: `(${applyBackground})((${readBackground})())`,
 }
