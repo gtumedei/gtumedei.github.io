@@ -7,6 +7,7 @@ import AchievementHelpers from "~/lib/achievements/helpers"
 import { AchievementsProgressProvider, useAchievementsProgress } from "~/lib/achievements/progress"
 import ContentIcon from "~/lib/content-icons"
 import { create } from "~/lib/context"
+import { useTheme } from "~/lib/theme"
 import { useThemeColors } from "~/lib/theme/colors"
 
 const LOCAL_STORAGE_ACHIEVEMENTS_KEY = "gtumedei-io-achievements"
@@ -32,6 +33,7 @@ const [_AchievementsProvider, useAchievements] = create(() => {
 
   const location = useLocation()
   const navigate = useNavigate()
+  const { setStyle, setBackground, setSuperModeOn } = useTheme()
   const themeColors = useThemeColors()
 
   const unlockAchievement = (code: string) => {
@@ -78,6 +80,9 @@ const [_AchievementsProvider, useAchievements] = create(() => {
   const resetAchievements = () => {
     setCompletedAchievements([])
     resetProgress()
+    setStyle("minimalist")
+    setBackground("aurora")
+    setSuperModeOn(false)
     unlockAchievement("ACHIEVEMENTCEPTION")
   }
 
