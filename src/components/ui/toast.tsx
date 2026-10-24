@@ -8,7 +8,7 @@ type ToastOptions = { title: string; icon?: () => JSX.Element } & Pick<
 >
 
 export const toast = (options: ToastOptions) => {
-  const { icon, ...rest } = options
+  const { icon: _icon, ...rest } = options
   sonner.custom((id) => <Toast id={id} {...options} />, rest)
 }
 
@@ -51,4 +51,8 @@ const Toast: Component<{ id: string | number } & ToastOptions> = (props) => {
   )
 }
 
-export const Toaster = () => <Sonner class="dark:theme-dark" toastOptions={{ unstyled: true }} />
+export const Toaster = () => (
+  <div data-toast-container class="contents">
+    <Sonner class="dark:theme-dark" toastOptions={{ unstyled: true }} />
+  </div>
+)

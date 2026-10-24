@@ -12,6 +12,6 @@ export const overlayProps = ({
     lazyMount: true,
     unmountOnExit: true,
     modal,
-    persistentElements: blockToasts ? [] : [() => document.querySelector("[data-sonner-toaster]")],
+    persistentElements: blockToasts ? [] : [() => document.querySelector("[data-toast-container]")],
   }
 }
