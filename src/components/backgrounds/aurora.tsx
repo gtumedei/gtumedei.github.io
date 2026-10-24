@@ -345,7 +345,12 @@ const Aurora: Component<AuroraProps> = (baseProps) => {
 
 const toRgb = (color: string | [number, number, number]): [number, number, number] => {
   if (Array.isArray(color)) return color
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(color)
+  // Expand shorthand hex (#fff / #fff0) first: the prod CSS minifier rewrites
+  // custom property values like #ffffff to #fff, which the 6-digit regex below
+  // would reject.
+  let hex = color.replace(/^#/, "")
+  if (/^[\da-f]{3,4}$/i.test(hex)) hex = [...hex].map((c) => c + c).join("")
+  const result = /^([\da-f]{2})([\da-f]{2})([\da-f]{2})/i.exec(hex)
   const r = result?.[1]
   const g = result?.[2]
   const b = result?.[3]

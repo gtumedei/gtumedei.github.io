@@ -3,7 +3,7 @@ import { createMemo, Match, Switch } from "solid-js"
 import { cn } from "tailwind-variants"
 import { Aurora } from "~/components/backgrounds/aurora"
 import Grainient from "~/components/backgrounds/grainient"
-import OpacityTransition from "~/components/opacity-transition"
+import { OpacityTransition } from "~/components/transitions"
 import { useTheme } from "~/lib/theme"
 import { useThemeColors } from "~/lib/theme/colors"
 
@@ -12,7 +12,7 @@ const Background = () => {
   const mask = () =>
     ["/", "/*notFound"].includes(matches().at(-1)?.route.originalPath ?? "") ? "sm" : "lg"
 
-  const { background, style } = useTheme()
+  const { background, style, actualTheme } = useTheme()
   const colors = useThemeColors()
 
   const overlayMode = () =>
@@ -25,30 +25,25 @@ const Background = () => {
     )[style()]
 
   const backgroundColors = createMemo(() => {
-    switch (colors.accent) {
-      case colors.blueAccent:
-        return {
-          aurora: [colors.blueAccent, colors.orangeAccent, colors.blueAccent],
-          grainient: [colors.orangeAccent, colors.base100, colors.blueAccent],
-        }
-      case colors.orangeAccent:
-        return {
-          aurora: [colors.blueAccent, colors.pinkAccent, colors.orangeAccent],
-          grainient: [colors.blueAccent, colors.base100, colors.orangeAccent],
-        }
-      case colors.tealAccent:
-        return {
-          aurora: [colors.tealAccent, colors.blueAccent, colors.tealAccent],
-          grainient: [colors.pinkAccent, colors.base100, colors.tealAccent],
-        }
-      case colors.pinkAccent:
-        return {
-          aurora: [colors.pinkAccent, colors.blueAccent, colors.pinkAccent],
-          grainient: [colors.blueAccent, colors.base100, colors.pinkAccent],
-        }
-      default:
-        throw new Error()
+    const combos = {
+      [colors.blueAccent]: {
+        light: ["#d946ef", "#3b82f6", "#06b6d4"],
+        dark: ["#f0abfc", "#93c5fd", "#67e8f9"],
+      },
+      [colors.orangeAccent]: {
+        light: ["#eab308", "#f97316", "#f43f5e"],
+        dark: ["#fde047", "#fdba74", "#fda4af"],
+      },
+      [colors.tealAccent]: {
+        light: ["#22c55e", "#14b8a6", "#8b5cf6"],
+        dark: ["#86efac", "#5eead4", "#c4b5fd"],
+      },
+      [colors.pinkAccent]: {
+        light: ["#6366f1", "#ec4899", "#ef4444"],
+        dark: ["#a5b4fc", "#f9a8d4", "#fca5a5"],
+      },
     }
+    return combos[colors.accent]![actualTheme()]
   })
 
   return (
@@ -66,12 +61,17 @@ const Background = () => {
             mask() == "lg" && "mask-linear-210 mask-linear-from-10% mask-linear-to-80%",
           )}
         >
+          {/* <img
+            src="/bg17.jpeg"
+            alt=""
+            class="w-full h-full object-cover object-center opacity-50 mask-b-from-10%"
+          /> */}
           <OpacityTransition>
             <Switch>
               <Match when={background() == "aurora"}>
                 <div class="w-full h-full">
                   <Aurora
-                    colorStops={backgroundColors().aurora}
+                    colorStops={[...backgroundColors()]}
                     bgColor={colors.base100}
                     overlayMode={overlayMode()}
                     class="w-full h-full opacity-30 mask-b-from-10%"
@@ -82,9 +82,9 @@ const Background = () => {
                 <div class="w-full h-full">
                   <Grainient
                     overlayMode={overlayMode()}
-                    color1={backgroundColors().grainient[0]}
-                    color2={backgroundColors().grainient[1]}
-                    color3={backgroundColors().grainient[2]}
+                    color1={backgroundColors()[0]}
+                    color2={backgroundColors()[1]}
+                    color3={backgroundColors()[2]}
                     class="w-full h-full opacity-30 mask-b-from-10%"
                   />
                 </div>

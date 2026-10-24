@@ -24,7 +24,7 @@ export const horizontalHeadingAnimation = (
 export const homepageNavAnimation = (selector: string = `[data-motion="nav"]`): Segment => [
   selector,
   { opacity: 1, y: [10, 0], filter: ["blur(3px)", "blur(0)"] },
-  { duration: 0.4, delay: stagger(0.15, { startDelay: 0.2 }), at: "<" },
+  { duration: 0.4, delay: stagger(0.15, { startDelay: 0.3 }), at: "<" },
 ]
 
 export const createBatchedInViewAnimation = (selector: string) => {

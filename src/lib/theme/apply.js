@@ -82,7 +82,11 @@ export const readStyle = () => localStorage.getItem("gtumedei-io-style") ?? "min
  * @param {"gradient" | "aurora" | "none"} background
  */
 export const applyBackground = (background) => {
-  document.documentElement.setAttribute("data-background", background)
+  if (background == "none") {
+    document.documentElement.removeAttribute("data-background")
+  } else {
+    document.documentElement.setAttribute("data-background", background)
+  }
 }
 
 export const LOCAL_STORAGE_BACKGROUND_KEY = "gtumedei-io-background"

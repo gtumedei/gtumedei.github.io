@@ -289,7 +289,12 @@ const Grainient: Component<GrainientProps> = (baseProps) => {
 export default Grainient
 
 const hexToRgb = (hex: string): [number, number, number] => {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
+  // Expand shorthand hex (#fff / #fff0) first. the prod CSS minifier rewrites
+  // custom property values like #ffffff to #fff, which the 6-digit regex below
+  // would reject.
+  let value = hex.replace(/^#/, "")
+  if (/^[\da-f]{3,4}$/i.test(value)) value = [...value].map((c) => c + c).join("")
+  const result = /^([\da-f]{2})([\da-f]{2})([\da-f]{2})/i.exec(value)
   const r = result?.[1]
   const g = result?.[2]
   const b = result?.[3]
