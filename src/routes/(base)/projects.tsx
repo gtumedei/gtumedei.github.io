@@ -1,41 +1,36 @@
 import { Carousel } from "@ark-ui/solid"
 import { projects, Projects } from "content-collections"
 import { animate, stagger } from "motion"
-import { Component, For, Index, onMount } from "solid-js"
+import { Component, createSignal, For, Index, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import Meta from "~/components/meta"
-import PageAvatar from "~/components/page-avatar-icon"
 import { Button } from "~/components/ui/button"
 import { Menu } from "~/components/ui/menu"
 import { useAchievements } from "~/lib/achievements"
 import { useAchievementsProgress } from "~/lib/achievements/progress"
-import {
-  createBatchedInViewAnimation,
-  horizontalHeadingAnimation,
-  headingImageAnimation,
-} from "~/lib/animation"
+import { createBatchedInViewAnimation, horizontalHeadingAnimation } from "~/lib/animation"
 import TablerArrowNarrowLeft from "~icons/tabler/arrow-narrow-left"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
 import TablerBracketsAngle from "~icons/tabler/brackets-angle"
 import TablerDots from "~icons/tabler/dots"
 import TablerFileText from "~icons/tabler/file-text"
-import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 import TablerLink from "~icons/tabler/link"
 import TablerWorld from "~icons/tabler/world"
 
 type Project = Projects["categories"][number]["items"][number]
 
 const ProjectsPage = () => {
+  const [animationDone, setAnimationDone] = createSignal(false)
+
   onMount(() => {
     animate([
-      headingImageAnimation(),
       horizontalHeadingAnimation(),
       [
         `[data-motion="project-highlight"]`,
         { opacity: 1, y: [10, 0], filter: ["blur(3px)", "blur(0)"] },
-        { duration: 0.4, delay: stagger(0.15) },
+        { duration: 0.4, delay: stagger(0.15, { startDelay: 0.3 }), at: "<" },
       ],
-    ])
+    ]).then(() => setAnimationDone(true))
   })
   createBatchedInViewAnimation(`[data-motion="section-heading"], [data-motion="project-item"]`)
 
@@ -48,11 +43,6 @@ const ProjectsPage = () => {
         description="I'm always building stuff. You can find my research, freelance, and personal projects listed inside here."
       />
       <div class="lg:w-2/3 px-6 mb-20">
-        <PageAvatar class="mb-8" data-motion="image">
-          <PageAvatar.Icon>
-            <TablerGrid3x3 />
-          </PageAvatar.Icon>
-        </PageAvatar>
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Projects
         </h1>
@@ -90,8 +80,9 @@ const ProjectsPage = () => {
           </div>
         </div>
         <div class="max-w-screen md:-mx-6 lg:-mx-10 xl:-mx-14 [--group-padding:1.5rem] md:[--group-padding:3rem] lg:[--group-padding:4rem] xl:[--group-padding:5rem]">
-          <Carousel.Control>
-            <Carousel.ItemGroup>
+          {/* Disable carousel interaction until the page loading animations are complete, or it will interfere with vertical scrolling */}
+          <Carousel.Control class={animationDone() ? "" : "pointer-events-none"}>
+            <Carousel.ItemGroup class="outline-none">
               <Index each={Array.from({ length: pageCount })}>
                 {(_, index) => (
                   <Carousel.Item index={index} class="snap-always">

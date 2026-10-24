@@ -6,16 +6,17 @@ import { Portal } from "solid-js/web"
 import { cn } from "tailwind-variants"
 import {
   AccentSwitcher,
+  BackgroundSwitcher,
   StyleSwitcher,
   SuperModeSwitcher,
   ThemeSwitcher,
-  BackgroundSwitcher,
 } from "~/components/layout/theming"
 import { Button, button } from "~/components/ui/button"
 import { Popover } from "~/components/ui/popover"
 import { ProgressiveBlur } from "~/components/ui/progressive-blur"
 import { createBreakpoints } from "~/lib/breakpoints"
 import stickyOnScrollUp from "~/lib/directives/sticky-on-scroll-up"
+import { overlayProps } from "~/lib/overlay-props"
 import TablerArrowBackUp from "~icons/tabler/arrow-back-up"
 import TablerBrandTelegram from "~icons/tabler/brand-telegram"
 import TablerDeviceGamepad from "~icons/tabler/device-gamepad"
@@ -76,9 +77,7 @@ const mobileMenuItems: MenuItem[] = [
     label: "Home",
     href: "/",
     end: true,
-    icon: () => (
-      <img src="/profile.jpg" alt="" class="size-8 rounded-full border border-on-base/10" />
-    ),
+    icon: () => <img src="/profile.png" alt="" class="size-8 bg-neutral/10 rounded-full" />,
   },
   ...desktopMenuItems,
 ]
@@ -98,37 +97,39 @@ const Header = () => {
       class="flex gap-4 px-6 md:px-12 lg:px-16 xl:px-20 py-6 z-20 relative pointer-events-none *:pointer-events-auto group/header"
     >
       <ProgressiveBlur
-        gradient
         class="inset-0 z-[-1]"
-        gradientClass="opacity-0 group-data-sticky/header:opacity-100 transition-opacity"
         blurWrapperClass="opacity-0 group-data-sticky/header:opacity-100 transition-opacity"
       />
+
       {location.pathname == "/" ? (
-        <A
-          href="/cv"
-          target="_self"
-          class={cn(
-            button({ variant: "neutral", size: "lg", raised: true }),
-            "backdrop-blur-xs pl-4",
-          )}
-        >
-          <TablerDownload />
-          <span class="text-sm">
-            <span class="max-sm:hidden">Download </span>CV
-          </span>
-        </A>
-      ) : (
-        <A href="/" class={cn(button({ size: "lg", raised: true }), "header-pill px-1.5 group")}>
-          <TablerArrowBackUp />
-          <img
-            src="/profile.jpg"
-            alt=""
-            class="h-8 w-8 rounded-full opacity-90 group-hover:opacity-100 transition-opacity"
-          />
-        </A>
-      )}
-      {location.pathname != "/" && (
         <>
+          <A
+            href="/cv"
+            target="_self"
+            class={cn(
+              button({ variant: "neutral", size: "lg", raised: true }),
+              "backdrop-blur-xs pl-4 mr-auto",
+            )}
+          >
+            <TablerDownload />
+            <span class="text-sm">
+              <span class="max-sm:hidden">Download </span>CV
+            </span>
+          </A>
+        </>
+      ) : (
+        <>
+          <A
+            href="/"
+            class={cn(button({ size: "lg", raised: true }), "header-pill px-1.5 mr-auto group")}
+          >
+            <TablerArrowBackUp />
+            <img
+              src="/profile.png"
+              alt=""
+              class="h-8 w-8 bg-neutral/10 rounded-full opacity-90 group-hover:opacity-100 transition-opacity"
+            />
+          </A>
           <Button
             size="lg"
             class="md:hidden header-pill px-4 ml-auto"
@@ -143,10 +144,11 @@ const Header = () => {
               onOpenChange={({ open }) => setMenuDialogOpen(open)}
             />
           )}
+          <DesktopNav />
         </>
       )}
-      {location.pathname != "/" ? <DesktopNav /> : <div class="mx-auto" />}
-      <Popover modal positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
+
+      <Popover positioning={{ placement: "bottom-end" }} {...overlayProps()}>
         <Popover.Trigger
           class={cn(button({ variant: "base", shape: "circle", size: "lg" }), "header-pill")}
         >
@@ -157,7 +159,7 @@ const Header = () => {
             <ThemeSwitcher labelClass="mb-2" />
             <AccentSwitcher labelClass="mb-2" />
             <StyleSwitcher labelClass="mb-2" />
-            <BackgroundSwitcher class="mt-1" />
+            <BackgroundSwitcher labelClass="mb-2" />
             <SuperModeSwitcher class="mt-1" />
           </Popover.Content>
         </Popover.Positioner>
@@ -168,7 +170,7 @@ const Header = () => {
 
 const DesktopNav = () => {
   return (
-    <div class="max-md:hidden header-pill mx-auto">
+    <div class="max-md:hidden header-pill absolute-center">
       <nav class="flex">
         <ul class="text-sm font-medium flex justify-center px-3 group/nav">
           {desktopMenuItems.map((item) => (
@@ -213,7 +215,7 @@ const MobileNavDialog: Component<{
   })
 
   return (
-    <Dialog.Root open={props.open} onOpenChange={props.onOpenChange} lazyMount unmountOnExit>
+    <Dialog.Root open={props.open} onOpenChange={props.onOpenChange} {...overlayProps()}>
       <Portal>
         <Dialog.Backdrop class="backdrop-blur-xs fixed top-0 left-0 z-50 h-screen w-screen data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0" />
         <Dialog.Backdrop class="bg-linear-to-b from-base-100/90 via-base-100/80 to-base-100/10 fixed top-0 left-0 z-50 h-screen w-screen data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:slide-in-from-top data-[state=closed]:animate-out data-[state=closed]:slide-out-to-top" />

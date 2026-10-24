@@ -104,6 +104,14 @@
     /* Style scrollbars */
     scrollbar-color: color-mix(in oklab, var(--color-on-base) 30%, transparent) transparent;
   }
+
+  /* Prevent layout shift for toasts when an Ark UI modal is open */
+  :where([data-sonner-toaster][data-x-position="right"]) {
+    right: max(
+      calc(var(--offset) + var(--scrollbar-width, 0px)),
+      env(safe-area-inset-right)
+    ) !important;
+  }
 }
 
 /* Fonts */
@@ -140,7 +148,11 @@
 }
 
 @utility header-pill {
-  @apply bg-base-200/90 group-data-background/html:bg-base-200/50 group-data-sticky/header:bg-base-200/90! backdrop-blur-xs rounded-full border border-on-base/10 shadow-md shadow-black/3 transition-colors;
+  @apply bg-base-200/90! group-data-background/html:bg-base-200/50! group-data-sticky/header:bg-base-200/90! backdrop-blur-xs rounded-full border border-on-base/10 shadow-md shadow-black/3 transition-colors;
+}
+
+@utility dotted-link {
+  @apply text-on-base hover:text-accent transition-colors underline underline-offset-3 decoration-on-base/30 hover:decoration-accent decoration-dotted;
 }
 
 /* Use rounded- with any Tailwind size */

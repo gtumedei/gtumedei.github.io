@@ -2,6 +2,7 @@ import { onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import { Button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
+import { overlayProps } from "~/lib/overlay-props"
 import { useRacingIconGame } from "~/minigames/racing-icon/core"
 import TablerChartBar from "~icons/tabler/chart-bar"
 import TablerChevronLeft from "~icons/tabler/chevron-left"
@@ -44,8 +45,7 @@ const MenuDialog = () => {
       onOpenChange={({ open }) => ctx.ui.setDialogState(open ? "menu" : null)}
       closeOnEscape={ctx.state() != "IDLE"}
       closeOnInteractOutside={ctx.state() != "IDLE"}
-      lazyMount
-      unmountOnExit
+      {...overlayProps()}
     >
       <Portal>
         <Dialog.Backdrop />
@@ -130,8 +130,7 @@ const StatsDialog = () => {
     <Dialog
       open={ctx.ui.dialogState() == "stats"}
       onOpenChange={({ open }) => ctx.ui.setDialogState(open ? "stats" : null)}
-      lazyMount
-      unmountOnExit
+      {...overlayProps()}
     >
       <Portal>
         <Dialog.Backdrop />

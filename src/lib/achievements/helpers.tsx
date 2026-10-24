@@ -19,6 +19,7 @@ import { Dialog } from "~/components/ui/dialog"
 import { useAchievements } from "~/lib/achievements"
 import { useAchievementsProgress } from "~/lib/achievements/progress"
 import env from "~/lib/env"
+import { overlayProps } from "~/lib/overlay-props"
 import { accents, backgrounds, styles, themes, useTheme } from "~/lib/theme"
 import TablerStarFilled from "~icons/tabler/star-filled"
 
@@ -118,6 +119,7 @@ export const Keymaster: Component<ComponentProps<"div">> = (props) => {
         onOpenChange={({ open }) => toggleDialog(open)}
         closeOnEscape={isCompleted()}
         closeOnInteractOutside={isCompleted()}
+        {...overlayProps()}
       >
         <Portal>
           <Dialog.Backdrop />
@@ -241,6 +243,7 @@ export const SuperStarButton = () => {
       onOpenChange={({ open }) => setOpen(open)}
       closeOnEscape={isCompleted()}
       closeOnInteractOutside={isCompleted()}
+      {...overlayProps()}
     >
       <Dialog.Trigger
         class={cn(
@@ -531,6 +534,7 @@ const Cheater = () => {
       onOpenChange={({ open }) => setOpen(open)}
       closeOnEscape={isCompleted()}
       closeOnInteractOutside={isCompleted()}
+      {...overlayProps()}
     >
       <Portal>
         <Dialog.Backdrop />

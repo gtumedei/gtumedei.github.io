@@ -3,21 +3,16 @@ import { tech, Tech } from "content-collections"
 import { animate, inView, stagger } from "motion"
 import { Component, onMount, ParentComponent } from "solid-js"
 import Meta from "~/components/meta"
-import PageAvatar from "~/components/page-avatar-icon"
 import { SuperStarButton } from "~/lib/achievements/helpers"
-import { horizontalHeadingAnimation, headingImageAnimation } from "~/lib/animation"
+import { horizontalHeadingAnimation } from "~/lib/animation"
 import ContentIcon from "~/lib/content-icons"
 import TablerLink from "~icons/tabler/link"
-import TablerTools from "~icons/tabler/tools"
 
 type TechEntry = Tech["items"][number]
 
 const TechPage = () => {
   onMount(() => {
-    animate([
-      headingImageAnimation(),
-      horizontalHeadingAnimation(`[data-motion="heading"], [data-motion="section"]`),
-    ])
+    animate([horizontalHeadingAnimation(`[data-motion="heading"], [data-motion="section"]`)])
     inView(`[data-motion="tech"]`, (elem) => {
       animate(elem, { opacity: 1, x: [-10, 0] }, { duration: 0.4, delay: 0.3 })
       animate(
@@ -37,11 +32,6 @@ const TechPage = () => {
         description="A long, wandering page of tools and tech I enjoy using. Check it out, you might discover something useful."
       />
       <div class="lg:w-2/3 px-6">
-        <PageAvatar class="mb-8" data-motion="image">
-          <PageAvatar.Icon>
-            <TablerTools />
-          </PageAvatar.Icon>
-        </PageAvatar>
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Tech
         </h1>
@@ -105,7 +95,7 @@ const TechPage = () => {
             <a
               href="https://forum.figma.com/t/stop-automatically-adding-figmaagent-to-login-items/43826"
               target="_blank"
-              class="not-prose text-on-base hover:text-accent transition-colors underline underline-offset-3 decoration-on-base/20 hover:decoration-accent decoration-dotted"
+              class="not-prose dotted-link"
             >
               requires a background process to load custom fonts
             </a>
@@ -166,11 +156,7 @@ const TechPage = () => {
           <p>
             Need an icon on your web project? This is the library you are looking for. Works with
             pretty much any framework and has an awesome{" "}
-            <a
-              href="https://icones.js.org/"
-              target="_blank"
-              class="not-prose text-on-base hover:text-accent transition-colors underline underline-offset-3 decoration-on-base/20 hover:decoration-accent decoration-dotted"
-            >
+            <a href="https://icones.js.org/" target="_blank" class="not-prose dotted-link">
               website
             </a>{" "}
             where you can search all the icons.

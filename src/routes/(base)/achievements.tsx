@@ -5,24 +5,18 @@ import { Component, For, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import KonamiJoypadPopover from "~/components/konami-joypad"
 import Meta from "~/components/meta"
-import PageAvatar from "~/components/page-avatar-icon"
 import { button } from "~/components/ui/button"
 import { Popover } from "~/components/ui/popover"
 import { Achievement, useAchievements } from "~/lib/achievements"
-import {
-  createBatchedInViewAnimation,
-  horizontalHeadingAnimation,
-  headingImageAnimation,
-} from "~/lib/animation"
+import { createBatchedInViewAnimation, horizontalHeadingAnimation } from "~/lib/animation"
 import ContentIcon from "~/lib/content-icons"
 import TablerLock from "~icons/tabler/lock"
-import TablerTrophy from "~icons/tabler/trophy"
 
 const AchievementPage = () => {
   const { completedAchievements } = useAchievements()
 
   onMount(() => {
-    animate([headingImageAnimation(), horizontalHeadingAnimation()])
+    animate([horizontalHeadingAnimation()])
   })
   createBatchedInViewAnimation(`[data-motion="achievement-item"]`)
 
@@ -33,11 +27,6 @@ const AchievementPage = () => {
         description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
       />
       <div class="lg:w-2/3 px-6">
-        <PageAvatar class="mb-8" data-motion="image">
-          <PageAvatar.Icon>
-            <TablerTrophy />
-          </PageAvatar.Icon>
-        </PageAvatar>
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Achievements
         </h1>
@@ -48,11 +37,7 @@ const AchievementPage = () => {
         <p class="text-on-base/70 tall-lines mb-8" data-motion="heading">
           This feature is heavily inspired by Maximillian Laumeister's achievement page. Check out
           his fantastic{" "}
-          <a
-            href="https://www.maxlaumeister.com/"
-            target="_blank"
-            class="text-on-base hover:text-accent transition-colors underline underline-offset-3 decoration-on-base/20 hover:decoration-accent decoration-dotted"
-          >
+          <a href="https://www.maxlaumeister.com/" target="_blank" class="dotted-link">
             website
           </a>
           !

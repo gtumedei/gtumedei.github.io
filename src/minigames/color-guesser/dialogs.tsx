@@ -2,10 +2,15 @@ import { createSignal, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import { Button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
+import { overlayProps } from "~/lib/overlay-props"
 import TablerChartBar from "~icons/tabler/chart-bar"
 import TablerChevronLeft from "~icons/tabler/chevron-left"
 import TablerChevronRight from "~icons/tabler/chevron-right"
 import { useColorGuesserGame } from "./core"
+import MinigameIcon from "~/components/minigame-icon"
+import { minigames } from "content-collections"
+
+const minigame = minigames.items.find((it) => it.slug == "color-guesser")!
 
 export const ColorGuesserDialogs = () => {
   return (
@@ -44,19 +49,14 @@ const MenuDialog = () => {
       onOpenChange={({ open }) => ctx.ui.setDialogState(open ? "menu" : null)}
       closeOnEscape={ctx.game.state != "IDLE"}
       closeOnInteractOutside={ctx.game.state != "IDLE"}
-      lazyMount
-      unmountOnExit
+      {...overlayProps()}
     >
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
           <Dialog.Content class="w-full max-w-lg text-center">
             <Dialog.Header class="gap-1">
-              <img
-                src="/img-remote/color-guesser.png"
-                alt=""
-                class="w-15 h-15 rounded-2 shadow shadow-black/5 mx-auto mb-3"
-              />
+              <MinigameIcon icon={minigame.icon} class="mx-auto mb-3" />
               <Dialog.Title>Color Guesser</Dialog.Title>
               <Dialog.Description class="text-balance">
                 Are you nerd enough to guess a color based on its RGB code? Let's find out!
@@ -127,8 +127,7 @@ const StatsDialog = () => {
     <Dialog
       open={ctx.ui.dialogState() == "stats"}
       onOpenChange={({ open }) => ctx.ui.setDialogState(open ? "stats" : null)}
-      lazyMount
-      unmountOnExit
+      {...overlayProps()}
     >
       <Portal>
         <Dialog.Backdrop />

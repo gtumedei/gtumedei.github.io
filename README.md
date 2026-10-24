@@ -22,5 +22,5 @@ My personal website.
   - Pick up bonuses during the game
   - Progressively increase speed and add new spawnable elements
   - Add an achievement
-- [ ] Reset style, wallpaper and super mode upon clearing achievements
 - [ ] Fill missing content
+- [ ] Make the website LLM friendly (e.g. llms.txt)

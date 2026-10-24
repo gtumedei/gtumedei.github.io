@@ -33,27 +33,15 @@ export const ProgressiveBlur: ParentComponent<
         <div class={cn("absolute inset-0", localProps.blurWrapperClass)}>
           <div
             class="absolute inset-0 backdrop-blur-[1px]"
-            style="mask-image: linear-gradient(to top, transparent 0%, black 16.7%, black 33.3%, transparent 50%);"
+            style="mask-image: linear-gradient(to top, transparent 0%, black 25%, black 50%, transparent 75%);"
           />
           <div
             class="absolute inset-0 backdrop-blur-[2px]"
-            style="mask-image: linear-gradient(to top, transparent 16.7%, black 33.3%, black 50%, transparent 66.7%);"
+            style="mask-image: linear-gradient(to top, transparent 25%, black 50%, black 75%, transparent 100%);"
           />
           <div
             class="absolute inset-0 backdrop-blur-[3px]"
-            style="mask-image: linear-gradient(to top, transparent 33.3%, black 50%, black 66.7%, transparent 83.3%);"
-          />
-          <div
-            class="absolute inset-0 backdrop-blur-[4px]"
-            style="mask-image: linear-gradient(to top, transparent 50%, black 66.7%, black 83.3%, transparent 100%);"
-          />
-          <div
-            class="absolute inset-0 backdrop-blur-[5px]"
-            style="mask-image: linear-gradient(to top, transparent 66.7%, black 83.3%, black 100%);"
-          />
-          <div
-            class="absolute inset-0 backdrop-blur-[6px]"
-            style="mask-image: linear-gradient(to top, transparent 83.3%, black 100%);"
+            style="mask-image: linear-gradient(to top, transparent 50%, black 75%, black 100%);"
           />
         </div>
       </div>

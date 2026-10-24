@@ -3,7 +3,6 @@ import { Component, ComponentProps, createSignal, onMount, ParentComponent } fro
 import { Portal } from "solid-js/web"
 import { cn } from "tailwind-variants"
 import Meta from "~/components/meta"
-import PageAvatar from "~/components/page-avatar-icon"
 import { button, Button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { FormField } from "~/components/ui/form-field"
@@ -15,7 +14,8 @@ import { Textarea } from "~/components/ui/textarea"
 import { toast } from "~/components/ui/toast"
 import { Toggle } from "~/components/ui/toggle"
 import { useAchievements } from "~/lib/achievements"
-import { horizontalHeadingAnimation, headingImageAnimation } from "~/lib/animation"
+import { horizontalHeadingAnimation } from "~/lib/animation"
+import { overlayProps } from "~/lib/overlay-props"
 import TablerBracketsAngle from "~icons/tabler/brackets-angle"
 import TablerDots from "~icons/tabler/dots"
 import TablerDownload from "~icons/tabler/download"
@@ -26,10 +26,7 @@ import TablerWorld from "~icons/tabler/world"
 
 const ComponentsPage = () => {
   onMount(() => {
-    animate([
-      headingImageAnimation(),
-      horizontalHeadingAnimation(`[data-motion="heading"], [data-motion="section"]`),
-    ])
+    animate([horizontalHeadingAnimation(`[data-motion="heading"], [data-motion="section"]`)])
   })
 
   const [disabled, setDisabled] = createSignal(false)
@@ -43,12 +40,7 @@ const ComponentsPage = () => {
         description="A showcase of the main UI components used throughout the website."
       />
       <div class="lg:w-2/3 px-6">
-        <PageAvatar class="mb-8" data-motion="image">
-          <PageAvatar.Icon>
-            <TablerBracketsAngle />
-          </PageAvatar.Icon>
-        </PageAvatar>
-        <h1 class="font-heading text-4xl sm:text-5xl tracking-wider mb-6" data-motion="heading">
+        <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Components
         </h1>
         <p class="text-on-base/70 tall-lines mb-8" data-motion="heading">
@@ -169,7 +161,7 @@ const ComponentsPage = () => {
         </ComponentSection>
         <ComponentSection heading="Dialog">
           <ComponentShowcase class="flex justify-center gap-3">
-            <Dialog lazyMount unmountOnExit>
+            <Dialog {...overlayProps()}>
               <Dialog.Trigger class={button()}>Show dialog</Dialog.Trigger>
               <Portal>
                 <Dialog.Backdrop />
@@ -289,6 +281,7 @@ const ComponentsPage = () => {
                       title: "Congratulations!",
                       description: "You already unlocked the achievement.",
                       icon: () => <TablerRocket />,
+                      duration: Infinity,
                     })
                   : unlockAchievement("DESIGN_SYSTEM_INSIDER")
               }

@@ -14,7 +14,10 @@ export const toast = (options: ToastOptions) => {
 
 const Toast: Component<{ id: string | number } & ToastOptions> = (props) => {
   return (
-    <div class="w-full [@media(min-width:600px)]:w-(--width) bg-base-100 rounded-5 relative">
+    <div
+      class="w-full [@media(min-width:600px)]:w-(--width) bg-base-100 rounded-5 relative"
+      data-toast-content
+    >
       <div class="bg-accent/30 blur-md absolute inset-0 z-[-1]" />
       <div class="bg-accent/5 flex p-4 gap-4 rounded-5 border border-accent/50">
         {props.icon && (
@@ -23,9 +26,11 @@ const Toast: Component<{ id: string | number } & ToastOptions> = (props) => {
           </div>
         )}
         <div class="grow">
-          <p class="text-xs leading-6 font-medium text-on-base/70 cursor-default">{props.title}</p>
+          <p class="text-xs leading-6 text-on-base/70 cursor-default">{props.title}</p>
           {props.description && (
-            <p class="text-sm text-on-base mb-0.5 cursor-default">{props.description}</p>
+            <p class="text-sm text-on-base font-medium mb-0.5 cursor-default">
+              {props.description}
+            </p>
           )}
         </div>
         {props.action && (

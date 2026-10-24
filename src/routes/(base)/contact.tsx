@@ -7,19 +7,18 @@ import { Component, createSignal, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import { z } from "zod"
 import Meta from "~/components/meta"
-import PageAvatar from "~/components/page-avatar-icon"
 import { Button, button } from "~/components/ui/button"
 import { Dialog } from "~/components/ui/dialog"
 import { FormField } from "~/components/ui/form-field"
 import { Input } from "~/components/ui/input"
 import { Loading } from "~/components/ui/loading"
 import { Textarea } from "~/components/ui/textarea"
-import { horizontalHeadingAnimation, headingImageAnimation } from "~/lib/animation"
+import { horizontalHeadingAnimation } from "~/lib/animation"
 import tooltip from "~/lib/directives/tooltip"
 import env from "~/lib/env"
 import { createForm } from "~/lib/form"
+import { overlayProps } from "~/lib/overlay-props"
 import { validated } from "~/lib/validation"
-import TablerBrandTelegram from "~icons/tabler/brand-telegram"
 import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
 import TablerMail from "~icons/tabler/mail"
 import TablerRocket from "~icons/tabler/rocket"
@@ -88,7 +87,6 @@ const ContactPage = () => {
 
   onMount(() => {
     animate([
-      headingImageAnimation(),
       horizontalHeadingAnimation(),
       [
         `[data-motion="form"]`,
@@ -107,11 +105,6 @@ const ContactPage = () => {
         description="Want to work together or just talk? Reaching out is easy, and I usually reply pretty fast."
       />
       <div class="lg:w-2/3 px-6">
-        <PageAvatar class="mb-8" data-motion="image">
-          <PageAvatar.Icon>
-            <TablerBrandTelegram />
-          </PageAvatar.Icon>
-        </PageAvatar>
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Contact
         </h1>
@@ -197,7 +190,7 @@ const ContactPage = () => {
 
 const SuccessDialog: Component<Pick<DialogRootProps, "open" | "onOpenChange">> = (props) => {
   return (
-    <Dialog {...props} lazyMount unmountOnExit>
+    <Dialog {...props} {...overlayProps()}>
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
@@ -223,7 +216,7 @@ const SuccessDialog: Component<Pick<DialogRootProps, "open" | "onOpenChange">> =
 
 const ErrorDialog: Component<Pick<DialogRootProps, "open" | "onOpenChange">> = (props) => {
   return (
-    <Dialog {...props} lazyMount unmountOnExit>
+    <Dialog {...props} {...overlayProps()}>
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>

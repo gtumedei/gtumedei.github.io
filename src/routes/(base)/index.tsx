@@ -1,15 +1,14 @@
 import { A } from "@solidjs/router"
 import { animate } from "motion"
 import { onMount } from "solid-js"
-import { cn } from "tailwind-variants"
 import Meta from "~/components/meta"
 import PageAvatar from "~/components/page-avatar-icon"
 import { button } from "~/components/ui/button"
 import { Keymaster } from "~/lib/achievements/helpers"
 import {
-  verticalHeadingAnimation,
-  homepageNavAnimation,
   headingImageAnimation,
+  homepageNavAnimation,
+  verticalHeadingAnimation,
 } from "~/lib/animation"
 import tooltip from "~/lib/directives/tooltip"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
@@ -31,9 +30,9 @@ const HomePage = () => {
     <>
       <Meta description="My personal website." />
       <section class="w-full flex flex-col items-center text-center px-6 mt-auto">
-        <Keymaster data-motion="image">
-          <PageAvatar class="h-full w-full backface-hidden absolute inset-0">
-            <img src="/profile.jpg" alt="Profile image" class="rounded-full" />
+        <Keymaster>
+          <PageAvatar class="h-full w-full backface-hidden absolute inset-0" data-motion="image">
+            <img src="/profile.png" alt="Profile image" class="bg-neutral/5 rounded-full" />
           </PageAvatar>
         </Keymaster>
         <h1 class="font-heading text-4xl sm:text-5xl mb-1.5" data-motion="heading">
@@ -60,14 +59,11 @@ const HomePage = () => {
               title: "Based in Cesena (IT)",
             },
           ].map((item) => (
-            <div data-motion="heading">
+            <div class="rounded-2.5 backdrop-blur-xs" data-motion="heading">
               <a
                 href={item.href}
                 target="_blank"
-                class={cn(
-                  button({ variant: "subtle", shape: "square", size: "lg" }),
-                  "backdrop-blur-xs",
-                )}
+                class={button({ variant: "subtle", shape: "square", size: "lg" })}
                 use:tooltip={[item.title, "bottom"]}
               >
                 {item.icon()}

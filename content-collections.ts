@@ -61,7 +61,7 @@ const minigames = defineSingleton({
         slug: z.string(),
         name: z.string(),
         description: z.string(),
-        imageUrl: z.string(),
+        icon: z.string(),
       }),
     ),
   }),
