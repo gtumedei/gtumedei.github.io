@@ -3,6 +3,7 @@ import { Router } from "@solidjs/router"
 import { FileRoutes } from "@solidjs/start/router"
 import { Suspense } from "solid-js"
 import { NProgress } from "~/components/layout/nprogress"
+import { SearchDialog } from "~/components/search"
 import { AchievementsProvider } from "~/lib/achievements"
 import { ThemeProvider } from "~/lib/theme"
 
@@ -18,6 +19,7 @@ const App = () => {
               <Suspense>
                 <NProgress />
                 {props.children}
+                <SearchDialog />
               </Suspense>
             </AchievementsProvider>
           </MetaProvider>

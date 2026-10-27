@@ -3,6 +3,27 @@ import { z } from "zod"
 
 const UrlOrHash = z.union([z.url(), z.literal("#")])
 
+const pages = defineSingleton({
+  name: "pages",
+  typeName: "Pages",
+  filePath: "content/pages.yml",
+  parser: "yaml",
+  schema: z.object({
+    items: z.array(
+      z.object({
+        path: z.string(),
+        title: z.string(),
+        description: z.string().nullish(),
+        icon: z.string(),
+        cta: z.string().nullish(),
+        showInHomepage: z.boolean(),
+        showInFooter: z.boolean(),
+        showInRootSearch: z.boolean(),
+      }),
+    ),
+  }),
+})
+
 const projects = defineSingleton({
   name: "projects",
   typeName: "Projects",
@@ -85,5 +106,5 @@ const achievements = defineSingleton({
 })
 
 export default defineConfig({
-  content: [projects, tech, minigames, achievements],
+  content: [pages, projects, tech, minigames, achievements],
 })

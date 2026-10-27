@@ -7,7 +7,7 @@ export const dialog = tv({
   slots: {
     trigger: "",
     backdrop:
-      "bg-neutral/30 dark:bg-neutral/15 backdrop-blur-[2px] fixed top-0 left-0 z-50 h-screen w-screen pointer-events-auto data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
+      "bg-black/20 backdrop-blur-[2px] fixed top-0 left-0 z-50 h-screen w-screen pointer-events-auto data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0",
     positioner: "flex px-4 py-12 fixed top-0 left-0 z-50 h-screen w-screen",
     content:
       "bg-base-100 dark:bg-base-200 flex flex-col max-h-full overflow-y-auto gap-6 p-6 rounded-5 border border-on-base/10 shadow-lg shadow-black/5 m-auto relative outline-none data-[state=open]:animate-in data-[state=open]:duration-300 data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",

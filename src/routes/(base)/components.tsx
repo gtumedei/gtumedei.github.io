@@ -116,7 +116,7 @@ const ComponentsPage = () => {
           </ComponentShowcase>
           <h3 class="text-base mt-8 mb-4">Raised</h3>
           <ComponentShowcase class="flex justify-center">
-            <Button variant="base" raised>
+            <Button variant="base" raised disabled={disabled()}>
               With shadow
             </Button>
           </ComponentShowcase>
@@ -162,7 +162,9 @@ const ComponentsPage = () => {
         <ComponentSection heading="Dialog">
           <ComponentShowcase class="flex justify-center gap-3">
             <Dialog {...overlayProps()}>
-              <Dialog.Trigger class={button()}>Show dialog</Dialog.Trigger>
+              <Dialog.Trigger class={button()} disabled={disabled()}>
+                Show dialog
+              </Dialog.Trigger>
               <Portal>
                 <Dialog.Backdrop />
                 <Dialog.Positioner>
@@ -224,6 +226,7 @@ const ComponentsPage = () => {
             <Menu positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
               <Menu.Trigger
                 asChild={(p) => <Button {...p()} variant="ghost" size="sm" shape="square" />}
+                disabled={disabled()}
               >
                 <TablerDots />
               </Menu.Trigger>
@@ -251,7 +254,9 @@ const ComponentsPage = () => {
         <ComponentSection heading="Popover">
           <ComponentShowcase class="flex justify-center">
             <Popover positioning={{ placement: "bottom" }} lazyMount unmountOnExit>
-              <Popover.Trigger class={button()}>Reset progress</Popover.Trigger>
+              <Popover.Trigger class={button()} disabled={disabled()}>
+                Reset progress
+              </Popover.Trigger>
               <Portal>
                 <Popover.Positioner>
                   <Popover.Content class="max-w-64 p-5">
@@ -285,6 +290,7 @@ const ComponentsPage = () => {
                     })
                   : unlockAchievement("DESIGN_SYSTEM_INSIDER")
               }
+              disabled={disabled()}
             >
               Show toast
             </Button>

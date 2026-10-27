@@ -1,0 +1,60 @@
+items:
+  - path: /
+    title: Home
+    description: My personal website.
+    icon: ~icons/tabler/building-skyscraper
+    showInHomepage: false
+    showInFooter: true
+    showInRootSearch: true
+
+  - path: /projects
+    title: Projects
+    description: I'm always building stuff. You can find my research, freelance, and personal projects listed inside here.
+    icon: ~icons/tabler/grid-3x3
+    cta: Check them out
+    showInHomepage: true
+    showInFooter: true
+    showInRootSearch: true
+
+  - path: /tech
+    title: Tech
+    description: A long, wandering page of tools and tech I enjoy using. Check it out, you might discover something useful.
+    icon: ~icons/tabler/tools
+    cta: Read more
+    showInHomepage: true
+    showInFooter: true
+    showInRootSearch: true
+
+  - path: /minigames
+    title: Minigames
+    description: Killing time? Try some simple minigames I built. They're fun, just don't expect AAA production value.
+    icon: ~icons/tabler/device-gamepad
+    cta: Play some
+    showInHomepage: true
+    showInFooter: true
+    showInRootSearch: true
+
+  - path: /contact
+    title: Contact
+    description: Want to work together or just talk? Reaching out is easy, and I usually reply pretty fast.
+    icon: ~icons/tabler/brand-telegram
+    cta: Get in touch
+    showInHomepage: true
+    showInFooter: true
+    showInRootSearch: true
+
+  - path: /components
+    title: Components
+    description: A showcase of the main UI components used throughout the website.
+    icon: ~icons/tabler/brackets-angle
+    showInHomepage: false
+    showInFooter: true
+    showInRootSearch: false
+
+  - path: /achievements
+    title: Achievements
+    description: Think you can unlock them all?
+    icon: ~icons/tabler/trophy
+    showInHomepage: false
+    showInFooter: true
+    showInRootSearch: false
