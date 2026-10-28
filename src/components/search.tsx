@@ -1,12 +1,14 @@
-import { Dialog, Listbox, useFilter, useHotkey, useListCollection } from "@ark-ui/solid"
+import { Dialog, Listbox, useHotkey, useListCollection } from "@ark-ui/solid"
 import { A, useNavigate } from "@solidjs/router"
 import { pages } from "content-collections"
+import Fuse from "fuse.js"
 import { animate, stagger } from "motion"
 import { Component, createEffect, createSignal, For, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
 import { cn } from "tailwind-variants"
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
+import { Kbd } from "~/components/ui/kbd"
 import ContentIcon from "~/lib/content-icons"
 import TablerArrowBack from "~icons/tabler/arrow-back"
 import TablerCommand from "~icons/tabler/command"
@@ -31,28 +33,12 @@ export const SearchTrigger: Component<{ variant: "base" | "neutral" }> = (props)
         Search
         {props.variant == "neutral" && " website"}
       </span>
-      <div class="no-hover:hidden flex gap-0.5">
-        <kbd
-          class={cn(
-            "h-5 min-w-5 px-1 flex justify-center items-center text-xs rounded-md",
-            props.variant == "base"
-              ? "text-on-base/70 bg-on-base/10"
-              : "text-on-neutral/70 bg-on-neutral/10",
-          )}
-        >
+      <Kbd>
+        <Kbd.Item variant={props.variant}>
           {navigator.platform.startsWith("Mac") ? <TablerCommand /> : "Ctrl"}
-        </kbd>
-        <kbd
-          class={cn(
-            "h-5 min-w-5 px-1 flex justify-center items-center text-xs rounded-md",
-            props.variant == "base"
-              ? "text-on-base/70 bg-on-base/10"
-              : "text-on-neutral/70 bg-on-neutral/10",
-          )}
-        >
-          K
-        </kbd>
-      </div>
+        </Kbd.Item>
+        <Kbd.Item variant={props.variant}>K</Kbd.Item>
+      </Kbd>
     </Button>
   )
 }
@@ -86,16 +72,23 @@ const SearchForm: Component<{ animate?: boolean; onCloseClick?: () => void }> = 
   const allItems = pages.items.map((it) => ({ ...it, value: it.path, type: "page" }))
   const rootItems = allItems.filter((it) => it.showInRootSearch)
 
-  const filterFn = useFilter({ sensitivity: "base" })
-  const {
-    collection,
-    filter,
-    set: setItems,
-  } = useListCollection({
+  const fuse = new Fuse(allItems, {
+    keys: [
+      { name: "title", weight: 0.8 },
+      { name: "description", weight: 0.2 },
+    ],
+  })
+
+  const [query, setQuery] = createSignal("")
+
+  const { collection, set: setItems } = useListCollection({
     initialItems: rootItems,
     groupBy: (it) => it.type,
-    itemToString: (it) => `${it.title}\n${it.description}`,
-    filter: filterFn().contains,
+  })
+
+  createEffect(() => {
+    const q = query()
+    setItems(q == "" ? rootItems : fuse.search(q).map((res) => res.item))
   })
 
   const navigate = useNavigate()
@@ -133,7 +126,6 @@ const SearchForm: Component<{ animate?: boolean; onCloseClick?: () => void }> = 
           navigate(value[0]!)
           setOpen(false)
         }}
-        defaultHighlightedValue={location.pathname}
         highlightedValue={highlightedValue()}
         onHighlightChange={({ highlightedValue }) => setHighlightedValue(highlightedValue)}
         loopFocus
@@ -144,10 +136,7 @@ const SearchForm: Component<{ animate?: boolean; onCloseClick?: () => void }> = 
             class="w-full pl-12 text-sm bg-base-100/90 dark:bg-base-200/90 border-on-base/10!"
             placeholder="Search anything"
             autoHighlight
-            onInput={(e) => {
-              setItems(e.target.value == "" ? rootItems : allItems)
-              filter(e.target.value)
-            }}
+            onInput={(e) => setQuery(e.target.value)}
           />
           <TablerSearch class="absolute-center-y left-4 pointer-events-none opacity-70" />
           <Button
@@ -213,20 +202,18 @@ const SearchForm: Component<{ animate?: boolean; onCloseClick?: () => void }> = 
           </Listbox.Empty>
         </Listbox.Content>
         <div
-          class="no-hover:hidden h-10 flex justify-between items-center gap-2 bg-base-100/90 dark:bg-base-200/90 text-sm px-4 border border-on-base/10 rounded-full mt-3"
+          class="no-hover:hidden h-10 flex justify-between items-center gap-2 bg-base-100/90 dark:bg-base-200/90 px-4 border border-on-base/10 rounded-full mt-3"
           data-motion="search"
         >
           <div class="flex items-center gap-1.5">
-            <kbd class="h-5 min-w-5 px-1 flex justify-center items-center text-xs text-on-base/70 bg-on-base/10 rounded-md">
-              Esc
-            </kbd>
-            <p class="text-on-base/70">Close</p>
+            <Kbd.Item>Esc</Kbd.Item>
+            <p class="text-sm">Close</p>
           </div>
           <div class="flex items-center gap-1.5">
-            <p class="text-on-base/70">Open</p>
-            <kbd class="h-5 min-w-5 px-1 flex justify-center items-center text-xs text-on-base/70 bg-on-base/10 rounded-md">
+            <p class="text-sm">Open</p>
+            <Kbd.Item>
               <TablerArrowBack />
-            </kbd>
+            </Kbd.Item>
           </div>
         </div>
       </Listbox.Root>

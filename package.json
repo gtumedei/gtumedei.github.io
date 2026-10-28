@@ -30,6 +30,7 @@
     "@types/matter-js": "^0.20.2",
     "@types/nprogress": "^0.2.3",
     "clsx": "^2.1.1",
+    "fuse.js": "^7.5.0",
     "grammy": "^1.35.0",
     "js-confetti": "^0.13.1",
     "matter-js": "^0.20.0",
