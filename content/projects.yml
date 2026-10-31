@@ -3,7 +3,7 @@ categories:
     items:
       - slug: relish
         name: Relish
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Digital and AI-powered tools to preserve and share European food heritage.
         links:
           - type: website
             url: https://relisheu.org
@@ -11,7 +11,7 @@ categories:
 
       - slug: discover
         name: DISCOV.ER
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Digital twin of the Po Delta Park for climate and biodiversity monitoring.
         links:
           - type: website
             url: https://discover-project.it
@@ -19,7 +19,7 @@ categories:
 
       - slug: smartlagoon
         name: SMARTLAGOON
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Digital twin of a coastal lagoon for data-driven sustainable management.
         links:
           - type: website
             url: https://smartlagoon.eu
@@ -35,7 +35,7 @@ categories:
 
       - slug: navile
         name: Navile
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Interactive maps and wayfinding for the University of Bologna Navile campus.
         links:
           - type: website
             url: https://doi.org/10.1016/j.infsof.2026.108044
@@ -43,7 +43,7 @@ categories:
 
       - slug: mare
         name: Maré
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Privacy-focused contact detection platform for safe post-pandemic recovery.
         links:
           - type: website
             url: https://tecnico.ulisboa.pt/pt/coronavirus/projectos-covid-19/mare-plataforma-para-ajudar-no-regresso-a-normalidade/
@@ -114,7 +114,7 @@ categories:
         links:
           - type: website
             url: "#"
-        iconUrl: "#"
+        iconUrl: /img/projects/almamedia.png
 
       - slug: open-movies
         name: Open Movies
@@ -122,7 +122,7 @@ categories:
         links:
           - type: website
             url: https://open-movies-seven.vercel.app
-        iconUrl: "#"
+        iconUrl: /img/projects/open-movies.png
 
       - slug: goui
         name: goui
