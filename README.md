@@ -24,3 +24,4 @@ My personal website.
   - Add an achievement
 - [ ] Fill missing content
 - [ ] Make the website LLM friendly (e.g. llms.txt)
+- [ ] Add IDs to make any section of the website linkable

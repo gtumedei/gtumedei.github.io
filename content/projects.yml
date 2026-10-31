@@ -1,42 +1,48 @@
 categories:
   - name: Research
     items:
-      - name: Relish
+      - slug: relish
+        name: Relish
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://relisheu.org
-        iconUrl: "#"
+        iconUrl: /img/projects/relish.png
 
-      - name: DISCOV.ER
+      - slug: discover
+        name: DISCOV.ER
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://discover-project.it
-        iconUrl: "#"
+        iconUrl: /img/projects/discover.png
 
-      - name: SMARTLAGOON
+      - slug: smartlagoon
+        name: SMARTLAGOON
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://smartlagoon.eu
-        iconUrl: "#"
+        iconUrl: /img/projects/smartlagoon.png
 
-      - name: Air Quality Sonification
+      - slug: air-quality-sonification
+        name: Air Quality Sonification
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://sonification-demo.vercel.app
         iconUrl: "#"
 
-      - name: Navile
+      - slug: navile
+        name: Navile
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://doi.org/10.1016/j.infsof.2026.108044
         iconUrl: "#"
 
-      - name: Maré
+      - slug: mare
+        name: Maré
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
@@ -45,107 +51,129 @@ categories:
 
   - name: Freelance
     items:
-      - name: Nexthardware
+      - slug: nexthardware
+        name: Nexthardware
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://nexthardware.com
-        iconUrl: "#"
+        iconUrl: /img/projects/nexthardware.png
 
-      - name: MoreThanTech Build
+      # - name: MoreThanTech Deals
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://deals.morethantech.it
+      #   iconUrl: "#"
+
+      - slug: mtt-build
+        name: MoreThanTech Build
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://build.morethantech.it
-        iconUrl: "#"
+        iconUrl: /img/projects/morethantech.png
 
-      - name: MoreThanTech
+      - slug: mtt
+        name: MoreThanTech
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://morethantech.it
-        iconUrl: "#"
+        iconUrl: /img/projects/morethantech.png
 
-      - name: Radio Centrale
+      - slug: radiocentrale
+        name: Radio Centrale
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://radiocentraleweb.it
-        iconUrl: "#"
+        iconUrl: /img/projects/radiocentrale.png
 
-      - name: TBG Studio
+      - slug: tbgstudio
+        name: TBG Studio
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://tbgstudio.it
-        iconUrl: "#"
+        iconUrl: /img/projects/tbgstudio.png
 
   - name: Personal
     items:
-      - name: Sailing Ark
+      - slug: sailing-ark
+        name: Sailing Ark
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://sailing-ark.vercel.app
         iconUrl: "#"
 
-      - name: AlmaMedia
+      - slug: almamedia
+        name: AlmaMedia
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: "#"
         iconUrl: "#"
 
-      - name: Open Movies
+      - slug: open-movies
+        name: Open Movies
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://open-movies-seven.vercel.app
         iconUrl: "#"
 
-      - name: goui
+      - slug: goui
+        name: goui
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://github.com/gtumedei/goui
         iconUrl: "#"
 
-      - name: metaviewer
+      - slug: metaviewer
+        name: metaviewer
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://github.com/gtumedei/metaviewer
         iconUrl: "#"
 
-      - name: taggui
+      - slug: taggui
+        name: taggui
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://github.com/gtumedei/taggui
         iconUrl: "#"
 
-      - name: go-droid
+      - slug: go-droid
+        name: go-droid
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://github.com/gtumedei/go-droid
         iconUrl: "#"
 
-      - name: yt-dlapp
+      - slug: yt-dlapp
+        name: yt-dlapp
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://github.com/gtumedei/yt-dlapp
         iconUrl: "#"
 
-      - name: goaway
+      - slug: goaway
+        name: goaway
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website
             url: https://github.com/gtumedei/goaway
         iconUrl: "#"
 
-      - name: vscode-adw-material-theme
+      - slug: vscode-adw-material-theme
+        name: vscode-adw-material-theme
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
         links:
           - type: website

@@ -58,3 +58,10 @@ items:
     showInHomepage: false
     showInFooter: true
     showInRootSearch: false
+
+  - path: /404
+    title: Page Not Found
+    icon: ~icons/tabler/error-404
+    showInHomepage: false
+    showInFooter: false
+    showInRootSearch: false

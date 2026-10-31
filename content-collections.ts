@@ -1,7 +1,7 @@
 import { defineConfig, defineSingleton } from "@content-collections/core"
 import { z } from "zod"
 
-const UrlOrHash = z.union([z.url(), z.literal("#")])
+const UrlOrHash = z.union([z.string() /* z.url() */, z.literal("#")])
 
 const pages = defineSingleton({
   name: "pages",
@@ -24,6 +24,22 @@ const pages = defineSingleton({
   }),
 })
 
+const personalLinks = defineSingleton({
+  name: "personalLinks",
+  typeName: "PersonalLinks",
+  filePath: "content/personal-links.yml",
+  parser: "yaml",
+  schema: z.object({
+    items: z.array(
+      z.object({
+        href: z.string(),
+        icon: z.string(),
+        name: z.string(),
+      }),
+    ),
+  }),
+})
+
 const projects = defineSingleton({
   name: "projects",
   typeName: "Projects",
@@ -35,6 +51,7 @@ const projects = defineSingleton({
         name: z.string(),
         items: z.array(
           z.object({
+            slug: z.string(),
             name: z.string(),
             description: z.string(),
             iconUrl: UrlOrHash,
@@ -106,5 +123,5 @@ const achievements = defineSingleton({
 })
 
 export default defineConfig({
-  content: [pages, projects, tech, minigames, achievements],
+  content: [pages, personalLinks, projects, tech, minigames, achievements],
 })

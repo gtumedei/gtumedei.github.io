@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router"
-import { pages } from "content-collections"
+import { pages, personalLinks } from "content-collections"
 import { animate } from "motion"
 import { onMount } from "solid-js"
 import Meta from "~/components/meta"
@@ -15,9 +15,6 @@ import {
 import ContentIcon from "~/lib/content-icons"
 import tooltip from "~/lib/directives/tooltip"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
-import TablerBrandGithub from "~icons/tabler/brand-github"
-import TablerFileDescription from "~icons/tabler/file-description"
-import TablerMapPin from "~icons/tabler/map-pin"
 
 const HomePage = () => {
   onMount(() => {
@@ -45,31 +42,15 @@ const HomePage = () => {
             <SearchTrigger variant="neutral" />
           </div>
           <div class="flex gap-3">
-            {[
-              {
-                href: "https://github.com/gtumedei",
-                icon: () => <TablerBrandGithub />,
-                title: "GitHub • @gtumedei",
-              },
-              {
-                href: "/cv",
-                icon: () => <TablerFileDescription />,
-                title: "Download CV",
-              },
-              {
-                href: "https://goo.gl/maps/knzcetCBj6cHLAAW7",
-                icon: () => <TablerMapPin />,
-                title: "Based in Cesena (IT)",
-              },
-            ].map((item) => (
+            {personalLinks.items.map((item) => (
               <div class="rounded-2.5 backdrop-blur-xs" data-motion="heading">
                 <a
                   href={item.href}
                   target="_blank"
                   class={button({ variant: "subtle", shape: "circle", size: "lg" })}
-                  use:tooltip={[item.title, "bottom"]}
+                  use:tooltip={[item.name, "bottom"]}
                 >
-                  {item.icon()}
+                  <ContentIcon icon={item.icon} />
                 </a>
               </div>
             ))}

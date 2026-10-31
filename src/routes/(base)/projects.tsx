@@ -3,6 +3,7 @@ import { projects, Projects } from "content-collections"
 import { animate, stagger } from "motion"
 import { Component, createSignal, For, Index, onMount } from "solid-js"
 import { Portal } from "solid-js/web"
+import { Heading } from "~/components/heading"
 import Meta from "~/components/meta"
 import { Button } from "~/components/ui/button"
 import { Menu } from "~/components/ui/menu"
@@ -16,6 +17,7 @@ import TablerDots from "~icons/tabler/dots"
 import TablerFileText from "~icons/tabler/file-text"
 import TablerLink from "~icons/tabler/link"
 import TablerWorld from "~icons/tabler/world"
+import TablerGrid3x3 from "~icons/tabler/grid-3x3"
 
 type Project = Projects["categories"][number]["items"][number]
 
@@ -59,9 +61,9 @@ const ProjectsPage = () => {
         class="flex flex-col pb-8 mb-12"
       >
         <div class="flex justify-between items-end mx-6 mb-11 -mt-0.5">
-          <h2 class="inline-block font-heading text-2xl" data-motion="heading">
+          <Heading slug="highlights" data-motion="heading">
             Highlights
-          </h2>
+          </Heading>
           <div class="flex gap-1" data-motion="heading">
             <Carousel.PrevTrigger
               asChild={(p) => (
@@ -123,9 +125,9 @@ const ProjectsPage = () => {
       <For each={projects.categories}>
         {(category) => (
           <div class="mx-6 max-md:not-last:border-b border-on-base/10 max-md:pb-10 mb-16 md:mb-14">
-            <h2 class="inline-block font-heading text-2xl mb-6" data-motion="section-heading">
+            <Heading slug={category.name.toLowerCase()} class="mb-6" data-motion="section-heading">
               {category.name}
-            </h2>
+            </Heading>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-6">
               <For each={category.items}>{(project) => <ProjectItem project={project} />}</For>
             </div>
@@ -152,9 +154,10 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
   return (
     <div class="md:rounded-5 group relative" data-motion="project-item">
       <a
+        id={props.project.slug}
         href={mainUrl()}
         target="_blank"
-        class="flex flex-col group-hover:bg-neutral/5 group-active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring"
+        class="flex flex-col group-hover:bg-neutral/5 group-active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring scroll-m-12"
         onAuxClick={(e) => {
           if (e.button == 1) onOpen()
         }}
@@ -162,9 +165,15 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
       >
         <div class="bg-base-200 dark:bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
           {props.project.iconUrl != "#" ? (
-            <img src={props.project.iconUrl} alt="" class="w-8 h-8 rounded-full object-cover" />
+            <img
+              src={props.project.iconUrl}
+              alt=""
+              class="w-8 h-8 rounded-full border border-on-base/5 object-cover"
+            />
           ) : (
-            <div class="w-8 h-8 flex rounded-full bg-on-base" />
+            <div class="size-8 flex rounded-full bg-neutral/10">
+              <TablerGrid3x3 class="text-on-base/70 m-auto" />
+            </div>
           )}
         </div>
         <h3 class="text-lg font-medium mb-3">{props.project.name}</h3>
