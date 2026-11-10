@@ -80,6 +80,11 @@ items:
     description: Attempt the Konami Code.
     icon: ~icons/tabler/device-gamepad-3
 
+  - code: SEEK_AND_YE_SHALL_FIND
+    name: Seek and Ye Shall Find
+    description: Search for the answer to life, the universe, and everything.
+    icon: ~icons/tabler/zoom-question
+
   - code: ACHIEVEMENTCEPTION
     name: Achievementception
     description: Reset your achievements.

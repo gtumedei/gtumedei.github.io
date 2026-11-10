@@ -16,6 +16,7 @@ import { cn } from "tailwind-variants"
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
 import { Kbd } from "~/components/ui/kbd"
+import { useAchievements } from "~/lib/achievements"
 import ContentIcon from "~/lib/content-icons"
 import TablerArrowBack from "~icons/tabler/arrow-back"
 import TablerChevronRight from "~icons/tabler/chevron-right"
@@ -29,9 +30,9 @@ type SearchEntry = { value: string; label: string; search: string } & (
   | ({ type: "minigame" } & Minigames["items"][number])
   | { type: "section"; pageTitle: string }
   | { type: "link" }
+  | { type: "achievement" }
 )
 
-// Things to add: tech sections, easter egg
 const allItems: SearchEntry[] = [
   // Pages
   ...pages.items.map<SearchEntry>((it) => ({
@@ -56,6 +57,34 @@ const allItems: SearchEntry[] = [
     search: `Projects ${c.name}`,
     type: "section",
   })),
+  {
+    pageTitle: "Tech",
+    value: "/tech#hardware",
+    label: "Hardware",
+    search: "Tech Hardware",
+    type: "section",
+  },
+  {
+    pageTitle: "Tech",
+    value: "/tech#software",
+    label: "Software",
+    search: "Tech Software",
+    type: "section",
+  },
+  {
+    pageTitle: "Tech",
+    value: "/tech#stack",
+    label: "Stack",
+    search: "Tech Stack",
+    type: "section",
+  },
+  {
+    pageTitle: "Tech",
+    value: "/tech#experience",
+    label: "Experience",
+    search: "Tech Experience",
+    type: "section",
+  },
   // Projects
   ...projects.categories
     .flatMap((c) => c.items)
@@ -82,7 +111,13 @@ const allItems: SearchEntry[] = [
     search: it.name,
     type: "link",
   })),
-  // TODO: add easter egg
+  // Achievement
+  {
+    value: "42",
+    label: "The answer to life, the universe, and everything.",
+    search: "42",
+    type: "achievement",
+  },
 ]
 
 const rootItems = allItems.filter((it) => it.type == "page" && it.showInRootSearch)
@@ -95,6 +130,7 @@ const typeToString: Record<SearchEntry["type"], string> = {
   minigame: "Minigames",
   section: "Sections",
   link: "Link",
+  achievement: "Hidden",
 }
 
 const SearchDialogContent: Component<{
@@ -139,13 +175,22 @@ const SearchDialogContent: Component<{
     }
   })
 
+  const { unlockAchievement } = useAchievements()
+
   return (
     <>
       <Listbox.Root
         collection={collection()}
         value={[]}
         onValueChange={({ value }) => {
-          navigate(value[0]!)
+          const item = allItems.find((it) => it.value == value[0])
+          if (item?.type == "link") {
+            window.open(item.value, "_blank", "noopener,noreferrer")
+          } else if (item?.type == "achievement") {
+            unlockAchievement("SEEK_AND_YE_SHALL_FIND")
+          } else {
+            navigate(value[0]!)
+          }
           props.onCloseClick?.()
         }}
         highlightedValue={highlightedValue()}
@@ -208,7 +253,8 @@ const SearchDialogContent: Component<{
                       )}
                       {(item.type == "project" ||
                         item.type == "minigame" ||
-                        item.type == "link") && (
+                        item.type == "link" ||
+                        item.type == "achievement") && (
                         <Listbox.ItemText class="text-sm">{item.label}</Listbox.ItemText>
                       )}
                     </Listbox.Item>

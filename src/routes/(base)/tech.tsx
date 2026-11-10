@@ -2,6 +2,7 @@ import { A } from "@solidjs/router"
 import { tech, Tech } from "content-collections"
 import { animate, inView, stagger } from "motion"
 import { Component, onMount, ParentComponent } from "solid-js"
+import { Heading } from "~/components/heading"
 import Meta from "~/components/meta"
 import { SuperStarButton } from "~/lib/achievements/helpers"
 import { horizontalHeadingAnimation } from "~/lib/animation"
@@ -217,7 +218,9 @@ const TechSection: ParentComponent<{ heading: string }> = (props) => {
       data-motion="section"
     >
       <div class="md:pl-6 md:border-l md:border-on-base/10">
-        <h2 class="font-heading text-2xl sticky top-24">{props.heading}</h2>
+        <Heading slug={props.heading.toLowerCase()} class="sticky top-24">
+          {props.heading}
+        </Heading>
       </div>
       <div class="col-span-3 max-w-xl prose md:mt-1.5">{props.children}</div>
     </section>
