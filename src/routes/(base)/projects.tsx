@@ -49,8 +49,8 @@ const ProjectsPage = () => {
           Projects
         </h1>
         <p class="text-on-base/70 tall-lines" data-motion="heading">
-          This page collects the projects I've poured time into, from research and work to personal
-          experiments. Check out what I created, modified, broke, or rebuilt along the way.
+          Here are most of the things I've spent time on, whether it's something I created,
+          modified, broke, or rebuilt along the way.
         </p>
       </div>
       <Carousel.Root

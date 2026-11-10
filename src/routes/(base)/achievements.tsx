@@ -22,10 +22,7 @@ const AchievementPage = () => {
 
   return (
     <>
-      <Meta
-        title="Achievements"
-        description="Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, veniam?"
-      />
+      <Meta title="Achievements" description="Think you can unlock them all?" />
       <div class="lg:w-2/3 px-6">
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Achievements

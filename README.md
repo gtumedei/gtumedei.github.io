@@ -22,5 +22,10 @@ My personal website.
   - Pick up bonuses during the game
   - Progressively increase speed and add new spawnable elements
   - Add an achievement
-- [ ] Fill missing content
+- Fill missing content
+  - [ ] Project logos
+  - [ ] Project descriptions
+  - [ ] Highlighted projects
+  - [ ] Tech
+- [ ] Move all content to collections
 - [ ] Make the website LLM friendly (e.g. llms.txt)

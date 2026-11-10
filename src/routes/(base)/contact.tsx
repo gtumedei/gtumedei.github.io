@@ -102,7 +102,7 @@ const ContactPage = () => {
     <>
       <Meta
         title="Contact"
-        description="Want to work together or just talk? Reaching out is easy, and I usually reply pretty fast."
+        description="Fill out the form below and your message lands straight in my inbox."
       />
       <div class="lg:w-2/3 px-6">
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">

@@ -32,9 +32,8 @@ const MinigamesPage = () => {
           Minigames
         </h1>
         <p class="text-on-base/70 tall-lines" data-motion="heading">
-          Here you can find a few lightweight minigames I created for fun. If you want a quick break
-          or a tiny challenge, you're in the right place. And who knows, a new one might have popped
-          out the next time you drop by.
+          Good for a quick break or a tiny challenge. And who knows, a new one might have popped up
+          by your next visit.
         </p>
       </div>
       <div class="grid md:grid-cols-2 gap-6 px-6 py-20">

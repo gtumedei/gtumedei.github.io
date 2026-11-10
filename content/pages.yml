@@ -9,7 +9,7 @@ items:
 
   - path: /projects
     title: Projects
-    description: I'm always building stuff. You can find my research, freelance, and personal projects listed inside here.
+    description: I'm always building stuff. My research, freelance, and personal projects end up here.
     icon: ~icons/tabler/grid-3x3
     cta: Check them out
     showInHomepage: true
@@ -18,7 +18,7 @@ items:
 
   - path: /tech
     title: Tech
-    description: A long, wandering page of tools and tech I enjoy using. Check it out, you might discover something useful.
+    description: A long, wandering page of tools and tech I enjoy using. You might find something useful.
     icon: ~icons/tabler/tools
     cta: Read more
     showInHomepage: true
@@ -36,7 +36,7 @@ items:
 
   - path: /contact
     title: Contact
-    description: Want to work together or just talk? Reaching out is easy, and I usually reply pretty fast.
+    description: Want to work together or just talk? Reach out! I usually reply pretty quickly.
     icon: ~icons/tabler/brand-telegram
     cta: Get in touch
     showInHomepage: true
