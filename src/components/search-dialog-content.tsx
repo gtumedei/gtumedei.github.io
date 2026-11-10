@@ -155,7 +155,7 @@ const SearchDialogContent: Component<{
           <Listbox.Input
             asChild={(p) => <Input {...p()} variant="unstyled" size="lg" />}
             class="w-full pl-12 text-sm bg-base-100/90 dark:bg-base-200/90 border-on-base/10!"
-            placeholder="Search anything"
+            placeholder="Search website"
             autoHighlight
             onInput={(e) => setQuery(e.target.value)}
           />
@@ -229,11 +229,11 @@ const SearchDialogContent: Component<{
           data-motion="search"
         >
           <div class="flex items-center gap-1.5">
-            <Kbd.Item>Esc</Kbd.Item>
-            <p class="text-sm">Close</p>
+            <Kbd.Item class="text-2xs">Esc</Kbd.Item>
+            <p class="text-xs">Close</p>
           </div>
           <div class="flex items-center gap-1.5">
-            <p class="text-sm">Open</p>
+            <p class="text-xs">Open</p>
             <Kbd.Item>
               <TablerArrowBack />
             </Kbd.Item>

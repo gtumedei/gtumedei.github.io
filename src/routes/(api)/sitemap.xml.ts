@@ -2,7 +2,16 @@ import { APIHandler } from "@solidjs/start/server"
 import { SitemapStream, streamToPromise } from "sitemap"
 import env from "~/lib/env"
 
-const routes = ["/contact", "/minigames", "/projects", "/tech"]
+const routes = [
+  "/",
+  "/projects",
+  "/tech",
+  "/contact",
+  "/achievements",
+  "/components",
+  "/minigames",
+  "/minigames/color-guesser",
+]
 
 export const GET: APIHandler = async () => {
   const sitemap = new SitemapStream({ hostname: env.public.PUBLIC_BASE_URL })

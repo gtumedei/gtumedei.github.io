@@ -79,7 +79,7 @@ export const readStyle = () => localStorage.getItem("gtumedei-io-style") ?? "min
 
 /**
  * Applies the given background to the website by setting the `data-background` attribute on the `<html>` tag.
- * @param {"gradient" | "aurora" | "none"} background
+ * @param {"none" | "gradient" | "aurora"} background
  */
 export const applyBackground = (background) => {
   if (background == "none") {
@@ -91,9 +91,9 @@ export const applyBackground = (background) => {
 
 export const LOCAL_STORAGE_BACKGROUND_KEY = "gtumedei-io-background"
 
-/** @returns {"gradient" | "aurora" | "none"} */
+/** @returns {"none" | "gradient" | "aurora"} */
 // @ts-ignore
-export const readBackground = () => localStorage.getItem("gtumedei-io-background") ?? "aurora"
+export const readBackground = () => localStorage.getItem("gtumedei-io-background") ?? "none"
 
 export const fnStrings = {
   applyTheme: `(${applyTheme})((${readTheme})(), true)`,

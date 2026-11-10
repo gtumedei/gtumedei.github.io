@@ -255,6 +255,8 @@
 
   --default-ring-width: 3px;
 
+  --text-2xs: 0.625rem;
+
   --animate-slide-down: slide-down 250ms ease-out;
   @keyframes slide-down {
     from {

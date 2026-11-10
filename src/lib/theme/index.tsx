@@ -55,7 +55,7 @@ export const [ThemeProvider, useTheme] = create(() => {
     applyStyle(value)
   }
 
-  const [background, _setBackground] = createSignal<Background>("aurora")
+  const [background, _setBackground] = createSignal<Background>("none")
   const setBackground = (value: Background) => {
     _setBackground(value)
     localStorage.setItem(LOCAL_STORAGE_BACKGROUND_KEY, value)

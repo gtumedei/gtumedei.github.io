@@ -7,6 +7,7 @@ import { useAchievements } from "~/lib/achievements"
 import { createWebGLDetector } from "~/lib/detect-webgl"
 import tooltip from "~/lib/directives/tooltip"
 import { Accent, Background, Style, Theme, useTheme } from "~/lib/theme"
+import TablerCircleOff from "~icons/tabler/circle-off"
 import TablerExclamationCircle from "~icons/tabler/exclamation-circle"
 import TablerMoonStars from "~icons/tabler/moon-stars"
 import TablerSun from "~icons/tabler/sun"
@@ -242,6 +243,7 @@ export const BackgroundSwitcher: Component<RadioProps> = (props) => {
     label: string
     component: () => JSX.Element
   }[] = [
+    { value: "none", label: "None", component: () => <TablerCircleOff class="text-lg" /> },
     {
       value: "aurora",
       label: "Aurora",
@@ -263,7 +265,6 @@ export const BackgroundSwitcher: Component<RadioProps> = (props) => {
         </div>
       ),
     },
-    { value: "none", label: "None", component: () => <></> },
   ]
 
   return (
