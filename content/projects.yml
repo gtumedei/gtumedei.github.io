@@ -9,7 +9,7 @@ categories:
         links:
           - type: website
             url: https://relisheu.org
-        iconUrl: /img/projects/relish.png
+        iconUrl: /img-remote/projects/relish.png
 
       - slug: discover
         name: DISCOV.ER
@@ -17,7 +17,7 @@ categories:
         links:
           - type: website
             url: https://discover-project.it
-        iconUrl: /img/projects/discover.png
+        iconUrl: /img-remote/projects/discover.png
 
       - slug: smartlagoon
         name: SMARTLAGOON
@@ -25,7 +25,7 @@ categories:
         links:
           - type: website
             url: https://smartlagoon.eu
-        iconUrl: /img/projects/smartlagoon.png
+        iconUrl: /img-remote/projects/smartlagoon.png
 
       - slug: talking-trees
         name: Talking Trees
@@ -69,7 +69,7 @@ categories:
         links:
           - type: website
             url: https://nexthardware.com
-        iconUrl: /img/projects/nexthardware.png
+        iconUrl: /img-remote/projects/nexthardware.png
 
       # - name: MoreThanTech Deals
       #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
@@ -84,7 +84,7 @@ categories:
         links:
           - type: website
             url: https://build.morethantech.it
-        iconUrl: /img/projects/morethantech.png
+        iconUrl: /img-remote/projects/morethantech.png
 
       - slug: mtt
         name: MoreThanTech
@@ -92,7 +92,7 @@ categories:
         links:
           - type: website
             url: https://morethantech.it
-        iconUrl: /img/projects/morethantech.png
+        iconUrl: /img-remote/projects/morethantech.png
 
       - slug: radiocentrale
         name: Radio Centrale
@@ -100,7 +100,7 @@ categories:
         links:
           - type: website
             url: https://radiocentraleweb.it
-        iconUrl: /img/projects/radiocentrale.png
+        iconUrl: /img-remote/projects/radiocentrale.png
 
       - slug: tbgstudio
         name: TBG Studio
@@ -108,7 +108,7 @@ categories:
         links:
           - type: website
             url: https://tbgstudio.it
-        iconUrl: /img/projects/tbgstudio.png
+        iconUrl: /img-remote/projects/tbgstudio.png
 
   - slug: personal
     name: Personal
@@ -128,7 +128,7 @@ categories:
         links:
           - type: website
             url: "#"
-        iconUrl: /img/projects/almamedia.png
+        iconUrl: /img-remote/projects/almamedia.png
 
       - slug: open-movies
         name: Open Movies
@@ -138,7 +138,7 @@ categories:
             url: https://open-movies-seven.vercel.app
           - type: code
             url: https://github.com/gtumedei/open-movies
-        iconUrl: /img/projects/open-movies.png
+        iconUrl: /img-remote/projects/open-movies.png
 
       # - slug: goui
       #   name: goui
