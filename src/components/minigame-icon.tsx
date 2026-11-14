@@ -9,7 +9,7 @@ const MinigameIcon: Component<ComponentProps<"div"> & { icon: string }> = (props
     <div
       {...divProps}
       class={cn(
-        "size-16 flex justify-center items-center text-2xl text-accent bg-base-200 rounded-5 border border-on-base/5 group-hover:border-accent/30 group-active:border-accent/30 relative overflow-hidden isolate transition-colors",
+        "size-16 flex justify-center items-center text-2xl text-accent bg-neutral/5 rounded-5 border border-on-base/5 group-hover:border-accent/30 group-active:border-accent/30 relative overflow-hidden isolate transition-colors",
         localProps.class,
       )}
     >

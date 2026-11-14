@@ -52,7 +52,7 @@ const allItems: SearchEntry[] = [
   },
   ...projects.categories.map<SearchEntry>((c) => ({
     pageTitle: "Projects",
-    value: `/projects#${c.name.toLowerCase()}`,
+    value: `/projects#${c.slug}`,
     label: c.name,
     search: `Projects ${c.name}`,
     type: "section",

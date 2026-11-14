@@ -27,7 +27,10 @@ export const homepageNavAnimation = (selector: string = `[data-motion="nav"]`): 
   { duration: 0.4, delay: stagger(0.15, { startDelay: 0.3 }), at: "<" },
 ]
 
-export const createBatchedInViewAnimation = (selector: string) => {
+export const createBatchedInViewAnimation = (
+  selector: string,
+  { startDelay = 0.4 }: { startDelay?: number } = {},
+) => {
   onMount(() => {
     let firstBatchLoaded = false
     const observer = new IntersectionObserver(
@@ -40,7 +43,7 @@ export const createBatchedInViewAnimation = (selector: string) => {
               { opacity: 1, scale: [0.95, 1], y: [10, 0], filter: ["blur(3px)", "blur(0)"] },
               {
                 duration: 0.4,
-                delay: delayCount * 0.15 + (firstBatchLoaded ? 0 : 0.4),
+                delay: delayCount * 0.15 + (firstBatchLoaded ? 0 : startDelay),
                 ease: "easeOut",
               },
             )

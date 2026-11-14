@@ -1,28 +1,29 @@
-import { Carousel } from "@ark-ui/solid"
+import { A, useLocation } from "@solidjs/router"
 import { projects, Projects } from "content-collections"
 import { animate, stagger } from "motion"
-import { Component, createSignal, For, Index, onMount } from "solid-js"
+import { Component, For, onMount, Show } from "solid-js"
 import { Portal } from "solid-js/web"
-import { Heading } from "~/components/heading"
 import Meta from "~/components/meta"
 import { Button } from "~/components/ui/button"
 import { Menu } from "~/components/ui/menu"
 import { useAchievements } from "~/lib/achievements"
 import { useAchievementsProgress } from "~/lib/achievements/progress"
 import { createBatchedInViewAnimation, horizontalHeadingAnimation } from "~/lib/animation"
-import TablerArrowNarrowLeft from "~icons/tabler/arrow-narrow-left"
-import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
+import ContentIcon from "~/lib/content-icons"
 import TablerBracketsAngle from "~icons/tabler/brackets-angle"
 import TablerDots from "~icons/tabler/dots"
 import TablerFileText from "~icons/tabler/file-text"
-import TablerLink from "~icons/tabler/link"
-import TablerWorld from "~icons/tabler/world"
 import TablerGrid3x3 from "~icons/tabler/grid-3x3"
+import TablerLink from "~icons/tabler/link"
+import TablerStack2 from "~icons/tabler/stack-2"
+import TablerWorld from "~icons/tabler/world"
 
 type Project = Projects["categories"][number]["items"][number]
 
 const ProjectsPage = () => {
-  const [animationDone, setAnimationDone] = createSignal(false)
+  const location = useLocation()
+
+  let firstGridMount = true
 
   onMount(() => {
     animate([
@@ -32,11 +33,8 @@ const ProjectsPage = () => {
         { opacity: 1, y: [10, 0], filter: ["blur(3px)", "blur(0)"] },
         { duration: 0.4, delay: stagger(0.15, { startDelay: 0.3 }), at: "<" },
       ],
-    ]).then(() => setAnimationDone(true))
+    ])
   })
-  createBatchedInViewAnimation(`[data-motion="section-heading"], [data-motion="project-item"]`)
-
-  const pageCount = 6
 
   return (
     <>
@@ -44,97 +42,68 @@ const ProjectsPage = () => {
         title="Projects"
         description="I'm always building stuff. You can find my research, freelance, and personal projects listed inside here."
       />
-      <div class="lg:w-2/3 px-6 mb-20">
+      <div class="lg:w-2/3 px-6 mb-14">
         <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
           Projects
         </h1>
-        <p class="text-on-base/70 tall-lines" data-motion="heading">
+        <p class="text-on-base/70 tall-lines mb-8" data-motion="heading">
           Here are most of the things I've spent time on, whether it's something I created,
           modified, broke, or rebuilt along the way.
         </p>
+        <div class="flex gap-2" data-motion="heading">
+          <Button
+            asChild={(p) => <A {...p()} href="/projects" />}
+            size="xs"
+            variant={location.hash == "" ? "neutral" : "base"}
+            class="pr-4"
+          >
+            <TablerStack2 /> All
+          </Button>
+          <For each={projects.categories}>
+            {(category) => (
+              <Button
+                asChild={(p) => <A {...p()} href={`/projects#${category.slug}`} />}
+                size="xs"
+                variant={location.hash == `#${category.slug}` ? "neutral" : "base"}
+                class="pr-4"
+              >
+                <ContentIcon icon={category.icon} /> {category.name}
+              </Button>
+            )}
+          </For>
+        </div>
       </div>
-      <Carousel.Root
-        slideCount={pageCount}
-        spacing="1.5rem"
-        padding="var(--group-padding)"
-        autoSize
-        class="flex flex-col pb-8 mb-12"
-      >
-        <div class="flex justify-between items-end mx-6 mb-11 -mt-0.5">
-          <Heading slug="highlights" data-motion="heading">
-            Highlights
-          </Heading>
-          <div class="flex gap-1" data-motion="heading">
-            <Carousel.PrevTrigger
-              asChild={(p) => (
-                <Button {...p()} variant="ghost" size="xs" shape="square" class="text-base" />
-              )}
-            >
-              <TablerArrowNarrowLeft />
-            </Carousel.PrevTrigger>
-            <Carousel.NextTrigger
-              asChild={(p) => (
-                <Button {...p()} variant="ghost" size="xs" shape="square" class="text-base" />
-              )}
-            >
-              <TablerArrowNarrowRight />
-            </Carousel.NextTrigger>
-          </div>
-        </div>
-        <div class="max-w-screen md:-mx-6 lg:-mx-10 xl:-mx-14 [--group-padding:1.5rem] md:[--group-padding:3rem] lg:[--group-padding:4rem] xl:[--group-padding:5rem]">
-          {/* Disable carousel interaction until the page loading animations are complete, or it will interfere with vertical scrolling */}
-          <Carousel.Control class={animationDone() ? "" : "pointer-events-none"}>
-            <Carousel.ItemGroup class="outline-none">
-              <Index each={Array.from({ length: pageCount })}>
-                {(_, index) => (
-                  <Carousel.Item index={index} class="snap-always">
-                    <div
-                      class="w-[calc(100vw-4.5rem)] max-sm:max-w-96 sm:w-80 flex flex-col justify-end p-2 rounded-5 border border-on-base/10 relative"
-                      data-motion="project-highlight"
-                    >
-                      <div class="aspect-4/3 bg-base-300 rounded-4 mb-2" />
-                      {/* <img
-                        src="/go-droid-transparent.png"
-                        alt=""
-                        class="aspect-4/3 rounded-4 mb-2"
-                      /> */}
-                      <div class="p-4">
-                        <h3 class="text-lg font-medium mb-3">Project name</h3>
-                        <p class="md:text-sm text-on-base/70 tall-lines mb-4">
-                          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo, voluptate!
-                        </p>
-                        <div class="flex justify-between gap-6">
-                          <a
-                            href="#"
-                            class="min-w-0 flex items-center gap-3 md:text-sm font-medium text-on-base/50 hover:text-accent active:text-accent transition-colors"
-                          >
-                            <TablerLink class="shrink-0" />
-                            <span class="truncate">domain.com</span>
-                          </a>
-                          {/* <ProjectLinksMenu links={[]} /> */}
-                        </div>
-                      </div>
-                    </div>
-                  </Carousel.Item>
-                )}
-              </Index>
-            </Carousel.ItemGroup>
-          </Carousel.Control>
-        </div>
-      </Carousel.Root>
-      <For each={projects.categories}>
-        {(category) => (
-          <div class="mx-6 max-md:not-last:border-b border-on-base/10 max-md:pb-10 mb-16 md:mb-14">
-            <Heading slug={category.name.toLowerCase()} class="mb-6" data-motion="section-heading">
-              {category.name}
-            </Heading>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-6">
-              <For each={category.items}>{(project) => <ProjectItem project={project} />}</For>
-            </div>
-          </div>
-        )}
-      </For>
+      {/* Re-render and re-animate the whole grid when the filter changes */}
+      <Show when={location.hash || "all"} keyed>
+        {(_filter) => {
+          const startDelay = firstGridMount ? 0.4 : 0
+          firstGridMount = false
+          return <ProjectsGrid startDelay={startDelay} />
+        }}
+      </Show>
     </>
+  )
+}
+
+const ProjectsGrid: Component<{ startDelay: number }> = (props) => {
+  const location = useLocation()
+
+  createBatchedInViewAnimation(`[data-motion="section-heading"], [data-motion="project-item"]`, {
+    startDelay: props.startDelay,
+  })
+
+  return (
+    <div class="mx-6 max-md:not-last:border-b border-on-base/10 max-md:pb-10 mb-16 md:mb-14">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-6">
+        <For
+          each={projects.categories
+            .filter((c) => location.hash == "" || location.hash == `#${c.slug}`)
+            .flatMap((c) => c.items)}
+        >
+          {(project) => <ProjectItem project={project} />}
+        </For>
+      </div>
+    </div>
   )
 }
 
