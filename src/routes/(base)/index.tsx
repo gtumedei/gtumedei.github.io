@@ -15,6 +15,7 @@ import {
 import ContentIcon from "~/lib/content-icons"
 import tooltip from "~/lib/directives/tooltip"
 import TablerArrowNarrowRight from "~icons/tabler/arrow-narrow-right"
+import TablerBarrierBlock from "~icons/tabler/barrier-block"
 
 const HomePage = () => {
   onMount(() => {
@@ -55,6 +56,16 @@ const HomePage = () => {
               </div>
             ))}
           </div>
+        </div>
+        <div class="flex flex-col items-center gap-2 mt-12" data-motion="heading">
+          <div class="w-full flex gap-2">
+            <div class="h-px grow bg-warning/20 my-auto" />
+            <TablerBarrierBlock class="text-2xl text-warning" />
+            <div class="h-px grow bg-warning/20 my-auto" />
+          </div>
+          <p class="text-warning text-sm text-balance">
+            Heads up: the website is still a WIP. I hope you enjoy it anyways!
+          </p>
         </div>
       </section>
       <section class="grid md:grid-cols-2 gap-6 py-20 mb-auto">

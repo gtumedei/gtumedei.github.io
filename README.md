@@ -24,8 +24,5 @@ My personal website.
   - Add an achievement
 - Fill missing content
   - [ ] Project logos
-  - [ ] Project descriptions
-  - [ ] Highlighted projects
   - [ ] Tech
 - [ ] Move all content to collections
-- [ ] Make the website LLM friendly (e.g. llms.txt)
