@@ -27,9 +27,17 @@ categories:
             url: https://smartlagoon.eu
         iconUrl: /img/projects/smartlagoon.png
 
+      - slug: talking-trees
+        name: Talking Trees
+        description: Comparing static text, expert chatbots, and talking trees for natural heritage.
+        links:
+          - type: article
+            url: https://doi.org/10.1145/3794786.3830788
+        iconUrl: "#"
+
       - slug: air-quality-sonification
         name: Air Quality Sonification
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Comparing sonification and animated charts for communicating air quality data.
         links:
           - type: website
             url: https://sonification-demo.vercel.app
@@ -57,7 +65,7 @@ categories:
     items:
       - slug: nexthardware
         name: Nexthardware
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Tech website with news, reviews and a forum on PC hardware and gaming peripherals.
         links:
           - type: website
             url: https://nexthardware.com
@@ -72,7 +80,7 @@ categories:
 
       - slug: mtt-build
         name: MoreThanTech Build
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: AI-assisted PC configurator that suggests components based on budget and intended use.
         links:
           - type: website
             url: https://build.morethantech.it
@@ -80,7 +88,7 @@ categories:
 
       - slug: mtt
         name: MoreThanTech
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Italian tech publication with news, buying guides and tutorials on hardware and PC gaming.
         links:
           - type: website
             url: https://morethantech.it
@@ -88,7 +96,7 @@ categories:
 
       - slug: radiocentrale
         name: Radio Centrale
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Website of a local radio station from Cesena on air since 1976.
         links:
           - type: website
             url: https://radiocentraleweb.it
@@ -96,7 +104,7 @@ categories:
 
       - slug: tbgstudio
         name: TBG Studio
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Website for a firm offering accounting, tax and legal consulting.
         links:
           - type: website
             url: https://tbgstudio.it
@@ -106,17 +114,17 @@ categories:
     name: Personal
     icon: ~icons/tabler/heart
     items:
-      - slug: sailing-ark
-        name: Sailing Ark
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
-        links:
-          - type: website
-            url: https://sailing-ark.vercel.app
-        iconUrl: "#"
+      # - slug: sailing-ark
+      #   name: Sailing Ark
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://sailing-ark.vercel.app
+      #   iconUrl: "#"
 
       - slug: almamedia
         name: AlmaMedia
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Browser extension to compute the average of exam grades from AlmaEsami (Unibo).
         links:
           - type: website
             url: "#"
@@ -124,64 +132,66 @@ categories:
 
       - slug: open-movies
         name: Open Movies
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+        description: Started as a joke, it became the website me and my friends use to decide which movies to watch.
         links:
           - type: website
             url: https://open-movies-seven.vercel.app
+          - type: code
+            url: https://github.com/gtumedei/open-movies
         iconUrl: /img/projects/open-movies.png
 
-      - slug: goui
-        name: goui
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
-        links:
-          - type: website
-            url: https://github.com/gtumedei/goui
-        iconUrl: "#"
+      # - slug: goui
+      #   name: goui
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/goui
+      #   iconUrl: "#"
 
-      - slug: metaviewer
-        name: metaviewer
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
-        links:
-          - type: website
-            url: https://github.com/gtumedei/metaviewer
-        iconUrl: "#"
+      # - slug: metaviewer
+      #   name: metaviewer
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/metaviewer
+      #   iconUrl: "#"
 
-      - slug: taggui
-        name: taggui
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
-        links:
-          - type: website
-            url: https://github.com/gtumedei/taggui
-        iconUrl: "#"
+      # - slug: taggui
+      #   name: taggui
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/taggui
+      #   iconUrl: "#"
 
-      - slug: go-droid
-        name: go-droid
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
-        links:
-          - type: website
-            url: https://github.com/gtumedei/go-droid
-        iconUrl: "#"
+      # - slug: go-droid
+      #   name: go-droid
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/go-droid
+      #   iconUrl: "#"
 
-      - slug: yt-dlapp
-        name: yt-dlapp
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
-        links:
-          - type: website
-            url: https://github.com/gtumedei/yt-dlapp
-        iconUrl: "#"
+      # - slug: yt-dlapp
+      #   name: yt-dlapp
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/yt-dlapp
+      #   iconUrl: "#"
 
-      - slug: goaway
-        name: goaway
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
-        links:
-          - type: website
-            url: https://github.com/gtumedei/goaway
-        iconUrl: "#"
+      # - slug: goaway
+      #   name: goaway
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/goaway
+      #   iconUrl: "#"
 
-      - slug: vscode-adw-material-theme
-        name: vscode-adw-material-theme
-        description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
-        links:
-          - type: website
-            url: "#"
-        iconUrl: "#"
+      # - slug: vscode-adw-material-theme
+      #   name: vscode-adw-material-theme
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: "#"
+      #   iconUrl: "#"

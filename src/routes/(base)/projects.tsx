@@ -183,7 +183,11 @@ const ProjectLinksMenu: Component<{ links: Project["links"] }> = (props) => {
               <Menu.ItemGroupLabel>Project Links</Menu.ItemGroupLabel>
               <For each={props.links}>
                 {(link) => (
-                  <Menu.Item value={link.url} class="max-md:text-base">
+                  <Menu.Item
+                    value={link.url}
+                    asChild={(p) => <a {...p()} href={link.url} target="_blank" />}
+                    class="max-md:text-base"
+                  >
                     {link.type == "website" && <TablerWorld />}
                     {link.type == "article" && <TablerFileText />}
                     {link.type == "code" && <TablerBracketsAngle />}
