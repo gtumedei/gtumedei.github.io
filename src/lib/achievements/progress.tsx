@@ -1,0 +1,55 @@
+import { makePersisted } from "@solid-primitives/storage"
+import { onMount } from "solid-js"
+import type { SetStoreFunction, Store } from "solid-js/store"
+import { createStore, reconcile } from "solid-js/store"
+import { isServer } from "solid-js/web"
+import { create } from "~/lib/context"
+import { Accent, Background, Style, Theme } from "~/lib/theme"
+
+export const [AchievementsProgressProvider, useAchievementsProgress] = create(() => {
+  const defaultValues = () => ({
+    visitor: {
+      pages: [] as string[],
+    },
+    returningVisitor: {
+      firstVisitTime: null as number | null,
+    },
+    deepDiver: {
+      clickedLinks: [] as string[],
+    },
+    customizationAddict: {
+      themes: [] as Theme[],
+      accents: [] as Accent[],
+    },
+    moddingManiac: {
+      styles: [] as Style[],
+      backgrounds: [] as Background[],
+      superMode: false,
+    },
+  })
+
+  type Progress = ReturnType<typeof defaultValues>
+
+  // Must provide type arguments because makePersisted cannot infer its types under TypeScript 7 (https://github.com/solidjs-community/solid-primitives/issues/1000)
+  const [progress, setProgress] = makePersisted<
+    Progress,
+    [Store<Progress>, SetStoreFunction<Progress>]
+  >(createStore(defaultValues()), {
+    name: "gtumedei-io-achievements-progress",
+    storage: isServer ? undefined : localStorage,
+  })
+
+  const resetProgress = () => setProgress(reconcile(defaultValues()))
+
+  // Make sure new achievement properties are persisted to local storage
+  onMount(() => {
+    const p = { ...progress }
+    for (const [k, v] of Object.entries(defaultValues())) {
+      // @ts-ignore
+      if (!(k in p)) p[k] = v
+    }
+    setProgress(reconcile(p))
+  })
+
+  return { progress, setProgress, resetProgress }
+})

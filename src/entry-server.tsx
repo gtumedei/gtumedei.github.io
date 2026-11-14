@@ -1,0 +1,44 @@
+// @refresh reload
+import { createHandler, StartServer } from "@solidjs/start/server"
+import { dominationArt } from "~/lib/achievements/helpers"
+import { ANALYTICS_URL, WEBSITE_ID } from "~/lib/analytics"
+import { fnStrings } from "~/lib/theme/apply"
+
+export default createHandler(() => (
+  <StartServer
+    document={({ assets, children, scripts }) => (
+      <html lang="en" class="min-h-full flex bg-base-200 dark:bg-black/40 group/html">
+        <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/profile-circle.png" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Serif+Display&family=Bitcount+Single:wght@100..900&family=Bytesized&display=swap"
+            rel="stylesheet"
+          />
+          <style>{`[data-motion] { opacity: 0; }`}</style>
+          <noscript>
+            <style>{`[data-motion] { opacity: 1 !important; }`}</style>
+          </noscript>
+          <script innerHTML={fnStrings.applyTheme} />
+          <script innerHTML={fnStrings.applyAccent} />
+          <script innerHTML={fnStrings.applyStyle} />
+          <script innerHTML={fnStrings.applyBackground} />
+          {import.meta.env.PROD && (
+            <script async defer data-website-id={WEBSITE_ID} src={`${ANALYTICS_URL}/script.js`} />
+          )}
+          {assets}
+        </head>
+        <body class="grow flex group/body">
+          <div id="app" class="grow flex flex-col">
+            {children}
+          </div>
+          {scripts}
+          <div class="hidden" innerHTML={dominationArt} />
+        </body>
+      </html>
+    )}
+  />
+))

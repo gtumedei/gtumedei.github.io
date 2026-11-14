@@ -1,0 +1,215 @@
+import { A, useLocation } from "@solidjs/router"
+import { projects, Projects } from "content-collections"
+import { animate, stagger } from "motion"
+import { Component, For, onMount, Show } from "solid-js"
+import { Portal } from "solid-js/web"
+import Meta from "~/components/meta"
+import { Button } from "~/components/ui/button"
+import { Menu } from "~/components/ui/menu"
+import { useAchievements } from "~/lib/achievements"
+import { useAchievementsProgress } from "~/lib/achievements/progress"
+import { createBatchedInViewAnimation, horizontalHeadingAnimation } from "~/lib/animation"
+import ContentIcon from "~/lib/content-icons"
+import TablerBracketsAngle from "~icons/tabler/brackets-angle"
+import TablerDots from "~icons/tabler/dots"
+import TablerFileText from "~icons/tabler/file-text"
+import TablerGrid3x3 from "~icons/tabler/grid-3x3"
+import TablerLink from "~icons/tabler/link"
+import TablerStack2 from "~icons/tabler/stack-2"
+import TablerWorld from "~icons/tabler/world"
+
+type Project = Projects["categories"][number]["items"][number]
+
+const ProjectsPage = () => {
+  const location = useLocation()
+
+  let firstGridMount = true
+
+  onMount(() => {
+    animate([
+      horizontalHeadingAnimation(),
+      [
+        `[data-motion="project-highlight"]`,
+        { opacity: 1, y: [10, 0], filter: ["blur(3px)", "blur(0)"] },
+        { duration: 0.4, delay: stagger(0.15, { startDelay: 0.3 }), at: "<" },
+      ],
+    ])
+  })
+
+  return (
+    <>
+      <Meta
+        title="Projects"
+        description="I'm always building stuff. You can find my research, freelance, and personal projects listed inside here."
+      />
+      <div class="lg:w-2/3 px-6 mb-14">
+        <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
+          Projects
+        </h1>
+        <p class="text-on-base/70 tall-lines mb-8" data-motion="heading">
+          Here are most of the things I've spent time on, whether it's something I created,
+          modified, broke, or rebuilt along the way.
+        </p>
+        <div class="flex gap-2" data-motion="heading">
+          <Button
+            asChild={(p) => <A {...p()} href="/projects" />}
+            size="xs"
+            variant={location.hash == "" ? "neutral" : "base"}
+            class="pr-4"
+          >
+            <TablerStack2 /> All
+          </Button>
+          <For each={projects.categories}>
+            {(category) => (
+              <Button
+                asChild={(p) => <A {...p()} href={`/projects#${category.slug}`} />}
+                size="xs"
+                variant={location.hash == `#${category.slug}` ? "neutral" : "base"}
+                class="pr-4"
+              >
+                <ContentIcon icon={category.icon} /> {category.name}
+              </Button>
+            )}
+          </For>
+        </div>
+      </div>
+      {/* Re-render and re-animate the whole grid when the filter changes */}
+      <Show when={location.hash || "all"} keyed>
+        {(_filter) => {
+          const startDelay = firstGridMount ? 0.4 : 0
+          firstGridMount = false
+          return <ProjectsGrid startDelay={startDelay} />
+        }}
+      </Show>
+    </>
+  )
+}
+
+const ProjectsGrid: Component<{ startDelay: number }> = (props) => {
+  const location = useLocation()
+
+  createBatchedInViewAnimation(`[data-motion="section-heading"], [data-motion="project-item"]`, {
+    startDelay: props.startDelay,
+  })
+
+  return (
+    <div class="mx-6 max-md:not-last:border-b border-on-base/10 max-md:pb-10 mb-16 md:mb-14">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-6">
+        <For
+          each={projects.categories
+            .filter((c) => location.hash == "" || location.hash == `#${c.slug}`)
+            .flatMap((c) => c.items)}
+        >
+          {(project) => <ProjectItem project={project} />}
+        </For>
+      </div>
+    </div>
+  )
+}
+
+const ProjectItem: Component<{ project: Project }> = (props) => {
+  const mainUrl = () => props.project.links?.[0]?.url ?? ""
+
+  const otherLinks = () => (props.project.links ? props.project.links.slice(1) : [])
+
+  const { unlockAchievement } = useAchievements()
+  const { progress, setProgress } = useAchievementsProgress()
+  const onOpen = () => {
+    if (progress.deepDiver.clickedLinks.includes(mainUrl())) return
+    setProgress("deepDiver", "clickedLinks", (v) => [...v, mainUrl()])
+    if (progress.deepDiver.clickedLinks.length == 5) unlockAchievement("DEEP_DIVER")
+  }
+
+  return (
+    <div class="md:rounded-5 group relative" data-motion="project-item">
+      <a
+        id={props.project.slug}
+        href={mainUrl()}
+        target="_blank"
+        class="flex flex-col group-hover:bg-neutral/5 group-active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring scroll-m-12"
+        onAuxClick={(e) => {
+          if (e.button == 1) onOpen()
+        }}
+        onClick={onOpen}
+      >
+        <div class="bg-base-200 dark:bg-base-300 p-1.5 rounded-full border border-on-base/10 shadow shadow-black/5 mr-auto mb-6">
+          {props.project.iconUrl != "#" ? (
+            <img
+              src={props.project.iconUrl}
+              alt=""
+              class="w-8 h-8 rounded-full border border-on-base/5 object-cover"
+            />
+          ) : (
+            <div class="size-8 flex rounded-full bg-neutral/10">
+              <TablerGrid3x3 class="text-on-base/70 m-auto" />
+            </div>
+          )}
+        </div>
+        <h3 class="text-lg font-medium mb-3">{props.project.name}</h3>
+        <p class="md:text-sm text-on-base/70 tall-lines mb-4">{props.project.description}</p>
+        <div class="h-5" />
+      </a>
+      <div class="flex justify-between gap-6 absolute inset-x-6 bottom-6 cursor-pointer">
+        <p class="min-w-0 inline-flex items-center gap-3 md:text-sm font-medium text-on-base/50 group-hover:text-accent group-active:text-accent transition-colors">
+          <TablerLink class="shrink-0" />
+          <span class="truncate">{getHostname(mainUrl())}</span>
+        </p>
+        {otherLinks().length > 0 && <ProjectLinksMenu links={otherLinks()} />}
+      </div>
+    </div>
+  )
+}
+
+const ProjectLinksMenu: Component<{ links: Project["links"] }> = (props) => {
+  return (
+    <Menu positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
+      <Menu.Trigger
+        asChild={(p) => (
+          <Button
+            {...p()}
+            variant="ghost"
+            size="sm"
+            shape="square"
+            class="text-on-base/50 -my-2 -mr-2"
+          />
+        )}
+      >
+        <TablerDots />
+      </Menu.Trigger>
+      <Portal>
+        <Menu.Positioner>
+          <Menu.Content class="min-w-40 z-15">
+            <Menu.ItemGroup>
+              <Menu.ItemGroupLabel>Project Links</Menu.ItemGroupLabel>
+              <For each={props.links}>
+                {(link) => (
+                  <Menu.Item
+                    value={link.url}
+                    asChild={(p) => <a {...p()} href={link.url} target="_blank" />}
+                    class="max-md:text-base"
+                  >
+                    {link.type == "website" && <TablerWorld />}
+                    {link.type == "article" && <TablerFileText />}
+                    {link.type == "code" && <TablerBracketsAngle />}
+                    {getHostname(link.url)}
+                  </Menu.Item>
+                )}
+              </For>
+            </Menu.ItemGroup>
+          </Menu.Content>
+        </Menu.Positioner>
+      </Portal>
+    </Menu>
+  )
+}
+
+const getHostname = (urlString: string) => {
+  try {
+    const url = new URL(urlString)
+    return url.hostname
+  } catch {
+    return urlString
+  }
+}
+
+export default ProjectsPage

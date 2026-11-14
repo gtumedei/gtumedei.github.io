@@ -1,0 +1,171 @@
+import { Progress } from "@ark-ui/solid"
+import { achievements } from "content-collections"
+import { animate } from "motion"
+import { Component, For, onMount } from "solid-js"
+import { Portal } from "solid-js/web"
+import KonamiJoypadPopover from "~/components/konami-joypad"
+import Meta from "~/components/meta"
+import { button } from "~/components/ui/button"
+import { Popover } from "~/components/ui/popover"
+import { Achievement, useAchievements } from "~/lib/achievements"
+import { createBatchedInViewAnimation, horizontalHeadingAnimation } from "~/lib/animation"
+import ContentIcon from "~/lib/content-icons"
+import TablerLock from "~icons/tabler/lock"
+
+const AchievementPage = () => {
+  const { completedAchievements } = useAchievements()
+
+  onMount(() => {
+    animate([horizontalHeadingAnimation()])
+  })
+  createBatchedInViewAnimation(`[data-motion="achievement-item"]`)
+
+  return (
+    <>
+      <Meta title="Achievements" description="Think you can unlock them all?" />
+      <div class="lg:w-2/3 px-6">
+        <h1 class="font-heading text-4xl sm:text-5xl mb-6" data-motion="heading">
+          Achievements
+        </h1>
+        <p class="text-on-base/70 tall-lines mb-3" data-motion="heading">
+          I'm always adding new Easter eggs to the site, so I made this page to keep track of them.
+          Think you can unlock them all? Heads up: you might need a PC for some of these.
+        </p>
+        <p class="text-on-base/70 tall-lines mb-8" data-motion="heading">
+          This feature is heavily inspired by Maximillian Laumeister's achievement page. Check out
+          his fantastic{" "}
+          <a href="https://www.maxlaumeister.com/" target="_blank" class="dotted-link">
+            website
+          </a>
+          !
+        </p>
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-3" data-motion="heading">
+          <AchievementsProgress />
+          {completedAchievements().length > 0 && <ResetAchievementsPopover />}
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 px-6 py-20">
+        <For each={achievements.items}>
+          {(achievement) =>
+            achievement.code == "PIECE_OF_CAKE" ? (
+              <PieceOfCakeAchievementItem
+                achievement={achievement}
+                unlocked={completedAchievements().includes(achievement.code)}
+              />
+            ) : (
+              <AchievementItem
+                achievement={achievement}
+                unlocked={completedAchievements().includes(achievement.code)}
+              />
+            )
+          }
+        </For>
+      </div>
+    </>
+  )
+}
+
+const ResetAchievementsPopover = () => {
+  const { resetAchievements } = useAchievements()
+
+  return (
+    <Popover positioning={{ placement: "bottom" }} lazyMount unmountOnExit>
+      <Popover.Trigger class={button()}>Reset progress</Popover.Trigger>
+      <Portal>
+        <Popover.Positioner>
+          <Popover.Content class="max-w-64 p-5">
+            <p class="text-sm text-on-base/70">
+              Are you sure you want to delete your achievements?
+            </p>
+            <div class="grid grid-cols-1 gap-2">
+              <Popover.CloseTrigger
+                class={button({ variant: "destructive" })}
+                onClick={resetAchievements}
+              >
+                Yes, let's start all over
+              </Popover.CloseTrigger>
+              <Popover.CloseTrigger class={button()}>Actually, nevermind</Popover.CloseTrigger>
+            </div>
+          </Popover.Content>
+        </Popover.Positioner>
+      </Portal>
+    </Popover>
+  )
+}
+
+const AchievementsProgress = () => {
+  const { completedAchievements } = useAchievements()
+
+  return (
+    <div class="flex gap-3 items-center my-px">
+      <Progress.Root
+        class="[--size:38px] [--thickness:6px]"
+        value={completedAchievements().length}
+        min={0}
+        max={achievements.items.length}
+      >
+        <Progress.Circle>
+          <Progress.CircleTrack class="stroke-neutral/10" />
+          <Progress.CircleRange class="stroke-accent [stroke-linecap:round] transition-all" />
+        </Progress.Circle>
+      </Progress.Root>
+      <p class="text-sm text-on-base/70 font-medium">
+        {completedAchievements().length} / {achievements.items.length} unlocked
+      </p>
+    </div>
+  )
+}
+
+const AchievementItem: Component<{
+  achievement: Achievement
+  unlocked: boolean
+}> = (props) => {
+  return (
+    <div
+      class="flex flex-col px-4.5 py-4 rounded-5 data-unlocked:bg-accent/5 border border-on-base/10 data-unlocked:border-accent/50 border-dashed data-unlocked:border-solid group"
+      {...(props.unlocked ? { "data-unlocked": true } : {})}
+      data-motion="achievement-item"
+    >
+      <div class="flex justify-between mb-4">
+        <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-neutral/5 opacity-50 group-data-unlocked:bg-accent/10 group-data-unlocked:text-accent group-data-unlocked:opacity-100 -translate-x-1">
+          {props.unlocked ? <ContentIcon icon={props.achievement.icon} /> : <TablerLock />}
+        </div>
+        {props.achievement.code == "CHEATER" && <KonamiJoypadPopover />}
+      </div>
+      <h2 class="text-lg font-medium text-on-base/50 group-data-unlocked:text-on-base mb-1">
+        {props.achievement.name}
+      </h2>
+      <p class="md:text-sm text-on-base/30 group-data-unlocked:text-on-base/70 tall-lines">
+        {props.achievement.description}
+      </p>
+    </div>
+  )
+}
+
+const PieceOfCakeAchievementItem: Component<{
+  achievement: Achievement
+  unlocked: boolean
+}> = (props) => {
+  const { unlockAchievement } = useAchievements()
+
+  return (
+    <button
+      class="text-left flex flex-col px-4.5 py-4 rounded-5 data-unlocked:bg-accent/5 border border-on-base/10 hover:border-on-base/20 data-unlocked:border-accent/50 border-dashed data-unlocked:border-solid group transition-colors cursor-pointer data-unlocked:cursor-default"
+      {...(props.unlocked ? { "data-unlocked": true } : {})}
+      data-motion="achievement-item"
+      onClick={() => unlockAchievement("PIECE_OF_CAKE")}
+    >
+      <div class="w-16 aspect-square clip-hexagon flex justify-center items-center text-2xl bg-neutral/5 opacity-50 group-data-unlocked:bg-accent/10 group-data-unlocked:text-accent group-data-unlocked:opacity-100 mb-4 -translate-x-1">
+        {props.unlocked ? <ContentIcon icon={props.achievement.icon} /> : <TablerLock />}
+      </div>
+      <h2 class="text-lg font-medium text-on-base/50 group-data-unlocked:text-on-base mb-1">
+        {props.achievement.name}
+      </h2>
+      <p class="md:text-sm text-on-base/30 group-data-unlocked:text-on-base/70 tall-lines">
+        {props.achievement.description}
+      </p>
+    </button>
+  )
+}
+
+export default AchievementPage

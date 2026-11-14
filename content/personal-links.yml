@@ -1,0 +1,12 @@
+items:
+  - href: https://github.com/gtumedei
+    icon: ~icons/tabler/brand-github
+    name: GitHub • @gtumedei
+
+  - href: /cv
+    icon: ~icons/tabler/file-description
+    name: Download CV
+
+  - href: https://goo.gl/maps/knzcetCBj6cHLAAW7
+    icon: ~icons/tabler/map-pin
+    name: Based in Cesena (IT)

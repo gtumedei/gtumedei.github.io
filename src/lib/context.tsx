@@ -1,20 +1,37 @@
-import { createContext, useContext, type ParentComponent } from "solid-js"
-import type { AnyFunction, inferArgs, inferReturn } from "~/lib/ts-utils"
+// Basically copied from Solid Primitives (https://github.com/solidjs-community/solid-primitives/blob/main/packages/context/src/index.ts).
+// This version is identical to theirs, but the useContext function return is asserted to be non nullable.
 
-export const create = <TFn extends AnyFunction, TContext = inferReturn<TFn>>(
-  createValueFn: TFn
-) => {
-  const context = createContext(undefined as unknown as TContext)
+import { createComponent, createContext, JSX, useContext } from "solid-js"
 
-  const createCtx = (...args: inferArgs<TFn>) => {
-    const value: TContext = createValueFn(...args)
-    const Provider: ParentComponent = (props) => (
-      <context.Provider value={value}>{props.children}</context.Provider>
-    )
-    return [Provider, value] as const
-  }
+type ContextProviderProps = {
+  children?: JSX.Element
+} & Record<string, unknown>
 
-  const useCtx = () => useContext(context)
+type ContextProvider<T extends ContextProviderProps> = (
+  props: { children: JSX.Element } & T
+) => JSX.Element
 
-  return [createCtx, useCtx] as const
+export function create<T, P extends ContextProviderProps>(
+  factoryFn: (props: P) => T,
+  defaults: T
+): [provider: ContextProvider<P>, useContext: () => T]
+export function create<T, P extends ContextProviderProps>(
+  factoryFn: (props: P) => T
+): [provider: ContextProvider<P>, useContext: () => T]
+export function create<T, P extends ContextProviderProps>(
+  factoryFn: (props: P) => T,
+  defaults?: T
+): [provider: ContextProvider<P>, useContext: () => T] {
+  const ctx = createContext(defaults)
+  return [
+    (props) => {
+      return createComponent(ctx.Provider, {
+        value: factoryFn(props),
+        get children() {
+          return props.children
+        },
+      })
+    },
+    () => useContext(ctx)!,
+  ]
 }

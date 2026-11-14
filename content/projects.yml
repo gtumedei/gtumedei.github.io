@@ -1,0 +1,197 @@
+categories:
+  - slug: research
+    name: Research
+    icon: ~icons/tabler/school
+    items:
+      - slug: relish
+        name: Relish
+        description: Digital and AI-powered tools to preserve and share European food heritage.
+        links:
+          - type: website
+            url: https://relisheu.org
+        iconUrl: /img-remote/projects/relish.png
+
+      - slug: discover
+        name: DISCOV.ER
+        description: Digital twin of the Po Delta Park for climate and biodiversity monitoring.
+        links:
+          - type: website
+            url: https://discover-project.it
+        iconUrl: /img-remote/projects/discover.png
+
+      - slug: smartlagoon
+        name: SMARTLAGOON
+        description: Digital twin of a coastal lagoon for data-driven sustainable management.
+        links:
+          - type: website
+            url: https://smartlagoon.eu
+        iconUrl: /img-remote/projects/smartlagoon.png
+
+      - slug: talking-trees
+        name: Talking Trees
+        description: Comparing static text, expert chatbots, and talking trees for natural heritage.
+        links:
+          - type: article
+            url: https://doi.org/10.1145/3794786.3830788
+        iconUrl: "#"
+
+      - slug: air-quality-sonification
+        name: Air Quality Sonification
+        description: Comparing sonification and animated charts for communicating air quality data.
+        links:
+          - type: website
+            url: https://sonification-demo.vercel.app
+        iconUrl: "#"
+
+      - slug: navile
+        name: Navile
+        description: Interactive maps and wayfinding for the University of Bologna Navile campus.
+        links:
+          - type: website
+            url: https://doi.org/10.1016/j.infsof.2026.108044
+        iconUrl: "#"
+
+      - slug: mare
+        name: Maré
+        description: Privacy-focused contact detection platform for safe post-pandemic recovery.
+        links:
+          - type: website
+            url: https://tecnico.ulisboa.pt/pt/coronavirus/projectos-covid-19/mare-plataforma-para-ajudar-no-regresso-a-normalidade/
+        iconUrl: "#"
+
+  - slug: freelance
+    name: Freelance
+    icon: ~icons/tabler/briefcase
+    items:
+      - slug: nexthardware
+        name: Nexthardware
+        description: Tech website with news, reviews and a forum on PC hardware and gaming peripherals.
+        links:
+          - type: website
+            url: https://nexthardware.com
+        iconUrl: /img-remote/projects/nexthardware.png
+
+      # - name: MoreThanTech Deals
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://deals.morethantech.it
+      #   iconUrl: "#"
+
+      - slug: mtt-build
+        name: MoreThanTech Build
+        description: AI-assisted PC configurator that suggests components based on budget and intended use.
+        links:
+          - type: website
+            url: https://build.morethantech.it
+        iconUrl: /img-remote/projects/morethantech.png
+
+      - slug: mtt
+        name: MoreThanTech
+        description: Italian tech publication with news, buying guides and tutorials on hardware and PC gaming.
+        links:
+          - type: website
+            url: https://morethantech.it
+        iconUrl: /img-remote/projects/morethantech.png
+
+      - slug: radiocentrale
+        name: Radio Centrale
+        description: Website of a local radio station from Cesena on air since 1976.
+        links:
+          - type: website
+            url: https://radiocentraleweb.it
+        iconUrl: /img-remote/projects/radiocentrale.png
+
+      - slug: tbgstudio
+        name: TBG Studio
+        description: Website for a firm offering accounting, tax and legal consulting.
+        links:
+          - type: website
+            url: https://tbgstudio.it
+        iconUrl: /img-remote/projects/tbgstudio.png
+
+  - slug: personal
+    name: Personal
+    icon: ~icons/tabler/heart
+    items:
+      # - slug: sailing-ark
+      #   name: Sailing Ark
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://sailing-ark.vercel.app
+      #   iconUrl: "#"
+
+      - slug: almamedia
+        name: AlmaMedia
+        description: Browser extension to compute the average of exam grades from AlmaEsami (Unibo).
+        links:
+          - type: website
+            url: "#"
+        iconUrl: /img-remote/projects/almamedia.png
+
+      - slug: open-movies
+        name: Open Movies
+        description: Started as a joke, it became the website me and my friends use to decide which movies to watch.
+        links:
+          - type: website
+            url: https://open-movies-seven.vercel.app
+          - type: code
+            url: https://github.com/gtumedei/open-movies
+        iconUrl: /img-remote/projects/open-movies.png
+
+      # - slug: goui
+      #   name: goui
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/goui
+      #   iconUrl: "#"
+
+      # - slug: metaviewer
+      #   name: metaviewer
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/metaviewer
+      #   iconUrl: "#"
+
+      # - slug: taggui
+      #   name: taggui
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/taggui
+      #   iconUrl: "#"
+
+      # - slug: go-droid
+      #   name: go-droid
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/go-droid
+      #   iconUrl: "#"
+
+      # - slug: yt-dlapp
+      #   name: yt-dlapp
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/yt-dlapp
+      #   iconUrl: "#"
+
+      # - slug: goaway
+      #   name: goaway
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: https://github.com/gtumedei/goaway
+      #   iconUrl: "#"
+
+      # - slug: vscode-adw-material-theme
+      #   name: vscode-adw-material-theme
+      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
+      #   links:
+      #     - type: website
+      #       url: "#"
+      #   iconUrl: "#"
