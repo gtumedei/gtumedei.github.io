@@ -48,7 +48,9 @@ const projects = defineSingleton({
   schema: z.object({
     categories: z.array(
       z.object({
+        slug: z.string(),
         name: z.string(),
+        icon: z.string(),
         items: z.array(
           z.object({
             slug: z.string(),

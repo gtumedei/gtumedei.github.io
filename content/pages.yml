@@ -9,7 +9,7 @@ items:
 
   - path: /projects
     title: Projects
-    description: I'm always building stuff. My research, freelance, and personal projects end up here.
+    description: I'm constantly building stuff. Here you can find a selection of my research, freelance, and personal projects.
     icon: ~icons/tabler/grid-3x3
     cta: Check them out
     showInHomepage: true
@@ -18,7 +18,7 @@ items:
 
   - path: /tech
     title: Tech
-    description: A long, wandering page of tools and tech I enjoy using. You might find something useful.
+    description: A long, wandering page of tools and tech I enjoy using. Check it out, you might stumble upon something useful.
     icon: ~icons/tabler/tools
     cta: Read more
     showInHomepage: true

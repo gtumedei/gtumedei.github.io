@@ -1,5 +1,7 @@
 categories:
-  - name: Research
+  - slug: research
+    name: Research
+    icon: ~icons/tabler/school
     items:
       - slug: relish
         name: Relish
@@ -49,7 +51,9 @@ categories:
             url: https://tecnico.ulisboa.pt/pt/coronavirus/projectos-covid-19/mare-plataforma-para-ajudar-no-regresso-a-normalidade/
         iconUrl: "#"
 
-  - name: Freelance
+  - slug: freelance
+    name: Freelance
+    icon: ~icons/tabler/briefcase
     items:
       - slug: nexthardware
         name: Nexthardware
@@ -98,7 +102,9 @@ categories:
             url: https://tbgstudio.it
         iconUrl: /img/projects/tbgstudio.png
 
-  - name: Personal
+  - slug: personal
+    name: Personal
+    icon: ~icons/tabler/heart
     items:
       - slug: sailing-ark
         name: Sailing Ark
