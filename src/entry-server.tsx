@@ -31,8 +31,8 @@ export default createHandler(() => (
           )}
           {assets}
         </head>
-        <body class="grow flex group/body">
-          <div id="app" class="grow flex flex-col">
+        <body class="grow flex min-w-0 group/body">
+          <div id="app" class="grow flex flex-col min-w-0">
             {children}
           </div>
           {scripts}

@@ -50,7 +50,10 @@ const ProjectsPage = () => {
           Here are most of the things I've spent time on, whether it's something I created,
           modified, broke, or rebuilt along the way.
         </p>
-        <div class="flex gap-2" data-motion="heading">
+        <div
+          class="min-w-0 flex gap-2 px-6 -mx-6 overflow-x-auto no-scrollbars"
+          data-motion="heading"
+        >
           <Button
             asChild={(p) => <A {...p()} href="/projects" />}
             size="xs"
