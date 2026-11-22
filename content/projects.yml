@@ -188,10 +188,10 @@ categories:
       #       url: https://github.com/gtumedei/goaway
       #   iconUrl: "#"
 
-      # - slug: vscode-adw-material-theme
-      #   name: vscode-adw-material-theme
-      #   description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptate!
-      #   links:
-      #     - type: website
-      #       url: "#"
-      #   iconUrl: "#"
+      - slug: vscode-orca-theme
+        name: VSCode Orca Theme
+        description: Yet another VSCode dark theme.
+        links:
+          - type: code
+            url: https://github.com/gtumedei/vscode-orca-theme
+        iconUrl: /img-remote/projects/vscode-orca-theme.png
