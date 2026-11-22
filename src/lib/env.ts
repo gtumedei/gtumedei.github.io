@@ -9,7 +9,7 @@ export const PrivateEnvSchema = z.object({
 })
 
 export const PublicEnvSchema = z.object({
-  PUBLIC_BASE_URL: z.string().url(),
+  PUBLIC_BASE_URL: z.url(),
 })
 
 const parsedPrivateEnv = PrivateEnvSchema.safeParse(isServer ? process.env : {})
