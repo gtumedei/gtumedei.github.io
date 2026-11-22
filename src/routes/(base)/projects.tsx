@@ -1,7 +1,7 @@
 import { A, useLocation } from "@solidjs/router"
 import { projects, Projects } from "content-collections"
 import { animate, stagger } from "motion"
-import { Component, For, onMount, Show } from "solid-js"
+import { Component, createMemo, For, onMount, Show } from "solid-js"
 import { Portal } from "solid-js/web"
 import Meta from "~/components/meta"
 import { Button } from "~/components/ui/button"
@@ -22,6 +22,11 @@ type Project = Projects["categories"][number]["items"][number]
 
 const ProjectsPage = () => {
   const location = useLocation()
+  const filter = createMemo(() => {
+    const hash = location.hash.substring(1)
+    if (projects.categories.map((c) => c.slug).includes(hash)) return hash
+    return "all"
+  })
 
   let firstGridMount = true
 
@@ -57,7 +62,7 @@ const ProjectsPage = () => {
           <Button
             asChild={(p) => <A {...p()} href="/projects" />}
             size="xs"
-            variant={location.hash == "" ? "neutral" : "base"}
+            variant={filter() == "all" ? "neutral" : "base"}
             class="pr-4"
           >
             <TablerStack2 /> All
@@ -67,7 +72,7 @@ const ProjectsPage = () => {
               <Button
                 asChild={(p) => <A {...p()} href={`/projects#${category.slug}`} />}
                 size="xs"
-                variant={location.hash == `#${category.slug}` ? "neutral" : "base"}
+                variant={filter() == category.slug ? "neutral" : "base"}
                 class="pr-4"
               >
                 <ContentIcon icon={category.icon} /> {category.name}
@@ -77,20 +82,18 @@ const ProjectsPage = () => {
         </div>
       </div>
       {/* Re-render and re-animate the whole grid when the filter changes */}
-      <Show when={location.hash || "all"} keyed>
-        {(_filter) => {
+      <Show when={filter()} keyed>
+        {(filter) => {
           const startDelay = firstGridMount ? 0.4 : 0
           firstGridMount = false
-          return <ProjectsGrid startDelay={startDelay} />
+          return <ProjectsGrid filter={filter} startDelay={startDelay} />
         }}
       </Show>
     </>
   )
 }
 
-const ProjectsGrid: Component<{ startDelay: number }> = (props) => {
-  const location = useLocation()
-
+const ProjectsGrid: Component<{ filter: string; startDelay: number }> = (props) => {
   createBatchedInViewAnimation(`[data-motion="section-heading"], [data-motion="project-item"]`, {
     startDelay: props.startDelay,
   })
@@ -100,7 +103,7 @@ const ProjectsGrid: Component<{ startDelay: number }> = (props) => {
       <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-6">
         <For
           each={projects.categories
-            .filter((c) => location.hash == "" || location.hash == `#${c.slug}`)
+            .filter((c) => props.filter == "all" || props.filter == c.slug)
             .flatMap((c) => c.items)}
         >
           {(project) => <ProjectItem project={project} />}
