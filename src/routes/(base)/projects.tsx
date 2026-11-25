@@ -132,7 +132,7 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
         id={props.project.slug}
         href={mainUrl()}
         target="_blank"
-        class="flex flex-col group-hover:bg-neutral/5 group-active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring scroll-m-12"
+        class="size-full flex flex-col group-hover:bg-neutral/5 group-active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring scroll-m-12"
         onAuxClick={(e) => {
           if (e.button == 1) onOpen()
         }}
