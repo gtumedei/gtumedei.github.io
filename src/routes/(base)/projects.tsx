@@ -127,12 +127,12 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
   }
 
   return (
-    <div class="md:rounded-5 group relative" data-motion="project-item">
+    <div class="md:rounded-5 relative" data-motion="project-item">
       <a
         id={props.project.slug}
         href={mainUrl()}
         target="_blank"
-        class="size-full flex flex-col group-hover:bg-neutral/5 group-active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring scroll-m-12"
+        class="size-full flex flex-col hover:bg-neutral/5 active:bg-neutral/5 transition-colors duration-500 md:rounded-5 p-6 focus-ring scroll-m-12 group"
         onAuxClick={(e) => {
           if (e.button == 1) onOpen()
         }}
@@ -153,15 +153,12 @@ const ProjectItem: Component<{ project: Project }> = (props) => {
         </div>
         <h3 class="text-lg font-medium mb-3">{props.project.name}</h3>
         <p class="md:text-sm text-on-base/70 tall-lines mb-4">{props.project.description}</p>
-        <div class="h-5" />
-      </a>
-      <div class="flex justify-between gap-6 absolute inset-x-6 bottom-6 cursor-pointer">
-        <p class="min-w-0 inline-flex items-center gap-3 md:text-sm font-medium text-on-base/50 group-hover:text-accent group-active:text-accent transition-colors">
+        <p class="min-w-0 inline-flex items-center gap-3 md:text-sm font-medium text-on-base/50 group-hover:text-accent group-active:text-accent transition-colors pr-8">
           <TablerLink class="shrink-0" />
           <span class="truncate">{getHostname(mainUrl())}</span>
         </p>
-        {otherLinks().length > 0 && <ProjectLinksMenu links={otherLinks()} />}
-      </div>
+      </a>
+      {otherLinks().length > 0 && <ProjectLinksMenu links={otherLinks()} />}
     </div>
   )
 }
@@ -176,7 +173,7 @@ const ProjectLinksMenu: Component<{ links: Project["links"] }> = (props) => {
             variant="ghost"
             size="sm"
             shape="square"
-            class="text-on-base/50 -my-2 -mr-2"
+            class="text-on-base/50 -my-2 -mr-2 data-[state=open]:bg-neutral/5 absolute bottom-6 right-6"
           />
         )}
       >

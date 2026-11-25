@@ -225,7 +225,15 @@ const ComponentsPage = () => {
           <ComponentShowcase class="flex justify-center">
             <Menu positioning={{ placement: "bottom-end" }} lazyMount unmountOnExit>
               <Menu.Trigger
-                asChild={(p) => <Button {...p()} variant="ghost" size="sm" shape="square" />}
+                asChild={(p) => (
+                  <Button
+                    {...p()}
+                    variant="ghost"
+                    size="sm"
+                    shape="square"
+                    class="data-[state=open]:bg-neutral/5"
+                  />
+                )}
                 disabled={disabled()}
               >
                 <TablerDots />
