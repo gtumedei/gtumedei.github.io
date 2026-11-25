@@ -127,7 +127,9 @@ categories:
         description: Browser extension to compute the average of exam grades from AlmaEsami (Unibo).
         links:
           - type: website
-            url: "#"
+            url: https://chromewebstore.google.com/detail/almamedia/odldhmdkdpgdgihhjjmhmnnoopefcbid
+          - type: code
+            url: https://github.com/riccardo-trebbi/almamedia-app
         iconUrl: /img-remote/projects/almamedia.png
 
       - slug: open-movies
