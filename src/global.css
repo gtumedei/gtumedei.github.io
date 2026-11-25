@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Serif+Display&family=Bitcount+Single:wght@100..900&family=Bytesized&display=swap");
+
 @import "tailwindcss";
 
 @plugin "@tailwindcss/forms";

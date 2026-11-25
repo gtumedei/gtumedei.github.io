@@ -4,6 +4,7 @@ import tailwind from "@tailwindcss/vite"
 import { nitro } from "nitro/vite"
 import icons from "unplugin-icons/vite"
 import { defineConfig } from "vite"
+import webfontDownload from "vite-plugin-webfont-dl"
 import contentIcons from "./src/lib/content-icons/plugin"
 
 export default defineConfig({
@@ -14,6 +15,7 @@ export default defineConfig({
     icons({ compiler: "solid" }),
     tailwind(),
     contentCollections(),
+    webfontDownload([], { fontDefinitionsInCss: true }),
   ],
   nitro: {
     prerender: {
