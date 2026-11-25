@@ -33,7 +33,7 @@ categories:
         links:
           - type: article
             url: https://doi.org/10.1145/3794786.3830788
-        iconUrl: "#"
+        iconUrl: /img-remote/projects/talking-trees.png
 
       - slug: air-quality-sonification
         name: Air Quality Sonification
